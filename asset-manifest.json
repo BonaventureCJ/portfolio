@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.d534abe2.css",
-    "main.js": "/portfolio/static/js/main.cac1c1cd.js",
+    "main.css": "/portfolio/static/css/main.5f7bcad6.css",
+    "main.js": "/portfolio/static/js/main.215d6a8a.js",
     "static/js/787.5598a1b7.chunk.js": "/portfolio/static/js/787.5598a1b7.chunk.js",
     "static/media/magazine.png": "/portfolio/static/media/magazine.43f6776706d398914019.png",
     "static/media/bonacj.jpg": "/portfolio/static/media/bonacj.26225679d630a28ff281.jpg",
     "static/media/ljchospitals.png": "/portfolio/static/media/ljchospitals.d468011c7ae329d69d89.png",
     "static/media/displayproduct.png": "/portfolio/static/media/displayproduct.3be74057fffd513da0c6.png",
-    "static/media/portfolio.png": "/portfolio/static/media/portfolio.6afd20857902b254fb3b.png",
+    "static/media/portfolio.png": "/portfolio/static/media/portfolio.4c1c2a0b806a3076be04.png",
     "static/media/bootstrap.png": "/portfolio/static/media/bootstrap.20b9bced2f068835eb4e.png",
     "static/media/togglepage.png": "/portfolio/static/media/togglepage.cfd4bbfb31d9f067c69f.png",
     "static/media/react.png": "/portfolio/static/media/react.4458987cc59156258cac.png",
@@ -18,12 +18,12 @@
     "static/media/javascript.png": "/portfolio/static/media/javascript.3dfb665e058d08c99f28.png",
     "static/media/emmet.png": "/portfolio/static/media/emmet.a150c7c65aae76ac2ded.png",
     "index.html": "/portfolio/index.html",
-    "main.d534abe2.css.map": "/portfolio/static/css/main.d534abe2.css.map",
-    "main.cac1c1cd.js.map": "/portfolio/static/js/main.cac1c1cd.js.map",
+    "main.5f7bcad6.css.map": "/portfolio/static/css/main.5f7bcad6.css.map",
+    "main.215d6a8a.js.map": "/portfolio/static/js/main.215d6a8a.js.map",
     "787.5598a1b7.chunk.js.map": "/portfolio/static/js/787.5598a1b7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d534abe2.css",
-    "static/js/main.cac1c1cd.js"
+    "static/css/main.5f7bcad6.css",
+    "static/js/main.215d6a8a.js"
   ]
 }
