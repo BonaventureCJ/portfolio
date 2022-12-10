@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.79c40abe.css",
-    "main.js": "/portfolio/static/js/main.9a02b03a.js",
+    "main.js": "/portfolio/static/js/main.b6518021.js",
     "static/js/787.5598a1b7.chunk.js": "/portfolio/static/js/787.5598a1b7.chunk.js",
     "static/media/magazine.png": "/portfolio/static/media/magazine.43f6776706d398914019.png",
     "static/media/bonacj.jpg": "/portfolio/static/media/bonacj.26225679d630a28ff281.jpg",
@@ -10,6 +10,7 @@
     "static/media/portfolio.png": "/portfolio/static/media/portfolio.4c1c2a0b806a3076be04.png",
     "static/media/bootstrap.png": "/portfolio/static/media/bootstrap.20b9bced2f068835eb4e.png",
     "static/media/togglepage.png": "/portfolio/static/media/togglepage.cfd4bbfb31d9f067c69f.png",
+    "static/media/sass.png": "/portfolio/static/media/sass.eae2b96dc5f29556b225.png",
     "static/media/react.png": "/portfolio/static/media/react.4458987cc59156258cac.png",
     "static/media/textarea.png": "/portfolio/static/media/textarea.9f9c288e551b3ebdf685.png",
     "static/media/npx.png": "/portfolio/static/media/npx.20934f0eaceb10829fb7.png",
@@ -19,11 +20,11 @@
     "static/media/emmet.png": "/portfolio/static/media/emmet.a150c7c65aae76ac2ded.png",
     "index.html": "/portfolio/index.html",
     "main.79c40abe.css.map": "/portfolio/static/css/main.79c40abe.css.map",
-    "main.9a02b03a.js.map": "/portfolio/static/js/main.9a02b03a.js.map",
+    "main.b6518021.js.map": "/portfolio/static/js/main.b6518021.js.map",
     "787.5598a1b7.chunk.js.map": "/portfolio/static/js/787.5598a1b7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.79c40abe.css",
-    "static/js/main.9a02b03a.js"
+    "static/js/main.b6518021.js"
   ]
 }
