@@ -1,0 +1,147 @@
+/* || ##UTILITY CLASSES */
+@use 'variables';
+
+/* #TEXT */
+.text-highlight--primary {
+    color: variables.$primary-color;
+}
+
+.text-highlight--secondary {
+    color: variables.$secondary-color;
+    font-style: italic;
+}
+
+.text-highlight--tertiary {
+    color: variables.$tertiary-color;
+    font-style: italic;
+}
+
+.text-shadow--tertiary {
+    font-size: larger;
+    color: variables.$secondary-color;
+    text-shadow: 3px 3px 3px variables.$tertiary-color;
+}
+
+
+.justify {
+    text-align: justify;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+
+.first-character {
+    float: left;
+    //font-family: Georgia, serif;
+    font-family: variables.$secondary-ff;
+    font-size: 320%;
+    line-height: 90%;
+    padding-top: 1px;
+    padding-right: 1px;
+    padding-left: 1px;
+    color: variables.$primary-color;
+}
+
+/* .first-character2 {
+    float: left;
+    width: 0.7em;
+    font-size: 350%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 80%;
+} */
+
+
+
+
+
+/* #LINKS */
+.link {
+    text-decoration: none;
+    color: unset;
+    font-size: medium;
+    //font-family: 'Familjen Grotesk', sans-serif;
+    font-family: variables.$primary-link-ff;
+    padding: 0px;
+}
+
+.link:hover {
+    color: variables.$secondary-link-highlight-color;
+    font-weight: bolder;
+}
+
+.link-highlight {
+    color: variables.$primary-link-highlight-color;
+}
+
+
+
+
+
+/* #ICONS */
+.icon-highlight--primary {
+    color: variables.$primary-icon-highlight-color;
+}
+
+.icon-highlight--primary:hover {
+    color: variables.$secondary-icon-highlight-color;
+    font-weight: bolder;
+}
+
+.icon-highlight--tertiary {
+    color: variables.$tertiary-icon-highlight-color;
+}
+
+
+
+
+
+//BOXES
+.box--center {
+    display: block;
+    margin: auto;
+}
+
+
+.flexbox--center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* #MARGINS */
+.margin--sm {
+    margin: 0.7em auto 2em;
+}
+
+
+
+
+
+
+
+/* #CONTAINER SPACING */
+.container-row {
+    gap: 3em;
+    /* Desktop default */
+}
+
+@media (max-width: 1599px) {
+    .container-row {
+        /* Scales from 3em to 5em between 768-1600px */
+        gap: clamp(3em, 2vw + 2em, 3em);
+    }
+}
+
+@media (max-width: 767px) {
+    .container-row {
+        gap: 1em;
+        /* Dense mobile layout */
+    }
+}

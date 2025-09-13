@@ -1,0 +1,21 @@
+/* || #D#EVELOPMENT STAGE PRETESTS */
+/* ROUGH CODES FOR TESTING DURING DEVELOPMENT STAGE */
+
+/* * {
+    background-color: red;
+} */
+
+$green: green;
+$yellow: yellow;
+$red: red;
+
+/* #TESTING CLASSES */
+.yellow {
+    background-color: $yellow;
+}
+
+.red {
+    background-color: $red;
+}
+
+

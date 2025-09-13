@@ -1,0 +1,9 @@
+/* || ##NOT FOUND PAGE */
+@use 'variables';
+
+.error-page {
+    min-height: 80vh;
+    margin: 0em auto;
+    @include variables.flexbox ($flex-direction: column);
+    gap: 2rem;
+}

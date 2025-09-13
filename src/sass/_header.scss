@@ -1,0 +1,28 @@
+/* || ##HEADER */
+@use 'variables';
+
+.header__section {
+    position: fixed;
+    height: 5vh;
+    @include variables.flexbox($justify-content: space-around);
+    font-size: clamp(0.8em, 1.5vw, 1.2em);
+    width: 100%;
+    z-index: 1000; // Ensure header stays on top
+   
+}
+
+.header__date {
+    height: fit-content;
+    border-radius: 0.3em;
+    @include variables.flexbox($justify-content: space-around);
+    margin-right: 1em;
+}
+
+
+// Adjust button styles to fit within header height
+.button {
+    padding: 0.1em 0.4em;
+    height: 100%;
+    box-sizing: border-box;
+    max-width: 100%; // Prevent buttons from exceeding parent width
+}

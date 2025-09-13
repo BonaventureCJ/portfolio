@@ -1,0 +1,9 @@
+/* || ##HERO */
+@use 'variables';
+
+.hero {
+    min-height: 90vh;
+    margin: 0em auto;
+    @include variables.flexbox ($flex-direction: column);
+    gap: 1.3rem;
+}

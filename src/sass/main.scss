@@ -1,0 +1,28 @@
+/* || ###MAIN CSS FILE */
+/* || @use RULES */
+/* NB: In addition to these classes, bootstrap classes have been used, especially css (bootstrap) grid */
+@use 'resets';
+@use 'variables';
+@use 'components';
+
+@use 'sass:color';
+
+@use 'imports';
+@use 'globals';
+@use 'utilities';
+@use 'header';
+@use 'nav-bar';
+@use 'hero';
+@use 'major-skills';
+@use 'minor-skills';
+@use 'projects';
+@use 'about';
+@use 'contact';
+@use 'footer';
+@use 'error-page';
+
+
+@use 'dev-testing';
+
+
+

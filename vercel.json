@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/portfolio/(.*)", "destination": "/index.html" }
-  ]
-}

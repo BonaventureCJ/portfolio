@@ -1,0 +1,141 @@
+/* || ##SITE NAVIGATION BAR */
+@use 'variables';
+
+/* Box-sizing reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.primary-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Use a high z-index to ensure it stays on top of other content */
+    //scroll-margin-top: 16vh;
+    width: 100%;
+    overflow-x: hidden;
+    /* Prevent horizontal overflow */
+    @include variables.flexbox ($justify-content: space-around);
+
+
+}
+
+.primary-nav__nav {
+    font-weight: bold;
+    font-size: clamp(0.9em, 3.2vw, 1.6em);
+    width: 100%;
+    //background-color: variables.$primary-nav-bg-color;
+    //background-color: rgba(variables.$secondary-color, 0.2);
+
+    
+}
+
+.primary-nav__ul {
+    padding: 0.2em 1em;
+    list-style-type: none;
+    @include variables.flexbox ($justify-content: space-around);
+    gap: 1em;
+    width: max-content;
+    //background-color: variables.$primary-nav-bg-color;
+    //background-color: rgba(variables.$secondary-color, 0.9);
+
+   
+
+    margin-right: 0;
+    width: 100%;
+    white-space: nowrap;
+
+}
+
+.primary-nav__a {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.primary-nav__a:hover {
+    color: variables.$secondary-color;
+    transform: scale(1.2);
+}
+
+.active-link {
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .primary-nav__ul {
+        gap: 0.5em;
+        padding: 0.2em 0.5em;
+    }
+
+    .primary-nav__nav {
+        //font-size: clamp(0.95em, 3.2vw, 1.6em);
+        font-size: clamp(0.90em, 4vw, 1.25rem);
+    }
+}
+
+//PORTFOLIO HOME ICON:
+
+.portfolio-home-icon {
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-home-icon:hover {
+    transform: scale(1.2);
+}
+
+
+//THEME BUTTON SPECIAL CSS
+/* Styling for the theme toggle button */
+.theme-button {
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    /* Adjust icon size to be visually prominent */
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+.theme-button:hover {
+    color: var(--primary-accent-color);
+    outline: none;
+    transform: scale(1.5);
+}
+
+
+.theme-button:focus-visible {
+    outline: 2px solid var(--primary-accent-color);
+    outline-offset: 2px;
+}
+
+
+.primary-nav__ul {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+}
+
+
+.theme-button svg {
+    animation: rotateIcon 0.5s ease;
+}
+
+@keyframes rotateIcon {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

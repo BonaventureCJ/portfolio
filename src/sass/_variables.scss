@@ -1,0 +1,89 @@
+/* || ##VARIABLES */
+/* ##COLORS */
+$primary-color: rgb(35, 187, 207);
+$secondary-color: teal;
+$tertiary-color: brown;
+
+$primary-link-highlight-color: $primary-color;
+$secondary-link-highlight-color: $secondary-color;
+
+$primary-icon-highlight-color: $primary-color;
+$secondary-icon-highlight-color: $secondary-color;
+$tertiary-icon-highlight-color: $tertiary-color;
+
+$primary-border-color: $primary-color;
+
+$primary-nav-bg-color: rgba($primary-color, 0.9);
+
+
+/* #THEMES */
+/* #THEMES */
+.page--light {
+    color: #000;
+    background-color: #fff;
+    border-color: #000;
+    /* Add a transition for a smooth change */
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+
+.page--light .primary-nav__ul {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+
+.page--dark {
+    color: #fff;
+    background-color: #000;
+    border-color: #fff;
+    /* Add the same transition for a smooth change */
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.page--dark .primary-nav__ul {
+  background-color: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+
+
+
+
+/* ##FONTS */
+
+/* #TEXT */
+$secondary-ff: Georgia, serif;
+$tertiary-ff: 'Trebuchet MS', sans-serif;
+
+/* #HEADINGS */
+$primary-headings-ff: 'Familjen Grotesk', sans-serif;
+$secondary-headings-ff: 'Rubik Moonrocks', cursive;
+
+/* #LINKS */
+//$primary-link-ff: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+//$primary-link-ff: 'Familjen Grotesk', sans-serif;
+$primary-link-ff: $primary-headings-ff;
+
+
+/* ##MIXINS */
+@mixin flexbox($display: flex,
+    $flex-direction: row,
+    $justify-content: center,
+    $align-items: center,
+) {
+    display: $display;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+
+/* //PRACTICE HOW TO TOGGLE SCSS STYLES CONDITIONALLY USING SCSS FUNCTIONS TO APPLY REACT CONTEXT API USETHEME
+$let $black = #000;
+$let $white = #fff;
+
+let theme = theme from react context API theme
+$background-colour: if theme === dark? $black : $white' */

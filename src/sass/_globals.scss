@@ -1,0 +1,38 @@
+/* || ##GENERAL STYLES */
+@use 'variables';
+
+html {
+    scroll-behavior: smooth;
+    text-align: center;
+    height: 100%;
+    
+     
+}
+h4 {
+    margin-bottom: 2em;
+    //font-family: 'Familjen Grotesk', sans-serif;
+    font-family: variables.$primary-headings-ff;
+}
+
+h5 {
+    //font-family: 'Rubik Moonrocks', cursive;
+    font-family: variables.$secondary-headings-ff;
+    margin-top: 1em;
+}
+section {
+    padding: 3em 0.3em 2.5em;
+    //scroll-margin-top: 16vh;
+    
+}
+article {
+    margin: 2em 0;
+}
+
+blockquote {
+    padding: 2em;
+    min-width: 300px;
+    color: variables.$primary-color;
+    //font-family: 'Trebuchet MS', sans-serif;
+    font-family: variables.$tertiary-ff;
+    font-size: 131%;
+}

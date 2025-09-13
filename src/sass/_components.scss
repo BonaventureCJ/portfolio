@@ -1,0 +1,180 @@
+/* ##COMPONENTS */
+@use 'variables';
+
+/* #BUTTONS */
+
+.button {
+    border-style: double;
+    border-width: 0.23em;
+    padding: 0 0.5em;
+    display: inline-block;
+    color: unset;
+    background-color: unset;
+    border-color: unset;
+}
+
+.button:hover {
+    border-style: dotted;
+    color: unset;
+}
+
+.button-primary {
+    border-radius: 3em;
+}
+
+.button-secondary {
+    border-radius: 0.3em;
+}
+
+.button-primary:last-child {
+    margin-right: 1em;
+}
+
+/* .button-primary a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+.button-primary a:hover {
+    color: currentColor;
+} */
+
+
+
+
+
+/* #CARDS */
+
+.card--lg {
+    height: 380px;
+    width: 300px;
+    border-radius: 5%;
+    border-width: 0.4em;
+    border-style: outset;
+    padding: 0 5px;
+    border-color: variables.$primary-border-color;
+    /*Removing this colour property will enable the dark mode toggle to work*/
+    /*box-shadow: 5px 5px 10px, -5px -5px 10px, -5px 5px 10px, 5px -5px 10px;*/
+}
+
+.card--md {
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    border-width: 0px;
+    border-style: solid;
+    /* border-color: rgb(23, 125, 143); Removing this colour property will enable the dark mode toggle to work*/
+    box-shadow: 3px 3px 10px, -3px -3px 10px, -3px 3px 10px, 3px -3px 10px;
+    
+}
+
+.card--sm {
+    margin: auto;
+    height: 150px;
+    width: 150px;
+    border-radius: 10%;
+    border-width: 0px;
+    border-style: solid;
+    /* border-color: rgb(23, 125, 143); Removing this colour property will enable the dark mode toggle to work */
+    box-shadow: 3px 3px 10px variables.$tertiary-color, -3px -3px 3px variables.$tertiary-color, -3px 3px 10px variables.$tertiary-color, 3px -3px 10px variables.$tertiary-color;
+}
+
+.card--xsm {
+    height: 40px;
+    width: 110px;
+    border-radius: 10%;
+    border-width: 7px;
+    border-style: outset;
+    border-color: variables.$primary-border-color;
+    box-shadow: 5px 5px 10px, -5px -5px 10px, -5px 5px 10px, 5px -5px 10px;
+}
+
+
+
+
+
+/* #IMAGE CONFIGURATIONS/DEFINITIONS */
+.img--lg {
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    height: 330px;
+    width: 310px;
+    border-radius: 50%;
+}
+
+.img--md {
+    display: block;
+    height: 90px;
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    border-radius: 5%;
+    /* box-shadow: 1px 1px 5px, -1px -1px 5px, -1px 1px 5px, 1px -1px 5px; */
+}
+
+.img--sm {
+    height: 90px;
+    width: 90px;
+    border-radius: 20%;
+    /* margin-top: 3em; */
+}
+
+.img--xsm {
+    height: 70px;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5em;
+    margin-bottom: auto;
+    border-radius: 20%;
+}
+
+
+
+
+
+/* #IMAGE CONTAINERS */
+.img-wrapper--exterior {
+    display: block;
+    margin: auto;
+    min-width: 300px;
+}
+
+.img-wrapper--interior {
+    display: block;
+    margin: auto;
+    height: 350px;
+    width: 330px;
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: double;
+    border-color: variables.$primary-border-color;
+    box-shadow: 3px 3px 10px, -3px -3px 10px, -3px 3px 10px, 3px -3px 10px;
+}
+
+
+
+
+
+/* #ICONS */
+
+.icons {
+    font-size: larger;
+    @include variables.flexbox ($justify-content: space-around);
+}
+/* 
+Hero
+Major Skills
+Minor skills
+Projects
+About
+Contact
+Footer
+ */
+
+
+
+
+
