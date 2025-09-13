@@ -1,0 +1,120 @@
+// src/styles/_reset.scss
+
+// 1. Box-sizing reset
+// This sets the box-sizing model to border-box globally, which makes sizing and layout
+// intuitive as padding and borders are included in the element's total width and height.
+:root,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// 2. Isolate stacking contexts
+// This prevents z-index conflicts, which can be an issue with modals and other
+// overlaid components in a modern React application.
+:root {
+  isolation: isolate;
+}
+
+// 3. Remove default margins and padding
+// This removes unpredictable browser spacing from common elements, giving you a clean
+// slate to apply spacing with your CSS variables.
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+// 4. Set accessible line-height and improve font rendering
+// A line-height of 1.5 improves readability.
+// Anti-aliasing improves the visual quality of fonts on high-resolution displays.
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+// 5. Improve media defaults for responsive design
+// Makes images, SVGs, and videos fluid by default, preventing overflow issues.
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+// 6. Inherit fonts for form elements
+// This ensures form controls use the application's font, leading to a more consistent design.
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// 7. Reset heading and list styles
+// This prevents browser default styling from interfering with your custom typography.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+// 8. Remove list styles
+// This removes list-style bullets from ordered and unordered lists.
+ol,
+ul {
+  list-style: none;
+}
+
+// 9. Reset button and link styles
+// Strips default styling from buttons and removes text decoration from links.
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+// 10. Avoid text overflows
+// Prevents long words or URLs from creating horizontal scrollbars.
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// 11. Add accessible focus indicator
+// Enhances accessibility for keyboard navigation by providing a clear focus state
+// without relying on the browser's potentially inconsistent default outline.
+:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}

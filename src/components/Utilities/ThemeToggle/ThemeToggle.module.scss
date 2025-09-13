@@ -1,0 +1,27 @@
+// src/components/Utilities/ThemeToggle/ThemeToggle.module.scss
+@use 'styles/abstracts' as a;
+
+.toggleButton {
+  /* Apply button-related variables from _abstracts.scss */
+  background-color: var(--card-bg);
+  border: 1px solid var(--nav-border-color);
+  color: var(--nav-text);
+  
+  /* Use other variables for dimensions and styling */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Add a smooth transition */
+  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+
+  &:hover {
+    /* Use a specific hover state color if needed, or let the text color handle it */
+    color: var(--nav-link-hover);
+  }
+}
