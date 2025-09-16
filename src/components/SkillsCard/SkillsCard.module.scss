@@ -1,4 +1,29 @@
+//SkillsCard.module.scss
 @import '../../styles/abstracts';
+
+
+// Define the keyframes for the fade-in animation
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+// Define the keyframes for the fade-in-up animation
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .skillsCard {
     background-color: var(--card-bg);
@@ -8,6 +33,9 @@
     box-shadow: var(--card-box-shadow);
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
+     // Initial state before animation
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in forwards;
 }
 
 .title {
@@ -23,8 +51,8 @@
 
 .list {
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to a new line */
-    justify-content: center; /* Centers items on the last line */
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--spacing-lg);
     list-style: none;
     padding: 0;
@@ -37,8 +65,8 @@
 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers items horizontally (cross-axis) */
-    justify-content: center; /* Centers items vertically (main-axis) */
+    align-items: center;
+    justify-content: center;
     text-align: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-sm);
@@ -46,10 +74,10 @@
     border-radius: var(--border-radius-sm);
     background-color: var(--color-surface-elevated);
 
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--box-shadow-md);
-    }
+    // Initial state before animation
+    opacity: 0; 
+    transform: translateY(20px); 
+    animation: fadeInUp 0.5s ease-out forwards;
 }
 
 .iconWrapper {
@@ -108,6 +136,17 @@
         height: 48px;
     }
 }
+
+// ==============================================
+//  Staggered animation for list items
+// ==============================================
+@for $i from 1 through 50 {
+    // Apply a delay to each item using its position
+    .list > :nth-child(#{$i}) {
+        animation-delay: ($i * 0.05s) + 0.1s; // Adjust the 0.05s for a faster or slower stagger
+    }
+}
+
 
 // ==============================================
 //  Responsive adjustments
