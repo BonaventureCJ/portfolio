@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-web-page",
+  "name": "react.js-portfolio-web-app",
   "homepage": "https://bonaventurecj.github.io/portfolio",
   "version": "3.0.0",
   "private": true,
@@ -44,6 +44,6 @@
   },
   "devDependencies": {
     "@testing-library/react": "^16.3.0",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.3.0"
   }
 }
