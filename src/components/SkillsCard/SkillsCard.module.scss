@@ -1,0 +1,131 @@
+@import '../../styles/abstracts';
+
+.skillsCard {
+    background-color: var(--card-bg);
+    color: var(--card-text);
+    border: var(--card-border);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--card-box-shadow);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.title {
+    font-family: var(--font-family-headings);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--color-border-primary);
+    padding-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to a new line */
+    justify-content: center; /* Centers items on the last line */
+    gap: var(--spacing-lg);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    flex: 1 1 100px;
+    max-width: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally (cross-axis) */
+    justify-content: center; /* Centers items vertically (main-axis) */
+    text-align: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-surface-elevated);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--box-shadow-md);
+    }
+}
+
+.iconWrapper {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--color-text-primary);
+    }
+}
+
+.name {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-secondary);
+}
+
+// ==============================================
+//  Modifier-specific styles for Major skills
+// ==============================================
+.skillsCard--major {
+    .item {
+        box-shadow: var(--box-shadow-skill-major);
+    }
+
+    .iconWrapper {
+        width: 64px;
+        height: 64px;
+        svg {
+            fill: var(--color-brand-primary);
+        }
+    }
+
+    .name {
+        font-weight: var(--font-weight-bold);
+    }
+}
+
+// ==============================================
+//  Modifier-specific styles for Other skills
+// ==============================================
+.skillsCard--other {
+    .item {
+        box-shadow: var(--box-shadow-skill-other);
+    }
+
+    .iconWrapper {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+// ==============================================
+//  Responsive adjustments
+// ==============================================
+@media (max-width: 480px) {
+    .item {
+        flex-basis: 100px;
+    }
+
+    .iconWrapper {
+        width: 40px;
+        height: 40px;
+    }
+
+    .skillsCard--major {
+        .iconWrapper {
+            width: 56px;
+            height: 56px;
+        }
+    }
+}
