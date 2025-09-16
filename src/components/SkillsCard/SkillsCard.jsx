@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './SkillsCard.module.scss'; // Relative import for SCSS
 
 /**
  * A reusable component to display a category of skills.
@@ -12,24 +13,22 @@ import PropTypes from 'prop-types';
  * @returns {JSX.Element} The rendered SkillsCard component.
  */
 const SkillsCard = ({ categoryTitle, skills, cardType }) => {
-  const blockName = 'skills-card';
-  const elementClass = (element) => `${blockName}__${element}`;
-  const modifierClass = (modifier) => `${blockName}--${modifier}`;
+  const cardClassName = `${styles.skillsCard} ${styles[`skillsCard--${cardType}`]}`;
 
   return (
-    <section className={`${blockName} ${modifierClass(cardType)}`} aria-labelledby={`skills-heading-${cardType}`}>
-      <h2 className={elementClass('title')} id={`skills-heading-${cardType}`}>
+    <section className={cardClassName} aria-labelledby={`skills-heading-${cardType}`}>
+      <h2 className={styles.title} id={`skills-heading-${cardType}`}>
         {categoryTitle}
       </h2>
-      <ul className={elementClass('list')} role="list">
+      <ul className={styles.list} role="list">
         {skills.map((skill) => {
           const Icon = skill.icon;
           return (
-            <li key={skill.id} className={elementClass('item')} aria-label={skill.name}>
-              <div className={elementClass('icon-wrapper')}>
-                {Icon && <Icon className={elementClass('icon')} aria-hidden="true" />}
+            <li key={skill.id} className={styles.item} aria-label={skill.name}>
+              <div className={styles.iconWrapper}>
+                {Icon && <Icon className={styles.icon} aria-hidden="true" />}
               </div>
-              <p className={elementClass('name')}>{skill.name}</p>
+              <p className={styles.name}>{skill.name}</p>
             </li>
           );
         })}

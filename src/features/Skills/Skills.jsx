@@ -3,11 +3,12 @@
 import React from 'react';
 import MajorSkillsCard from 'components/Cards/MajorSkillsCard';
 import OtherSkillsCard from 'components/Cards/OtherSkillsCard';
+import styles from './Skills.module.scss'; // Relative import for SCSS
 
 const Skills = () => {
   return (
-    <div className="skills-page">
-      <h1 className="skills-page__heading">My Skills</h1>
+    <div className={styles.skillsPage}>
+      <h1 className={styles.heading}>My Skills</h1>
       <MajorSkillsCard />
       <OtherSkillsCard />
     </div>
@@ -15,3 +16,4 @@ const Skills = () => {
 };
 
 export default Skills;
+
