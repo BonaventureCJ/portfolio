@@ -1,17 +1,6 @@
 //SkillsCard.module.scss
 @import '../../styles/abstracts';
 
-
-// Define the keyframes for the fade-in animation
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 // Define the keyframes for the fade-in-up animation
 @keyframes fadeInUp {
     from {
@@ -24,7 +13,6 @@
     }
 }
 
-
 .skillsCard {
     background-color: var(--card-bg);
     color: var(--card-text);
@@ -33,9 +21,6 @@
     box-shadow: var(--card-box-shadow);
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
-     // Initial state before animation
-    opacity: 0;
-    animation: fadeIn 0.8s ease-in forwards;
 }
 
 .title {
@@ -57,6 +42,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    animation: fadeInUp 0.5s ease-out forwards; // Animate the entire list
 }
 
 .item {
@@ -73,11 +59,12 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     border-radius: var(--border-radius-sm);
     background-color: var(--color-surface-elevated);
+    cursor: pointer;
 
-    // Initial state before animation
-    opacity: 0; 
-    transform: translateY(20px); 
-    animation: fadeInUp 0.5s ease-out forwards;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--box-shadow-md);
+    }
 }
 
 .iconWrapper {
@@ -141,12 +128,10 @@
 //  Staggered animation for list items
 // ==============================================
 @for $i from 1 through 50 {
-    // Apply a delay to each item using its position
     .list > :nth-child(#{$i}) {
-        animation-delay: ($i * 0.05s) + 0.1s; // Adjust the 0.05s for a faster or slower stagger
+        animation-delay: ($i * 0.05s) + 0.1s;
     }
 }
-
 
 // ==============================================
 //  Responsive adjustments
