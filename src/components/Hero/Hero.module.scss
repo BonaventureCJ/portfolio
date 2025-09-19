@@ -1,0 +1,181 @@
+// Use `@use` instead of `@import` for modern Sass module loading.
+// The `as *` alias makes the mixins and variables from _abstracts.scss available directly.
+@use '../../styles/abstracts' as *;
+
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  background-color: var(--hero-bg);
+  color: var(--hero-text);
+  min-height: 80vh; // Ensure it takes up a significant portion of the viewport
+
+  // Responsive layout for larger screens using the mixin
+  @include breakpoint-up(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+}
+
+.heroContent {
+  max-width: 600px;
+  margin-bottom: var(--spacing-lg); // Add space below on smaller screens
+
+  @include breakpoint-up(md) {
+    margin-bottom: 0;
+  }
+}
+
+.heroTitle {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-brand-primary);
+  word-break: break-word; // Prevent overflow on long names or titles
+
+  // Media query for smaller font size on smaller devices
+  @include breakpoint-down(sm) {
+    font-size: var(--font-size-xl);
+  }
+}
+
+.heroSubtitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.4;
+  color: var(--hero-text);
+
+  @include breakpoint-down(sm) {
+    font-size: var(--font-size-base);
+  }
+}
+
+.heroDescription {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-secondary);
+}
+
+.ctaContainer {
+  display: flex;
+  flex-wrap: wrap; // Allows buttons to wrap on small screens
+  justify-content: center;
+  gap: var(--spacing-sm);
+
+  @include breakpoint-up(md) {
+    justify-content: flex-start;
+    gap: var(--spacing-md);
+  }
+}
+
+.primaryCta,
+.secondaryCta {
+  padding: var(--button-padding);
+  border-radius: 9999px; // Pill-shaped button
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  transition: var(--button-transition);
+  cursor: pointer;
+  white-space: nowrap; // Prevents button text from wrapping
+  min-width: 150px; // Ensure consistent button width
+  text-align: center;
+  border: 2px solid;
+  // Accessible minimum touch target size
+  min-height: 44px;
+  display: inline-flex; // For vertical alignment
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryCta {
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+  border-color: var(--button-bg-primary);
+
+  &:hover {
+    background-color: var(--button-bg-primary-hover);
+    box-shadow: var(--box-shadow-hover-md);
+  }
+
+  &:focus {
+    outline: 3px solid var(--color-brand-accent);
+    outline-offset: 2px;
+  }
+}
+
+.secondaryCta {
+  background-color: transparent;
+  color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+
+  &:hover {
+    background-color: var(--color-brand-primary);
+    color: var(--color-text-inverse);
+    box-shadow: var(--box-shadow-hover-md);
+  }
+
+  &:focus {
+    outline: 3px solid var(--color-brand-accent);
+    outline-offset: 2px;
+  }
+}
+
+.heroImageContainer {
+  margin-top: var(--spacing-lg);
+  width: 250px;
+  height: 250px;
+  position: relative;
+  
+  @include breakpoint-up(md) {
+    margin-top: 0;
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow-md);
+  animation: float 3s ease-in-out infinite;
+}
+
+// Ensure images are accessible
+img {
+  display: block;
+}
+
+// Reduced motion media query for users who prefer less animation
+@media (prefers-reduced-motion: reduce) {
+  .profileImage {
+    animation: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+// Apply dark theme overrides
+[data-theme="dark"] {
+  .heroSection {
+    background-color: var(--hero-bg);
+    color: var(--hero-text);
+  }
+}

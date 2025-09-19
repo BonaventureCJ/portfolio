@@ -2,7 +2,8 @@
 import styles from './About.module.scss';
 import skills from 'data/skills';
 
-import profilePhoto from 'assets/images/about/BonaventureCJUgwu.png';
+import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
+import resumeRequest from 'assets/documents/resume-request.pdf'; // Update with your resume path
 
 
 const About = () => {
@@ -38,7 +39,7 @@ const About = () => {
         </div>
 
         <a
-          href="/assets/documents/resume.pdf" // Placeholder path for your resume
+          href={resumeRequest}
           className={`${styles['about__button']} ${styles['about__button--resume']}`}
           target="_blank"
           rel="noopener noreferrer"

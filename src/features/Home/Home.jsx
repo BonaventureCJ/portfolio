@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 
 const Home = () => {
   return (<>
@@ -9,4 +9,21 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home */
+
+// src/pages/Home.jsx
+
+import React from 'react';
+import Hero from 'components/Hero/Hero';
+
+const Home = () => {
+  return (
+    <>
+    <h1>Welcome to My Portfolio 3.0.0 in the Name of Jesus Christ!</h1>
+      <Hero />
+      {/* Other sections will go here */}
+    </>
+  );
+};
+
+export default Home;

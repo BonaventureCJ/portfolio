@@ -1,5 +1,28 @@
-// src/styles/_abstracts.scss
+// src/styles/_abstracts.scss //for Portfolio Project
 @charset "UTF-8";
+
+// --- Mixins for Responsive Design ---
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@mixin breakpoint-up($name) {
+  @media (min-width: map-get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+// Corrected mixin syntax
+@mixin breakpoint-down($name) {
+  // Wrap the arithmetic operation in parentheses
+  @media (max-width: (map-get($breakpoints, $name) - 0.02)) {
+    @content;
+  }
+}
+// --- Variables ---
 
 // Your provided light theme variables (default)
 :root {
@@ -95,6 +118,7 @@
   /* --- Hero Section --- */
   --hero-bg: var(--color-surface-base);
   --hero-text: var(--color-text-primary);
+  
 }
 
 // Your provided dark theme variables (overrides)
