@@ -1,10 +1,10 @@
 import profilePic from 'assets/images/home/BonaventureCJUgwu.png';
 import resumeRequest from 'assets/documents/resume-request.pdf';
-import { calculateYearsOfExperience } from 'utils/helpers'; // Import the new function
+import { calculateYearsOfExperience } from 'utils/helpers'; // Import the updated function
 
-// Define the starting year for your experience
-const startYear = 2022;
-const yearsOfExperience = calculateYearsOfExperience(startYear);
+// Define the exact start date for your experience
+const startDate = '2022-04-17';
+const yearsOfExperience = calculateYearsOfExperience(startDate);
 
 export const heroData = {
   name: 'Bonaventure C.J. Ugwu',
