@@ -15,12 +15,16 @@ export default Home */
 
 import React from 'react';
 import Hero from 'components/Hero/Hero';
+import AboutPreview from 'components/AboutPreview/AboutPreview';
+import SkillsPreview from 'components/SkillsPreview/SkillsPreview';
 
 const Home = () => {
   return (
     <>
     <h1>Welcome to My Portfolio 3.0.0 in the Name of Jesus Christ!</h1>
       <Hero />
+      <AboutPreview />
+      <SkillsPreview />
       {/* Other sections will go here */}
     </>
   );
