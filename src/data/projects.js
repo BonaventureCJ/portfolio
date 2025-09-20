@@ -2,12 +2,13 @@
 
 // Import all project images from the assets folder.
 import portfolio from '../assets/images/projects/portfolio.png';
-import dashboardImage from '../assets/images/projects/dashboard.png';
-import movieSearchAppImage from '../assets/images/projects/globeflix.png';
-import githubProfileFinderImage from '../assets/images/projects/github-profile-finder.png';
 import mealRecipeAppImage from '../assets/images/projects/yummyrecipeshub.png';
 import qrCodeGeneratorImage from '../assets/images/projects/qr-code-generator.png';
+import githubProfileFinderImage from '../assets/images/projects/github-profile-finder.png';
+import movieSearchAppImage from '../assets/images/projects/globeflix.png';
 import contactManagerImage from '../assets/images/projects/contact-manager.png';
+import dashboardImage from '../assets/images/projects/dashboard.png';
+
 
 /**
  * A simple auto-incrementing ID generator.
@@ -37,8 +38,8 @@ const projects = [
     title: 'Personal Portfolio WebApp',
     description: 'A modern, responsive portfolio website built with React.js and Sass. It features smooth animations, a dark mode toggle, and showcases my projects and skills effectively.',
     image: portfolio,
-    liveUrl: 'https://bonaventurecj.github.io/portfolio/', 
-    repoUrl: 'https://github.com/BonaventureCJ/portfolio', 
+    liveUrl: 'https://bonaventurecj.github.io/portfolio/',
+    repoUrl: 'https://github.com/BonaventureCJ/portfolio',
     technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'WCAG', 'SEO', 'Responsive Design', 'SCSS'],
     isRecent: true,
     isFeatured: false,
@@ -54,7 +55,7 @@ const projects = [
     technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'SCSS'],
     isRecent: false,
     isFeatured: true,
-    isTutorialBased: false, 
+    isTutorialBased: false,
   },
   {
     id: generateId(),
@@ -87,7 +88,7 @@ const projects = [
     image: movieSearchAppImage,
     liveUrl: 'https://bonaventurecj.github.io/globeflix/',
     repoUrl: 'https://github.com/BonaventureCJ/globeflix',
-    technologies: ['React.js', 'JavaScript','API Integration', 'HTML5', 'SCSS'],
+    technologies: ['React.js', 'JavaScript', 'API Integration', 'HTML5', 'SCSS'],
     isRecent: false,
     isFeatured: false,
     isTutorialBased: false,
@@ -101,7 +102,7 @@ const projects = [
     repoUrl: 'https://github.com/BonaventureCJ/contact-manager',
     technologies: ['React.js', 'JavaScript', 'React Router', 'HTML5', 'CSS3'],
     isRecent: false,
-    isFeatured: false, 
+    isFeatured: false,
     isTutorialBased: true,
   },
   {
@@ -111,7 +112,7 @@ const projects = [
     image: dashboardImage,
     liveUrl: 'https://bonaventure-dashboard.vercel.app/',
     repoUrl: 'https://github.com/BonaventureCJ/nextjs-dashboard',
-    technologies: ['Next.js','TypeScript', 'React.js', 'Tailwind CSS'],
+    technologies: ['Next.js', 'TypeScript', 'React.js', 'Tailwind CSS'],
     isRecent: false,
     isFeatured: false,
     isTutorialBased: true,

@@ -1,7 +1,6 @@
 // src/data/skills.js
 
 // Import all icon assets as React components using SVGR syntax
-// Import all icon assets as React components using SVGR syntax
 // Arranged to match the order of appearance in the skills array
 
 // --- Languages & Frameworks ---
@@ -79,7 +78,7 @@ const skills = [
     name: 'JavaScript (ES6+)',
     category: 'Languages & Frameworks',
     icon: JavascriptIcon,
-    isFeatured: true,
+    isFeatured: false,
     level: 'Major',
   },
   {
@@ -87,7 +86,7 @@ const skills = [
     name: 'HTML5',
     category: 'Languages & Frameworks',
     icon: Html5Icon,
-    isFeatured: true,
+    isFeatured: false,
     level: 'Major',
   },
   {
@@ -95,7 +94,7 @@ const skills = [
     name: 'CSS3',
     category: 'Languages & Frameworks',
     icon: Css3Icon,
-    isFeatured: true,
+    isFeatured: false,
     level: 'Major',
   },
   // --- Core Development Practices ---
@@ -120,7 +119,7 @@ const skills = [
     name: 'API Integration',
     category: 'Development Practices',
     icon: ApiIcon,
-    isFeatured: true,
+    isFeatured: false,
     level: 'Major',
   },
   {
@@ -128,7 +127,7 @@ const skills = [
     name: 'Responsive Design',
     category: 'Development Practices',
     icon: ResponsiveDesignIcon,
-    isFeatured: true,
+    isFeatured: false,
     level: 'Major',
   },
   {
@@ -169,7 +168,7 @@ const skills = [
     name: 'React Context API',
     category: 'State Management',
     icon: ReactIcon, // Reusing React icon
-    isFeatured: true,
+    isFeatured: false,
     level: 'Major',
   },
   {
@@ -222,7 +221,7 @@ const skills = [
     isFeatured: false,
     level: 'Major',
   },
- 
+
   {
     id: generateId(),
     name: 'Vite',
@@ -248,7 +247,7 @@ const skills = [
     level: 'Other',
   },
 
- {
+  {
     id: generateId(),
     name: 'pnpm',
     category: 'Build Tools',
@@ -261,10 +260,10 @@ const skills = [
     name: 'npm',
     category: 'Build Tools',
     icon: NpmIcon,
-    isFeatured: true,
+    isFeatured: false,
     level: 'Other',
   },
-    {
+  {
     id: generateId(),
     name: 'npx',
     category: 'Build Tools',
