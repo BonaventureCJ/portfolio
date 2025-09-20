@@ -25,3 +25,6 @@ export const calculateYearsOfExperience = (startDateString) => {
 
   return years;
 };
+
+const startDate = '2022-04-17';
+export const yearsOfExperience = calculateYearsOfExperience(startDate);

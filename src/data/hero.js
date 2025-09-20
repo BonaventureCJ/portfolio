@@ -1,10 +1,7 @@
 import profilePic from 'assets/images/home/BonaventureCJUgwu.png';
-import resumeRequest from 'assets/documents/resume-request.pdf';
-import { calculateYearsOfExperience } from 'utils/helpers'; // Import the updated function
+import requestResume from 'assets/documents/request-resume.pdf';
 
-// Define the exact start date for your experience
-const startDate = '2022-04-17';
-const yearsOfExperience = calculateYearsOfExperience(startDate);
+import { yearsOfExperience } from 'utils/helpers';
 
 export const heroData = {
   name: 'Bonaventure C.J. Ugwu',
@@ -18,7 +15,7 @@ export const heroData = {
   },
   secondaryCta: {
     label: 'Download Resume',
-    url: resumeRequest,
+    url: requestResume,
   },
   profileImage: {
     url: profilePic,

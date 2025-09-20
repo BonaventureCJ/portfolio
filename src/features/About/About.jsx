@@ -3,7 +3,8 @@ import styles from './About.module.scss';
 import skills from 'data/skills';
 
 import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
-import resumeRequest from 'assets/documents/resume-request.pdf'; // Update with your resume path
+import { yearsOfExperience } from 'utils/helpers';
+import requestResume from 'assets/documents/request-resume.pdf'; // Update with your resume path
 
 
 const About = () => {
@@ -26,7 +27,7 @@ const About = () => {
           </div>
           <div className={styles['about__text-container']}>
             <p className={styles['about__summary']}>
-              Front-end developer with 3+ years of experience building performant, user-focused web
+              Front-end developer with { yearsOfExperience }+ years of experience building performant, user-focused web
               applications using React.js, Next.js, and TypeScript. Passionate about responsive
               design, clean code, and creating intuitive UIs. Proven track record of delivering
               scalable web solutions using modern frameworks and best practices.
@@ -39,7 +40,7 @@ const About = () => {
         </div>
 
         <a
-          href={resumeRequest}
+          href={requestResume}
           className={`${styles['about__button']} ${styles['about__button--resume']}`}
           target="_blank"
           rel="noopener noreferrer"
