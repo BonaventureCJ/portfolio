@@ -27,6 +27,7 @@ const generateId = () => nextId++;
  * @property {string[]} technologies - An array of technologies used in the project.
  * @property {boolean} isRecent - Indicates if the project is considered recent.
  * @property {boolean} isFeatured - Indicates if the project is featured on the homepage.
+ * @property {boolean} isTutorialBased - Indicates if the project was built by following a tutorial.
  */
 
 /** @type {Project[]} */
@@ -41,6 +42,7 @@ const projects = [
     technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'WCAG', 'SEO', 'Responsive Design', 'SCSS'],
     isRecent: true,
     isFeatured: false,
+    isTutorialBased: false,
   },
   {
     id: generateId(),
@@ -52,6 +54,7 @@ const projects = [
     technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'SCSS'],
     isRecent: false,
     isFeatured: true,
+    isTutorialBased: false, 
   },
   {
     id: generateId(),
@@ -63,6 +66,7 @@ const projects = [
     technologies: ['React.js', 'API Integration', 'JavaScript', 'HTML5', 'SCSS'],
     isRecent: false,
     isFeatured: true,
+    isTutorialBased: false,
   },
   {
     id: generateId(),
@@ -74,6 +78,7 @@ const projects = [
     technologies: ['React.js', 'JavaScript', 'REST API', 'SCSS'],
     isRecent: false,
     isFeatured: true,
+    isTutorialBased: false,
   },
   {
     id: generateId(),
@@ -85,6 +90,7 @@ const projects = [
     technologies: ['React.js', 'JavaScript','API Integration', 'HTML5', 'SCSS'],
     isRecent: false,
     isFeatured: false,
+    isTutorialBased: false,
   },
   {
     id: generateId(),
@@ -96,6 +102,7 @@ const projects = [
     technologies: ['React.js', 'JavaScript', 'React Router', 'HTML5', 'CSS3'],
     isRecent: false,
     isFeatured: false, 
+    isTutorialBased: true,
   },
   {
     id: generateId(),
@@ -107,6 +114,7 @@ const projects = [
     technologies: ['Next.js','TypeScript', 'React.js', 'Tailwind CSS'],
     isRecent: false,
     isFeatured: false,
+    isTutorialBased: true,
   }
 ];
 
