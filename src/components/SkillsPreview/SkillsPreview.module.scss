@@ -1,0 +1,222 @@
+// Import the abstracts file to access all defined variables and mixins.
+@import '../../styles/abstracts';
+
+// ==========================================================================
+// SkillsPreview Component Styles
+// Utilizes BEM for clear, component-scoped class naming.
+// ==========================================================================
+
+// --- Main component container ---
+.skillsPreview {
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  background-color: var(--color-surface-elevated);
+
+  // Animation for fade-in effect on component load.
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+// --- Content container ---
+.skillsPreview__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+
+  // Responsive adjustments for padding on smaller screens.
+  @include breakpoint-down(md) {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+// --- Heading styles ---
+// Improves UI/UX with clear hierarchy and readability.
+.skillsPreview__heading {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+
+  // Responsive typography for smaller screens.
+  @include breakpoint-down(md) {
+    font-size: var(--font-size-h2);
+  }
+}
+
+// --- Description paragraph ---
+// WCAG: Ensures readability with sufficient line height.
+.skillsPreview__description {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+  
+  // A subtle entrance animation.
+  animation: slideUp 1s ease-out 0.3s forwards;
+  opacity: 0;
+
+  // Responsive typography for mobile devices.
+  @include breakpoint-down(sm) {
+    font-size: var(--font-size-base);
+  }
+}
+
+// --- Skills list (grid) ---
+.skillsPreview__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-md);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+// --- Individual skill item (card) ---
+.skillsPreview__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 140px;
+
+  // Staggered animation for grid items.
+  // Delay is based on list position for a wave effect.
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) {
+      animation: fadeInScale 0.8s ease-in-out forwards;
+      animation-delay: #{$i * 0.1}s;
+      opacity: 0;
+    }
+  }
+
+  // UI/UX enhancement: Interactive feedback on hover.
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover-md);
+  }
+}
+
+// --- Skill icon container ---
+.skillsPreview__icon {
+  svg {
+    width: var(--spacing-lg);
+    height: var(--spacing-lg);
+    color: var(--color-brand-primary);
+    transition: color 0.3s ease;
+  }
+  .skillsPreview__item:hover & svg {
+    color: var(--color-link-hover);
+  }
+}
+
+// --- Skill name text ---
+.skillsPreview__name {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+}
+
+// --- CTA section ---
+.skillsPreview__cta {
+  margin-top: var(--spacing-md);
+  // Staggered entrance for the CTA button.
+  animation: scaleIn 0.8s ease-out 1.5s forwards;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+// --- CTA button ---
+.skillsPreview__ctaLink {
+  // Fallback and reinforcement from abstract variables
+  text-decoration: none;
+  display: inline-block;
+  padding: var(--button-padding);
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+  border-radius: var(--button-border-radius);
+  box-shadow: var(--button-box-shadow);
+  font-weight: var(--font-weight-bold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+  // UI/UX: Interactive hover state.
+  &:hover {
+    transform: translateY(-2px);
+    background-color: var(--button-bg-primary-hover);
+    box-shadow: var(--box-shadow-hover-md);
+  }
+
+  // WCAG: Visible focus state.
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+  }
+}
+
+// ==========================================================================
+// Animations for the component
+// ==========================================================================
+
+// --- General fade-in effect for the component ---
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+// --- Text slide-up effect for layered animation ---
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --- Skills card entrance with scale and fade ---
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// --- Button scale-in effect for emphasis ---
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// --- Respect reduced motion preferences (WCAG) ---
+@media (prefers-reduced-motion: reduce) {
+  .skillsPreview,
+  .skillsPreview__description,
+  .skillsPreview__item,
+  .skillsPreview__cta {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

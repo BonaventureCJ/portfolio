@@ -1,0 +1,277 @@
+// Import the abstracts file to access all defined variables and mixins.
+@import '../../styles/abstracts';
+
+// ==========================================================================
+// ProjectsPreview Component Styles
+// Utilizes BEM for clear, component-scoped class naming.
+// ==========================================================================
+
+// --- Main component container ---
+.projectsPreview {
+  // Use abstract variables for consistent styling.
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  background-color: var(--color-surface-elevated); // Different background for contrast
+
+  // Optional: Animation for a staggered fade-in effect on component load.
+  // The animation is applied to the root element.
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+// --- Content container ---
+// Constrains the content width for optimal readability and layout.
+.projectsPreview__container {
+  max-width: 1200px; // A wider max-width for the project grid
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+
+  // Responsive adjustments for padding on smaller screens.
+  @include breakpoint-down(md) {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+// --- Heading styles ---
+// Improves UI/UX with clear hierarchy and readability.
+.projectsPreview__heading {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+
+  // Responsive typography for smaller screens.
+  @include breakpoint-down(md) {
+    font-size: var(--font-size-h2);
+  }
+}
+
+// --- Description paragraph ---
+// WCAG: Ensures readability with sufficient line height.
+.projectsPreview__description {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+  
+  // A subtle entrance animation.
+  animation: slideUp 1s ease-out 0.3s forwards;
+  opacity: 0;
+
+  // Responsive typography for mobile devices.
+  @include breakpoint-down(sm) {
+    font-size: var(--font-size-base);
+  }
+}
+
+// --- Project Grid ---
+.projectsPreview__grid {
+  display: grid;
+  // Dynamic column layout based on screen size.
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+
+  // Staggered animation for grid items.
+  > * {
+    animation: fadeInScale 0.8s ease-in-out forwards;
+    opacity: 0;
+    transform: scale(0.95);
+    // Loop through children and add an animation delay
+    @for $i from 1 through 6 { // Adjust the number to match your expected featured projects
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+}
+
+// --- Individual project card ---
+.projectsPreview__card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--card-box-shadow);
+  overflow: hidden; // Ensures image corners are rounded
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  // UI/UX enhancement: Interactive feedback on hover.
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover-md);
+  }
+}
+
+// --- Card image container ---
+.projectsPreview__cardImage {
+  overflow: hidden; // Ensures the image does not overflow on hover effects.
+  img {
+    display: block;
+    width: 100%;
+    height: 200px; // Consistent height for all images
+    object-fit: cover; // Prevents image distortion
+    transition: transform 0.3s ease;
+
+    .projectsPreview__card:hover & {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// --- Card content area ---
+.projectsPreview__cardContent {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; // Fills remaining space
+}
+
+// --- Card title ---
+.projectsPreview__cardTitle {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+// --- Card description ---
+.projectsPreview__cardDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1; // Pushes actions to the bottom
+}
+
+// --- Card actions (links) ---
+.projectsPreview__cardActions {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-top: auto; // Aligns actions to the bottom of the card
+}
+
+// --- Action links ---
+.projectsPreview__link {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  // WCAG: Ensure visible focus state.
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-accent);
+    outline-offset: 2px;
+  }
+}
+
+// --- Live Demo link ---
+.linkLive {
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+
+  &:hover {
+    background-color: var(--button-bg-primary-hover);
+  }
+}
+
+// --- Repository link ---
+.linkRepo {
+  background-color: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+
+  &:hover {
+    background-color: var(--button-bg-secondary-hover);
+  }
+}
+
+// --- CTA section ---
+.projectsPreview__cta {
+  margin-top: var(--spacing-md);
+  // Staggered entrance for the CTA button.
+  animation: scaleIn 0.8s ease-out 1.5s forwards;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+// --- CTA button ---
+.projectsPreview__ctaLink {
+  // Assuming a generic button style is available for extension.
+  // In a modular setup, you'd define this in a separate utility or use a button component.
+  display: inline-block;
+  padding: var(--button-padding);
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+  border-radius: var(--button-border-radius);
+  box-shadow: var(--button-box-shadow);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+  // UI/UX: Interactive hover state.
+  &:hover {
+    transform: translateY(-2px);
+    background-color: var(--button-bg-primary-hover);
+    box-shadow: var(--box-shadow-hover-md);
+  }
+
+  // WCAG: Visible focus state.
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+  }
+}
+
+// ==========================================================================
+// Animations for the component
+// ==========================================================================
+
+// --- General fade-in effect ---
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+// --- Text slide-up effect for layered animation ---
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --- Project card entrance with scale and fade ---
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// --- Button scale-in effect for emphasis ---
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,168 @@
+// Import the abstracts file to access all defined variables and mixins.
+@import '../../styles/abstracts';
+
+// ==========================================================================
+// AboutPreview Component Styles
+// Utilizes BEM for clear, component-scoped class naming.
+// ==========================================================================
+
+// --- Main component container ---
+.aboutPreview {
+  // Use abstract variables for consistent styling.
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  background-color: var(--color-surface-base);
+  position: relative; // Needed for potential pseudo-element animations or positioning.
+
+  // Animation for a staggered fade-in effect on component load.
+  // The animation is applied to the root element.
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+// --- Content container ---
+// Constrains the content width for optimal readability and layout.
+.aboutPreview__container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+
+  // Responsive adjustments for padding on smaller screens.
+  @include breakpoint-down(md) {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+// --- Inner content box ---
+.aboutPreview__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // Use a variable for consistent spacing between elements.
+  gap: var(--spacing-md);
+}
+
+// --- Heading styles ---
+// Improves UI/UX with clear hierarchy and readability.
+// SEO: Using <h2> is a best practice.
+.aboutPreview__heading {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+  line-height: 1.2; // Optimized for headings.
+
+  // Responsive typography for smaller screens.
+  @include breakpoint-down(sm) {
+    font-size: var(--font-size-lg);
+  }
+}
+
+// --- Text paragraphs ---
+// WCAG: Ensures readability with sufficient line height.
+.aboutPreview__text {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 650px;
+  margin: 0 auto;
+  
+  // A subtle animation to make the text appear after the heading
+  // to create a more dynamic and layered entrance.
+  animation: slideUp 1s ease-out 0.5s forwards;
+  opacity: 0;
+
+  // Responsive typography for mobile devices.
+  @include breakpoint-down(sm) {
+    font-size: var(--font-size-base);
+  }
+}
+
+// --- Call-to-Action button ---
+.aboutPreview__cta {
+  // Use `@use` and `@forward` to include shared styles if they were in a separate file.
+  // For this example, `@extend` is used as in the previous example.
+  // We're assuming base button styles exist elsewhere and can be extended.
+  margin-top: var(--spacing-md);
+  text-decoration: none; // Link styling best practice.
+  display: inline-block;
+  padding: var(--button-padding);
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+  border-radius: var(--button-border-radius);
+  box-shadow: var(--button-box-shadow);
+  font-weight: var(--font-weight-bold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  
+  // WCAG: Ensure visible focus state. The `:focus-visible` pseudo-class
+  // is a best practice for providing keyboard accessibility without
+  // showing focus outlines for mouse clicks.
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+  }
+
+  // UI/UX: Interactive feedback on hover.
+  &:hover {
+    transform: translateY(-2px); // subtle lift effect
+    box-shadow: var(--box-shadow-hover-md);
+    background-color: var(--button-bg-primary-hover);
+  }
+
+  // Entrance animation for the CTA button.
+  animation: scaleIn 0.8s ease-out 1s forwards;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+// ==========================================================================
+// Animations for the component
+// ==========================================================================
+
+// --- General fade-in effect for the component ---
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --- Text slide-up effect for layered animation ---
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --- Button scale-in effect for emphasis ---
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// --- Respect reduced motion preferences (WCAG) ---
+@media (prefers-reduced-motion: reduce) {
+  .aboutPreview,
+  .aboutPreview__text,
+  .aboutPreview__cta {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
