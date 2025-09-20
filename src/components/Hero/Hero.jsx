@@ -1,4 +1,7 @@
+// src/components/Hero.jsx
+
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import styles from './Hero.module.scss';
 import { heroData } from 'data/hero';
 
@@ -12,9 +15,9 @@ const Hero = () => {
         <h2 className={styles.heroSubtitle}>{title}</h2>
         <p className={styles.heroDescription}>{description}</p>
         <div className={styles.ctaContainer}>
-          <a href={primaryCta.url} className={styles.primaryCta}>
+          <Link to={primaryCta.url} className={styles.primaryCta}>
             {primaryCta.label}
-          </a>
+          </Link>
           <a href={secondaryCta.url} className={styles.secondaryCta}>
             {secondaryCta.label}
           </a>
@@ -32,4 +35,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

@@ -11,7 +11,7 @@ export const heroData = {
     `Front-end Engineer with ${yearsOfExperience}+ years of experience building performant, user-focused web applications. Passionate about responsive design, clean code, and creating intuitive UIs.`,
   primaryCta: {
     label: 'View My Work',
-    url: '#projects',
+    url: '/projects',
   },
   secondaryCta: {
     label: 'Download Resume',

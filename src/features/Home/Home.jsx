@@ -17,6 +17,7 @@ import React from 'react';
 import Hero from 'components/Hero/Hero';
 import AboutPreview from 'components/AboutPreview/AboutPreview';
 import SkillsPreview from 'components/SkillsPreview/SkillsPreview';
+import ProjectsPreview from 'components/ProjectsPreview/ProjectsPreview';
 
 const Home = () => {
   return (
@@ -25,6 +26,7 @@ const Home = () => {
       <Hero />
       <AboutPreview />
       <SkillsPreview />
+      <ProjectsPreview />
       {/* Other sections will go here */}
     </>
   );
