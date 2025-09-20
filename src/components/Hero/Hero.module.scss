@@ -1,32 +1,35 @@
-// Use `@use` instead of `@import` for modern Sass module loading.
-// The `as *` alias makes the mixins and variables from _abstracts.scss available directly.
+/* src/components/Hero/Hero.module.scss */
+
 @use '../../styles/abstracts' as *;
 
 .heroSection {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: var(--spacing-lg) var(--spacing-md);
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-sm);
   background-color: var(--hero-bg);
   color: var(--hero-text);
-  min-height: 80vh; // Ensure it takes up a significant portion of the viewport
+  text-align: center;
+  min-height: 80vh; // Ensures the hero section takes up a significant portion of the viewport
 
-  // Responsive layout for larger screens using the mixin
-  @include breakpoint-up(md) {
+  @media (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between; // Switches to a row layout on larger screens
     text-align: left;
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 }
 
 .heroContent {
-  max-width: 600px;
-  margin-bottom: var(--spacing-lg); // Add space below on smaller screens
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  order: 2; // Moves content below the image on small screens
 
-  @include breakpoint-up(md) {
-    margin-bottom: 0;
+  @media (min-width: 768px) {
+    order: 1; // Reverts to content on the left
   }
 }
 
@@ -34,126 +37,205 @@
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);
-  line-height: 1.2;
-  margin: 0;
   color: var(--color-brand-primary);
-  word-break: break-word; // Prevent overflow on long names or titles
+  margin-bottom: var(--spacing-xs);
 
-  // Media query for smaller font size on smaller devices
-  @include breakpoint-down(sm) {
-    font-size: var(--font-size-xl);
-  }
+  // Animation for the main title
+  animation: slideInLeft 0.8s ease-out forwards;
 }
 
 .heroSubtitle {
-  font-size: var(--font-size-lg);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-h2);
   font-weight: var(--font-weight-regular);
-  margin-top: var(--spacing-xs);
-  margin-bottom: var(--spacing-md);
-  line-height: 1.4;
-  color: var(--hero-text);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
 
-  @include breakpoint-down(sm) {
-    font-size: var(--font-size-base);
-  }
+  // Animation for the subtitle
+  animation: slideInLeft 0.8s ease-out 0.2s forwards;
 }
 
 .heroDescription {
-  font-size: var(--font-size-base);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-lg);
   line-height: 1.6;
-  margin-bottom: var(--spacing-lg);
   color: var(--color-text-secondary);
+  max-width: 65ch; // Ensures readability
+  margin-bottom: var(--spacing-md);
+
+  // Animation for the description
+  animation: slideInUp 0.8s ease-out 0.4s forwards;
+
+  @media (min-width: 768px) {
+    max-width: none;
+  }
 }
 
 .ctaContainer {
   display: flex;
-  flex-wrap: wrap; // Allows buttons to wrap on small screens
+  flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing-sm);
 
-  @include breakpoint-up(md) {
+  // Animation for the button container
+  animation: fadeIn 1s ease-in-out 0.6s forwards;
+
+  @media (min-width: 768px) {
     justify-content: flex-start;
-    gap: var(--spacing-md);
   }
 }
 
 .primaryCta,
 .secondaryCta {
+  display: inline-block;
   padding: var(--button-padding);
+  border-radius: var(--button-border-radius);
   border-radius: 9999px; // Pill-shaped button
-  text-decoration: none;
+  font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
-  transition: var(--button-transition);
+  text-decoration: none;
+  transition: var(--button-transition), transform 0.3s ease;
+  box-shadow: var(--button-box-shadow);
   cursor: pointer;
-  white-space: nowrap; // Prevents button text from wrapping
-  min-width: 150px; // Ensure consistent button width
   text-align: center;
+  white-space: nowrap; // Prevents button text from wrapping
+  min-width: 250px; // Ensure consistent button width
+   min-height: 44px;
   border: 2px solid;
   // Accessible minimum touch target size
-  min-height: 44px;
+ 
   display: inline-flex; // For vertical alignment
   align-items: center;
   justify-content: center;
+
+  // Base styling for the buttons
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-md);
+  }
 }
 
 .primaryCta {
   background-color: var(--button-bg-primary);
   color: var(--button-text-primary);
-  border-color: var(--button-bg-primary);
 
-  &:hover {
-    background-color: var(--button-bg-primary-hover);
-    box-shadow: var(--box-shadow-hover-md);
-  }
-
+  &:hover,
   &:focus {
-    outline: 3px solid var(--color-brand-accent);
-    outline-offset: 2px;
+    background-color: var(--button-bg-primary-hover);
+    color: var(--button-text-secondary);
   }
 }
 
 .secondaryCta {
   background-color: transparent;
   color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
+  border: 1px solid var(--color-brand-primary);
 
-  &:hover {
-    background-color: var(--color-brand-primary);
-    color: var(--color-text-inverse);
-    box-shadow: var(--box-shadow-hover-md);
+  // Dark theme override for secondary button
+  [data-theme="dark"] & {
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-text-primary);
   }
 
+  &:hover,
   &:focus {
-    outline: 3px solid var(--color-brand-accent);
-    outline-offset: 2px;
+    background-color: var(--color-brand-primary);
+    color: var(--color-text-inverse);
+  }
+
+  // Dark theme specific hover/focus
+  [data-theme="dark"] &:hover,
+  [data-theme="dark"] &:focus {
+    background-color: var(--color-brand-accent);
+    border-color: var(--color-brand-accent);
+    color: var(--color-text-inverse);
   }
 }
 
 .heroImageContainer {
-  margin-top: var(--spacing-lg);
-  width: 250px;
-  height: 250px;
-  position: relative;
-  
-  @include breakpoint-up(md) {
-    margin-top: 0;
-    width: 300px;
-    height: 300px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 1; // Pushes image to the top on small screens
+
+  @media (min-width: 768px) {
+    order: 2; // Reverts to image on the right
+    padding-left: var(--spacing-lg); // Adds space between text and image
   }
 }
 
+
+
 .profileImage {
-  width: 100%;
-  height: 100%;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 50%;
+
   box-shadow: var(--box-shadow-md);
+
+  // Animation for the image
+  //animation: fadeInScale 0.8s ease-out 0.8s forwards;
   animation: float 3s ease-in-out infinite;
+
+  @media (min-width: 768px) {
+    width: 350px;
+    height: 350px;
+  }
 }
 
 // Ensure images are accessible
 img {
   display: block;
+}
+
+// Keyframe animations for a professional, non-intrusive entry
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 // Reduced motion media query for users who prefer less animation
@@ -164,9 +246,12 @@ img {
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }

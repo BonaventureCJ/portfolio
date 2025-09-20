@@ -1,16 +1,10 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AboutPreview.module.scss';
 import { heroData } from 'data/hero';
 
 /**
  * A condensed "About" section for the homepage.
- *
- * This component provides a brief, engaging introduction and a call-to-action
- * to guide visitors to the full About page. It is built with accessibility (WCAG),
- * SEO, and responsive design in mind, using semantic HTML and the BEM naming convention.
- *
- * @returns {JSX.Element} The About Preview component.
+ @returns {JSX.Element} The About Preview component.
  */
 const AboutPreview = () => {
   const { yearsOfExperience } = heroData;

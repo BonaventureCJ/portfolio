@@ -5,13 +5,6 @@ import projectsData from 'data/projects';
 
 /**
  * ProjectsPreview Component
- *
- * Displays a curated selection of featured projects on the homepage.
- * Includes a link to the full projects page for more details.
- *
- * Adheres to enterprise React standards, including semantic HTML,
- * responsive design, WCAG accessibility, SEO, and BEM naming.
- *
  * @returns {JSX.Element} The Projects Preview component.
  */
 const ProjectsPreview = () => {
@@ -71,7 +64,7 @@ const ProjectsPreview = () => {
             to="/projects"
             className={`${styles.projectsPreview__ctaLink} ${styles.ctaButton}`}
             aria-label="Navigate to the full Projects page"
-            title="View all projects"
+            title="View all projects on the Projects page"
           >
             View All Projects
           </Link>

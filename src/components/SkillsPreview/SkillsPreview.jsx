@@ -5,12 +5,6 @@ import skillsData from 'data/skills';
 
 /**
  * A skills preview section for the homepage.
- *
- * This component displays a curated selection of key skills and their associated
- * icons, filtered by `isFeatured: true` from a centralized data source. It adheres
- * to enterprise-grade standards for semantic HTML, WCAG accessibility, SEO,
- * and responsive design, using BEM naming conventions for SCSS modules.
- *
  * @returns {JSX.Element} The Skills Preview component.
  */
 const SkillsPreview = () => {
