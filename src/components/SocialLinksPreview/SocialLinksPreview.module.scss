@@ -1,0 +1,97 @@
+// src/components/SocialLinksPreview/SocialLinksPreview.module.scss
+
+@use '../../styles/abstracts' as *;
+
+.socialLinksPreview {
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  background-color: var(--color-surface-elevated);
+  transition: background-color 0.3s ease;
+
+  &__container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+  }
+
+  &__heading {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+    transition: color 0.3s ease;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: var(--spacing-lg);
+
+    @media (max-width: 480px) {
+      gap: var(--spacing-md);
+    }
+  }
+
+  &__item {
+    &:focus-within {
+      outline: 2px solid var(--color-brand-primary);
+      outline-offset: 4px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    box-shadow: var(--box-shadow-sm);
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-border-primary);
+
+    &:hover {
+      background-color: var(--color-brand-primary);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: var(--box-shadow-md);
+    }
+
+    &:hover,
+    &:focus {
+      .socialLinksPreview__icon {
+        fill: var(--color-text-inverse);
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__icon {
+    width: var(--spacing-lg);
+    height: var(--spacing-lg);
+    fill: var(--color-text-primary);
+    transition: fill 0.3s ease;
+  }
+}
+
+// Dark mode overrides
+[data-theme='dark'] {
+  .socialLinksPreview {
+    background-color: var(--color-surface-elevated);
+    
+    &__link {
+      background-color: var(--card-bg);
+      border-color: var(--color-border-primary);
+    
+      &:hover {
+        background-color: var(--color-brand-primary);
+      }
+    }
+  }
+}

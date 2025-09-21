@@ -18,6 +18,7 @@ import Hero from 'components/Hero/Hero';
 import AboutPreview from 'components/AboutPreview/AboutPreview';
 import SkillsPreview from 'components/SkillsPreview/SkillsPreview';
 import ProjectsPreview from 'components/ProjectsPreview/ProjectsPreview';
+import SocialLinksPreview from 'components/SocialLinksPreview/SocialLinksPreview';
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
       <AboutPreview />
       <SkillsPreview />
       <ProjectsPreview />
+      <SocialLinksPreview />
       {/* Other sections will go here */}
     </>
   );

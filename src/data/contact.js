@@ -21,6 +21,7 @@ const generateId = () => nextId++;
  * @property {object} icon - The imported React component for the icon.
  * @property {string} url - The full URL to the social media profile or contact method.
  * @property {string} label - A descriptive label for accessibility.
+ * @property {boolean} isFeatured - Indicates if the link should be featured on the homepage.
  */
 
 /** @type {ContactLink[]} */
@@ -31,6 +32,7 @@ const socialLinks = [
     icon: LinkedInIcon,
     url: 'https://www.linkedin.com/in/bonaventure-ugwu',
     label: 'Bonaventure Ugwu on LinkedIn',
+    isFeatured: true, // Will be shown on homepage
   },
   {
     id: generateId(),
@@ -38,6 +40,7 @@ const socialLinks = [
     icon: GithubIcon,
     url: 'https://github.com/BonaventureCJ',
     label: 'Bonaventure Ugwu on GitHub',
+    isFeatured: true, // Will be shown on homepage
   },
   {
     id: generateId(),
@@ -45,6 +48,7 @@ const socialLinks = [
     icon: XIcon,
     url: 'https://x.com/your-username', // Replace with your actual X profile URL
     label: 'Bonaventure Ugwu on X',
+    isFeatured: false, // Not featured on homepage
   },
 ];
 
