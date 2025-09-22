@@ -1,6 +1,6 @@
-/* src/components/ContactPreview.module.scss */
+/* src/components/previews/ContactPreview.module.scss */
 
-@use '../../styles/abstracts' as *;
+@use 'styles/abstracts' as *;
 
 .contactPreview {
   padding: var(--spacing-lg) 0;

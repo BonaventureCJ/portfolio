@@ -1,6 +1,6 @@
-/* src/components/AboutPreview/AboutPreview.module.scss */
+/* src/components/previews/AboutPreview/AboutPreview.module.scss */
 
-@use '../../styles/abstracts' as *;
+@use 'styles/abstracts' as *;
 
 .aboutPreview {
   padding: var(--spacing-xl) var(--spacing-sm);

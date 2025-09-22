@@ -1,6 +1,6 @@
-/* src/components/SkillsPreview/SkillsPreview.module.scss */
+/* src/components/previews/SkillsPreview/SkillsPreview.module.scss */
 
-@use '../../styles/abstracts' as *;
+@use 'styles/abstracts' as *;
 
 .skillsPreview {
   padding: var(--spacing-xl) var(--spacing-sm);

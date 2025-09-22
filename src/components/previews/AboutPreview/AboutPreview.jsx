@@ -1,3 +1,4 @@
+/* src/components/previews/AboutPreview/AboutPreview.jsx */
 import { Link } from 'react-router-dom';
 import styles from './AboutPreview.module.scss';
 import { heroData } from 'data/hero';

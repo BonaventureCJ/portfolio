@@ -68,7 +68,7 @@ const contactItems = [
     url: 'mailto:bonacjugwu@gmail.com',
     display: 'bonacjugwu@gmail.com',
     label: 'Send an Email to Bonaventure',
-    isFeatured: false,
+    isFeatured: true,
   },
   {
     id: generateId(),

@@ -1,6 +1,6 @@
-/* src/components/ProjectsPreview/ProjectsPreview.module.scss */
+/* src/components/previews/ProjectsPreview/ProjectsPreview.module.scss */
 
-@use '../../styles/abstracts' as *;
+@use 'styles/abstracts' as *;
 
 .projectsPreview {
   padding: var(--spacing-xl) var(--spacing-sm);

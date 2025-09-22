@@ -1,4 +1,4 @@
-// src/components/ContactPreview.jsx
+// src/components/previews/ContactPreview.jsx
 
 import React from 'react';
 import styles from './ContactPreview.module.scss';
