@@ -27,15 +27,12 @@ const About = () => {
           </div>
           <div className={styles['about__text-container']}>
             <p className={styles['about__summary']}>
-              Front-end developer with { yearsOfExperience }+ years of experience building performant, user-focused web
-              applications using React.js, Next.js, and TypeScript. Passionate about responsive
-              design, clean code, and creating intuitive UIs. Proven track record of delivering
-              scalable web solutions using modern frameworks and best practices.
+             "Front-End Engineer with {yearsOfExperience}+ years of experience building performant, scalable, and accessible web applications. I use a modern tech stack of React, Next.js, and TypeScript to create intuitive user interfaces and write clean, maintainable code. 
             </p>
             <p className={styles['about__summary']}>
-              Strong background in healthcare, statistical data analyses and scientific research, bringing analytical
-              precision to development workflows.
+              My strong background in healthcare, statistical data analyses and scientific research, provides a unique analytical lens for solving complex development challenges and prioritizing the user experience."
             </p>
+            
           </div>
         </div>
 

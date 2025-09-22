@@ -1,29 +1,24 @@
 /* src/components/previews/AboutPreview/AboutPreview.jsx */
 import { Link } from 'react-router-dom';
 import styles from './AboutPreview.module.scss';
-import { heroData } from 'data/hero';
+import { yearsOfExperience } from 'utils/helpers';
 
 /**
  * A condensed "About" section for the homepage.
  @returns {JSX.Element} The About Preview component.
  */
 const AboutPreview = () => {
-  const { yearsOfExperience } = heroData;
 
   return (
     <section className={styles.aboutPreview}>
       <div className={styles.aboutPreview__container}>
         <div className={styles.aboutPreview__content}>
           <h2 className={styles.aboutPreview__heading}>About Me</h2>
-          
-          <p className={styles.aboutPreview__text}>
-            As a Front-End Engineer with over {yearsOfExperience}+ years of experience, I specialize in building performant and user-focused web applications with React.js, Next.js, and TypeScript.
-          </p>
 
           <p className={styles.aboutPreview__text}>
-            My background in healthcare and scientific research has equipped me with a unique analytical approach to development, allowing me to build scalable solutions while prioritizing an intuitive user experience.
+            As a Front-End Engineer with {yearsOfExperience}+ years of experience, I am passionate about Accessibility, SEO, Responsive Web Design, clean code, and creating intuitive UIs using modern frameworks and best practices.
           </p>
-          
+
           <Link
             to="/about"
             className={`${styles.aboutPreview__cta} ${styles.ctaButton}`}

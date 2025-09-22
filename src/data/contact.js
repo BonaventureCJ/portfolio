@@ -94,7 +94,7 @@ const contactItems = [
 
 // Combine the two data messages into one object or keep it separate based on preference
 const ctaMessage = {
-  form: "Feel free to reach out using the form below. I'd love to hear from you!",
+  form: "You can reach out to me using the form below. I'd love to hear from you!",
   general: "Let's connect and build something great together. Find me on social media or reach me directly.",
 };
 
