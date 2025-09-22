@@ -1,3 +1,5 @@
+// src/components/previews/SkillsPreview/SkillsPreview.jsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './SkillsPreview.module.scss';
@@ -19,8 +21,11 @@ const SkillsPreview = () => {
           Showcasing my core competencies in modern front-end development.
         </p>
         
-        {/* Render the new SkillsPreviewCard component with the featured skills */}
-        <SkillsPreviewCard skills={featuredSkills} />
+        <ul className={styles.skillsPreview__list} role="list">
+          {featuredSkills.map((skill) => (
+            <SkillsPreviewCard key={skill.id} skill={skill} />
+          ))}
+        </ul>
 
         {/* Link to the full skills page */}
         <div className={styles.skillsPreview__cta}>

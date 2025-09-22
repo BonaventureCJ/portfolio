@@ -1,14 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link here
+import { Link } from 'react-router-dom';
 import styles from './About.module.scss';
-import skills from 'data/skills';
+import skillsData from 'data/skills';
 import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard'; 
 import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
 import { yearsOfExperience } from 'utils/helpers';
 import requestResume from 'assets/documents/request-resume.pdf';
 
 const About = () => {
-  const majorSkills = skills.filter(skill => skill.level === 'Major' && skill.isFeatured);
+  // Filter skills to get only the featured ones with a 'Major' level
+  const featuredSkills = skillsData.filter((skill) => skill.isFeatured);
 
   return (
     <section className={styles.about}>
@@ -46,8 +47,11 @@ const About = () => {
 
         <div className={styles.about__skills}>
           <h3 className={styles.about__skillsHeading}>My Major Skills</h3>
-          <SkillsPreviewCard skills={majorSkills} />
-          {/* Add the Link component here */}
+          <ul className={styles.about__skillsList} role="list">
+            {featuredSkills.map((skill) => (
+              <SkillsPreviewCard key={skill.id} skill={skill} />
+            ))}
+          </ul>
           <Link
             to="/skills"
             className={`${styles.about__button} ${styles['about__button--skills']}`}

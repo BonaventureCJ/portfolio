@@ -1,3 +1,5 @@
+// src/components/preview-cards/SkillsPreviewCard/SkillsPreviewCard.jsx
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SkillsPreviewCard.module.scss';
@@ -5,38 +7,31 @@ import styles from './SkillsPreviewCard.module.scss';
 /**
  * SkillsPreviewCard Component
  * 
- * Renders a list of skill items, each with an icon and name.
+ * Renders a single skill item with an icon and name.
  * 
  * @param {object} props - The component props.
- * @param {Array<object>} props.skills - An array of skill objects to render.
+ * @param {object} props.skill - A single skill object to render.
  * @returns {JSX.Element} The rendered SkillsPreviewCard component.
  */
-const SkillsPreviewCard = ({ skills }) => {
+const SkillsPreviewCard = ({ skill }) => {
   return (
-    <ul className={styles.skillsList} role="list">
-      {skills.map((skill) => (
-        <li
-          key={skill.id}
-          className={styles.skillsItem}
-        >
-          <div className={styles.skillsIcon}>
-            <skill.icon aria-hidden="true" />
-          </div>
-          <span className={styles.skillsName}>{skill.name}</span>
-        </li>
-      ))}
-    </ul>
+    <li
+      className={styles.skillsItem}
+    >
+      <div className={styles.skillsIcon}>
+        <skill.icon aria-hidden="true" />
+      </div>
+      <span className={styles.skillsName}>{skill.name}</span>
+    </li>
   );
 };
 
 SkillsPreviewCard.propTypes = {
-  skills: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      icon: PropTypes.elementType.isRequired,
-    })
-  ).isRequired,
+  skill: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    icon: PropTypes.elementType.isRequired,
+  }).isRequired,
 };
 
 export default SkillsPreviewCard;
