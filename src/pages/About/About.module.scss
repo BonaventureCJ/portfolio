@@ -81,11 +81,17 @@
 
 .about__summary {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-base);
-  line-height: 1.6;
+  font-size: var(--font-size-lg);
+  line-height: 1.6; // Slightly more than WCAG minimum of 1.5 for better spacing.
   color: var(--color-text-primary);
+  max-width: 75ch; // Set a maximum line length for comfortable reading, using `ch` units for character-based width.
+  margin-left: auto; // Center the text block when it's narrower than its container.
+  margin-right: auto;
+  
+  // Staggered fade-in animation for a dynamic entry
   animation: fadeIn 1s ease-out forwards;
   opacity: 0;
+  
   &:first-of-type {
     animation-delay: 0.3s;
   }
@@ -93,6 +99,7 @@
     animation-delay: 0.6s;
   }
 }
+
 
 .about__button {
   display: inline-block;
