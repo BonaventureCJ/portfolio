@@ -1,15 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link here
 import styles from './About.module.scss';
 import skills from 'data/skills';
-// --- Change this line ---
 import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard'; 
-// -----------------------
 import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
 import { yearsOfExperience } from 'utils/helpers';
 import requestResume from 'assets/documents/request-resume.pdf';
 
 const About = () => {
-  // Filter for major skills to pass to the SkillsCard component
   const majorSkills = skills.filter(skill => skill.level === 'Major' && skill.isFeatured);
 
   return (
@@ -48,9 +46,15 @@ const About = () => {
 
         <div className={styles.about__skills}>
           <h3 className={styles.about__skillsHeading}>My Major Skills</h3>
-          {/* --- Change this line --- */}
           <SkillsPreviewCard skills={majorSkills} />
-          {/* ----------------------- */}
+          {/* Add the Link component here */}
+          <Link
+            to="/skills"
+            className={`${styles.about__button} ${styles['about__button--skills']}`}
+            aria-label="View all skills on the Skills page"
+          >
+            View All Skills
+          </Link>
         </div>
       </div>
     </section>

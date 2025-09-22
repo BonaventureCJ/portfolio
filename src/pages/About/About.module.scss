@@ -2,29 +2,26 @@
    About Component Styles
    ========================================================================== */
 
-@use 'styles/abstracts' as *; // This import pulls in all the SCSS variables.
+@use 'styles/abstracts' as *;
 
 // BEM methodology is followed for clear, scalable, and maintainable class names.
 // 1. Accessibility First: Use `rem` for font sizes and widths for scalability.
-//    Ensure sufficient color contrast.
+//    Ensure sufficient color contrast. WCAG compliance is critical.
 // 2. Responsive Design: Mobile-first approach with media queries for larger screens.
 // 3. Modularity: Follow BEM-like naming convention for clarity and avoid conflicts.
 // 4. Professionalism: Clean, organized, and well-commented code.
 
 .about {
-  // Use semantic spacing from variables.
   padding: var(--spacing-lg) var(--spacing-sm);
   background-color: var(--color-surface-base);
   color: var(--color-text-primary);
 
-  // Responsive padding for larger screens
   @media (min-width: 768px) {
     padding: var(--spacing-xl) var(--spacing-lg);
   }
 }
 
 .about__content {
-  // Center content and limit width for readability on large screens.
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
@@ -33,14 +30,11 @@
 }
 
 .about__title {
-  // Use font variables for consistent typography.
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-bold);
   text-align: center;
   margin-bottom: var(--spacing-md);
-
-  // Professionally looking animation on load
   animation: slideInFromTop 0.8s ease-out forwards;
 }
 
@@ -60,20 +54,18 @@
 
 .about__photoContainer {
   position: relative;
-  width: 250px; // Maintain a consistent size for the photo
+  width: 250px;
   height: 250px;
   overflow: hidden;
-  border-radius: 50%; // Circular photo
+  border-radius: 50%;
   box-shadow: var(--box-shadow-md);
-  
-  // Fade-in animation for professional effect
   animation: fadeIn 1s ease-out forwards;
 }
 
 .about__photo {
   width: 100%;
   height: 100%;
-  object-fit: cover; // Ensure the image covers the container without distortion
+  object-fit: cover;
   display: block;
 }
 
@@ -92,8 +84,6 @@
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-text-primary);
-
-  // Staggered fade-in animation for a dynamic entry
   animation: fadeIn 1s ease-out forwards;
   opacity: 0;
   &:first-of-type {
@@ -105,7 +95,6 @@
 }
 
 .about__button {
-  // Use button variables for consistency
   display: inline-block;
   padding: var(--button-padding);
   border-radius: var(--button-border-radius);
@@ -117,8 +106,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--button-box-shadow);
-  
-  // Center the button on mobile
   margin: var(--spacing-md) auto;
 
   &:hover {
@@ -127,7 +114,7 @@
   }
   
   &:focus {
-    outline: 2px solid var(--color-brand-primary); // WCAG compliant focus state
+    outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
   }
 }
@@ -138,15 +125,33 @@
   &:hover {
     background-color: var(--button-bg-primary-hover);
   }
-  
-  // Staggered fade-in animation
   animation: fadeIn 1s ease-out forwards;
   opacity: 0;
   animation-delay: 0.9s;
 }
 
+.about__button--skills {
+
+  // Styles for the new "View All Skills" link button
+  background-color: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+  &:hover {
+    background-color: var(--button-bg-secondary-hover);
+  }
+  // Delayed animation for a professional, staggered entry
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 1.5s;
+
+
+}
+
 .about__skills {
   margin-top: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
 }
 
 .about__skillsHeading {
@@ -155,8 +160,6 @@
   font-weight: var(--font-weight-bold);
   text-align: center;
   margin-bottom: var(--spacing-md);
-  
-  // Professional looking animation
   animation: slideInFromBottom 0.8s ease-out forwards;
   animation-delay: 1.2s;
 }
@@ -192,4 +195,3 @@
     opacity: 1;
   }
 }
-
