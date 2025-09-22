@@ -16,13 +16,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-sm);
   background-color: var(--card-bg);
   border: var(--card-border);
   border-radius: var(--border-radius-md);
   box-shadow: var(--card-box-shadow);
   color: var(--card-text);
+  
+  min-width: 155px; // Ensure a minimum width for better appearance.
+
 
   // Animation for a professional touch.
   // Using a transform and box-shadow for a clean hover effect.

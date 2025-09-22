@@ -44,7 +44,7 @@ const About = () => {
         >
           Download Resume
         </a>
-
+        
         <div className={styles.about__skills}>
           <h3 className={styles.about__skillsHeading}>My Major Skills</h3>
           <ul className={styles.about__skillsList} role="list">

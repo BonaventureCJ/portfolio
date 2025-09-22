@@ -170,28 +170,34 @@
     text-align: center;
   }
 
-  &__skillsList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-md);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    justify-content: center;
+&__skillsList {
+  display: flex; // Use flexbox instead of grid
+  flex-wrap: wrap; // Allow items to wrap to the next line
+  justify-content: center; // Center items horizontally, including the last line
+  gap: var(--spacing-md);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  // Animation for skills cards - appearing staggered
+  & > * {
+    // Ensure flex items have a minimum width to wrap correctly
+    min-width: 320px;
     
-    // Animation for skills cards - appearing staggered
-    & > * {
-      animation: fadeIn 0.8s forwards;
-      opacity: 0;
-      
-      @for $i from 1 through 10 {
-        &:nth-child(#{$i}) {
-          animation-delay: #{$i * 0.1}s;
-        }
+    animation: fadeIn 0.8s forwards;
+    opacity: 0;
+    
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
       }
     }
   }
 }
+
+}
+
+
 
 // Fade-in animation for a professional look
 @keyframes fadeIn {

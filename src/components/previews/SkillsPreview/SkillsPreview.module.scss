@@ -52,6 +52,7 @@
   padding: 0;
   margin: 0;
   max-width: 100%;
+  gap: var(--spacing-md);
   
   & > * {
     opacity: 0;
