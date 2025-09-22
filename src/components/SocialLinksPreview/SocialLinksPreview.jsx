@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './SocialLinksPreview.module.scss';
-import { socialLinks } from 'data/contact';
+import { contactItems } from 'data/contact';
 
 /**
  * SocialLinksPreview Component
@@ -12,7 +12,7 @@ import { socialLinks } from 'data/contact';
  * @returns {JSX.Element} The SocialLinks Preview component.
  */
 const SocialLinksPreview = () => {
-  const featuredLinks = socialLinks.filter(link => link.isFeatured);
+  const featuredLinks = contactItems.filter(item => item.isFeatured);
 
   return (
     <section className={styles.socialLinksPreview} aria-labelledby="social-links-heading">
