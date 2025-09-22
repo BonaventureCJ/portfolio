@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './SkillsPreview.module.scss';
 import skillsData from 'data/skills';
+import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard';
 
 /**
  * A skills preview section for the homepage.
@@ -17,20 +18,11 @@ const SkillsPreview = () => {
         <p className={styles.skillsPreview__description}>
           Showcasing my core competencies in modern front-end development.
         </p>
-        <ul className={styles.skillsPreview__list} role="list">
-          {featuredSkills.map((skill) => (
-            <li
-              key={skill.id}
-              className={styles.skillsPreview__item}
-            >
-              <div className={styles.skillsPreview__icon}>
-                <skill.icon aria-hidden="true" />
-              </div>
-              <span className={styles.skillsPreview__name}>{skill.name}</span>
-            </li>
-          ))}
-        </ul>
-        {/* New: Link to the full skills page */}
+        
+        {/* Render the new SkillsPreviewCard component with the featured skills */}
+        <SkillsPreviewCard skills={featuredSkills} />
+
+        {/* Link to the full skills page */}
         <div className={styles.skillsPreview__cta}>
           <Link
             to="/skills"

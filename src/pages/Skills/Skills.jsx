@@ -3,7 +3,7 @@
 import React from 'react';
 import MajorSkillsCard from 'components/Cards/MajorSkillsCard';
 import OtherSkillsCard from 'components/Cards/OtherSkillsCard';
-import styles from './Skills.module.scss'; // Relative import for SCSS
+import styles from './Skills.module.scss';
 
 const Skills = () => {
   return (

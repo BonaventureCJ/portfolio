@@ -1,37 +1,47 @@
-// src/styles/About.module.scss
+/* ==========================================================================
+   About Component Styles
+   ========================================================================== */
 
-//@use 'styles/abstracts' as a;
+@use 'styles/abstracts' as *; // This import pulls in all the SCSS variables.
+
+// BEM methodology is followed for clear, scalable, and maintainable class names.
+// 1. Accessibility First: Use `rem` for font sizes and widths for scalability.
+//    Ensure sufficient color contrast.
+// 2. Responsive Design: Mobile-first approach with media queries for larger screens.
+// 3. Modularity: Follow BEM-like naming convention for clarity and avoid conflicts.
+// 4. Professionalism: Clean, organized, and well-commented code.
 
 .about {
-  padding: var(--spacing-lg) 0;
+  // Use semantic spacing from variables.
+  padding: var(--spacing-lg) var(--spacing-sm);
+  background-color: var(--color-surface-base);
   color: var(--color-text-primary);
-  background-color: var(--hero-bg);
-  transition: background-color 0.5s ease-in-out;
+
+  // Responsive padding for larger screens
+  @media (min-width: 768px) {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
 }
 
 .about__content {
-  max-width: 1200px;
+  // Center content and limit width for readability on large screens.
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
 .about__title {
+  // Use font variables for consistent typography.
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h1);
-  color: var(--hero-text);
-  margin-bottom: var(--spacing-lg);
-  position: relative;
-  transition: color 0.5s ease-in-out;
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
 
-  &::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--color-brand-primary);
-    margin: var(--spacing-sm) auto 0;
-  }
+  // Professionally looking animation on load
+  animation: slideInFromTop 0.8s ease-out forwards;
 }
 
 .about__intro {
@@ -39,110 +49,147 @@
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
+  text-align: center;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     flex-direction: row;
     text-align: left;
+    gap: var(--spacing-xl);
   }
 }
 
-.about__photo-container {
-  flex-shrink: 0;
-  width: 250px;
+.about__photoContainer {
+  position: relative;
+  width: 250px; // Maintain a consistent size for the photo
   height: 250px;
-  border-radius: 50%;
   overflow: hidden;
+  border-radius: 50%; // Circular photo
   box-shadow: var(--box-shadow-md);
+  
+  // Fade-in animation for professional effect
+  animation: fadeIn 1s ease-out forwards;
 }
 
 .about__photo {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; // Ensure the image covers the container without distortion
   display: block;
 }
 
-.about__text-container {
-  flex-grow: 1;
+.about__textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  @media (min-width: 992px) {
+    flex: 1;
+  }
 }
 
 .about__summary {
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-base);
   line-height: 1.6;
-  margin-bottom: var(--spacing-sm);
-  color: var(--hero-text);
+  color: var(--color-text-primary);
+
+  // Staggered fade-in animation for a dynamic entry
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+  &:first-of-type {
+    animation-delay: 0.3s;
+  }
+  &:last-of-type {
+    animation-delay: 0.6s;
+  }
 }
 
 .about__button {
-  @extend %button-primary;
+  // Use button variables for consistency
   display: inline-block;
-  margin-bottom: var(--spacing-lg);
+  padding: var(--button-padding);
+  border-radius: var(--button-border-radius);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--button-box-shadow);
+  
+  // Center the button on mobile
+  margin: var(--spacing-md) auto;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:focus {
+    outline: 2px solid var(--color-brand-primary); // WCAG compliant focus state
+    outline-offset: 2px;
+  }
+}
+
+.about__button--resume {
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+  &:hover {
+    background-color: var(--button-bg-primary-hover);
+  }
+  
+  // Staggered fade-in animation
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.9s;
 }
 
 .about__skills {
   margin-top: var(--spacing-lg);
 }
 
-.about__skills-heading {
+.about__skillsHeading {
   font-family: var(--font-family-headings);
   font-size: var(--font-size-h2);
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text-primary);
-}
-
-.about__skills-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--spacing-md);
-}
-
-.about__skills-item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  background-color: var(--card-bg);
-  color: var(--card-text);
-  border: var(--card-border);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-sm) var(--spacing-md);
-  box-shadow: var(--card-box-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-}
-
-.about__skills-icon {
-  font-size: var(--font-size-lg);
-  color: var(--color-brand-primary);
-}
-
-.about__skills-name {
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-regular);
-}
-
-// Extendable placeholders for button styling
-%button-primary {
-  padding: var(--button-padding);
-  background-color: var(--button-bg-primary);
-  color: var(--button-text-primary);
-  border-radius: var(--button-border-radius);
-  box-shadow: var(--button-box-shadow);
-  transition: var(--button-transition);
-  text-decoration: none;
   font-weight: var(--font-weight-bold);
-  font-family: var(--font-family-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  
+  // Professional looking animation
+  animation: slideInFromBottom 0.8s ease-out forwards;
+  animation-delay: 1.2s;
+}
 
-  &:hover {
-    background-color: var(--button-bg-primary-hover);
+// Keyframe Animations for UI/UX enhancements
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-// Note: Ensure your About.module.scss file imports abstracts.scss correctly at the top.
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
