@@ -4,12 +4,6 @@
 
 @use 'styles/abstracts' as *;
 
-// WCAG, Performance, and UX considerations:
-// - Contrast: Ensures sufficient contrast using theme variables.
-// - Spacing: Consistent spacing via variables.
-// - Animation: Simple, effective animations provide visual feedback.
-// - Accessibility: Correct use of ARIA attributes and focus styles.
-
 .about {
   padding: var(--spacing-lg) var(--spacing-sm);
   background-color: var(--color-surface-base);
@@ -17,22 +11,23 @@
   overflow-x: hidden;
 
   @media (min-width: 768px) {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-lg);
   }
 }
 
 .about__content {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--spacing-xl);
-  
 }
 
 .about__title {
-  font-size: var(--font-size-h1);
   font-family: var(--font-family-headings);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
   text-align: center;
   position: relative;
 }
@@ -55,7 +50,7 @@
 
   @media (min-width: 992px) {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center; // <--- Changed from flex-start to center
     gap: var(--spacing-xl);
   }
 }
@@ -119,17 +114,27 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  align-items: center;
+  text-align: center;
+
+  @media (min-width: 992px) {
+    align-items: flex-start;
+    text-align: left;
+  }
 }
 
 .about__summary {
+  font-weight: var(--font-weight-regular); /* Make the text bolder */
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
   color: var(--color-text-primary);
+  max-width: 75ch;
 }
 
+
 .about__button {
-  
-  display: block; // Change from inline-block
-  margin: 0 auto;
-  width: 350px; ;
+  display: inline-block;
   text-align: center;
   text-decoration: none;
   font-weight: var(--font-weight-bold);
@@ -141,39 +146,23 @@
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
 
-  // WCAG: Ensure focus state is visible
-  &:focus-visible {
-    outline: 2px solid var(--color-brand-accent);
-    outline-offset: 2px;
-  }
+.about__button:focus-visible {
+  outline: 2px solid var(--color-brand-accent);
+  outline-offset: 2px;
 }
 
 .about__button--resume {
   background-color: var(--button-bg-primary);
   color: var(--button-text-primary);
-
-  &:hover {
-    background-color: var(--button-bg-primary-hover);
-    // Use the theme-specific text color defined in variables
-    color: var(--button-text-primary); 
-    transform: translateY(-2px);
-  }
 }
 
-.about__button--skills {
-  background-color: var(--button-bg-secondary);
-  color: var(--button-text-secondary);
-
-  &:hover {
-    background-color: var(--button-bg-secondary-hover);
-    // Use the theme-specific text color defined in variables
-    color: var(--button-text-secondary);
-    transform: translateY(-2px);
-  }
+.about__button--resume:hover {
+  background-color: var(--button-bg-primary-hover);
+  color: var(--button-text-primary);
+  transform: translateY(-2px);
 }
-
-
 
 .about__button--skills {
   background-color: var(--button-bg-secondary);
@@ -182,6 +171,7 @@
 
 .about__button--skills:hover {
   background-color: var(--button-bg-secondary-hover);
+  color: var(--button-text-secondary);
   transform: translateY(-2px);
 }
 
@@ -189,6 +179,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  align-items: center;
 }
 
 .about__skillsHeading {
@@ -205,7 +196,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
-
+  max-width: 100%;
+  
   & > * {
     min-width: 320px;
     animation: fadeIn 0.8s forwards;
@@ -219,7 +211,57 @@
   }
 }
 
-// Fade-in animation for a professional look
+.ctaButton {
+  padding: var(--button-padding);
+  border-radius: 9999px;
+  min-width: 300px;
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  text-decoration: none;
+  display: inline-block;
+  transition: var(--button-transition), transform 0.3s ease;
+  box-shadow: var(--button-box-shadow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-accent);
+    outline-offset: 2px;
+  }
+  
+  &:hover {
+    background-color: var(--button-bg-primary-hover);
+    color: var(--button-text-primary);
+    transform: translateY(-2px);
+  }
+}
+
+// Keyframe Animations
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -230,4 +272,3 @@
     transform: translateY(0);
   }
 }
-

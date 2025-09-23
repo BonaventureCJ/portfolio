@@ -34,7 +34,7 @@ const About = () => {
             </p>
           </div>
         </div>
-
+        
         <a
           href={requestResume}
           className={`${styles.about__button} ${styles['about__button--resume']}`}
