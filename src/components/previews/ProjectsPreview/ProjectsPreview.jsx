@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProjectsPreview.module.scss';
 import projectsData from 'data/projects';
+import ProjectsCard from 'components/Cards/ProjectsCard';
 
 /**
  * ProjectsPreview Component
@@ -23,39 +24,7 @@ const ProjectsPreview = () => {
 
         <div className={styles.projectsPreview__grid}>
           {featuredProjects.map((project) => (
-            <article key={project.id} className={styles.projectsPreview__card}>
-              <div className={styles.projectsPreview__cardImage}>
-                <img
-                  src={project.image}
-                  alt={`Screenshot of the ${project.title} project`}
-                  loading="lazy"
-                />
-              </div>
-              <div className={styles.projectsPreview__cardContent}>
-                <h3 className={styles.projectsPreview__cardTitle}>{project.title}</h3>
-                <p className={styles.projectsPreview__cardDescription}>{project.description}</p>
-                <div className={styles.projectsPreview__cardActions}>
-                  <a
-                    href={project.liveUrl}
-                    className={`${styles.projectsPreview__link} ${styles.linkLive}`}
-                    aria-label={`View live demo of ${project.title}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.repoUrl}
-                    className={`${styles.projectsPreview__link} ${styles.linkRepo}`}
-                    aria-label={`View GitHub repository for ${project.title}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Repository
-                  </a>
-                </div>
-              </div>
-            </article>
+            <ProjectsCard key={project.id} project={project} />
           ))}
         </div>
 

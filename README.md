@@ -115,7 +115,7 @@ UPDATED: 08 September, 2025
 │   │   ├── skills.js
 │   │   ├── projects.js
 │   │   └── contact-info.js
-│   ├── features/           # Pages and their specific components
+│   ├── pages/           # Pages and their specific components
 │   │   ├── About/
 │   │   │   ├── About.jsx
 │   │   │   └── About.module.scss
