@@ -123,6 +123,8 @@
   
   &:hover {
     background-color: var(--button-bg-primary-hover);
+    // Explicitly set text color to ensure correct contrast in both themes.
+    color: var(--button-text-primary); 
   }
 }
 
