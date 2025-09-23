@@ -1,189 +1,213 @@
+/* ==========================================================================
+   About Component Styles
+   ========================================================================== */
+
 @use 'styles/abstracts' as *;
+
+// WCAG, Performance, and UX considerations:
+// - Contrast: Ensures sufficient contrast using theme variables.
+// - Spacing: Consistent spacing via variables.
+// - Animation: Simple, effective animations provide visual feedback.
+// - Accessibility: Correct use of ARIA attributes and focus styles.
 
 .about {
   padding: var(--spacing-lg) var(--spacing-sm);
-  background-color: var(--hero-bg);
-  color: var(--hero-text);
-  overflow-x: hidden; /* Prevent horizontal scroll issues from animations */
-  
-  // Responsive padding for larger screens
+  background-color: var(--color-surface-base);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+
   @media (min-width: 768px) {
     padding: var(--spacing-xl);
   }
+}
 
-  &__content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+.about__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  
+}
+
+.about__title {
+  font-size: var(--font-size-h1);
+  font-family: var(--font-family-headings);
+  text-align: center;
+  position: relative;
+}
+
+.about__title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-brand-primary);
+  margin: var(--spacing-sm) auto 0;
+  border-radius: var(--border-radius-sm);
+}
+
+.about__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    align-items: flex-start;
     gap: var(--spacing-xl);
   }
+}
 
-  &__title {
-    font-size: var(--font-size-h1);
-    font-family: var(--font-family-headings);
-    text-align: center;
-    position: relative;
-    
-    // WCAG: Provide visual feedback for a heading
-    &::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background-color: var(--color-brand-primary);
-      margin: var(--spacing-sm) auto 0;
-      border-radius: var(--border-radius-sm);
-    }
+.about__photoContainer {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--box-shadow-md);
+  flex-shrink: 0;
 
-    @media (min-width: 768px) {
-      font-size: var(--font-size-h1);
-    }
+  @media (min-width: 768px) {
+    width: 300px;
+    height: 300px;
   }
 
-  &__intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-lg);
-
-    @media (min-width: 992px) {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: var(--spacing-xl);
-    }
+  @media (min-width: 992px) {
+    width: 350px;
+    height: 350px;
   }
+}
 
-  &__photoContainer {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--box-shadow-md);
-    flex-shrink: 0;
+.about__photoContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    45deg,
+    rgba(0, 123, 255, 0.1),
+    rgba(23, 162, 184, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: linear-gradient(
-        45deg,
-        rgba(0, 123, 255, 0.1),
-        rgba(23, 162, 184, 0.1)
-      );
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+.about__photoContainer:hover::after {
+  opacity: 1;
+}
 
-    &:hover::after {
-      opacity: 1;
-    }
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-    @media (min-width: 768px) {
-      width: 300px;
-      height: 300px;
-    }
+.about__photo:hover {
+  transform: scale(1.05);
+  filter: saturate(1.2);
+}
 
-    @media (min-width: 992px) {
-      width: 350px;
-      height: 350px;
-    }
+.about__textContainer {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.about__summary {
+  color: var(--color-text-primary);
+}
+
+.about__button {
+  
+  display: block; // Change from inline-block
+  margin: 0 auto;
+  width: 350px; ;
+  text-align: center;
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  padding: var(--button-padding);
+  border-radius: var(--button-border-radius);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  border: none;
+  box-shadow: var(--button-box-shadow);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  // WCAG: Ensure focus state is visible
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-accent);
+    outline-offset: 2px;
   }
+}
 
-  &__photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    
-    &:hover {
-      transform: scale(1.05);
-      filter: saturate(1.2);
-    }
+.about__button--resume {
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+
+  &:hover {
+    background-color: var(--button-bg-primary-hover);
+    // Use the theme-specific text color defined in variables
+    color: var(--button-text-primary); 
+    transform: translateY(-2px);
   }
+}
 
-  &__textContainer {
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
+.about__button--skills {
+  background-color: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+
+  &:hover {
+    background-color: var(--button-bg-secondary-hover);
+    // Use the theme-specific text color defined in variables
+    color: var(--button-text-secondary);
+    transform: translateY(-2px);
   }
+}
 
-  &__summary {
-    color: var(--color-text-primary);
-  }
 
-  &__button {
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    font-weight: var(--font-weight-bold);
-    padding: var(--button-padding);
-    border-radius: var(--button-border-radius);
-    transition: var(--button-transition);
-    border: none;
-    box-shadow: var(--button-box-shadow);
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
-    // WCAG: Ensure focus state is visible
-    &:focus-visible {
-      outline: 2px solid var(--color-brand-accent);
-      outline-offset: 2px;
-    }
-    
-    &--resume {
-      background-color: var(--button-bg-primary);
-      color: var(--button-text-primary);
-      &:hover {
-        background-color: var(--button-bg-primary-hover);
-        transform: translateY(-2px);
-      }
-    }
 
-    &--skills {
-      background-color: var(--button-bg-secondary);
-      color: var(--button-text-secondary);
-      &:hover {
-        background-color: var(--button-bg-secondary-hover);
-        transform: translateY(-2px);
-      }
-    }
-  }
+.about__button--skills {
+  background-color: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+}
 
-  &__skills {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-  }
+.about__button--skills:hover {
+  background-color: var(--button-bg-secondary-hover);
+  transform: translateY(-2px);
+}
 
-  &__skillsHeading {
-    font-size: var(--font-size-h2);
-    font-family: var(--font-family-headings);
-    text-align: center;
-  }
+.about__skills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
 
-&__skillsList {
-  display: flex; // Use flexbox instead of grid
-  flex-wrap: wrap; // Allow items to wrap to the next line
-  justify-content: center; // Center items horizontally, including the last line
+.about__skillsHeading {
+  font-size: var(--font-size-h2);
+  font-family: var(--font-family-headings);
+  text-align: center;
+}
+
+.about__skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--spacing-md);
   list-style: none;
   padding: 0;
   margin: 0;
-  
-  // Animation for skills cards - appearing staggered
+
   & > * {
-    // Ensure flex items have a minimum width to wrap correctly
     min-width: 320px;
-    
     animation: fadeIn 0.8s forwards;
     opacity: 0;
     
@@ -194,10 +218,6 @@
     }
   }
 }
-
-}
-
-
 
 // Fade-in animation for a professional look
 @keyframes fadeIn {
@@ -210,3 +230,4 @@
     transform: translateY(0);
   }
 }
+
