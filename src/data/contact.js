@@ -77,7 +77,7 @@ const contactItems = [
     type: 'whatsapp',
     url: 'https://wa.me/+2348061103300',
     display: '+234 806 110 3300',
-    label: 'Chat on WhatsApp',
+    label: 'Chat Bonaventure on WhatsApp',
     isFeatured: false,
   },
   {
@@ -87,7 +87,7 @@ const contactItems = [
     type: 'phone',
     url: 'sms:+2348061103300',
     display: '+234 806 110 3300',
-    label: 'Send an SMS',
+    label: 'Send Bonaventure an SMS',
     isFeatured: false,
   },
 ];

@@ -22,6 +22,7 @@ const ContactsCard = ({ contact }) => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label}
+        title={label} // Added for visual tooltips on hover
         className={styles['contacts-card__link']}
       >
         <div className={styles['contacts-card__icon-container']}>
@@ -50,3 +51,4 @@ ContactsCard.propTypes = {
 };
 
 export default ContactsCard;
+
