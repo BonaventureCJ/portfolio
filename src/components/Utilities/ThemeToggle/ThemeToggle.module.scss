@@ -1,27 +1,131 @@
-// src/components/Utilities/ThemeToggle/ThemeToggle.module.scss
-@use 'styles/abstracts' as a;
+/* ==========================================================================
+   ThemeToggle.module.scss - Component-specific styles for ThemeToggle
+   ========================================================================== */
 
-.toggleButton {
-  /* Apply button-related variables from _abstracts.scss */
-  background-color: var(--card-bg);
-  border: 1px solid var(--nav-border-color);
-  color: var(--nav-text);
-  
-  /* Use other variables for dimensions and styling */
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+@use 'styles/abstracts' as *;
+
+.themeToggle {
+  // Reset default button styles for a clean, custom look.
+  appearance: none;
+  background: none;
+  border: none;
   cursor: pointer;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  /* Add a smooth transition */
-  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+  position: relative; // Needed for positioning the icon wrapper.
 
+  // Utilize CSS variables for theme-dependent properties.
+  --theme-toggle-size: 2.5rem;
+  --theme-toggle-bg: var(--color-surface-elevated);
+  --theme-toggle-border-color: var(--color-border-primary);
+  --theme-toggle-icon-color: var(--color-text-secondary);
+
+  // Set the button's dimensions and shape.
+  width: var(--theme-toggle-size);
+  height: var(--theme-toggle-size);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xxs);
+  border-radius: 100%; // Ensures a perfect circle shape.
+
+  // Add transitions for smooth state changes.
+  transition:
+    background-color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+
+  // Apply visual styling.
+  background-color: var(--theme-toggle-bg);
+  border: 1px solid var(--theme-toggle-border-color);
+
+  // Accessible focus state for keyboard navigation.
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+  }
+
+  // Hover and active states for better UI/UX.
   &:hover {
-    /* Use a specific hover state color if needed, or let the text color handle it */
-    color: var(--nav-link-hover);
+    background-color: var(--theme-toggle-border-color);
+    transform: scale(1.15);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    box-shadow: none;
+  }
+
+  // Ensure responsive design for smaller screens if needed.
+  @media (max-width: 768px) {
+    --theme-toggle-size: 2rem;
+  }
+}
+
+// Icon Wrapper to enable smooth transitions.
+.iconWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Icon styling and transition properties.
+.icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: var(--theme-toggle-icon-color);
+
+  // Adjusted timing for a slower, smoother effect.
+  // The cubic-bezier here gives it a more gentle start and end.
+  transition:
+    opacity 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+// Icon visibility and animation for the light theme (sun).
+.iconWrapper > :nth-child(1).visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateY(0);
+}
+.iconWrapper > :nth-child(1).hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) translateY(100%); // Slide down and out.
+}
+
+// Icon visibility and animation for the dark theme (moon).
+.iconWrapper > :nth-child(2).visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateY(0);
+}
+.iconWrapper > :nth-child(2).hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) translateY(-100%); // Slide up and out.
+}
+
+// Adjustments for the dark theme.
+[data-theme='dark'] {
+  .themeToggle {
+    --theme-toggle-bg: var(--color-surface-elevated);
+    --theme-toggle-border-color: var(--color-border-primary);
+    --theme-toggle-icon-color: var(--color-text-primary);
+
+    &:hover {
+      background-color: var(--color-border-primary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-brand-accent);
+    }
+  }
+  
+  .icon {
+    fill: var(--theme-toggle-icon-color);
   }
 }

@@ -1,0 +1,76 @@
+@use '../../styles/abstracts' as *;
+
+.navigation {
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  box-shadow: var(--nav-box-shadow);
+  border-bottom: 1px solid var(--nav-border-color);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-family-primary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.navList {
+  display: flex;
+  gap: var(--spacing-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--nav-text);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--nav-link-hover);
+    background-color: rgba(0, 123, 255, 0.05);
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px dashed var(--nav-link-hover);
+    outline-offset: 4px;
+  }
+}
+
+.activeLink {
+  color: var(--nav-link-active);
+  font-weight: var(--font-weight-bold);
+  border-bottom: 2px solid var(--nav-link-active);
+}
+
+@media (max-width: 768px) {
+  .navList {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    background-color: var(--nav-bg);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+  }
+
+  .navLink {
+    display: block;
+    width: 100%;
+  }
+}
