@@ -1,7 +1,8 @@
-// src/styles/_abstracts.scss
+// src/styles/_abstracts.scss //for Portfolio Project
 @charset "UTF-8";
+// --- Variables ---
 
-// Your provided light theme variables (default)
+// Light theme variables (default)
 :root {
   /* Colors */
   --color-brand-primary: #007bff;
@@ -95,6 +96,7 @@
   /* --- Hero Section --- */
   --hero-bg: var(--color-surface-base);
   --hero-text: var(--color-text-primary);
+  
 }
 
 // Your provided dark theme variables (overrides)

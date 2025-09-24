@@ -1,0 +1,270 @@
+/* src/components/Hero/Hero.module.scss */
+
+@use '../../styles/abstracts' as *;
+
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-sm);
+  background-color: var(--hero-bg);
+  color: var(--hero-text);
+  text-align: center;
+  min-height: 80vh; // Ensures the hero section takes up a significant portion of the viewport
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between; // Switches to a row layout on larger screens
+    text-align: left;
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  order: 2; // Moves content below the image on small screens
+
+  @media (min-width: 768px) {
+    order: 1; // Reverts to content on the left
+  }
+}
+
+.heroTitle {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brand-primary);
+  margin-bottom: var(--spacing-xs);
+
+  // Animation for the main title
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.heroSubtitle {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+
+  // Animation for the subtitle
+  animation: slideInLeft 0.8s ease-out 0.2s forwards;
+}
+
+.heroDescription {
+font-family: var(--font-family-primary);
+  font-size: var(--font-size-lg);
+  line-height: 1.6; // Improved readability via WCAG guidelines
+  max-width: 75ch; // Restricts line length for readability
+  margin-bottom: var(--spacing-lg);
+
+  // Animation for the description
+  animation: slideInUp 0.8s ease-out 0.4s forwards;
+
+  @media (min-width: 768px) {
+    max-width: none;
+  }
+}
+
+.ctaContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+
+  // Animation for the button container
+  animation: fadeIn 1s ease-in-out 0.6s forwards;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
+}
+
+.primaryCta,
+.secondaryCta {
+  display: inline-block;
+  padding: var(--button-padding);
+  border-radius: var(--button-border-radius);
+  border-radius: 9999px; // Pill-shaped button
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: var(--button-transition), transform 0.3s ease;
+  box-shadow: var(--button-box-shadow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap; // Prevents button text from wrapping
+  min-width: 250px; // Ensure consistent button width
+  min-height: 44px;
+  border: 2px solid;
+  // Accessible minimum touch target size
+
+  display: inline-flex; // For vertical alignment
+  align-items: center;
+  justify-content: center;
+
+  // Base styling for the buttons
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-md);
+  }
+}
+
+.primaryCta {
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+
+  &:hover,
+  &:focus {
+    background-color: var(--button-bg-primary-hover);
+    color: var(--button-text-secondary);
+  }
+}
+
+.secondaryCta {
+  background-color: transparent;
+  color: var(--color-brand-primary);
+  border: 1px solid var(--color-brand-primary);
+  transition: var(--button-transition), border-color 0.3s ease, transform 0.3s ease;
+
+  // Dark theme override for secondary button
+  [data-theme="dark"] & {
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-text-primary);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-brand-primary);
+    color: var(--color-text-inverse);
+    border-color: var(--color-brand-primary); // Ensure border color transitions
+  }
+
+  // Dark theme specific hover/focus
+  [data-theme="dark"] &:hover,
+  [data-theme="dark"] &:focus {
+    background-color: var(--color-brand-accent);
+    border-color: var(--color-brand-accent);
+    color: var(--color-text-inverse);
+  }
+}
+
+
+.heroImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 1; // Pushes image to the top on small screens
+
+  @media (min-width: 768px) {
+    order: 2; // Reverts to image on the right
+    padding-left: var(--spacing-lg); // Adds space between text and image
+  }
+}
+
+
+
+.profileImage {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+
+  //box-shadow: var(--box-shadow-md);
+
+  // Animation for the image
+  //animation: fadeInScale 0.8s ease-out 0.8s forwards;
+  animation: float 3s ease-in-out infinite;
+
+  @media (min-width: 768px) {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+// Ensure images are accessible
+img {
+  display: block;
+}
+
+// Keyframe animations for a professional, non-intrusive entry
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Reduced motion media query for users who prefer less animation
+@media (prefers-reduced-motion: reduce) {
+  .profileImage {
+    animation: none;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+// Apply dark theme overrides
+[data-theme="dark"] {
+  .heroSection {
+    background-color: var(--hero-bg);
+    color: var(--hero-text);
+  }
+}

@@ -3,11 +3,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Import layouts and page components using absolute paths
 import MainLayout from 'layouts/MainLayout';
-import Home from 'features/Home/Home';
-import About from 'features/About/About';
-import Skills from 'features/Skills/Skills';
-import Projects from 'features/Projects/Projects';
-import Contact from 'features/Contact/Contact';
+import Home from 'pages/Home/Home';
+import About from 'pages/About/About';
+import Skills from 'pages/Skills/Skills';
+import Projects from 'pages/Projects/Projects';
+import Contact from 'pages/Contact/Contact';
 
 // Import layouts and page components using absolute paths
 import ErrorBoundaryPage from 'components/Utilities/ErrorBoundaryPage/ErrorBoundaryPage';

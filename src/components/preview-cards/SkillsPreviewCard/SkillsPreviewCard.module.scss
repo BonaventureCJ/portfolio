@@ -1,0 +1,76 @@
+/* ==========================================================================
+   SkillsPreviewCard Component Styles
+   ========================================================================== */
+
+@use 'styles/abstracts' as *;
+
+// WCAG, Performance, and UX considerations:
+// - Contrast: Ensure sufficient contrast between icon and card background.
+// - Spacing: Use `gap` for consistent spacing and easy maintenance.
+// - Animation: Use simple, effective animations to provide visual feedback.
+// - Accessibility: `aria-hidden` on the icon is a best practice for screen readers,
+//   as the skill name provides the necessary context.
+
+.skillsItem {
+  // Use a flexbox for easy alignment of the icon and text.
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-sm);
+  background-color: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--card-box-shadow);
+  color: var(--card-text);
+  
+  min-width: 155px; // Ensure a minimum width for better appearance.
+
+
+  // Animation for a professional touch.
+  // Using a transform and box-shadow for a clean hover effect.
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  // Ensures the focus outline is visible and respects WCAG.
+  &:focus-within {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+  }
+}
+
+.skillsIcon {
+  // Size the SVG icon consistently.
+  // Use `flex-shrink: 0` to prevent the icon from shrinking on small screens.
+  width: var(--font-size-lg);
+  height: var(--font-size-lg);
+  flex-shrink: 0;
+
+  // Use currentColor to allow the SVG to inherit the text color.
+  // This ensures consistency across themes.
+  & > svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+}
+
+.skillsName {
+  // Use consistent typography variables.
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--card-text);
+  line-height: 1.2; // Adjust line-height for a single line of text.
+  
+  // Prevent text from wrapping prematurely.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

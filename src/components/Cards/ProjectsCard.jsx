@@ -10,7 +10,7 @@ import styles from './ProjectsCard.module.scss';
  * @param {object} props.project - The project data to display.
  */
 const ProjectsCard = ({ project }) => {
-  const { title, description, image, liveUrl, repoUrl, technologies } = project;
+  const { title, description, image, links, technologies } = project;
 
   return (
     <article className={styles['projects-card']}>
@@ -40,42 +40,44 @@ const ProjectsCard = ({ project }) => {
           ))}
         </ul>
         <div className={styles['projects-card__actions']}>
-          {liveUrl && (
+          {/* Use a .map() loop to render each link from the project's links array */}
+          {links.map((link, index) => (
             <a
-              href={liveUrl}
-              className={`${styles['projects-card__button']} ${styles['projects-card__button--live']}`}
+              key={index} // Add a key for list items, typically `link.label` is a better key if unique
+              href={link.url}
+              className={`${styles['projects-card__button']} ${
+                link.label.toLowerCase().includes('live')
+                  ? styles['projects-card__button--live']
+                  : styles['projects-card__button--repo']
+              }`}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`View a live demo of the ${title} project`}
+              aria-label={link.ariaLabel}
+              // Add a title attribute for additional context on hover
+              title={link.ariaLabel} 
             >
-              Live Demo
+              {link.label}
             </a>
-          )}
-          {repoUrl && (
-            <a
-              href={repoUrl}
-              className={`${styles['projects-card__button']} ${styles['projects-card__button--repo']}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View the code for the ${title} project on GitHub`}
-            >
-              Code
-            </a>
-          )}
+          ))}
         </div>
       </div>
     </article>
   );
 };
 
-// Use PropTypes for type-checking to ensure correct data is passed.
+// Update PropTypes to match the new 'links' structure
 ProjectsCard.propTypes = {
   project: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    liveUrl: PropTypes.string,
-    repoUrl: PropTypes.string,
+    links: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        ariaLabel: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+      })
+    ).isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };
