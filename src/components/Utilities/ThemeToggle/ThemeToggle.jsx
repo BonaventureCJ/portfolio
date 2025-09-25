@@ -3,7 +3,8 @@
 import { useTheme } from 'contexts/ThemeContext';
 
 import styles from './ThemeToggle.module.scss';
-import { ReactComponent as LightThemeIcon } from 'assets/nav-icons-all/sunny-outline-loop.svg';
+//import { ReactComponent as LightThemeIcon } from 'assets/nav-icons-all/sunny-outline-loop.svg';
+import { ReactComponent as LightThemeIcon } from 'assets/nav-icons-all/sunny-filled-loop.svg';
 import { ReactComponent as DarkThemeIcon } from 'assets/nav-icons-all/moon-rising-filled-loop.svg';
 
 const ThemeToggle = () => {
