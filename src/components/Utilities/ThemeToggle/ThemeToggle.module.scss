@@ -1,131 +1,93 @@
-/* ==========================================================================
-   ThemeToggle.module.scss - Component-specific styles for ThemeToggle
-   ========================================================================== */
-
 @use 'styles/abstracts' as *;
 
 .themeToggle {
-  // Reset default button styles for a clean, custom look.
-  appearance: none;
-  background: none;
+  /* General button styling */
+  background: transparent;
   border: none;
   cursor: pointer;
-  position: relative; // Needed for positioning the icon wrapper.
-
-  // Utilize CSS variables for theme-dependent properties.
-  --theme-toggle-size: 2.5rem;
-  --theme-toggle-bg: var(--color-surface-elevated);
-  --theme-toggle-border-color: var(--color-border-primary);
-  --theme-toggle-icon-color: var(--color-text-secondary);
-
-  // Set the button's dimensions and shape.
-  width: var(--theme-toggle-size);
-  height: var(--theme-toggle-size);
+  padding: 0;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: var(--spacing-xxs);
-  border-radius: 100%; // Ensures a perfect circle shape.
+  position: relative;
+  width: var(--spacing-lg);
+  height: var(--spacing-lg);
+  color: var(--color-text-primary);
+  transition: transform 0.3s ease-in-out;
 
-  // Add transitions for smooth state changes.
-  transition:
-    background-color 0.3s ease-in-out,
-    border-color 0.3s ease-in-out,
-    box-shadow 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
-
-  // Apply visual styling.
-  background-color: var(--theme-toggle-bg);
-  border: 1px solid var(--theme-toggle-border-color);
-
-  // Accessible focus state for keyboard navigation.
+  /* Accessible target size for touch devices (WCAG 2.5.8) */
+  /* Accessible focus state for keyboard users */
   &:focus-visible {
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
   }
 
-  // Hover and active states for better UI/UX.
   &:hover {
-    background-color: var(--theme-toggle-border-color);
-    transform: scale(1.15);
+    transform: scale(1.35); 
   }
 
-  &:active {
-    transform: scale(0.95);
-    box-shadow: none;
+  /* Icon wrapper to contain and position the icons */
+  .iconWrapper {
+    background: none;
+    display: grid;
+    grid-template-areas: icon-area;
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 
-  // Ensure responsive design for smaller screens if needed.
-  @media (max-width: 768px) {
-    --theme-toggle-size: 2rem;
-  }
-}
-
-// Icon Wrapper to enable smooth transitions.
-.iconWrapper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-// Icon styling and transition properties.
-.icon {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  fill: var(--theme-toggle-icon-color);
-
-  // Adjusted timing for a slower, smoother effect.
-  // The cubic-bezier here gives it a more gentle start and end.
-  transition:
-    opacity 0.5s cubic-bezier(0.65, 0, 0.35, 1),
-    transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-// Icon visibility and animation for the light theme (sun).
-.iconWrapper > :nth-child(1).visible {
-  opacity: 1;
-  transform: translate(-50%, -50%) translateY(0);
-}
-.iconWrapper > :nth-child(1).hidden {
-  opacity: 0;
-  transform: translate(-50%, -50%) translateY(100%); // Slide down and out.
-}
-
-// Icon visibility and animation for the dark theme (moon).
-.iconWrapper > :nth-child(2).visible {
-  opacity: 1;
-  transform: translate(-50%, -50%) translateY(0);
-}
-.iconWrapper > :nth-child(2).hidden {
-  opacity: 0;
-  transform: translate(-50%, -50%) translateY(-100%); // Slide up and out.
-}
-
-// Adjustments for the dark theme.
-[data-theme='dark'] {
-  .themeToggle {
-    --theme-toggle-bg: var(--color-surface-elevated);
-    --theme-toggle-border-color: var(--color-border-primary);
-    --theme-toggle-icon-color: var(--color-text-primary);
-
-    &:hover {
-      background-color: var(--color-border-primary);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--color-brand-accent);
-    }
-  }
-  
+  /* Shared icon styles */
   .icon {
-    fill: var(--theme-toggle-icon-color);
+    grid-area: icon-area;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.0), opacity 1.1s ease;
+
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+/* Animations based on theme state */
+[data-theme="light"] {
+  .themeToggle {
+    .iconWrapper {
+      .icon {
+        &.visible {
+          /* Rising sun animation: Start from below and rise into view */
+          transform: translateY(0);
+        }
+
+        &.hidden {
+          transform: translateY(-100%);
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] {
+  .themeToggle {
+    .iconWrapper {
+      .icon {
+        &.visible {
+          /* Moon setting animation: Start from above and drop into view */
+          transform: translateY(0);
+        }
+
+        &.hidden {
+          transform: translateY(100%);
+        }
+      }
+    }
   }
 }
