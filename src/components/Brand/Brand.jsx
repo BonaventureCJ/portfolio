@@ -1,6 +1,6 @@
 import React from 'react';
 import BrandLogo from 'components/NavigationIcons/BrandLogo';
-import styles from './Brand.module.scss'; // Use a descriptive import name like 'styles'
+import styles from './Brand.module.scss';
 
 const Brand = ({ name }) => {
   return (

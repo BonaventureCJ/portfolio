@@ -1,0 +1,41 @@
+// Uses CSS Modules for local scoping, relying on the global CSS Custom Properties for theming.
+
+.profileLink {
+  // Reset default link styles
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nav-text); // Inherits color from the navigation text variable.
+
+  // Smooth transition for hover effects on color and transform.
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  // WCAG compliant focus state for keyboard navigation.
+  // Using :focus-visible provides a better user experience by only showing
+  // the outline when the user is navigating with a keyboard.
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+
+  // Hover effect for pointer devices.
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--nav-link-hover); // Changes color on hover, defined by the theme.
+      transform: scale(1.1); // Subtle animation to indicate interactivity.
+    }
+  }
+
+  // Styling for the Icon component within the link.
+  .profileIcon {
+    // Ensures the icon fills with the link's text color.
+    fill: currentColor;
+    // Sets a consistent size for all icons in the component.
+    height: var(--font-size-xl);
+    width: var(--font-size-xl);
+    // Prevents the icon from shrinking if the parent flex container shrinks.
+    flex-shrink: 0;
+  }
+}

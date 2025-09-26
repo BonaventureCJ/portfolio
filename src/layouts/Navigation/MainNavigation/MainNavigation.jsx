@@ -9,9 +9,14 @@ import MenuCloseIcon from 'components/NavigationIcons/MenuCloseIcon';
 // Import Brand component
 import Brand from 'components/Brand/Brand';
 
-// Import utility component
-import ThemeToggle from 'components/Utilities/ThemeToggle/ThemeToggle';
-import ProfileIcon from 'components/NavigationIcons/ProfileIcon';
+
+
+// Import navigation data
+import NavItems from 'data/nav-items';
+//import UtilityIcons from '../UtilityIcons/UtilityIcons';
+import UtilityIcons from 'layouts/Navigation/UtilityIcons/UtilityIcons';
+
+
 
 const MainNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +29,25 @@ const MainNavigation = () => {
     setIsOpen(false);
   };
 
+  // Helper function to render the navigation links
+  const renderNavLinks = () => (
+    NavItems.map((item) => (
+      <li key={item.path} className={styles.navigation__item}>
+        <NavLink
+          to={item.path}
+          className={({ isActive }) =>
+            isActive
+              ? `${styles.navigation__link} ${styles['navigation__link--active']}`
+              : styles.navigation__link
+          }
+          onClick={handleLinkClick}
+        >
+          {item.label}
+        </NavLink>
+      </li>
+    ))
+  );
+
   return (
     <header className={styles.header}>
       <nav className={styles.navigation} aria-label="Main navigation">
@@ -34,81 +58,13 @@ const MainNavigation = () => {
 
         {/* Desktop menu */}
         <div className={styles.navigation__menu}>
-          {/* Navigation links list */}
           <ul className={styles.navigation__list}>
-            <li className={styles.navigation__item}>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
-                    : styles.navigation__link
-                }
-                onClick={handleLinkClick}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li className={styles.navigation__item}>
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
-                    : styles.navigation__link
-                }
-                onClick={handleLinkClick}
-              >
-              About
-              </NavLink>
-            </li>
-            <li className={styles.navigation__item}>
-              <NavLink
-                to="/skills"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
-                    : styles.navigation__link
-                }
-                onClick={handleLinkClick}
-              >
-                Skills
-              </NavLink>
-            </li>
-            <li className={styles.navigation__item}>
-              <NavLink
-                to="/projects"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
-                    : styles.navigation__link
-                }
-                onClick={handleLinkClick}
-              >
-                Projects
-              </NavLink>
-            </li>
-            <li className={styles.navigation__item}>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
-                    : styles.navigation__link
-                }
-                onClick={handleLinkClick}
-              >
-                Contact
-              </NavLink>
-            </li>
+            {renderNavLinks()}
           </ul>
         </div>
         
         {/* Utility icons that are always in the header */}
-        <div className={styles.navigation__utilities}>
-          <ProfileIcon className={styles.navigation__profileIcon} />
-          <ThemeToggle />
-        </div>
+       <UtilityIcons/>
 
         {/* Mobile menu toggle button */}
         <button
@@ -129,58 +85,7 @@ const MainNavigation = () => {
           id="navigation-menu"
         >
           <ul className={styles.navigation__mobileList}>
-            <li className={styles.navigation__item}>
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
-                    : styles.navigation__link
-                }
-                onClick={handleLinkClick}
-              >
-              About
-              </NavLink>
-            </li>
-            <li className={styles.navigation__item}>
-              <NavLink
-                to="/skills"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
-                    : styles.navigation__link
-                }
-                onClick={handleLinkClick}
-              >
-                Skills
-              </NavLink>
-            </li>
-            <li className={styles.navigation__item}>
-              <NavLink
-                to="/projects"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
-                    : styles.navigation__link
-                }
-                onClick={handleLinkClick}
-              >
-                Projects
-              </NavLink>
-            </li>
-            <li className={styles.navigation__item}>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  isActive
-                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
-                    : styles.navigation__link
-                }
-                onClick={handleLinkClick}
-              >
-                Contact
-              </NavLink>
-            </li>
+            {renderNavLinks()}
           </ul>
         </div>
         

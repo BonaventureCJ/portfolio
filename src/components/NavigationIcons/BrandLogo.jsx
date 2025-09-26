@@ -1,4 +1,4 @@
 
-import { ReactComponent as BrandLogo } from 'assets/nav-icons-all/star-pulsating-twotone-loop.svg';
+import { ReactComponent as BrandLogo } from 'assets/nav-icons-all/window-dev-tools-24-regular.svg';
 
 export default BrandLogo;
