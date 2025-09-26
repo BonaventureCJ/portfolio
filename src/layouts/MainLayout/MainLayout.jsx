@@ -1,8 +1,8 @@
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 
 // Import your reusable layout components
-import Navigation from './Navigation/Navigation';
-import Footer from './Footer/Footer';
+import Navigation from '../Navigation/MainNavigation/Navigation';
+import Footer from '../Footer/Footer';
 
 // Import the SCSS module for styling this specific layout
 import styles from './MainLayout.module.scss';

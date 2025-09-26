@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Import layouts and page components using absolute paths
-import MainLayout from 'layouts/MainLayout';
+import MainLayout from 'layouts/MainLayout/MainLayout';
 import Home from 'pages/Home/Home';
 import About from 'pages/About/About';
 import Skills from 'pages/Skills/Skills';
