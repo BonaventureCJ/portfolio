@@ -1,25 +1,53 @@
-// Flexbox layout for the brand container
+// Uses CSS Modules for local scoping to prevent class name conflicts.
+// It relies on the globally defined CSS Custom Properties for theming.
+
 .brand {
   display: flex;
-  align-items: center; // Aligns items vertically in the center
-  gap: 10px; // Adds a gap between the icon and the name for spacing
+  align-items: center;
+  gap: var(--spacing-xs); // Consistent spacing defined in _abstracts.scss
+  text-decoration: none;
+  color: var(--nav-text);
 
-  // Define hover and focus states for interactive branding, if needed
-  &:hover {
-    cursor: pointer;
+  // Animate the text color for a smooth transition during theme changes.
+  transition: color 0.3s ease-in-out;
+
+  // With this update, the brand name is always visible.
+  .brandName {
+    // These styles are now removed to keep the name visible.
+    // clip: rect(0 0 0 0);
+    // clip-path: inset(50%);
+    // height: 1px;
+    // overflow: hidden;
+    // position: absolute;
+    // white-space: nowrap;
+    // width: 1px;
+    
+    // Ensure the name is readable and styled correctly.
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg); // Uses the larger font size for prominence.
+    line-height: 1; // Ensures consistent vertical alignment with the logo.
   }
-}
 
-// Styling for the icon
-.brand-logo {
-  height: 24px; // Set a specific size for the icon
-  width: auto;
-  // You can also change the color here for the SVG fill
-}
+  // Styling for the BrandLogo component, which is assumed to be an SVG.
+  .brandLogo {
+    height: var(--font-size-lg); // Size the icon based on a modular font scale.
+    width: var(--font-size-lg);
+    fill: currentColor; // Use the currentColor keyword for theming.
+    
+    // Add a professional-looking animation on hover.
+    transition: transform 0.3s ease-in-out;
 
-// Styling for the brand name text
-.brand-name {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #333; // Or your brand's primary color
+    // Only apply hover effects on devices with a fine pointer.
+    @media (hover: hover) and (pointer: fine) {
+      .brand:hover & {
+        transform: scale(1.1); // Scale the icon up slightly on hover.
+      }
+    }
+  }
+
+  // Define a clear and accessible focus state for keyboard navigation.
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+  }
 }

@@ -38,51 +38,52 @@ const MainNavigation = () => {
           {isOpen ? <MenuCloseIcon /> : <HamburgerIcon />}
         </button>
 
-        {/* Brand Logo component */}
+        {/* Brand component */}
         <NavLink to="/" className={styles.logo} onClick={() => setIsOpen(false)}>
-          <Brand name= "Jesus Christ" />
+          <Brand name="Jesus Christ" />
         </NavLink>
-        
+
+        {/* Side menu for mobile devices, slides from the left */}
+        <div className={`${styles.sideMenuWrapper} ${isOpen ? styles.sideMenuOpen : ''}`}>
+          <div className={styles.mobileUtilityControls}>
+            <ProfileIcon className={styles.profileIcon} />
+            <ThemeToggle />
+          </div>
+
+          <ul id="navigation-menu" className={styles.menu}>
+            <li className={styles.item}>
+              <NavLink to="/about" className={styles.link} onClick={toggleMenu}>
+                About
+              </NavLink>
+            </li>
+            <li className={styles.item}>
+              <NavLink to="/skills" className={styles.link} onClick={toggleMenu}>
+                Skills
+              </NavLink>
+            </li>
+            <li className={styles.item}>
+              <NavLink to="/projects" className={styles.link} onClick={toggleMenu}>
+                Projects
+              </NavLink>
+            </li>
+            <li className={styles.item}>
+              <NavLink to="/services" className={styles.link} onClick={toggleMenu}>
+                Services
+              </NavLink>
+            </li>
+            <li className={styles.item}>
+              <NavLink to="/contact" className={styles.link} onClick={toggleMenu}>
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+          
+        </div>
         {/* Profile icon and theme toggle for desktop view */}
         <div className={styles.utilityControls}>
           <ProfileIcon className={styles.profileIcon} />
           <ThemeToggle />
         </div>
-      </div>
-
-      {/* Side menu for mobile devices, slides from the left */}
-      <div className={`${styles.sideMenuWrapper} ${isOpen ? styles.sideMenuOpen : ''}`}>
-        <div className={styles.mobileUtilityControls}>
-          <ProfileIcon className={styles.profileIcon} />
-          <ThemeToggle />
-        </div>
-        <ul id="navigation-menu" className={styles.menu}>
-          <li className={styles.item}>
-            <NavLink to="/about" className={styles.link} onClick={toggleMenu}>
-              About
-            </NavLink>
-          </li>
-          <li className={styles.item}>
-            <NavLink to="/skills" className={styles.link} onClick={toggleMenu}>
-              Skills
-            </NavLink>
-          </li>
-          <li className={styles.item}>
-            <NavLink to="/projects" className={styles.link} onClick={toggleMenu}>
-              Projects
-            </NavLink>
-          </li>
-          <li className={styles.item}>
-            <NavLink to="/services" className={styles.link} onClick={toggleMenu}>
-              Services
-            </NavLink>
-          </li>
-          <li className={styles.item}>
-            <NavLink to="/contact" className={styles.link} onClick={toggleMenu}>
-              Contact
-            </NavLink>
-          </li>
-        </ul>
       </div>
 
       {/* Overlay to dim background when menu is open */}
