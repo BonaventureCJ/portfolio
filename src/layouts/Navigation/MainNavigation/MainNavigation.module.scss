@@ -1,19 +1,16 @@
-// Variables for colors, spacing, and breakpoints
-$color-primary: #1a73e8;
-$color-text: #333;
-$color-background: #fff;
-$color-overlay: rgba(0, 0, 0, 0.5);
-$font-family: Arial, sans-serif;
-$nav-height: 60px;
-$breakpoint-tablet: 768px;
+// Import Sass variables or mixins if you have any in _abstracts.scss
+// For CSS custom properties, direct @import is not strictly necessary,
+// as they are globally available after being defined in :root.
+// However, importing standard Sass variables is done like this:
+// @use 'src/styles/abstracts' as *;
 
 // --- HEADER BLOCK ---
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: $color-background;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--nav-bg);
+  box-shadow: var(--nav-box-shadow);
 }
 
 // --- NAVIGATION BLOCK ---
@@ -21,17 +18,18 @@ $breakpoint-tablet: 768px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: $nav-height;
-  padding: 0 1rem;
-  font-family: $font-family;
+  height: 60px; /* You can define a variable for this if needed */
+  padding: 0 var(--spacing-sm);
+  font-family: var(--font-family-primary);
 }
 
 // --- NAVIGATION ELEMENTS ---
 .navigation__logo {
-  flex-shrink: 0; // Prevent logo from shrinking on smaller screens
+  flex-shrink: 0;
   text-decoration: none;
-  color: inherit;
-  font-weight: bold;
+  color: var(--nav-text);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
 }
 
 .navigation__toggle {
@@ -39,35 +37,33 @@ $breakpoint-tablet: 768px;
   border: none;
   padding: 0;
   cursor: pointer;
-  display: flex; // Display on mobile by default
-  z-index: 1001; // Ensure the toggle is above the overlay
+  display: flex;
+  z-index: 1001;
   align-items: center;
 
-  // Icon sizing
   svg {
-    width: 28px;
-    height: 28px;
-    fill: $color-text;
+    width: 28px; /* Use custom values if not in abstracts */
+    height: 28px; /* Use custom values if not in abstracts */
+    fill: var(--nav-text);
+    transition: fill 0.2s ease-in-out;
   }
 }
 
 .navigation__menu {
-  // Mobile: Off-screen initially
   position: fixed;
   top: 0;
   left: -100%;
   width: 75%;
   height: 100vh;
-  padding-top: $nav-height;
-  background-color: $color-background;
+  padding-top: 60px; /* Matches nav height */
+  background-color: var(--nav-bg);
   transition: left 0.3s ease-in-out;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--nav-box-shadow);
   z-index: 999;
   display: flex;
   flex-direction: column;
 }
 
-// Menu modifier for the open state
 .navigation__menu--open {
   left: 0;
 }
@@ -79,7 +75,7 @@ $breakpoint-tablet: 768px;
 }
 
 .navigation__item {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
   &:last-child {
     margin-bottom: 0;
   }
@@ -87,89 +83,81 @@ $breakpoint-tablet: 768px;
 
 .navigation__link {
   display: block;
-  padding: 0.75rem 1rem;
+  padding: var(--spacing-sm) var(--spacing-sm);
   text-decoration: none;
-  color: $color-text;
-  font-size: 1.2rem;
-  font-weight: bold;
+  color: var(--nav-text);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: $color-primary;
+    color: var(--nav-link-hover);
   }
 }
 
-// Link modifier for active state
 .navigation__link--active {
-  color: $color-primary;
+  color: var(--nav-link-active);
 }
 
-// Mobile utility controls
 .navigation__mobileUtilities {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.5rem;
-  padding: 0.5rem 1rem;
+  gap: var(--spacing-md);
+  padding: var(--spacing-xxs) var(--spacing-sm);
 }
 
 .navigation__profileIcon {
   width: 28px;
   height: 28px;
-  fill: $color-text;
+  fill: var(--nav-text);
 }
 
-// Desktop utility controls (hidden on mobile)
 .navigation__utilities {
-  display: none;
+  display: none; // Hidden on mobile by default
 }
 
-// Overlay to dim background
 .navigation__overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: $color-overlay;
+  background-color: var(--color-overlay);
   z-index: 998;
 }
 
 // --- DESKTOP MEDIA QUERY ---
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: 768px) { // Use your $breakpoint-tablet variable
   .navigation {
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+    padding: 0 var(--spacing-lg);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--spacing-md);
   }
 
   .navigation__toggle {
-    display: none; // Hide hamburger on desktop
+    display: none;
   }
 
   .navigation__menu {
     position: static;
-    left: auto;
-    width: auto;
-    height: auto;
+    
     padding: 0;
     box-shadow: none;
     background-color: transparent;
     display: flex;
-    flex-direction: row; // Change to horizontal layout
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    flex-grow: 1; // Allow the menu to take up available space
+    flex-grow: 1;
 
-    .navigation__mobileUtilities {
-      display: none; // Hide mobile utilities on desktop
-    }
+   
   }
 
   .navigation__list {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-sm);
     align-items: center;
   }
 
@@ -178,18 +166,19 @@ $breakpoint-tablet: 768px;
   }
 
   .navigation__link {
-    font-size: 1rem;
-    padding: 0; // Remove padding for horizontal menu
+    font-size: var(--font-size-base);
+    padding: 0;
   }
 
   .navigation__utilities {
-    display: flex; // Show desktop utility controls
+    display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 1rem;
+    gap: var(--spacing-sm);
   }
 
   .navigation__overlay {
-    display: none; // Hide overlay on desktop
+    display: none;
   }
 }
+

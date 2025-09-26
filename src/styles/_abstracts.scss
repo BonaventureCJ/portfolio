@@ -16,6 +16,9 @@
   --color-link: var(--color-brand-primary);
   --color-link-hover: #0056b3;
 
+   // Color Variable (Light Theme) --
+  --color-overlay: rgba(255, 255, 255, 0.7); // A semi-transparent white for light mode.
+
   /* Fonts */
   --font-family-primary: 'Familjen Grotesk', sans-serif;
   --font-family-secondary: Georgia, serif;
@@ -109,6 +112,9 @@
   --color-text-inverse: #212529;
   --color-border-primary: #373737;
   --color-link-hover: #6ea8fe;
+
+  // -- Overlay Color Variable (Dark Theme) --
+  --color-overlay: rgba(0, 0, 0, 0.7); // A semi-transparent black for dark mode.
 
   /* --- Buttons (Dark theme overrides) --- */
   --button-bg-primary: #004d9a;
