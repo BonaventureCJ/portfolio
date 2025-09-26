@@ -3,12 +3,11 @@ import { NavLink } from 'react-router-dom';
 import styles from './MainNavigation.module.scss';
 
 // Imported icons
-
 import HamburgerIcon from 'components/NavigationIcons/HamburgerIcon';
 import MenuCloseIcon from 'components/NavigationIcons/MenuCloseIcon';
 import ProfileIcon from 'components/NavigationIcons/ProfileIcon';
 
-// Import BrandLogo
+// Import Brand component
 import Brand from 'components/Brand/Brand';
 
 // Imported utility component
@@ -21,15 +20,21 @@ const MainNavigation = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <nav className={styles.navigation} aria-label="Main navigation">
-      <div className={styles.header}>
-        {/*
-          Dynamic menu toggle button using imported SVG icons.
-          aria-label changes based on menu state for better accessibility.
-        */}
+    <header className={styles.header}>
+      <nav className={styles.navigation} aria-label="Main navigation">
+        {/* Brand component and logo */}
+        <NavLink to="/" className={styles.navigation__logo} onClick={handleLinkClick}>
+          <Brand name="BonaventureCJ" />
+        </NavLink>
+
+        {/* Mobile menu toggle button */}
         <button
-          className={styles.menuToggle}
+          className={styles.navigation__toggle}
           onClick={toggleMenu}
           aria-expanded={isOpen}
           aria-controls="navigation-menu"
@@ -38,57 +43,90 @@ const MainNavigation = () => {
           {isOpen ? <MenuCloseIcon /> : <HamburgerIcon />}
         </button>
 
-        {/* Brand component */}
-        <NavLink to="/" className={styles.logo} onClick={() => setIsOpen(false)}>
-          <Brand name="Jesus Christ" />
-        </NavLink>
-
-        {/* Side menu for mobile devices, slides from the left */}
-        <div className={`${styles.sideMenuWrapper} ${isOpen ? styles.sideMenuOpen : ''}`}>
-          <div className={styles.mobileUtilityControls}>
-            <ProfileIcon className={styles.profileIcon} />
-            <ThemeToggle />
-          </div>
-
-          <ul id="navigation-menu" className={styles.menu}>
-            <li className={styles.item}>
-              <NavLink to="/about" className={styles.link} onClick={toggleMenu}>
+        {/* Desktop menu and mobile side menu */}
+        <div
+          className={`${styles.navigation__menu} ${isOpen ? styles['navigation__menu--open'] : ''
+            }`}
+          id="navigation-menu"
+        >
+          <ul className={styles.navigation__list}>
+            <li className={styles.navigation__item}>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
+                    : styles.navigation__link
+                }
+                onClick={handleLinkClick}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className={styles.navigation__item}>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
+                    : styles.navigation__link
+                }
+                onClick={handleLinkClick}
+              >
                 About
               </NavLink>
             </li>
-            <li className={styles.item}>
-              <NavLink to="/skills" className={styles.link} onClick={toggleMenu}>
+            <li className={styles.navigation__item}>
+              <NavLink
+                to="/skills"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
+                    : styles.navigation__link
+                }
+                onClick={handleLinkClick}
+              >
                 Skills
               </NavLink>
             </li>
-            <li className={styles.item}>
-              <NavLink to="/projects" className={styles.link} onClick={toggleMenu}>
+            <li className={styles.navigation__item}>
+              <NavLink
+                to="/projects"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
+                    : styles.navigation__link
+                }
+                onClick={handleLinkClick}
+              >
                 Projects
               </NavLink>
             </li>
-            <li className={styles.item}>
-              <NavLink to="/services" className={styles.link} onClick={toggleMenu}>
-                Services
-              </NavLink>
-            </li>
-            <li className={styles.item}>
-              <NavLink to="/contact" className={styles.link} onClick={toggleMenu}>
+            <li className={styles.navigation__item}>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles.navigation__link} ${styles['navigation__link--active']}`
+                    : styles.navigation__link
+                }
+                onClick={handleLinkClick}
+              >
                 Contact
               </NavLink>
             </li>
           </ul>
-          
         </div>
-        {/* Profile icon and theme toggle for desktop view */}
-        <div className={styles.utilityControls}>
-          <ProfileIcon className={styles.profileIcon} />
+
+        {/* Utility controls for desktop */}
+        <div className={styles.navigation__utilities}>
+          <ProfileIcon className={styles.navigation__profileIcon} />
           <ThemeToggle />
         </div>
-      </div>
-
-      {/* Overlay to dim background when menu is open */}
-      {isOpen && <div className={styles.overlay} onClick={toggleMenu}></div>}
-    </nav>
+      </nav>
+      {/* Overlay to dim background when mobile menu is open */}
+      {isOpen && <div className={styles.navigation__overlay} onClick={toggleMenu}></div>}
+    </header>
   );
 };
 
