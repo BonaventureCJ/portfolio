@@ -1,12 +1,12 @@
 import React from 'react';
-import BrandLogo from 'components/NavigationIcons/BrandLogo'; // Absolute import for the icon
-import './Brand.module.scss';
+import BrandLogo from 'components/NavigationIcons/BrandLogo';
+import styles from './Brand.module.scss'; // Use a descriptive import name like 'styles'
 
 const Brand = ({ name }) => {
   return (
-    <div className="brand">
-      <BrandLogo className="brand-logo" />
-      <span className="brand-name">{name}</span>
+    <div className={styles.brand}>
+      <BrandLogo className={styles.brandLogo} />
+      <span className={styles.brandName}>{name}</span>
     </div>
   );
 };
