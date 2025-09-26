@@ -45,10 +45,18 @@ const MainNavigation = () => {
 
         {/* Desktop menu and mobile side menu */}
         <div
-          className={`${styles.navigation__menu} ${isOpen ? styles['navigation__menu--open'] : ''
-            }`}
+          className={`${styles.navigation__menu} ${
+            isOpen ? styles['navigation__menu--open'] : ''
+          }`}
           id="navigation-menu"
         >
+          {/* Mobile utility controls (visible inside side menu) */}
+          <div className={styles.navigation__mobileUtilities}>
+            <ProfileIcon className={styles.navigation__profileIcon} />
+            <ThemeToggle />
+          </div>
+
+          {/* Navigation links list */}
           <ul className={styles.navigation__list}>
             <li className={styles.navigation__item}>
               <NavLink
@@ -117,14 +125,15 @@ const MainNavigation = () => {
             </li>
           </ul>
         </div>
-
-        {/* Utility controls for desktop */}
+        
+        {/* Profile icon and theme toggle for desktop view */}
         <div className={styles.navigation__utilities}>
           <ProfileIcon className={styles.navigation__profileIcon} />
           <ThemeToggle />
         </div>
       </nav>
-      {/* Overlay to dim background when mobile menu is open */}
+
+      {/* Overlay to dim background when menu is open */}
       {isOpen && <div className={styles.navigation__overlay} onClick={toggleMenu}></div>}
     </header>
   );
