@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './Navigation.module.scss';
+import styles from './MainNavigation.module.scss';
 
-const Navigation = () => {
+import BrandLogo from 'components/NavigationIcons/BrandLogo';
+import HamburgerIcon from 'components/NavigationIcons/HamburgerIcon';
+import MenuCloseIcon from 'components/NavigationIcons/MenuCloseIcon';
+import ProfileIcon from 'components/NavigationIcons/ProfileIcon';
+
+const MainNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -56,4 +61,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default MainNavigation;
