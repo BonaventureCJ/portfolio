@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './MainNavigation.module.scss';
 
+// Imported icons
 import BrandLogo from 'components/NavigationIcons/BrandLogo';
 import HamburgerIcon from 'components/NavigationIcons/HamburgerIcon';
 import MenuCloseIcon from 'components/NavigationIcons/MenuCloseIcon';
 import ProfileIcon from 'components/NavigationIcons/ProfileIcon';
+
+// Imported utility component
+import ThemeToggle from 'components/Utilities/ThemeToggle/ThemeToggle';
 
 const MainNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,27 +19,40 @@ const MainNavigation = () => {
   };
 
   return (
-    <nav className={styles.navigation}>
+    <nav className={styles.navigation} aria-label="Main navigation">
       <div className={styles.header}>
-        {/* Toggle button is the first child of the header for left positioning */}
+        {/*
+          Dynamic menu toggle button using imported SVG icons.
+          aria-label changes based on menu state for better accessibility.
+        */}
         <button
           className={styles.menuToggle}
           onClick={toggleMenu}
           aria-expanded={isOpen}
           aria-controls="navigation-menu"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
-          {/* Screen reader-only text for accessibility */}
-          <span className={styles.srOnly}>Menu</span>
-          <span className={styles.hamburgerIcon}></span>
+          {isOpen ? <MenuCloseIcon /> : <HamburgerIcon />}
         </button>
-        {/* Logo is now on the right side of the header */}
+
+        {/* Brand Logo component */}
         <NavLink to="/" className={styles.logo} onClick={() => setIsOpen(false)}>
-          Your Logo
+          <BrandLogo />
         </NavLink>
+        
+        {/* Profile icon and theme toggle for desktop view */}
+        <div className={styles.utilityControls}>
+          <ProfileIcon className={styles.profileIcon} />
+          <ThemeToggle />
+        </div>
       </div>
 
       {/* Side menu for mobile devices, slides from the left */}
       <div className={`${styles.sideMenuWrapper} ${isOpen ? styles.sideMenuOpen : ''}`}>
+        <div className={styles.mobileUtilityControls}>
+          <ProfileIcon className={styles.profileIcon} />
+          <ThemeToggle />
+        </div>
         <ul id="navigation-menu" className={styles.menu}>
           <li className={styles.item}>
             <NavLink to="/about" className={styles.link} onClick={toggleMenu}>

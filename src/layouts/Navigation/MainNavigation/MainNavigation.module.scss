@@ -158,3 +158,75 @@
     padding: 0.5rem 1rem;
   }
 }
+
+// src/components/MainNavigation/MainNavigation.module.scss
+
+// ... (existing styles) ...
+
+.header {
+  // ... (existing styles) ...
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuToggle {
+  // ... (existing styles) ...
+  /* On mobile, only the button is visible. */
+  @media (min-width: 1024px) {
+    display: none; // Hide on desktop
+  }
+}
+
+.logo {
+  // ... (existing styles) ...
+  
+  // Style the brand logo SVG
+  svg {
+    height: 30px; // Adjust size as needed
+    width: auto;
+  }
+}
+
+.utilityControls {
+  display: none; // Hidden by default (mobile-first)
+
+  @media (min-width: 1024px) {
+    display: flex; // Show on desktop
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+.mobileUtilityControls {
+  display: flex; // Visible on mobile
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+
+  @media (min-width: 1024px) {
+    display: none; // Hide on desktop
+  }
+}
+
+.sideMenuWrapper {
+  // ... (existing side menu styles) ...
+  padding-top: 0; // Adjust padding as controls are now inside
+}
+
+.profileIcon {
+  svg {
+    height: 24px; // Adjust size as needed
+  }
+}
+
+.link {
+  // ... (existing link styles) ...
+
+  // Style the links in the side menu for clarity
+  display: flex;
+  align-items: center;
+}
+
+// ... (rest of your existing styles) ...
