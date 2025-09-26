@@ -3,10 +3,13 @@ import { NavLink } from 'react-router-dom';
 import styles from './MainNavigation.module.scss';
 
 // Imported icons
-import BrandLogo from 'components/NavigationIcons/BrandLogo';
+
 import HamburgerIcon from 'components/NavigationIcons/HamburgerIcon';
 import MenuCloseIcon from 'components/NavigationIcons/MenuCloseIcon';
 import ProfileIcon from 'components/NavigationIcons/ProfileIcon';
+
+// Import BrandLogo
+import Brand from 'components/Brand/Brand';
 
 // Imported utility component
 import ThemeToggle from 'components/Utilities/ThemeToggle/ThemeToggle';
@@ -37,7 +40,7 @@ const MainNavigation = () => {
 
         {/* Brand Logo component */}
         <NavLink to="/" className={styles.logo} onClick={() => setIsOpen(false)}>
-          <BrandLogo />
+          <Brand name= "Jesus Christ" />
         </NavLink>
         
         {/* Profile icon and theme toggle for desktop view */}
@@ -57,6 +60,16 @@ const MainNavigation = () => {
           <li className={styles.item}>
             <NavLink to="/about" className={styles.link} onClick={toggleMenu}>
               About
+            </NavLink>
+          </li>
+          <li className={styles.item}>
+            <NavLink to="/skills" className={styles.link} onClick={toggleMenu}>
+              Skills
+            </NavLink>
+          </li>
+          <li className={styles.item}>
+            <NavLink to="/projects" className={styles.link} onClick={toggleMenu}>
+              Projects
             </NavLink>
           </li>
           <li className={styles.item}>
