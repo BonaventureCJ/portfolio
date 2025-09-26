@@ -1,63 +1,160 @@
-@use 'styles/abstracts' as *;
-
+/* Mobile-first styles */
 .navigation {
-  background-color: var(--nav-bg);
-  color: var(--nav-text);
-  box-shadow: var(--nav-box-shadow);
-  border-bottom: 1px solid var(--nav-border-color);
-  padding: var(--spacing-xs) var(--spacing-xs);
-  font-family: var(--font-family-primary);
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 1000;
-
-  nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    
-    margin: 0 auto;
-  }
 }
 
-.navList {
+.header {
   display: flex;
-  
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navItem {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  z-index: 1001;
   position: relative;
 }
 
-.navLink {
+.logo {
+  font-weight: bold;
   text-decoration: none;
-  color: var(--nav-text);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-regular);
-  padding: var(--spacing-xs) var(--spacing-xs);
-  border-radius: var(--border-radius-sm);
-  transition: color 0.3s ease, background-color 0.3s ease;
+  color: #333;
+}
 
-  &:hover,
-  &:focus {
-    color: var(--nav-link-hover);
-    background-color: rgba(0, 123, 255, 0.05);
-    outline: none;
-  }
+.menuToggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
 
-  &:focus-visible {
-    outline: 2px dashed var(--nav-link-hover);
-    outline-offset: 4px;
+.hamburgerIcon {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  position: relative;
+}
+
+.hamburgerIcon::before,
+.hamburgerIcon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.hamburgerIcon::before {
+  top: -8px;
+}
+
+.hamburgerIcon::after {
+  top: 8px;
+}
+
+/* Side menu styling */
+.sideMenuWrapper {
+  position: fixed;
+  top: 0;
+  left: 0; /* Position the menu to the left */
+  width: 75vw; /* 3/4 of viewport width */
+  height: 100%;
+  background-color: #f9f9f9;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%); /* Start off-screen to the left */
+  transition: transform 0.3s ease-in-out;
+  z-index: 1002;
+}
+
+.sideMenuOpen {
+  transform: translateX(0); /* Slide into view */
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 5rem;
+}
+
+.item {
+  border-bottom: 1px solid #eee;
+}
+
+.link {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.link:hover {
+  background-color: #f0f0f0;
+}
+
+/* Overlay to darken background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+/* Hide overlay on desktop */
+@media (min-width: 1024px) {
+  .overlay {
+    display: none;
   }
 }
 
-.activeLink {
-  color: var(--nav-link-active);
-  font-weight: var(--font-weight-bold);
-  border-bottom: 2px solid var(--nav-link-active);
+/* Screen reader-only class for accessibility */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
 
+  .menuToggle {
+    display: none;
+  }
+
+  .sideMenuWrapper {
+    position: static;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+    transform: translateX(0);
+  }
+
+  .menu {
+    display: flex;
+    padding-top: 0;
+  }
+
+  .item {
+    border-bottom: none;
+  }
+
+  .link {
+    padding: 0.5rem 1rem;
+  }
+}
