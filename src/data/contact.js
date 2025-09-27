@@ -24,6 +24,7 @@ const generateId = () => nextId++;
  * @property {string} url - The full URL or protocol for the contact method (e.g., 'https://...', 'mailto:...').
  * @property {string} display - The text to be displayed for the link (e.g., '@BonaventureCJ', 'bonacjugwu@gmail.com').
  * @property {string} label - A descriptive label for accessibility.
+ * @property {string} ariaLabel - A more explicit, hidden label for screen readers.
  * @property {boolean} isFeatured - Indicates if the link should be featured on the homepage.
  */
 
@@ -38,8 +39,10 @@ const contactItems = [
     url: 'https://www.linkedin.com/in/bonaventure-ugwu',
     display: 'Bonaventure Ugwu',
     label: 'Bonaventure Ugwu on LinkedIn',
+    ariaLabel: 'Visit Bonaventure Ugwu on LinkedIn',
     isFeatured: true,
   },
+
   {
     id: generateId(),
     name: 'GitHub',
@@ -48,6 +51,7 @@ const contactItems = [
     url: 'https://github.com/BonaventureCJ',
     display: 'BonaventureCJ',
     label: 'Bonaventure Ugwu on GitHub',
+    ariaLabel: "Visit my GitHub profile",
     isFeatured: true,
   },
   {
@@ -58,6 +62,7 @@ const contactItems = [
     url: 'https://x.com/BonaCJUgwu',
     display: '@BonaCJ99',
     label: 'Bonaventure Ugwu on X',
+    ariaLabel: "Follow Bonaventure Ugwu on X",
     isFeatured: false,
   },
   // Communication Links
@@ -69,6 +74,7 @@ const contactItems = [
     url: 'mailto:bonacjugwu@gmail.com',
     display: 'bonacjugwu@gmail.com',
     label: 'Send an Email to Bonaventure',
+    ariaLabel: "Send an email to bonacjugwu@gmail.com",
     isFeatured: true,
   },
   {
@@ -79,6 +85,7 @@ const contactItems = [
     url: 'https://wa.me/+2348061103300',
     display: '+234 806 110 3300',
     label: 'Chat Bonaventure on WhatsApp',
+    ariaLabel: "Chat with Bonaventure on WhatsApp",
     isFeatured: false,
   },
   {
@@ -89,6 +96,7 @@ const contactItems = [
     url: 'sms:+2348061103300',
     display: '+234 806 110 3300',
     label: 'Send Bonaventure an SMS',
+    ariaLabel: "Send an SMS to Bonaventure at +234 806 110 3300",
     isFeatured: false,
   },
 ];

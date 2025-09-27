@@ -5,11 +5,12 @@ import ThemeToggle from 'components/Utilities/ThemeToggle/ThemeToggle';
 //Import the ProfileLink Component
 import ProfileLink from 'components/ProfileLink/ProfileLink';
 // Import the profiles dataset
-import profiles from 'data/profiles';
+//import profiles from 'data/profiles';
+import { contactItems } from 'data/contact'; //ReUse contact.js data;
 import styles from './UtilityIcons.module.scss';
 
 // Use find() to get the single GitHub profile object
-const githubProfile = profiles.find(profile => profile.id === 'github');
+const githubProfile = contactItems.find(contact => contact.name === 'GitHub');
 
 
 
@@ -17,7 +18,7 @@ const UtilityIcons = () => {
   // Use a semantically appropriate element. An unordered list `<ul>`
   // is a good choice for a group of related navigation/utility links.
   return (
-    <ul 
+    <ul
       className={styles['utility-icons']}
       role="list" // Explicitly defines it as a list for screen readers
       aria-label="Utility Links" // Provides an accessible name for the list

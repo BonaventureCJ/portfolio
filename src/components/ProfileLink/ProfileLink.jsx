@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import styles from './ProfileLink.module.scss';
 
 const ProfileLink = ({ profile }) => {
-  const { Icon, url, label, className, ariaLabel, hoverText, id } = profile;
+  console.log(profile);
+  const { icon: Icon, url, label, className, ariaLabel, id } = profile;
 
   if (!Icon || !url) {
     console.error('ProfileLink component requires an Icon and url in the profile object.');
@@ -17,7 +18,7 @@ const ProfileLink = ({ profile }) => {
       rel="noopener noreferrer"
       className={`${styles.profileLink} ${className || ''}`}
       aria-label={ariaLabel || label}
-      title={hoverText} // Use the new hoverText property for the tooltip
+      title={label} // Use the new hoverText property for the tooltip
       id={id}
     >
       <Icon className={styles.profileIcon} />
