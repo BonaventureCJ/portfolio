@@ -1,5 +1,6 @@
 //SkillsCard.module.scss
-@import '../../styles/abstracts';
+
+@use 'styles/abstracts' as *;
 
 // Define the keyframes for the fade-in-up animation
 @keyframes fadeInUp {
