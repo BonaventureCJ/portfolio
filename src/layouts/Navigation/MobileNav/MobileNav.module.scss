@@ -1,0 +1,105 @@
+@use '../../../styles/abstracts' as *;
+
+.mobileNav {
+  /* Hide the menu by default and on larger screens */
+  position: fixed;
+  top: 0;
+  right: -100%; /* Position off-screen to the right */
+  width: 80%; /* Takes up 80% of the viewport width */
+  max-width: 300px; /* Capping the maximum width for larger mobile devices */
+  height: 100vh;
+  padding: var(--spacing-lg);
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  box-shadow: var(--nav-box-shadow);
+  z-index: 999; /* Higher z-index to ensure it is above other content */
+  transition: right 0.3s ease-in-out; /* Slide-in/out transition */
+
+  /* Hide on larger screens (Tablet and above) */
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  /* Accessibility: Visually hide the menu when closed */
+  &[hidden] {
+    display: none;
+  }
+}
+
+.mobileNav--open {
+  right: 0; /* Slide the menu into view */
+}
+
+.mobileNav__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: var(--spacing-xl) 0 0; /* Add top margin to avoid overlapping with header content */
+  padding: 0;
+}
+
+.mobileNav__item {
+  /* Add some spacing between menu items */
+  margin-bottom: var(--spacing-lg);
+}
+
+.mobileNav__link {
+  /* Style for the NavLink components */
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  color: var(--nav-text);
+  transition: color 0.3s ease;
+  padding: var(--spacing-xs);
+
+  /* Hover and focus states for excellent UI/UX */
+  &:hover,
+  &:focus {
+    color: var(--nav-link-hover);
+    outline: none;
+  }
+
+  /* Accessible focus indicator for keyboard users (WCAG) */
+  &:focus-visible {
+    outline: 2px solid var(--nav-link-hover);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+}
+
+.mobileNav__link--active {
+  /* Active link state, e.g., underline or color change */
+  color: var(--nav-link-active);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--nav-link-active);
+  }
+}
+
+/* Optional: Add an overlay to the page when the mobile menu is open */
+.mobileNavOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-overlay); /* Variable defined in abstracts */
+  z-index: 998; /* Lower z-index than the menu */
+  display: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+
+  &--visible {
+    display: block;
+    opacity: 1;
+  }
+}

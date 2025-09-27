@@ -1,0 +1,71 @@
+@use 'styles/abstracts' as *;
+
+.desktopNav {
+  /* Hide the desktop nav by default on smaller screens. */
+  display: none;
+
+  /* Show the navigation on screens wider than 768px (standard tablet breakpoint). */
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.desktopNav__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.desktopNav__item {
+  /* Spacing between list items. */
+  &:not(:last-child) {
+    margin-right: var(--spacing-md);
+  }
+}
+
+.desktopNav__link {
+  /* Basic link styling. */
+  display: block;
+  text-decoration: none;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  color: var(--nav-text);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  transition: color 0.3s ease;
+
+  /* Hover and focus states for excellent UI/UX. */
+  &:hover,
+  &:focus {
+    color: var(--nav-link-hover);
+    outline: none; /* Remove default browser outline */
+  }
+
+  /* Accessible focus indicator for keyboard users (WCAG). */
+  &:focus-visible {
+    outline: 2px solid var(--nav-link-hover);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+}
+
+.desktopNav__link--active {
+  /* Style for the active link. */
+  color: var(--nav-link-active);
+  font-weight: var(--font-weight-bold);
+  position: relative; /* Used for the underline pseudo-element */
+
+  /* Subtle underline effect for the active link. */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust position to be just below the text */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--nav-link-active);
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+  }
+}

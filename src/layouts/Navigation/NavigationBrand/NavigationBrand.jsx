@@ -13,6 +13,7 @@ const NavigationBrand = ({ onLinkClick }) => {
         onClick={onLinkClick}
         aria-label="Navigate to homepage"
         aria-current="page"
+        title="Navigate to Home"
       >
         <Brand name="BonaventureCJ" />
       </NavLink>

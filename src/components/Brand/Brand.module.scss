@@ -6,7 +6,7 @@
   align-items: center;
   gap: var(--spacing-xs); // Consistent spacing defined in _abstracts.scss
   text-decoration: none;
-  color: var(--nav-text);
+  color: var(--color-brand-primary);
 
   // Animate the text color for a smooth transition during theme changes.
   transition: color 0.3s ease-in-out;

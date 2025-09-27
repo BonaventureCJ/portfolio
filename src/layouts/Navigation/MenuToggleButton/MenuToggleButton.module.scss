@@ -1,0 +1,56 @@
+@use 'styles/abstracts' as *;
+
+.menuToggleButton {
+  /* Inherit styles from parent container and remove default button styles */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nav-text);
+
+  /* Set a minimum touch target size for accessibility (WCAG) */
+  min-width: 44px;
+  min-height: 44px;
+
+  /* Smooth transition for visual feedback */
+  transition: color 0.3s ease, background-color 0.3s ease;
+
+  /* Focus and hover states for accessibility and user experience */
+  &:hover,
+  &:focus {
+    color: var(--nav-link-hover);
+    outline: none; /* Remove default outline */
+    background-color: rgba(var(--color-brand-primary), 0.1);
+    border-radius: var(--border-radius-md);
+  }
+
+  &:focus-visible {
+    /* Use a clear outline for keyboard navigation */
+    outline: 2px solid var(--nav-link-hover);
+    outline-offset: 2px;
+  }
+
+  /* Hide the button by default on larger screens */
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.menuToggleButton__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    /* Adjust icon size */
+    width: 24px;
+    height: 24px;
+    
+    /* Apply transition to the icon fill color */
+    fill: currentColor;
+    transition: fill 0.3s ease;
+  }
+}

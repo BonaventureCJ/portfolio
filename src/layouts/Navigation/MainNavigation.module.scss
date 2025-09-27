@@ -1,0 +1,50 @@
+@use '../../styles/abstracts' as *;
+
+.navigation {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* High z-index to ensure navigation is always on top */
+  background-color: var(--nav-bg);
+  box-shadow: var(--nav-box-shadow);
+  width: 100%;
+}
+
+.navigation__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  max-width: 1400px; /* Optional: Constrain width on large screens */
+  margin: 0 auto;
+}
+
+.navigation__utility {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__overlay {
+  /* Overlay for mobile menu */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-overlay);
+  z-index: 998; /* Lower z-index than the mobile menu */
+  cursor: pointer;
+  
+  /* Transition for a fading effect */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  
+  /* Accessibility: Visually hide overlay when not active */
+  &:not([hidden]) {
+    display: block;
+  }
+}
+
+/* Add a class to the body to prevent scrolling when mobile menu is open */
+.navigation--menu-open {
+  overflow: hidden;
+}
