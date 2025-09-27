@@ -1,4 +1,25 @@
 /**
+ * Creates and returns a function that generates a simple, auto-incrementing number.
+ * The counter is encapsulated within the closure, making it private and persistent.
+ * @returns {function(): number} A function that, when called, returns the next integer in the sequence.
+ */
+const createIdGenerator = () => {
+  let nextId = 1;
+
+  return () => {
+    return nextId++;
+  };
+};
+
+// Export an instance of the generator function, not the creator.
+const generateId = createIdGenerator();
+
+export default generateId;
+
+
+
+
+/**
  * Calculates the number of years between a given start date and the current date.
  * @param {string} startDateString - The start date in 'YYYY-MM-DD' format (e.g., '2022-04-17').
  * @returns {number} The calculated number of years.

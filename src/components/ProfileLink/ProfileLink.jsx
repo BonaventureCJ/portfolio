@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import styles from './ProfileLink.module.scss';
 
 const ProfileLink = ({ profile }) => {
-  console.log(profile);
+  
   const { icon: Icon, url, label, className, ariaLabel, id } = profile;
+  console.log(profile.className);
 
   if (!Icon || !url) {
     console.error('ProfileLink component requires an Icon and url in the profile object.');
