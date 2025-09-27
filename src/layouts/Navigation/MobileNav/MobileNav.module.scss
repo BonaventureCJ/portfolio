@@ -3,17 +3,18 @@
 .mobileNav {
   /* Hide the menu by default and on larger screens */
   position: fixed;
-  top: 0;
+  top: var(--header-height); /* Align the menu below the fixed header */
   right: -100%; /* Position off-screen to the right */
   width: 80%; /* Takes up 80% of the viewport width */
   max-width: 300px; /* Capping the maximum width for larger mobile devices */
-  height: 100vh;
+  height: calc(100vh - var(--header-height)); /* Full viewport height minus header height */
   padding: var(--spacing-lg);
   background-color: var(--nav-bg);
   color: var(--nav-text);
   box-shadow: var(--nav-box-shadow);
   z-index: 999; /* Higher z-index to ensure it is above other content */
   transition: right 0.3s ease-in-out; /* Slide-in/out transition */
+  overflow-y: auto; /* Enable scrolling for menu content if it exceeds viewport height */
 
   /* Hide on larger screens (Tablet and above) */
   @media (min-width: 768px) {
@@ -34,7 +35,8 @@
   display: flex;
   flex-direction: column;
   list-style: none;
-  margin: var(--spacing-xl) 0 0; /* Add top margin to avoid overlapping with header content */
+  /* Remove the top margin as the `top` property now handles alignment */
+  margin: 0;
   padding: 0;
 }
 

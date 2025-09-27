@@ -1,12 +1,14 @@
 @use '../../styles/abstracts' as *;
 
 .navigation {
-  position: sticky;
+  position: fixed; /* Use fixed positioning for mobile to keep header visible */
   top: 0;
+  left: 0;
   z-index: 1000; /* High z-index to ensure navigation is always on top */
   background-color: var(--nav-bg);
   box-shadow: var(--nav-box-shadow);
   width: 100%;
+  height: var(--header-height);
 }
 
 .navigation__wrapper {
@@ -14,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-sm) var(--spacing-md);
-  max-width: 1400px; /* Optional: Constrain width on large screens */
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -26,10 +28,10 @@
 .navigation__overlay {
   /* Overlay for mobile menu */
   position: fixed;
-  top: 0;
+  top: var(--header-height);
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - var(--header-height));
   background-color: var(--color-overlay);
   z-index: 998; /* Lower z-index than the mobile menu */
   cursor: pointer;
@@ -44,7 +46,12 @@
   }
 }
 
-/* Add a class to the body to prevent scrolling when mobile menu is open */
+/* Adjust the positioning of the MobileNav component */
+/* In src/layouts/Navigation/MobileNav/MobileNav.module.scss */
+/* Change top: 0 to compensate for the fixed header height */
+/* Example: top: 60px if your header is 60px tall */
+
+/* Global style to prevent scrolling when the mobile menu is open */
 .navigation--menu-open {
   overflow: hidden;
 }
