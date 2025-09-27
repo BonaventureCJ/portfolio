@@ -1,0 +1,14 @@
+// src/styles/components/_navigation.scss
+
+.navigation {
+  background-color: var(--nav-bg);
+  box-shadow: var(--nav-box-shadow);
+  border-bottom: 1px solid var(--nav-border-color);
+}
+
+.navigation-link {
+  color: var(--nav-text);
+  &:hover {
+    color: var(--nav-link-hover);
+  }
+}

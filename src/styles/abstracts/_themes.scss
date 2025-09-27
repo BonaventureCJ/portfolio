@@ -1,0 +1,61 @@
+// src/styles/abstracts/_themes.scss
+
+/* Light theme-specific defaults */
+:root {
+  /* Hover Box Shadows */
+  --box-shadow-hover-xxs: 1px 1px 3px rgba(0, 0, 0, 0.1), -1px -1px 3px rgba(0, 0, 0, 0.1), -1px 1px 3px rgba(0, 0, 0, 0.1), 1px -1px 3px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover-xs: 2px 2px 6px rgba(0, 0, 0, 0.1), -2px -2px 6px rgba(0, 0, 0, 0.1), -2px 2px 6px rgba(0, 0, 0, 0.1), 2px -2px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover-sm: 3px 3px 9px rgba(0, 0, 0, 0.15), -3px -3px 9px rgba(0, 0, 0, 0.15), -3px 3px 9px rgba(0, 0, 0, 0.15), 3px -3px 9px rgba(0, 0, 0, 0.15);
+  --box-shadow-hover-md: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(0, 0, 0, 0.2), -5px 5px 15px rgba(0, 0, 0, 0.2), 5px -5px 15px rgba(0, 0, 0, 0.2);
+  --box-shadow-hover-lg: 7px 7px 21px rgba(0, 0, 0, 0.25), -7px -7px 21px rgba(0, 0, 0, 0.25), -7px 7px 21px rgba(0, 0, 0, 0.25), 7px -7px 21px rgba(0, 0, 0, 0.25);
+  --box-shadow-hover-xl: 10px 10px 30px rgba(0, 0, 0, 0.3), -10px -10px 30px rgba(0, 0, 0, 0.3), -10px 10px 30px rgba(0, 0, 0, 0.3), 10px -10px 30px rgba(0, 0, 0, 0.3);
+  --box-shadow-hover-xxl: 15px 15px 45px rgba(0, 0, 0, 0.35), -15px -15px 45px rgba(0, 0, 0, 0.35), -15px 15px 45px rgba(0, 0, 0, 0.35), 15px -15px 45px rgba(0, 0, 0, 0.35);
+
+  /* Skill Box Shadows */
+  --box-shadow-skill-major: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --box-shadow-skill-other: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  /* Colors */
+  --color-surface-base: #171717;
+  --color-surface-elevated: #20232A;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #BEBEBE;
+  --color-text-inverse: #171717;
+  --color-border-primary: #444444;
+  --color-code-bg: #20232A;
+  --color-code-text: #F6F6F6;
+  --color-overlay: rgba(0, 0, 0, 0.7);
+
+  /* Overrides for component defaults */
+  --button-bg-primary: #004d9a;
+  --button-text-primary: var(--color-text-primary);
+  --button-bg-primary-hover: #00376d;
+  --button-bg-secondary: #0e6c78;
+  --button-text-secondary: var(--color-text-primary);
+  --button-bg-secondary-hover: #084c55;
+  --nav-bg: var(--color-surface-base);
+  --nav-text: var(--color-text-primary);
+  --nav-border-color: var(--color-border-primary);
+  --nav-box-shadow: var(--box-shadow-md);
+  --card-bg: var(--color-surface-elevated);
+  --card-text: var(--color-text-primary);
+  --card-border: 1px solid var(--color-border-primary);
+  --hero-bg: var(--color-surface-base);
+  --hero-text: var(--color-text-primary);
+
+  /* Hover Box Shadows */
+  --box-shadow-hover-xxs: 1px 1px 3px rgba(255, 255, 255, 0.1), -1px -1px 3px rgba(255, 255, 255, 0.1), -1px 1px 3px rgba(255, 255, 255, 0.1), 1px -1px 3px rgba(255, 255, 255, 0.1);
+  --box-shadow-hover-xs: 2px 2px 6px rgba(255, 255, 255, 0.1), -2px -2px 6px rgba(255, 255, 255, 0.1), -2px 2px 6px rgba(255, 255, 255, 0.1), 2px -2px 6px rgba(255, 255, 255, 0.1);
+  --box-shadow-hover-sm: 3px 3px 9px rgba(255, 255, 255, 0.1), -3px -3px 9px rgba(255, 255, 255, 0.1), -3px 3px 9px rgba(255, 255, 255, 0.1), 3px -3px 9px rgba(255, 255, 255, 0.1);
+  --box-shadow-hover-md: 5px 5px 15px rgba(255, 255, 255, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.1), -5px 5px 15px rgba(255, 255, 255, 0.1), 5px -5px 15px rgba(255, 255, 255, 0.1);
+  --box-shadow-hover-lg: 7px 7px 21px rgba(255, 255, 255, 0.1), -7px -7px 21px rgba(255, 255, 255, 0.1), -7px 7px 21px rgba(255, 255, 255, 0.1), 7px -7px 21px rgba(255, 255, 255, 0.1);
+  --box-shadow-hover-xl: 10px 10px 30px rgba(255, 255, 255, 0.1), -10px -10px 30px rgba(255, 255, 255, 0.1), -10px 10px 30px rgba(255, 255, 255, 0.1), 10px -10px 30px rgba(255, 255, 255, 0.1);
+  --box-shadow-hover-xxl: 15px 15px 45px rgba(255, 255, 255, 0.1), -15px -15px 45px rgba(255, 255, 255, 0.1), -15px 15px 45px rgba(255, 255, 255, 0.1), 15px -15px 45px rgba(255, 255, 255, 0.1);
+
+  /* Skill Box Shadows */
+  --box-shadow-skill-major: 0 4px 12px rgba(255, 255, 255, 0.1);
+  --box-shadow-skill-other: 0 2px 8px rgba(255, 255, 255, 0.05);
+}

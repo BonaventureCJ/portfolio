@@ -1,0 +1,10 @@
+// src/styles/components/_card.scss
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  border: var(--card-border);
+  box-shadow: var(--card-box-shadow);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+}
