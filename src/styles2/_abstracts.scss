@@ -5,7 +5,7 @@
 // Light theme variables (default)
 :root {
   /* Colors */
- /*  --color-brand-primary: #007bff;
+  --color-brand-primary: #007bff;
   --color-brand-accent: #17a2b8;
   --color-surface-base: #fff;
   --color-surface-elevated: #f8f9fa;
@@ -14,24 +14,7 @@
   --color-text-inverse: #fff;
   --color-border-primary: #dee2e6;
   --color-link: var(--color-brand-primary);
-  --color-link-hover: #0056b3; */
-
-  //REACT COLOURS
-  --color-brand-primary: #61DAFB;
-  --color-brand-accent: #20232A;
-  --color-surface-base: #FFFFFF;
-  --color-surface-elevated: #F6F6F6;
-  --color-text-primary: #171717;
-  --color-text-secondary: #565656;
-  --color-text-inverse: #FFFFFF;
-  --color-border-primary: #EBEBEB;
-  --color-link: #61DAFB;
-  --color-link-hover: #4DACC0;
-  --color-code-bg: #F2F2F2;
-  --color-code-text: #171717;
-
-
-  //--react-icon-colour: #61DBFB;
+  --color-link-hover: #0056b3;
 
    // Color Variable (Light Theme) --
   --color-overlay: rgba(255, 255, 255, 0.7); // A semi-transparent white for light mode.
@@ -125,27 +108,13 @@
 // Your provided dark theme variables (overrides)
 [data-theme="dark"] {
   /* Colors */
- /*  --color-surface-base: #121212;
+  --color-surface-base: #121212;
   --color-surface-elevated: #1e1e1e;
   --color-text-primary: #e0e0e0;
   --color-text-secondary: #b0b0b0;
   --color-text-inverse: #212529;
   --color-border-primary: #373737;
-  --color-link-hover: #6ea8fe; */
-
-  //REACT COLOURS
- --color-brand-primary: #61DAFB;
-  --color-brand-accent: #20232A;
-  --color-surface-base: #171717;
-  --color-surface-elevated: #20232A;
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #BEBEBE;
-  --color-text-inverse: #171717;
-  --color-border-primary: #444444;
-  --color-link: #61DAFB;
-  --color-link-hover: #4DACC0;
-  --color-code-bg: #20232A;
-  --color-code-text: #F6F6F6;
+  --color-link-hover: #6ea8fe;
 
   // -- Overlay Color Variable (Dark Theme) --
   --color-overlay: rgba(0, 0, 0, 0.7); // A semi-transparent black for dark mode.
