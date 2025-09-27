@@ -1,4 +1,4 @@
-@use '../../styles/abstracts' as *;
+@use 'styles/abstracts' as *;
 
 .navigation {
   position: fixed; /* Use fixed positioning for mobile to keep header visible */
@@ -9,6 +9,9 @@
   box-shadow: var(--nav-box-shadow);
   width: 100%;
   height: var(--header-height);
+    /* The fix */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .navigation__wrapper {
