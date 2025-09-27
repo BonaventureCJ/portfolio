@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import styles from './MainNavigation.module.scss';
 
 // Imported icons
-import HamburgerIcon from 'components/NavigationIcons/HamburgerIcon';
-import MenuCloseIcon from 'components/NavigationIcons/MenuCloseIcon';
+import { ReactComponent as HamburgerIcon } from 'assets/icons/hamburger-menu-linear.svg';
+import { ReactComponent as MenuCloseIcon } from 'assets/icons/round-close.svg';
 
 // Import Brand component
 import Brand from 'components/Brand/Brand';

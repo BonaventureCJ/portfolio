@@ -1,12 +1,13 @@
 // src/data/contact.js
 
 // Import icons as React components
-import { ReactComponent as LinkedInIcon } from '../assets/icons/linkedin.svg';
-import { ReactComponent as GithubIcon } from '../assets/icons/github.svg';
-import { ReactComponent as XIcon } from '../assets/icons/x-twitter.svg';
-import { ReactComponent as EmailIcon } from '../assets/icons/email.svg';
-import { ReactComponent as SmsIcon } from '../assets/icons/sms.svg';
-import { ReactComponent as WhatsappIcon } from '../assets/icons/whatsapp.svg';
+import { ReactComponent as LinkedInIcon } from 'assets/icons/linkedin.svg';
+import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
+import { ReactComponent as XIcon } from 'assets/icons/x-twitter.svg';
+import { ReactComponent as EmailIcon } from 'assets/icons/email.svg';
+import { ReactComponent as SmsIcon } from 'assets/icons/sms.svg';
+import { ReactComponent as WhatsappIcon } from 'assets/icons/whatsapp.svg';
+
 
 /**
  * A simple auto-incrementing ID generator.

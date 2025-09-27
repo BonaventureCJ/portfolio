@@ -1,7 +1,7 @@
-// Import all your icon components here
-import GitHubProfileIcon from 'components/NavigationIcons/GitHubProfileIcon';
+//import GitHubProfileIcon from 'components/NavigationIcons/GitHubProfileIcon';
 //import LinkedInIcon from 'components/NavigationIcons/LinkedInIcon';
 //import TwitterIcon from 'components/NavigationIcons/TwitterIcon';
+import { ReactComponent as GitHubProfileIcon } from 'assets/icons/github.svg';
 
 
 const profiles = [

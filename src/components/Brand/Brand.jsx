@@ -1,5 +1,5 @@
 import React from 'react';
-import BrandLogo from 'components/NavigationIcons/BrandLogo';
+import { ReactComponent as BrandLogo } from 'assets/icons/window-dev-tools-24-regular.svg';
 import styles from './Brand.module.scss';
 
 const Brand = ({ name }) => {
