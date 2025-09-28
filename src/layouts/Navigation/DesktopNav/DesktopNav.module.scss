@@ -21,9 +21,10 @@
   gap: var(--spacing-lg); // Consistent spacing between navigation items
 }
 
-.desktopNav__item {
+/* .desktopNav__item {
   // Can be used for specific item-level styles if needed
-}
+  background-color: yellow;
+} */
 
 .desktopNav__link {
   font-family: var(--font-family-primary);
