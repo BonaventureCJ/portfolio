@@ -1,22 +1,10 @@
-// src/styles/_abstracts.scss //for Portfolio Project
+// src/styles/_abstracts.scss
 @charset "UTF-8";
 // --- Variables ---
-
 // Light theme variables (default)
 :root {
-  /* Colors */
- /*  --color-brand-primary: #007bff;
-  --color-brand-accent: #17a2b8;
-  --color-surface-base: #fff;
-  --color-surface-elevated: #f8f9fa;
-  --color-text-primary: #212529;
-  --color-text-secondary: #6c757d;
-  --color-text-inverse: #fff;
-  --color-border-primary: #dee2e6;
-  --color-link: var(--color-brand-primary);
-  --color-link-hover: #0056b3; */
-
-  //REACT COLOURS
+ 
+  //Colours //React Theme
   --color-brand-primary: #61DAFB;
   --color-brand-accent: #20232A;
   --color-surface-base: #FFFFFF;
@@ -29,12 +17,7 @@
   --color-link-hover: #4DACC0;
   --color-code-bg: #F2F2F2;
   --color-code-text: #171717;
-
-
-  //--react-icon-colour: #61DBFB;
-
-   // Color Variable (Light Theme) --
-  --color-overlay: rgba(255, 255, 255, 0.7); // A semi-transparent white for light mode.
+  --color-overlay: rgba(255, 255, 255, 0.7);
 
   /* Fonts */
   --font-family-primary: 'Familjen Grotesk', sans-serif;
@@ -47,7 +30,7 @@
   --font-weight-regular: 400;
   --font-weight-bold: 700;
 
-  /* Font Sizes (based on a modular scale) */
+  /* Font Sizes */
   --font-size-base: 1rem;
   --font-size-sm: 0.875rem;
   --font-size-lg: 1.25rem;
@@ -75,8 +58,7 @@
   --box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
   --box-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 
-/* --- New Hover Box Shadows (light theme) (based on 5px offset and 15px blur) --- */
-  // The '5px' offset becomes our base unit for the scales.
+/* --- Hover Box Shadows (light theme) --- */
   --box-shadow-hover-xxs: 1px 1px 3px rgba(0, 0, 0, 0.1), -1px -1px 3px rgba(0, 0, 0, 0.1), -1px 1px 3px rgba(0, 0, 0, 0.1), 1px -1px 3px rgba(0, 0, 0, 0.1);
   --box-shadow-hover-xs: 2px 2px 6px rgba(0, 0, 0, 0.1), -2px -2px 6px rgba(0, 0, 0, 0.1), -2px 2px 6px rgba(0, 0, 0, 0.1), 2px -2px 6px rgba(0, 0, 0, 0.1);
   --box-shadow-hover-sm: 3px 3px 9px rgba(0, 0, 0, 0.15), -3px -3px 9px rgba(0, 0, 0, 0.15), -3px 3px 9px rgba(0, 0, 0, 0.15), 3px -3px 9px rgba(0, 0, 0, 0.15);
@@ -89,7 +71,6 @@
   --box-shadow-skill-major: 0 4px 12px rgba(0, 0, 0, 0.15);
   --box-shadow-skill-other: 0 2px 8px rgba(0, 0, 0, 0.1);
 
-  /* New variables for components */
   /* --- Buttons --- */
   --button-padding: var(--spacing-sm) var(--spacing-md);
   --button-bg-primary: var(--color-brand-primary);
@@ -122,18 +103,10 @@
   
 }
 
-// Your provided dark theme variables (overrides)
+// Dark theme variables (overrides)
 [data-theme="dark"] {
-  /* Colors */
- /*  --color-surface-base: #121212;
-  --color-surface-elevated: #1e1e1e;
-  --color-text-primary: #e0e0e0;
-  --color-text-secondary: #b0b0b0;
-  --color-text-inverse: #212529;
-  --color-border-primary: #373737;
-  --color-link-hover: #6ea8fe; */
 
-  //REACT COLOURS
+  //Colours (Dark theme overrides) //React Theme
  --color-brand-primary: #61DAFB;
   --color-brand-accent: #20232A;
   --color-surface-base: #171717;
@@ -146,9 +119,7 @@
   --color-link-hover: #4DACC0;
   --color-code-bg: #20232A;
   --color-code-text: #F6F6F6;
-
-  // -- Overlay Color Variable (Dark Theme) --
-  --color-overlay: rgba(0, 0, 0, 0.7); // A semi-transparent black for dark mode.
+  --color-overlay: rgba(0, 0, 0, 0.7);
 
   /* --- Buttons (Dark theme overrides) --- */
   --button-bg-primary: #004d9a;
@@ -176,8 +147,7 @@
   --hero-bg: var(--color-surface-base);
   --hero-text: var(--color-text-primary);
 
- /* --- New Hover Box Shadows (Dark theme overrides) --- */
-  // Use a less intense or different color for the dark theme.
+ /* --- Hover Box Shadows (Dark theme overrides) --- */
   --box-shadow-hover-xxs: 1px 1px 3px rgba(255, 255, 255, 0.1), -1px -1px 3px rgba(255, 255, 255, 0.1), -1px 1px 3px rgba(255, 255, 255, 0.1), 1px -1px 3px rgba(255, 255, 255, 0.1);
   --box-shadow-hover-xs: 2px 2px 6px rgba(255, 255, 255, 0.1), -2px -2px 6px rgba(255, 255, 255, 0.1), -2px 2px 6px rgba(255, 255, 255, 0.1), 2px -2px 6px rgba(255, 255, 255, 0.1);
   --box-shadow-hover-sm: 3px 3px 9px rgba(255, 255, 255, 0.1), -3px -3px 9px rgba(255, 255, 255, 0.1), -3px 3px 9px rgba(255, 255, 255, 0.1), 3px -3px 9px rgba(255, 255, 255, 0.1);
@@ -185,7 +155,6 @@
   --box-shadow-hover-lg: 7px 7px 21px rgba(255, 255, 255, 0.1), -7px -7px 21px rgba(255, 255, 255, 0.1), -7px 7px 21px rgba(255, 255, 255, 0.1), 7px -7px 21px rgba(255, 255, 255, 0.1);
   --box-shadow-hover-xl: 10px 10px 30px rgba(255, 255, 255, 0.1), -10px -10px 30px rgba(255, 255, 255, 0.1), -10px 10px 30px rgba(255, 255, 255, 0.1), 10px -10px 30px rgba(255, 255, 255, 0.1);
   --box-shadow-hover-xxl: 15px 15px 45px rgba(255, 255, 255, 0.1), -15px -15px 45px rgba(255, 255, 255, 0.1), -15px 15px 45px rgba(255, 255, 255, 0.1), 15px -15px 45px rgba(255, 255, 255, 0.1);
-
 
    /* --- Box ShadowsBox for skills (Dark theme overrides) --- */
   --box-shadow-skill-major: 0 4px 12px rgba(255, 255, 255, 0.1);
