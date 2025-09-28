@@ -7,7 +7,7 @@ import NavigationBrand from './NavigationBrand/NavigationBrand';
 import DesktopNav from './DesktopNav/DesktopNav';
 import MobileNav from './MobileNav/MobileNav';
 import MenuToggleButton from './MenuToggleButton/MenuToggleButton';
-import UtilityIcons from './UtilityIcons/UtilityIcons'; // Assuming UtilityIcons is also extracted
+import UtilityIcons from './UtilityIcons/UtilityIcons';
 
 // Navigation data
 import NavItems from 'data/nav-items';
@@ -28,14 +28,18 @@ const MainNavigation = () => {
       <div className={styles.navigation__wrapper}>
         <NavigationBrand onLinkClick={handleLinkClick} />
         
-        {/* Desktop and Mobile navigation */}
+        {/* Desktop navigation */}
         <DesktopNav navItems={NavItems} onLinkClick={handleLinkClick} />
         
-        <div className={styles.navigation__utility}>
+        {/* Container for the utility icons and the mobile toggle button */}
+        <div className={styles.navigation__actions}>
           <UtilityIcons />
-          <MenuToggleButton isOpen={isOpen} toggleMenu={toggleMenu} />
+          <div className={styles.mobileToggleButtonWrapper}>
+            <MenuToggleButton isOpen={isOpen} toggleMenu={toggleMenu} />
+          </div>
         </div>
 
+        {/* Mobile navigation */}
         <MobileNav
           isOpen={isOpen}
           navItems={NavItems}

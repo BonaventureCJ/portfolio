@@ -1,60 +1,66 @@
-@use 'styles/abstracts' as *;
+// src/layouts/Navigation/MainNavigation.module.scss
+
+// Import abstracts
+@import 'styles/abstracts';
 
 .navigation {
-  position: fixed; /* Use fixed positioning for mobile to keep header visible */
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; /* High z-index to ensure navigation is always on top */
+  width: 100%;
+  z-index: 100;
   background-color: var(--nav-bg);
   box-shadow: var(--nav-box-shadow);
-  width: 100%;
-  height: var(--header-height);
-    /* The fix */
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navigation__wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-sm) var(--spacing-md);
-  max-width: 1400px;
-  margin: 0 auto;
-}
+  padding: 0 var(--spacing-md);
 
-.navigation__utility {
-  display: flex;
-  align-items: center;
-}
-
-.navigation__overlay {
-  /* Overlay for mobile menu */
-  position: fixed;
-  top: var(--header-height);
-  left: 0;
-  width: 100vw;
-  height: calc(100vh - var(--header-height));
-  background-color: var(--color-overlay);
-  z-index: 998; /* Lower z-index than the mobile menu */
-  cursor: pointer;
-  
-  /* Transition for a fading effect */
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  
-  /* Accessibility: Visually hide overlay when not active */
-  &:not([hidden]) {
-    display: block;
+  @media (max-width: 768px) {
+    padding: 0 var(--spacing-sm);
   }
 }
 
-/* Adjust the positioning of the MobileNav component */
-/* In src/layouts/Navigation/MobileNav/MobileNav.module.scss */
-/* Change top: 0 to compensate for the fixed header height */
-/* Example: top: 60px if your header is 60px tall */
+// Container for both utility icons and the mobile toggle button
+.navigation__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
 
-/* Global style to prevent scrolling when the mobile menu is open */
-.navigation--menu-open {
-  overflow: hidden;
+// Wrapper specifically for the mobile toggle button
+.mobileToggleButtonWrapper {
+  // By default, display the toggle button on small screens
+  display: block;
+}
+
+// Use a media query to hide the button on larger screens
+@media (min-width: 769px) {
+  .mobileToggleButtonWrapper {
+    display: none; // Hide the button on desktop
+  }
+}
+
+.navigation__overlay {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  background-color: var(--color-overlay);
+  backdrop-filter: blur(5px);
+  z-index: 90;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  will-change: opacity;
+  // Ensure the overlay is hidden on large screens
+  @media (min-width: 769px) {
+    display: none;
+  }
 }
