@@ -1,53 +1,44 @@
-// Uses CSS Modules for local scoping to prevent class name conflicts.
-// It relies on the globally defined CSS Custom Properties for theming.
+@use 'styles/abstracts' as *;
 
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs); // Consistent spacing defined in _abstracts.scss
-  text-decoration: none;
+  gap: var(--spacing-xs);
   color: var(--color-brand-primary);
+  text-decoration: none; // Ensure it looks like text, not a link
 
-  // Animate the text color for a smooth transition during theme changes.
-  transition: color 0.3s ease-in-out;
+  // Accessibility and SEO
+  // The 'name' prop is used for the brand's text. For accessibility,
+  // the icon is made decorative if the text is also present.
+  // The semantic structure of using a <div> or <a> tag is handled in the component.
+  // The combination provides a full brand name for screen readers and search engines.
+  // If the brand name was part of an anchor, the component should be wrapped in an `<a>` tag.
+}
 
-  // With this update, the brand name is always visible.
-  .brandName {
-    // These styles are now removed to keep the name visible.
-    // clip: rect(0 0 0 0);
-    // clip-path: inset(50%);
-    // height: 1px;
-    // overflow: hidden;
-    // position: absolute;
-    // white-space: nowrap;
-    // width: 1px;
-    
-    // Ensure the name is readable and styled correctly.
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-lg); // Uses the larger font size for prominence.
-    line-height: 1; // Ensures consistent vertical alignment with the logo.
-  }
+.brandLogo {
+  height: var(--font-size-lg); // Sizing the SVG relative to font size for better scaling.
+  width: auto;
+  // Apply the brand's primary color to the SVG using `currentColor`.
+  // This requires the SVG code to be optimized to use `fill="currentColor"`.
+  fill: currentColor;
+  transition: fill 0.3s ease;
+}
 
-  // Styling for the BrandLogo component, which is assumed to be an SVG.
+.brandName {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: 1; // Ensure vertical alignment with the icon.
+  letter-spacing: -0.025em; // A tighter letter-spacing can improve readability for brand names.
+}
+
+// Hover state for the entire brand container
+.brand:hover {
   .brandLogo {
-    height: var(--font-size-lg); // Size the icon based on a modular font scale.
-    width: var(--font-size-lg);
-    fill: currentColor; // Use the currentColor keyword for theming.
-    
-    // Add a professional-looking animation on hover.
-    transition: transform 0.3s ease-in-out;
-
-    // Only apply hover effects on devices with a fine pointer.
-    @media (hover: hover) and (pointer: fine) {
-      .brand:hover & {
-        transform: scale(1.1); // Scale the icon up slightly on hover.
-      }
-    }
+    fill: var(--color-link-hover);
   }
 
-  // Define a clear and accessible focus state for keyboard navigation.
-  &:focus-visible {
-    outline: 2px solid var(--color-brand-primary);
-    outline-offset: 2px;
+  .brandName {
+    color: var(--color-link-hover);
   }
 }
