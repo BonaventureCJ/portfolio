@@ -5,14 +5,14 @@
   color: var(--color-text-primary);
   line-height: 0; // Removes extra space below the icon for precise alignment.
   transition: color 0.3s ease, transform 0.3s ease;
-  
+
   // Responsive sizing can be handled here if needed, but the icon's size is set below.
-  
+
   &:hover {
     color: var(--color-link-hover);
     transform: translateY(-2px); // Subtle hover effect for better UI/UX.
   }
-  
+
   // Focus state for keyboard navigation (WCAG).
   // Ensures visibility and usability for users who don't use a mouse.
   &:focus-visible {
@@ -23,10 +23,8 @@
 }
 
 .profileIcon {
-  /* height: var(--font-size-lg); // Sizing the SVG relative to font size for better scaling.
-  width: var(--font-size-lg); // Consistent height and width for a square aspect ratio. */
-  width: 2rem; /* Sizing the icons */
-  height: 2rem;
+  height: var(--spacing-lg);
+  width: var(--spacing-lg);
   fill: currentColor; // Allows the icon color to be controlled by the parent link's color property.
   // The transition on the parent handles the color change.
 }
