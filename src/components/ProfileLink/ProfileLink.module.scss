@@ -1,41 +1,33 @@
-// Uses CSS Modules for local scoping, relying on the global CSS Custom Properties for theming.
+@use '../../styles/abstracts' as *;
 
 .profileLink {
-  // Reset default link styles
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--nav-text); // Inherits color from the navigation text variable.
-
-  // Smooth transition for hover effects on color and transform.
-  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-
-  // WCAG compliant focus state for keyboard navigation.
-  // Using :focus-visible provides a better user experience by only showing
-  // the outline when the user is navigating with a keyboard.
+  display: inline-block; // Allows for padding and consistent spacing.
+  color: var(--color-text-primary);
+  line-height: 0; // Removes extra space below the icon for precise alignment.
+  transition: color 0.3s ease, transform 0.3s ease;
+  
+  // Responsive sizing can be handled here if needed, but the icon's size is set below.
+  
+  &:hover {
+    color: var(--color-link-hover);
+    transform: translateY(-2px); // Subtle hover effect for better UI/UX.
+  }
+  
+  // Focus state for keyboard navigation (WCAG).
+  // Ensures visibility and usability for users who don't use a mouse.
   &:focus-visible {
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
     border-radius: var(--border-radius-sm);
   }
-
-  // Hover effect for pointer devices.
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      color: var(--nav-link-hover); // Changes color on hover, defined by the theme.
-      transform: scale(1.1); // Subtle animation to indicate interactivity.
-    }
-  }
-
-  // Styling for the Icon component within the link.
-  .profileIcon {
-    // Ensures the icon fills with the link's text color.
-    fill: currentColor;
-    // Sets a consistent size for all icons in the component.
-    height: var(--font-size-xl);
-    width: var(--font-size-xl);
-    // Prevents the icon from shrinking if the parent flex container shrinks.
-    flex-shrink: 0;
-  }
 }
+
+.profileIcon {
+  height: var(--font-size-lg); // Sizing the SVG relative to font size for better scaling.
+  width: var(--font-size-lg); // Consistent height and width for a square aspect ratio.
+  fill: currentColor; // Allows the icon color to be controlled by the parent link's color property.
+  // The transition on the parent handles the color change.
+}
+
+// Additional styles can be added for different layouts, e.g., in a list of social links.
+// For example, if it was inside a container with specific alignment.
