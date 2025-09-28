@@ -1,25 +1,35 @@
-// UtilityIcons component styles
-// This file uses the BEM (Block, Element, Modifier) methodology and CSS Modules
-// to create locally scoped and maintainable styles, leveraging CSS Custom Properties for theming.
+// src/layouts/UtilityIcons/UtilityIcons.module.scss
+
+@use 'src/styles/abstracts' as *;
 
 .utility-icons {
-  // Styles for the block (the unordered list container).
   display: flex;
   align-items: center;
-  gap: var(--spacing-md); // Use a variable for consistent spacing between icons.
-  list-style: none; // Remove default list styling.
-  margin: 0; // Remove default margin.
-  padding: 0; // Remove default padding.
+  gap: var(--spacing-sm); // Use spacing variable for consistent gaps
+  padding: 0;
+  margin: 0;
+  list-style: none; // Remove list-style for clean layout
 
-  // Ensures the icons are placed correctly within the main navigation bar.
-  // The parent container (.navigation__utilities) should be the one to handle
-  // placement via flexbox on different screen sizes.
-}
+  // Styles for each icon item within the list
+  &__item {
+    display: flex;
+    align-items: center;
 
-.utility-icons__item {
-  // Styles for the element (the list items).
-  // This is a container for each utility icon.
-  //CHANGE CODE HERE LATER AS YOU WERE THE ONE THAT SUPPLIED IT
-  height: auto;
-  width: auto;
+    // Use a mixin or style for the interactive elements inside
+    // Assuming the children (like ProfileLink and ThemeToggle) handle their own interactive styles,
+    // but this ensures proper spacing.
+    > * {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // Responsive adjustments for smaller screens, if needed
+  @media (max-width: 768px) {
+    // Example: Hide on smaller screens if they are in a mobile-only menu
+    // The specific responsive behavior depends on the overall layout.
+    // .utility-icons {
+    //   display: none;
+    // }
+  }
 }
