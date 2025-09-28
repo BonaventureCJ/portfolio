@@ -16,12 +16,15 @@
 }
 
 .brandLogo {
-  height: var(--font-size-lg); // Sizing the SVG relative to font size for better scaling.
-  width: auto;
+  /* height: var(--font-size-lg); // Sizing the SVG relative to font size for better scaling.
+  width: auto; */
   // Apply the brand's primary color to the SVG using `currentColor`.
   // This requires the SVG code to be optimized to use `fill="currentColor"`.
   fill: currentColor;
   transition: fill 0.3s ease;
+
+  width: 2rem; /* Sizing the icons */
+  height: 2rem;
 }
 
 .brandName {

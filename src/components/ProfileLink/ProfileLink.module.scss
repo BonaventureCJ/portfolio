@@ -1,4 +1,4 @@
-@use '../../styles/abstracts' as *;
+@use 'styles/abstracts' as *;
 
 .profileLink {
   display: inline-block; // Allows for padding and consistent spacing.
@@ -23,8 +23,10 @@
 }
 
 .profileIcon {
-  height: var(--font-size-lg); // Sizing the SVG relative to font size for better scaling.
-  width: var(--font-size-lg); // Consistent height and width for a square aspect ratio.
+  /* height: var(--font-size-lg); // Sizing the SVG relative to font size for better scaling.
+  width: var(--font-size-lg); // Consistent height and width for a square aspect ratio. */
+  width: 2rem; /* Sizing the icons */
+  height: 2rem;
   fill: currentColor; // Allows the icon color to be controlled by the parent link's color property.
   // The transition on the parent handles the color change.
 }
