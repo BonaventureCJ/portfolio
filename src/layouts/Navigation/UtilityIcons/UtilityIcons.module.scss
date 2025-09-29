@@ -5,9 +5,7 @@
 .utility-icons {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm); // Use spacing variable for consistent gaps
-  padding: 0;
-  margin: 0;
+  gap: var(--spacing-xxs); // Use spacing variable for consistent gaps
   list-style: none; // Remove list-style for clean layout
 
   // Styles for each icon item within the list
