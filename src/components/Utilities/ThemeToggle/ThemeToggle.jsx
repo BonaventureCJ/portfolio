@@ -1,4 +1,4 @@
-// src/components/Utility/ThemeToggle/ThemeToggle.jsx
+// src/components/Utilities/ThemeToggle/ThemeToggle.jsx
 
 import { useTheme } from 'contexts/ThemeContext';
 
@@ -8,19 +8,25 @@ import { ReactComponent as DarkThemeIcon } from 'assets/icons/moon-rising-filled
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
 
   return (
     <button
       className={styles.themeToggle}
       onClick={toggleTheme}
-      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+      // Update the `title` attribute for the hover tooltip.
+      title={`You are on ${theme} theme, click to toggle`}
+      aria-label="Toggle dark and light theme"
+      aria-pressed={isDark}
     >
       <div className={styles.iconWrapper}>
         <LightThemeIcon
-          className={`${styles.icon} ${theme === 'light' ? styles.visible : styles.hidden}`}
+          aria-hidden="true"
+          className={`${styles.icon} ${isDark ? styles.hidden : styles.visible}`}
         />
         <DarkThemeIcon
-          className={`${styles.icon} ${theme === 'dark' ? styles.visible : styles.hidden}`}
+          aria-hidden="true"
+          className={`${styles.icon} ${isDark ? styles.visible : styles.hidden}`}
         />
       </div>
     </button>
