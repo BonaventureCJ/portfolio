@@ -6,20 +6,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding: var(--spacing-xs);
   border: none;
   background: transparent;
   cursor: pointer;
-  z-index: 1000; /* Ensure it's above other navigation elements */
+  z-index: 1000;
+  /* Ensure it's above other navigation elements */
+  border-radius: 50%;
 
   // Focus and hover states for accessibility and UI/UX
   &:hover,
   &:focus {
-    outline: none; /* Reset default outline */
-    background-color: transparent; // Ensure consistent background
-    .menuToggleButton__icon {
-      color: var(--color-link);
-    }
+    outline: none;
+    background-color: var(--color-surface-lighter);
+    color: var(--color-text-primary);
   }
 
   // Focus-visible for keyboard accessibility (WCAG)
@@ -34,8 +34,9 @@
 
 .menuToggleButton__icon {
   display: block;
-  width: 2rem; /* Sizing the icons */
-  height: 2rem;
+  height: var(--spacing-md);
+  width: var(--spacing-md);
+  fill: currentColor;
   color: var(--nav-text);
   transition: transform 0.3s ease, color 0.3s ease;
 
