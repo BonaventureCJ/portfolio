@@ -1,6 +1,5 @@
 // src/layouts/Navigation/MenuToggleButton/MenuToggleButton.module.scss
-
-@use 'styles/abstracts' as *; // Assuming abstracts.scss is correctly imported
+@use 'styles/abstracts' as *;
 
 .menuToggleButton {
   display: flex;
