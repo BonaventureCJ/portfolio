@@ -1,0 +1,33 @@
+// src/layouts/UtilityIcons/UtilityIcons.module.scss
+
+@use 'styles/abstracts' as *;
+
+.utility-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs); // Use spacing variable for consistent gaps
+  list-style: none; // Remove list-style for clean layout
+
+  // Styles for each icon item within the list
+  &__item {
+    display: flex;
+    align-items: center;
+
+    // Use a mixin or style for the interactive elements inside
+    // Assuming the children (like ProfileLink and ThemeToggle) handle their own interactive styles,
+    // but this ensures proper spacing.
+    > * {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  // Responsive adjustments for smaller screens, if needed
+  @media (max-width: 768px) {
+    // Example: Hide on smaller screens if they are in a mobile-only menu
+    // The specific responsive behavior depends on the overall layout.
+    // .utility-icons {
+    //   display: none;
+    // }
+  }
+}

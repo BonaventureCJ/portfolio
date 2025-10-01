@@ -1,0 +1,42 @@
+@use 'styles/abstracts' as *;
+
+.profileLink {
+  display: inline-block; // Allows for padding and consistent spacing.
+  color: var(--color-text-primary);
+  padding: var(--spacing-xs);
+
+  line-height: 0; // Removes extra space below the icon for precise alignment.
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease-in-out;
+
+  border-radius: 50%;
+
+
+  // Responsive sizing can be handled here if needed, but the icon's size is set below.
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-surface-lighter);
+    color: var(--color-text-primary);
+  }
+
+
+  // Focus state for keyboard navigation (WCAG).
+  // Ensures visibility and usability for users who don't use a mouse.
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+}
+
+.profileIcon {
+  height: var(--spacing-md);
+  width: var(--spacing-md);
+  fill: currentColor; // Allows the icon color to be controlled by the parent link's color property.
+  // The transition on the parent handles the color change.
+}
+
+// Additional styles can be added for different layouts, e.g., in a list of social links.
+// For example, if it was inside a container with specific alignment.

@@ -43,9 +43,7 @@ import { ReactComponent as EmmetIcon } from '../assets/icons/emmet.svg';
 import { ReactComponent as WordpressIcon } from '../assets/icons/wordpress.svg';
 import { ReactComponent as WoocommerceIcon } from '../assets/icons/woocommerce.svg';
 
-// Unique ID generator
-let nextId = 1;
-const generateId = () => nextId++;
+import generateId from 'utils/helpers';
 
 const skills = [
   // --- Languages & Frameworks (Fundamental) ---

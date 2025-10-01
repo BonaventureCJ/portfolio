@@ -1,27 +1,101 @@
-// src/components/Utilities/ThemeToggle/ThemeToggle.module.scss
-@use 'styles/abstracts' as a;
+@use 'styles/abstracts' as *;
 
-.toggleButton {
-  /* Apply button-related variables from _abstracts.scss */
-  background-color: var(--card-bg);
-  border: 1px solid var(--nav-border-color);
-  color: var(--nav-text);
-  
-  /* Use other variables for dimensions and styling */
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.themeToggle {
+  /* General button styling */
+  border: none;
   cursor: pointer;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
+  padding: var(--spacing-xs);
+  display: inline-flex;
   justify-content: center;
-  
-  /* Add a smooth transition */
-  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+  align-items: center;
+  position: relative;
 
-  &:hover {
-    /* Use a specific hover state color if needed, or let the text color handle it */
-    color: var(--nav-link-hover);
+  color: var(--color-text-primary);
+  background-color: transparent;
+
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease-in-out;
+
+  border-radius: 50%;
+
+  /* Accessible target size for touch devices (WCAG 2.5.8) */
+  @media (pointer: coarse) {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Accessible focus state for keyboard users */
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-surface-lighter);
+  }
+
+
+  .iconWrapper {
+    background: none;
+    display: grid;
+    grid-template-areas: icon-area;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .icon {
+    grid-area: icon-area;
+    fill: currentColor;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.0), opacity 1.1s ease;
+    width: var(--spacing-md);
+    height: var(--spacing-md);
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+// Animations based on theme state
+[data-theme="light"] {
+  .themeToggle {
+    .iconWrapper {
+      .icon {
+        &.visible {
+          transform: translateY(0);
+        }
+
+        &.hidden {
+          transform: translateY(-100%);
+        }
+      }
+    }
+  }
+}
+
+[data-theme="dark"] {
+  .themeToggle {
+    .iconWrapper {
+      .icon {
+        &.visible {
+          transform: translateY(0);
+        }
+
+        &.hidden {
+          transform: translateY(100%);
+        }
+      }
+    }
   }
 }

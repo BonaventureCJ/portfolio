@@ -1,0 +1,81 @@
+// src/layouts/Navigation/DesktopNav/DesktopNav.module.scss
+
+@use 'src/styles/abstracts' as *;
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+
+  // Use a media query to hide this component on mobile, deferring to the MobileNav
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.desktopNav__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--spacing-lg); // Consistent spacing between navigation items
+}
+
+/* .desktopNav__item {
+  // Can be used for specific item-level styles if needed
+  background-color: yellow;
+} */
+
+.desktopNav__link {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  color: var(--nav-text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding: var(--spacing-xxs) 0; // Add some vertical padding for hover/focus state
+
+  // Smooth transition for color and underline effect
+  transition: color 0.3s ease;
+
+  // Underline effect on hover and focus for better UI/UX
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; // Adjust based on desired spacing
+    left: 0;
+    width: 0;
+    height: 2px; // Thickness of the underline
+    background-color: var(--nav-link-hover);
+    transition: width 0.3s ease;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--nav-link-hover);
+  }
+
+  &:hover::after,
+  &:focus::after {
+    width: 100%;
+  }
+
+  // Active link state
+  &--active {
+    color: var(--nav-link-active);
+
+    &::after {
+      width: 100%;
+      background-color: var(--nav-link-active);
+    }
+  }
+
+  // WCAG focus-visible state
+  &:focus-visible {
+    outline: 2px solid var(--nav-link-hover);
+    outline-offset: 4px;
+    border-radius: var(--border-radius-sm); // Soften the outline corners
+  }
+}

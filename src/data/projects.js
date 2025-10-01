@@ -9,13 +9,7 @@ import movieSearchAppImage from '../assets/images/projects/globeflix.png';
 import contactManagerImage from '../assets/images/projects/contact-manager.png';
 import dashboardImage from '../assets/images/projects/dashboard.png';
 
-
-/**
- * A simple auto-incrementing ID generator.
- * For a static, client-side dataset, this is a clean and reliable approach.
- */
-let nextId = 1;
-const generateId = () => nextId++;
+import generateId from 'utils/helpers';
 
 /**
  * @typedef {Object} LinkData

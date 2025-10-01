@@ -1,5 +1,6 @@
 //SkillsCard.module.scss
-@import '../../styles/abstracts';
+
+@use 'styles/abstracts' as *;
 
 // Define the keyframes for the fade-in-up animation
 @keyframes fadeInUp {
@@ -96,7 +97,7 @@
 // ==============================================
 .skillsCard--major {
     .item {
-        box-shadow: var(--box-shadow-skill-major);
+        box-shadow: var(--box-shadow-advanced);
 
         &:hover {
             box-shadow: var(--box-shadow-hover-md);
@@ -122,7 +123,7 @@
 // ==============================================
 .skillsCard--other {
     .item {
-        box-shadow: var(--box-shadow-skill-other);
+        box-shadow: var(--box-shadow-advanced);
 
         &:hover {
             box-shadow: var(--box-shadow-hover-sm);

@@ -1,0 +1,66 @@
+// src/layouts/Navigation/MainNavigation.module.scss
+
+// Import abstracts
+@import 'styles/abstracts';
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--nav-bg);
+  box-shadow: var(--nav-box-shadow);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navigation__wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--spacing-md);
+
+  @media (max-width: 768px) {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+// Container for both utility icons and the mobile toggle button
+.navigation__actions {
+  display: flex;
+  align-items: center;
+ 
+}
+
+// Wrapper specifically for the mobile toggle button
+.mobileToggleButtonWrapper {
+  // By default, display the toggle button on small screens
+  display: block;
+}
+
+// Use a media query to hide the button on larger screens
+@media (min-width: 769px) {
+  .mobileToggleButtonWrapper {
+    display: none; // Hide the button on desktop
+  }
+}
+
+.navigation__overlay {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  background-color: var(--color-overlay);
+  backdrop-filter: blur(5px);
+  z-index: 90;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  will-change: opacity;
+  // Ensure the overlay is hidden on large screens
+  @media (min-width: 769px) {
+    display: none;
+  }
+}

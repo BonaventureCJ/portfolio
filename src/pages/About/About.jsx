@@ -6,6 +6,7 @@ import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/Skills
 import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
 import { yearsOfExperience } from 'utils/helpers';
 import requestResume from 'assets/documents/request-resume.pdf';
+import Brand from 'components/Brand/Brand';
 
 const About = () => {
   // Filter skills to get only the featured ones with a 'Major' level
@@ -59,6 +60,7 @@ const About = () => {
           >
             View All Skills
           </Link>
+          <Brand name="Jesus Christ" />
         </div>
       </div>
     </section>

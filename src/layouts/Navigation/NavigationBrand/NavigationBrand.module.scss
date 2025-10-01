@@ -1,0 +1,43 @@
+@use 'styles/abstracts' as *;
+
+.brand {
+  /* Position the brand within the navigation container. */
+  display: flex;
+  align-items: center;
+
+  /* Ensure brand is visible on both light and dark themes */
+  color: var(--nav-text);
+
+  /* Set high z-index to ensure visibility above other elements if needed. */
+  z-index: 10;
+}
+
+.brand__link {
+  /* Use flexbox to align content within the link. */
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  /* Inherit text color from the parent container. */
+  color: inherit;
+
+  /* Add smooth transition for color changes. */
+  transition: color 0.3s ease;
+
+  /* Add padding for better touch target size (WCAG) */
+  padding: var(--spacing-xxs);
+
+  /* Hover and focus states for excellent UI/UX. */
+  &:hover,
+  &:focus {
+    color: var(--color-link-hover);
+    outline: none; /* Remove default outline */
+  }
+
+  /* Provide a visible focus indicator for keyboard users (WCAG). */
+  &:focus-visible {
+    outline: 2px solid var(--color-link-hover);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+}

@@ -1,0 +1,32 @@
+@use 'styles/abstracts' as *;
+
+
+.mainLayout {
+  /* Use a modern layout system, such as Flexbox, to handle the overall structure. */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Ensures the layout takes up at least the full viewport height. */
+  overflow: hidden;
+}
+
+.mainContent {
+  /*
+    Apply padding to compensate for the fixed header, preventing content overlap.
+    Using the --header-height variable ensures consistency and easy maintenance.
+  */
+  /* Compensate for the header's fixed position */
+  padding-top: var(--header-height);
+
+  /* Use flex-grow to make the main content area expand and push the footer to the bottom. */
+  flex-grow: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Improves scroll physics on iOS */
+  
+  /* Additional styling for content container */
+  /* Set max-width and center for desktop viewing */
+ /*  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md); */
+}
