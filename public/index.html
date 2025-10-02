@@ -3,49 +3,67 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="My personal portfolio showcasing my skills and projects." />
+  
+  <!-- FULL FAVICON SET -->
+  <!-- Favicon links from RealFaviconGenerator -->
+  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png">
+  <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  
+  <!-- Manifest link for PWAs (should be updated with the content of site.webmanifest) -->
+  <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
 
-<!-- SEO AND SOCIAL MEDIA METADATA -->
+  <!-- The meta tags for mobile, Windows, and theme colors -->
+  <meta name="apple-mobile-web-app-title" content="BCJ" />
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="theme-color" content="#ffffff">
+
+
+
+  <!-- SEO AND SOCIAL MEDIA METADATA -->
   <!-- Open Graph / Facebook (WhatsApp, LinkedIn, etc.) -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://bonaventurecj.github.io/portfolio/" />
-<meta property="og:title" content="Bonaventure C. J. Ugwu | Personal Portfolio Website" />
-<meta property="og:description" content="My personal portfolio showcasing my skills and projects." />
-<meta property="og:image" content="https://bonaventurecj.github.io/portfolio/preview-image.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bonaventurecj.github.io/portfolio/" />
+  <meta property="og:title" content="Bonaventure C. J. Ugwu | Personal Portfolio Website" />
+  <meta property="og:description" content="My personal portfolio showcasing my skills and projects." />
+  <meta property="og:image" content="https://bonaventurecj.github.io/portfolio/preview-image.jpg" />
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://bonaventurecj.github.io/portfolio/" />
-<meta name="twitter:title" content="Bonaventure C. J. Ugwu | Personal Portfolio Website" />
-<meta name="twitter:description" content="My personal portfolio showcasing my skills and projects." />
-<meta name="twitter:image" content="https://bonaventurecj.github.io/portfolio/preview-image.jpg" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://bonaventurecj.github.io/portfolio/" />
+  <meta name="twitter:title" content="Bonaventure C. J. Ugwu | Personal Portfolio Website" />
+  <meta name="twitter:description" content="My personal portfolio showcasing my skills and projects." />
+  <meta name="twitter:image" content="https://bonaventurecj.github.io/portfolio/preview-image.jpg" />
 
 
   <!--Bootstrap CSS-->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 
-    
+
   <!-- Bootstrap Icons -->
   <!-- OLDER VERSION PREVIOUSLY USED <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <title>Bonaventure's Personal Portfolio Website</title>
+  <title>BonaventureCJ's Portfolio Web Application.</title>
   <!-- handle Flash of Unstyled Content (FOUC) -->
   <script>
-      (function () {
-        try {
-          const savedTheme = localStorage.getItem('theme');
-          const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          const initialTheme = savedTheme || preferredTheme;
-          document.documentElement.setAttribute('data-theme', initialTheme);
-        } catch (e) {
-          console.error("Error setting initial theme:", e);
-        }
-      })();
-    </script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const initialTheme = savedTheme || preferredTheme;
+        document.documentElement.setAttribute('data-theme', initialTheme);
+      } catch (e) {
+        console.error("Error setting initial theme:", e);
+      }
+    })();
+  </script>
 </head>
 
 <body>
