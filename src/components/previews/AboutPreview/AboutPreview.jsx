@@ -16,7 +16,7 @@ const AboutPreview = () => {
           <h2 className={styles.aboutPreview__heading}>About Me</h2>
 
           <p className={styles.aboutPreview__text}>
-            As a Front-End Engineer with {yearsOfExperience}+ years of experience, I am passionate about Accessibility, SEO, Responsive Web Design, clean code, and creating intuitive UIs using modern frameworks and best practices.
+            As a Front-End Engineer with {yearsOfExperience}+ years of experience, I am passionate about Accessibility, SEO, Responsive Web Design, clean code, and creating intuitive UIs using Typescript, React.js and Next.js.
           </p>
 
           <Link
