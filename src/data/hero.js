@@ -7,16 +7,16 @@ export const heroData = {
   name: 'Bonaventure C.J. Ugwu',
   title: 'Front-End Engineer (React.js | Next.js | TypeScript)',
   description:
-    'Front-end Developer and Open-Source Contributor talented in building performant, maintainable and scalable web applications using React.js, Next.js, and TypeScript.',
+    'Front-end Developer and Open-Source Contributor talented in building performant, maintainable and scalable web applications using modern frameworks and best practices.',
   primaryCta: {
     label: "View My Work",
-    ariaLabel: "Navigate to Bonaventure's public projects page", // Add a more descriptive accessible name
+    ariaLabel: "Navigate to Bonaventure's public projects page", 
     title: "Navigate to Bonaventure's public projects page",
     url: '/projects',
   },
   secondaryCta: {
     label: "Download Resume",
-    ariaLabel: "Download Bonaventure's resume in PDF format", // Add a more descriptive accessible name
+    ariaLabel: "Download Bonaventure's resume in PDF format",
     title: "Download Bonaventure's resume (PDF)",
     url: requestResume,
   },
