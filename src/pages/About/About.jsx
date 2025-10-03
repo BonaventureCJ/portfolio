@@ -24,6 +24,7 @@ const About = () => {
               alt="Bonaventure C.J. Ugwu's profile"
               className={styles.about__photo}
               loading="lazy"
+              title="Bonaventure C.J. Ugwu" // Add hover information for the profile photo
             />
           </div>
           <div className={styles.about__textContainer}>
@@ -42,6 +43,7 @@ const About = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download Bonaventure's Resume (PDF)"
+          title="Download Bonaventure's resume (PDF)"
         >
           Download Resume
         </a>
@@ -50,13 +52,18 @@ const About = () => {
           <h3 className={styles.about__skillsHeading}>My Major Skills</h3>
           <ul className={styles.about__skillsList} role="list">
             {featuredSkills.map((skill) => (
-              <SkillsPreviewCard key={skill.id} skill={skill} />
+              <SkillsPreviewCard 
+                key={skill.id} 
+                skill={skill} 
+                title={skill.description || skill.name} // Add hover information to the skills cards
+              />
             ))}
           </ul>
           <Link
             to="/skills"
             className={`${styles.about__button} ${styles['about__button--skills']}`}
             aria-label="View all skills on the Skills page"
+            title="Navigate to the full Skills page"
           >
             View All Skills
           </Link>
