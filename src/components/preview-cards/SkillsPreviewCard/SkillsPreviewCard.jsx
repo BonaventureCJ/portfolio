@@ -1,14 +1,9 @@
 // src/components/preview-cards/SkillsPreviewCard/SkillsPreviewCard.jsx
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SkillsPreviewCard.module.scss';
 
 /**
- * SkillsPreviewCard Component
- * 
- * Renders a single skill item with an icon and name.
- * 
  * @param {object} props - The component props.
  * @param {object} props.skill - A single skill object to render.
  * @returns {JSX.Element} The rendered SkillsPreviewCard component.
