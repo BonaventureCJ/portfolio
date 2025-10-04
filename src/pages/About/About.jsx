@@ -6,7 +6,6 @@ import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/Skills
 import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
 import { yearsOfExperience } from 'utils/helpers';
 import requestResume from 'assets/documents/request-resume.pdf';
-import Brand from 'components/Brand/Brand';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 
 const About = () => {
@@ -75,7 +74,6 @@ const About = () => {
           >
             View All Skills
           </Link>
-          <Brand name="Jesus Christ" />
         </div>
       </div>
     </section>
