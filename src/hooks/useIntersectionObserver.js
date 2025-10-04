@@ -12,6 +12,7 @@ export default function useIntersectionObserver({ root = null, rootMargin = '0px
     }
 
     const observer = new IntersectionObserver(([entry]) => {
+      // Instead of a single boolean, we can use the intersectionRatio for more nuance
       if (entry.isIntersecting) {
         setInView(true);
         if (triggerOnce) {
@@ -37,4 +38,3 @@ export default function useIntersectionObserver({ root = null, rootMargin = '0px
 
   return [elementRef, inView];
 }
-

@@ -213,7 +213,8 @@
   min-width: 320px;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s forwards, transform 0.8s forwards;
+  //transition: opacity 0.8s forwards, transform 0.8s forwards;
+  transition: opacity 1s forwards, transform 1s forwards 1s;
 }
 
 .about__skillsList.is-visible > * {
@@ -223,6 +224,6 @@
 
 @for $i from 1 through 10 {
   .about__skillsList.is-visible > *:nth-child(#{$i}) {
-    transition-delay: #{$i * 0.1}s;
+    transition-delay: #{$i * 0.25}s;
   }
 }
