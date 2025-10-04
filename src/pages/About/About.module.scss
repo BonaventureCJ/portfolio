@@ -82,11 +82,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(
-    45deg,
-    rgba(0, 123, 255, 0.1),
-    rgba(23, 162, 184, 0.1)
-  );
+  background-image: linear-gradient(45deg,
+      rgba(0, 123, 255, 0.1),
+      rgba(23, 162, 184, 0.1));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -124,7 +122,8 @@
 }
 
 .about__summary {
-  font-weight: var(--font-weight-regular); /* Make the text bolder */
+  font-weight: var(--font-weight-regular);
+  /* Make the text bolder */
   font-family: var(--font-family-primary);
   font-size: var(--font-size-lg);
   line-height: 1.6;
@@ -134,45 +133,62 @@
 
 
 .about__button {
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  font-weight: var(--font-weight-bold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--button-padding);
   border-radius: var(--button-border-radius);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  border: none;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: var(--button-transition), transform 0.3s ease;
   box-shadow: var(--button-box-shadow);
-  cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 250px;
+  min-height: 44px;
+  border: 2px solid;
 
-.about__button:focus-visible {
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-advanced);
+  }
+
+  &:focus-visible {
   outline: 2px solid var(--color-brand-accent);
   outline-offset: 2px;
 }
-
-.about__button--resume {
-  background-color: var(--button-bg-primary);
-  color: var(--button-text-primary);
 }
 
-.about__button--resume:hover {
-  background-color: var(--button-bg-primary-hover);
-  color: var(--button-text-primary);
-  transform: translateY(-2px);
+.about__button--resume {
+  background-color: transparent;
+  color: var(--button-text-secondary);
+  border-color: var(--button-text-secondary);
+
+  &:hover,
+  &:focus {
+    //background-color: var(--button-bg-primary-hover);
+    background-color: var(--color-text-secondary);
+    color: var(--button-text-primary);
+    border-color: var(--button-text-primary);
+  }
 }
 
 .about__button--skills {
-  background-color: var(--button-bg-secondary);
-  color: var(--button-text-secondary);
-}
+  background-color: transparent;
+  color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
 
-.about__button--skills:hover {
-  background-color: var(--button-bg-secondary-hover);
-  color: var(--button-text-secondary);
-  transform: translateY(-2px);
+  &:hover,
+  &:focus {
+    background-color: var(--button-bg-primary-hover);
+    color: var(--button-bg-secondary-hover);
+    border-color: var(--button-bg-secondary-hover);
+  }
 }
 
 .about__skills {
@@ -197,12 +213,12 @@
   padding: 0;
   margin: 0;
   max-width: 100%;
-  
-  & > * {
+
+  &>* {
     min-width: 320px;
     animation: fadeIn 0.8s forwards;
     opacity: 0;
-    
+
     @for $i from 1 through 10 {
       &:nth-child(#{$i}) {
         animation-delay: #{$i * 0.1}s;
@@ -211,7 +227,7 @@
   }
 }
 
-.ctaButton {
+/* .ctaButton {
   padding: var(--button-padding);
   border-radius: 9999px;
   min-width: 300px;
@@ -231,20 +247,21 @@
     outline: 2px solid var(--color-brand-accent);
     outline-offset: 2px;
   }
-  
+
   &:hover {
     background-color: var(--button-bg-primary-hover);
     color: var(--button-text-primary);
     transform: translateY(-2px);
   }
 }
-
+ */
 // Keyframe Animations
 @keyframes slideInFromTop {
   from {
     transform: translateY(-20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -256,6 +273,7 @@
     transform: translateY(20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -267,6 +285,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
