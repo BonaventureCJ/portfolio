@@ -1,8 +1,4 @@
-/* ==========================================================================
-   About Component Styles
-   ========================================================================== */
-
-@use 'styles/abstracts' as *;
+@use 'styles/abstracts' as *; // Assuming 'styles/abstracts' is a valid path
 
 .about {
   padding: var(--spacing-lg) var(--spacing-sm);
@@ -160,7 +156,7 @@
   &:focus-visible {
   outline: 2px solid var(--color-brand-primary);
   outline-offset: 2px;
-}
+  }
 }
 
 .about__button--resume {
@@ -211,21 +207,27 @@
   padding: 0;
   margin: 0;
   max-width: 100%;
+}
 
-  &>* {
-    min-width: 320px;
-    animation: fadeIn 0.8s forwards;
-    opacity: 0;
+.about__skillsList > * {
+  min-width: 320px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s forwards, transform 0.8s forwards;
+}
 
-    @for $i from 1 through 10 {
-      &:nth-child(#{$i}) {
-        animation-delay: #{$i * 0.1}s;
-      }
-    }
+.about__skillsList.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@for $i from 1 through 10 {
+  .about__skillsList.is-visible > *:nth-child(#{$i}) {
+    transition-delay: #{$i * 0.1}s;
   }
 }
 
-// Keyframe Animations
+// Keyframe Animations (not used with the Intersection Observer solution)
 @keyframes slideInFromTop {
   from {
     transform: translateY(-20px);
@@ -247,17 +249,5 @@
   to {
     transform: translateY(0);
     opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

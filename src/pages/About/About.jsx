@@ -7,15 +7,19 @@ import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
 import { yearsOfExperience } from 'utils/helpers';
 import requestResume from 'assets/documents/request-resume.pdf';
 import Brand from 'components/Brand/Brand';
+import useIntersectionObserver from 'hooks/useIntersectionObserver';
 
 const About = () => {
-  // Filter skills to get only the featured ones with a 'Major' level
   const featuredSkills = skillsData.filter((skill) => skill.isFeatured);
+
+  const [skillsRef, skillsInView] = useIntersectionObserver({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
 
   return (
     <section className={styles.about}>
       <div className={styles.about__content}>
-        {/* SEO & WCAG: Use a heading tag to provide a clear, hierarchical structure. */}
         <h2 className={styles.about__title}>About Me</h2>
         <div className={styles.about__intro}>
           <div className={styles.about__photoContainer}>
@@ -24,7 +28,7 @@ const About = () => {
               alt="Bonaventure C.J. Ugwu's profile"
               className={styles.about__photo}
               loading="lazy"
-              title="Bonaventure C.J. Ugwu" // Add hover information for the profile photo
+              title="Bonaventure C.J. Ugwu"
             />
           </div>
           <div className={styles.about__textContainer}>
@@ -50,12 +54,16 @@ const About = () => {
         
         <div className={styles.about__skills}>
           <h3 className={styles.about__skillsHeading}>My Major Skills</h3>
-          <ul className={styles.about__skillsList} role="list">
+          <ul
+            ref={skillsRef}
+            className={`${styles.about__skillsList} ${skillsInView ? styles['is-visible'] : ''}`}
+            role="list"
+          >
             {featuredSkills.map((skill) => (
               <SkillsPreviewCard 
                 key={skill.id} 
                 skill={skill} 
-                title={skill.description || skill.name} // Add hover information to the skills cards
+                title={skill.description || skill.name}
               />
             ))}
           </ul>
