@@ -1,6 +1,5 @@
 // src/components/Utilities/ThemeToggle/ThemeToggle.jsx
-
-import { useTheme } from 'contexts/ThemeContext';
+import { useTheme } from 'hooks/useTheme';
 
 import styles from './ThemeToggle.module.scss';
 import { ReactComponent as LightThemeIcon } from 'assets/icons/sun.svg';
@@ -14,7 +13,6 @@ const ThemeToggle = () => {
     <button
       className={styles.themeToggle}
       onClick={toggleTheme}
-      // Update the `title` attribute for the hover tooltip.
       title={`You are on ${theme} theme, click to toggle`}
       aria-label="Toggle dark and light theme"
       aria-pressed={isDark}
