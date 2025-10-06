@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import {ThemeContext} from 'contexts/ThemeContext';
-console.log('This is the theme context',ThemeContext);
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
