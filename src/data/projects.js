@@ -1,6 +1,4 @@
 // src/data/projects.js
-
-// Import all project images from the assets folder.
 import portfolio from 'assets/images/projects/portfolio.png';
 import mealRecipeAppImage from 'assets/images/projects/yummyrecipeshub.png';
 import qrCodeGeneratorImage from 'assets/images/projects/qr-code-generator.png';
