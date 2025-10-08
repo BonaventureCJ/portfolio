@@ -19,8 +19,7 @@ import generateId from 'utils/helpers';
 /**
  * @typedef {Object} Project
  * @property {number} id - A unique, auto-incrementing identifier for the project.
- * @property {string} title - The title of the project.
- * @property {string} description - A brief description of the project.
+ * @property {string | string[]} description - A brief description or array of paragraphs for the project.
  * @property {object} image - The imported image asset.
  * @property {LinkData[]} links - An array of link objects for the project.
  * @property {string[]} technologies - An array of technologies used in the project.
@@ -34,7 +33,11 @@ const projects = [
   {
     id: generateId(),
     title: 'Personal Portfolio WebApp',
-    description: 'A modern, responsive portfolio website built with React.js and Sass. It features smooth animations, a dark mode toggle, and showcases my projects and skills effectively.',
+    description: [
+      'A modern, responsive portfolio website built with React.js and Sass. It features smooth animations, a dark mode toggle, and showcases my projects and skills effectively.',
+      'Wondering why this is one of my best? Check out the project live, then explore the codebase to see the clean structure and best practices implemented.',
+      'Examine the version-controlled GitHub repository as well and assess my readiness for Collaborative Development.',
+    ],
     image: portfolio,
     links: [
       {
@@ -48,7 +51,7 @@ const projects = [
         url: 'https://github.com/BonaventureCJ/portfolio',
       },
     ],
-    technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'WCAG', 'SEO', 'Responsive Design', 'SCSS', 'CSS Modules', 'Node.js'],
+    technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'WCAG', 'SEO', 'Responsive Design', 'SCSS', 'CSS Modules', 'Node.js', 'Folder Structure'],
     isRecent: true,
     isFeatured: false,
     isTutorialBased: false,
@@ -56,7 +59,10 @@ const projects = [
   {
     id: generateId(),
     title: 'Yummy Recipes Hub',
-    description: 'An application for discovering, exploring and managing meal recipes. Users can search by ingredient or name and get detailed cooking instructions, as well as save their favourite recipes; demonstrating API handling and state management.',
+    description: [
+      'An application for discovering, exploring, and managing meal recipes.',
+      'Users can search by ingredient or name and get detailed cooking instructions, as well as save their favorite recipes, demonstrating proficiency in API handling and state management.'
+    ],
     image: mealRecipeAppImage,
     links: [
       {
@@ -78,7 +84,10 @@ const projects = [
   {
     id: generateId(),
     title: 'QR Code Generator',
-    description: 'A utility app for generating and downloading QR codes from user-provided text or URLs. It features a simple, intuitive user interface and instant QR code generation, built with a focus on user experience.',
+    description: [
+      'A utility app for generating and downloading QR codes from user-provided text or URLs.',
+      'It features a simple, intuitive user interface and instant QR code generation, built with a strong focus on user experience (UX).'
+    ],
     image: qrCodeGeneratorImage,
     links: [
       {
@@ -100,7 +109,10 @@ const projects = [
   {
     id: generateId(),
     title: 'GitHub Profile Viewer',
-    description: 'A tool for searching and viewing GitHub user profiles and their public repositories. It utilizes the GitHub API to fetch and display user data in a clean, interactive interface.',
+    description: [
+      'A tool for searching and viewing GitHub user profiles and their public repositories.',
+      'It utilizes the GitHub API to fetch and display user data in a clean, interactive interface, showcasing effective asynchronous data handling.'
+    ],
     image: githubProfileFinderImage,
     links: [
       {
@@ -122,7 +134,10 @@ const projects = [
   {
     id: generateId(),
     title: 'Movie Search App',
-    description: 'A responsive web application that allows users to search for movies using a third-party API. It features real-time search functionality and displays detailed information about each movie, enhancing user interaction.',
+    description: [
+      'A responsive web application that allows users to search for movies using a third-party API.',
+      'It features real-time search functionality and displays detailed information about each movie, demonstrating enhanced user interaction and API integration.'
+    ],
     image: movieSearchAppImage,
     links: [
       {
@@ -144,7 +159,10 @@ const projects = [
   {
     id: generateId(),
     title: 'Contact Manager',
-    description: 'A simple contact management system that allows users to add, view, and delete contacts. This project is a practical demonstration of routing, advanced state management and local storage integration.',
+    description: [
+      'A simple contact management system that allows users to add, view, and delete contacts.',
+      'This project is a practical demonstration of routing, advanced state management, and local storage integration.'
+    ],
     image: contactManagerImage,
     links: [
       {
@@ -166,7 +184,10 @@ const projects = [
   {
     id: generateId(),
     title: 'Next.js Dashboard',
-    description: 'A dynamic, feature-rich dashboard built with Next.js, showcasing server-side rendering (SSR) and static site generation (SSG) capabilities. It effectively demonstrates proficiency in modern full-stack development and robust data management.',
+    description: [
+      'A dynamic, feature-rich dashboard built with Next.js.',
+      'It showcases server-side rendering (SSR) and static site generation (SSG) capabilities, effectively demonstrating proficiency in modern full-stack development and robust data management.'
+    ],
     image: dashboardImage,
     links: [
       {
