@@ -51,7 +51,7 @@ const projects = [
         url: 'https://github.com/BonaventureCJ/portfolio',
       },
     ],
-    technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'WCAG', 'SEO', 'Responsive Design', 'SCSS', 'CSS Modules', 'Node.js', 'Folder Structure'],
+    technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'HTML5','Responsive Design', 'WCAG', 'SEO', 'SCSS', 'CSS3', 'CSS Modules', 'Node.js', 'JSDoc', 'Folder Structure', 'Git', 'GitHub'],
     isRecent: true,
     isFeatured: false,
     isTutorialBased: false,

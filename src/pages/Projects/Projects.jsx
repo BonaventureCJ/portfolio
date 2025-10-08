@@ -18,7 +18,7 @@ const Projects = () => {
    * Helper function to render a project section.
    * @param {Array} projects - Array of project objects to display.
    * @param {string} title - The main heading for the section.
-   * @param {string} description - The subheading describing the section.
+   * @param {string[]} description - The subheading describing the section.
    * @param {number} headingLevel - The heading level (e.g., 2 for <h2>).
    * @param {string} sectionId - The unique ID for the section, used for accessibility.
    */
@@ -37,7 +37,12 @@ const Projects = () => {
             {title}
           </HeadingTag>
           <SubheadingTag className={styles['projects-section__subtitle']}>
-            {description}
+            {description.map((paragraph, index) => (
+              <React.Fragment key={index}>
+                {paragraph}
+                {index < description.length - 1 && <br />}
+              </React.Fragment>
+            ))}
           </SubheadingTag>
         </div>
         <ul className={styles['projects-section__list']}>
@@ -56,7 +61,7 @@ const Projects = () => {
       <header className={styles['projects-page__header']}>
         <h1 className={styles['projects-page__main-title']}>My Work</h1>
         <p className={styles['projects-page__description']}>
-          A collection of my recent projects, as well as earlier career and tutorial-based work.
+          A collection of my recent projects, as well as tutorial-based and earlier career work.
         </p>
       </header>
 
@@ -64,21 +69,22 @@ const Projects = () => {
         {renderProjectSection(
           recentProjects,
           'Recent Projects',
-          "Showcasing my most up-to-date work, reflecting my current skill set and development approach.",
+          ["Showcasing my most up-to-date work, reflecting my current skill set and development approach."],
           2,
           'recent-projects'
         )}
         {renderProjectSection(
           tutorialBasedProjects,
           'Tutorial-Based Projects',
-          "A selection of projects built while learning specific technologies and techniques, demonstrating foundational knowledge.",
+          ["A selection of projects built while learning specific technologies and techniques, demonstrating foundational knowledge."],
           2,
           'tutorial-projects'
         )}
         {renderProjectSection(
           earlierCareerProjects,
           'Earlier Career Projects',
-          "A look back at some of my initial projects, highlighting my growth and evolution as a developer.",
+          ["A look back at some of my initial projects, highlighting my growth and evolution as a developer.", 
+            "These projects showcase early skills and problem-solving, but I now approach development with significantly improved code structure, design patterns, and industry-best practices gained from experience and continued learning."],
           2,
           'earlier-career-projects'
         )}
