@@ -1,11 +1,12 @@
 // src/data/projects.js
-import portfolio from 'assets/images/projects/portfolio.png';
+import portfolioImage from 'assets/images/projects/portfolio.png';
 import mealRecipeAppImage from 'assets/images/projects/yummyrecipeshub.png';
 import qrCodeGeneratorImage from 'assets/images/projects/qr-code-generator.png';
 import githubProfileFinderImage from 'assets/images/projects/github-profile-finder.png';
 import movieSearchAppImage from 'assets/images/projects/globeflix.png';
 import contactManagerImage from 'assets/images/projects/contact-manager.png';
 import dashboardImage from 'assets/images/projects/dashboard.png';
+import legacyPortfolioImage from 'assets/images/projects/portfolio-legacy.png';
 
 import generateId from 'utils/helpers';
 
@@ -38,7 +39,7 @@ const projects = [
       'Wondering why this is one of my best? Check out the project live, then explore the codebase to see the clean structure and best practices implemented.',
       'Examine the version-controlled GitHub repository as well and assess my readiness for Collaborative Development.',
     ],
-    image: portfolio,
+    image: portfolioImage,
     links: [
       {
         label: 'View Live',
@@ -51,9 +52,9 @@ const projects = [
         url: 'https://github.com/BonaventureCJ/portfolio',
       },
     ],
-    technologies: ['React.js', 'React Context API', 'React Router', 'SCSS', 'CSS Modules', 'Node.js'],
+    technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'SCSS', 'CSS Modules', 'Node.js'],
     isRecent: true,
-    isFeatured: false,
+    isFeatured: true,
     isTutorialBased: false,
   },
   {
@@ -152,6 +153,30 @@ const projects = [
       },
     ],
     technologies: ['React.js', 'JavaScript', 'API Integration', 'HTML5', 'SCSS'],
+    isRecent: false,
+    isFeatured: false,
+    isTutorialBased: false,
+  }, {
+    id: generateId(),
+    title: 'Original Portfolio Project',
+    description: [
+      'My initial attempt at building a portfolio website, using React.js and SCSS.',
+      'This project demonstrates foundational skills in component-based architecture, state management, and basic styling. Comparing it to my current portfolio highlights my significant growth in modern design practices, code quality, and performance optimization.'
+    ],
+    image: legacyPortfolioImage,
+    links: [
+      {
+        label: 'View Live',
+        ariaLabel: 'View a live demo of my original portfolio project',
+        url: 'https://bonaventurecj.github.io/portfolio-legacy/',
+      },
+      {
+        label: 'View Code',
+        ariaLabel: 'View the source code for my original portfolio project on GitHub',
+        url: 'https://github.com/BonaventureCJ/portfolio-legacy',
+      },
+    ],
+    technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'SCSS', 'Bootstrap', 'React Icons'],
     isRecent: false,
     isFeatured: false,
     isTutorialBased: false,
