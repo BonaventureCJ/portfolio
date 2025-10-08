@@ -1,13 +1,12 @@
 // src/data/projects.js
-
-// Import all project images from the assets folder.
-import portfolio from '../assets/images/projects/portfolio.png';
-import mealRecipeAppImage from '../assets/images/projects/yummyrecipeshub.png';
-import qrCodeGeneratorImage from '../assets/images/projects/qr-code-generator.png';
-import githubProfileFinderImage from '../assets/images/projects/github-profile-finder.png';
-import movieSearchAppImage from '../assets/images/projects/globeflix.png';
-import contactManagerImage from '../assets/images/projects/contact-manager.png';
-import dashboardImage from '../assets/images/projects/dashboard.png';
+import portfolioImage from 'assets/images/projects/portfolio.png';
+import mealRecipeAppImage from 'assets/images/projects/yummyrecipeshub.png';
+import qrCodeGeneratorImage from 'assets/images/projects/qr-code-generator.png';
+import githubProfileFinderImage from 'assets/images/projects/github-profile-finder.png';
+import movieSearchAppImage from 'assets/images/projects/globeflix.png';
+import contactManagerImage from 'assets/images/projects/contact-manager.png';
+import dashboardImage from 'assets/images/projects/dashboard.png';
+import legacyPortfolioImage from 'assets/images/projects/portfolio-legacy.png';
 
 import generateId from 'utils/helpers';
 
@@ -21,8 +20,7 @@ import generateId from 'utils/helpers';
 /**
  * @typedef {Object} Project
  * @property {number} id - A unique, auto-incrementing identifier for the project.
- * @property {string} title - The title of the project.
- * @property {string} description - A brief description of the project.
+ * @property {string | string[]} description - A brief description or array of paragraphs for the project.
  * @property {object} image - The imported image asset.
  * @property {LinkData[]} links - An array of link objects for the project.
  * @property {string[]} technologies - An array of technologies used in the project.
@@ -36,8 +34,12 @@ const projects = [
   {
     id: generateId(),
     title: 'Personal Portfolio WebApp',
-    description: 'A modern, responsive portfolio website built with React.js and Sass. It features smooth animations, a dark mode toggle, and showcases my projects and skills effectively.',
-    image: portfolio,
+    description: [
+      'A modern, responsive portfolio website built with React.js and Sass. It features smooth animations, a dark mode toggle, and showcases my projects and skills effectively.',
+      'Wondering why this is one of my best? Check out the project live, then explore the codebase to see the clean structure and best practices implemented.',
+      'Examine the version-controlled GitHub repository as well and assess my readiness for Collaborative Development.',
+    ],
+    image: portfolioImage,
     links: [
       {
         label: 'View Live',
@@ -50,15 +52,18 @@ const projects = [
         url: 'https://github.com/BonaventureCJ/portfolio',
       },
     ],
-    technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'WCAG', 'SEO', 'Responsive Design', 'SCSS'],
+    technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'SCSS', 'CSS Modules', 'Node.js'],
     isRecent: true,
-    isFeatured: false,
+    isFeatured: true,
     isTutorialBased: false,
   },
   {
     id: generateId(),
     title: 'Yummy Recipes Hub',
-    description: 'An application for discovering, exploring and managing meal recipes. Users can search by ingredient or name and get detailed cooking instructions, as well as save their favourite recipes; demonstrating API handling and state management.',
+    description: [
+      'An application for discovering, exploring, and managing meal recipes.',
+      'Users can search by ingredient or name and get detailed cooking instructions, as well as save their favorite recipes, demonstrating proficiency in API handling and state management.'
+    ],
     image: mealRecipeAppImage,
     links: [
       {
@@ -80,7 +85,10 @@ const projects = [
   {
     id: generateId(),
     title: 'QR Code Generator',
-    description: 'A utility app for generating and downloading QR codes from user-provided text or URLs. It features a simple, intuitive user interface and instant QR code generation, built with a focus on user experience.',
+    description: [
+      'A utility app for generating and downloading QR codes from user-provided text or URLs.',
+      'It features a simple, intuitive user interface and instant QR code generation, built with a strong focus on user experience (UX).'
+    ],
     image: qrCodeGeneratorImage,
     links: [
       {
@@ -102,7 +110,10 @@ const projects = [
   {
     id: generateId(),
     title: 'GitHub Profile Viewer',
-    description: 'A tool for searching and viewing GitHub user profiles and their public repositories. It utilizes the GitHub API to fetch and display user data in a clean, interactive interface.',
+    description: [
+      'A tool for searching and viewing GitHub user profiles and their public repositories.',
+      'It utilizes the GitHub API to fetch and display user data in a clean, interactive interface, showcasing effective asynchronous data handling.'
+    ],
     image: githubProfileFinderImage,
     links: [
       {
@@ -124,7 +135,10 @@ const projects = [
   {
     id: generateId(),
     title: 'Movie Search App',
-    description: 'A responsive web application that allows users to search for movies using a third-party API. It features real-time search functionality and displays detailed information about each movie, enhancing user interaction.',
+    description: [
+      'A responsive web application that allows users to search for movies using a third-party API.',
+      'It features real-time search functionality and displays detailed information about each movie, demonstrating enhanced user interaction and API integration.'
+    ],
     image: movieSearchAppImage,
     links: [
       {
@@ -142,33 +156,38 @@ const projects = [
     isRecent: false,
     isFeatured: false,
     isTutorialBased: false,
-  },
-  {
+  }, {
     id: generateId(),
-    title: 'Contact Manager',
-    description: 'A simple contact management system that allows users to add, view, and delete contacts. This project is a practical demonstration of routing, advanced state management and local storage integration.',
-    image: contactManagerImage,
+    title: 'Original Portfolio Project',
+    description: [
+      'My initial attempt at building a portfolio website, using React.js and SCSS.',
+      'This project demonstrates foundational skills in component-based architecture, state management, and basic styling. Comparing it to my current portfolio highlights my significant growth in modern design practices, code quality, and performance optimization.'
+    ],
+    image: legacyPortfolioImage,
     links: [
       {
         label: 'View Live',
-        ariaLabel: 'View a live demo of the Contact Manager application',
-        url: 'https://contact-manager-bona.vercel.app/',
+        ariaLabel: 'View a live demo of my original portfolio project',
+        url: 'https://bonaventurecj.github.io/portfolio-legacy/',
       },
       {
         label: 'View Code',
-        ariaLabel: 'View the source code for the Contact Manager on GitHub',
-        url: 'https://github.com/BonaventureCJ/contact-manager',
+        ariaLabel: 'View the source code for my original portfolio project on GitHub',
+        url: 'https://github.com/BonaventureCJ/portfolio-legacy',
       },
     ],
-    technologies: ['React.js', 'JavaScript', 'React Router', 'HTML5', 'CSS3'],
+    technologies: ['React.js', 'React Context API', 'React Router', 'JavaScript', 'SCSS', 'Bootstrap', 'React Icons'],
     isRecent: false,
     isFeatured: false,
-    isTutorialBased: true,
+    isTutorialBased: false,
   },
   {
     id: generateId(),
     title: 'Next.js Dashboard',
-    description: 'A dynamic, feature-rich dashboard built with Next.js, showcasing server-side rendering (SSR) and static site generation (SSG) capabilities. It effectively demonstrates proficiency in modern full-stack development and robust data management.',
+    description: [
+      'A dynamic, feature-rich dashboard built with Next.js.',
+      'It showcases server-side rendering (SSR) and static site generation (SSG) capabilities, effectively demonstrating proficiency in modern full-stack development and robust data management.'
+    ],
     image: dashboardImage,
     links: [
       {
@@ -183,6 +202,30 @@ const projects = [
       },
     ],
     technologies: ['Next.js', 'TypeScript', 'React.js', 'Tailwind CSS'],
+    isRecent: false,
+    isFeatured: false,
+    isTutorialBased: true,
+  }, {
+    id: generateId(),
+    title: 'Contact Manager',
+    description: [
+      'A simple contact management system that allows users to add, view, and delete contacts.',
+      'This project is a practical demonstration of routing, advanced state management, and local storage integration.'
+    ],
+    image: contactManagerImage,
+    links: [
+      {
+        label: 'View Live',
+        ariaLabel: 'View a live demo of the Contact Manager application',
+        url: 'https://contact-manager-bona.vercel.app/',
+      },
+      {
+        label: 'View Code',
+        ariaLabel: 'View the source code for the Contact Manager on GitHub',
+        url: 'https://github.com/BonaventureCJ/contact-manager',
+      },
+    ],
+    technologies: ['React.js', 'JavaScript', 'React Router', 'HTML5', 'CSS3'],
     isRecent: false,
     isFeatured: false,
     isTutorialBased: true,

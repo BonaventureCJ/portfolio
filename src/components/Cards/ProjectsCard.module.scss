@@ -1,4 +1,4 @@
-@use '../../styles/abstracts' as a;
+@use 'styles/abstracts' as a;
 
 .projects-card {
   /* Box model */
@@ -75,8 +75,8 @@
 
 .projects-card__tech-item {
   /* Theming */
-  color: var(--button-text-secondary);
-  background-color: var(--button-bg-secondary);
+  color: var(--button-text-primary);
+  background-color: var(--button-bg-primary);
   
   /* Box model */
   padding: var(--spacing-xxs) var(--spacing-xs);
@@ -98,43 +98,59 @@
 }
 
 .projects-card__button {
-  /* Layout */
-  display: inline-block;
-  
-  /* Theming */
+display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--button-padding);
   border-radius: var(--button-border-radius);
-  
-  /* Typography */
-  text-decoration: none;
+  font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
-  
-  /* Animation */
-  transition: var(--button-transition);
+  text-decoration: none;
+  transition: var(--button-transition), transform 0.3s ease;
+  box-shadow: var(--button-box-shadow);
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  /* min-width: 300px;
+  min-height: 50px; */
+  border: 2px solid;
 
-  &:hover {
-    opacity: 0.9;
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-advanced);
+  }
+
+  &:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
   }
 }
 
 .projects-card__button--live {
-  background-color: var(--button-bg-primary);
-  color: var(--button-text-primary);
-  
-  &:hover {
+  background-color: transparent;
+  color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+
+  &:hover,
+  &:focus {
     background-color: var(--button-bg-primary-hover);
-    // Explicitly set text color to ensure correct contrast in both themes.
-    color: var(--button-text-primary); 
+    color: var(--button-bg-secondary-hover);
+    border-color: var(--button-bg-secondary-hover);
   }
 }
 
 .projects-card__button--repo {
-  background-color: transparent;
-  border: 1px solid var(--color-text-secondary);
-  color: var(--color-text-secondary);
-  
-  &:hover {
+   background-color: transparent;
+  color: var(--button-text-secondary);
+  border-color: var(--button-text-secondary);
+
+  &:hover,
+  &:focus {
     background-color: var(--color-text-secondary);
-    color: var(--color-surface-base);
+    color: var(--button-text-primary);
+    border-color: var(--button-text-primary);
   }
 }
