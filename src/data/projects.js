@@ -183,31 +183,6 @@ const projects = [
   },
   {
     id: generateId(),
-    title: 'Contact Manager',
-    description: [
-      'A simple contact management system that allows users to add, view, and delete contacts.',
-      'This project is a practical demonstration of routing, advanced state management, and local storage integration.'
-    ],
-    image: contactManagerImage,
-    links: [
-      {
-        label: 'View Live',
-        ariaLabel: 'View a live demo of the Contact Manager application',
-        url: 'https://contact-manager-bona.vercel.app/',
-      },
-      {
-        label: 'View Code',
-        ariaLabel: 'View the source code for the Contact Manager on GitHub',
-        url: 'https://github.com/BonaventureCJ/contact-manager',
-      },
-    ],
-    technologies: ['React.js', 'JavaScript', 'React Router', 'HTML5', 'CSS3'],
-    isRecent: false,
-    isFeatured: false,
-    isTutorialBased: true,
-  },
-  {
-    id: generateId(),
     title: 'Next.js Dashboard',
     description: [
       'A dynamic, feature-rich dashboard built with Next.js.',
@@ -227,6 +202,30 @@ const projects = [
       },
     ],
     technologies: ['Next.js', 'TypeScript', 'React.js', 'Tailwind CSS'],
+    isRecent: false,
+    isFeatured: false,
+    isTutorialBased: true,
+  }, {
+    id: generateId(),
+    title: 'Contact Manager',
+    description: [
+      'A simple contact management system that allows users to add, view, and delete contacts.',
+      'This project is a practical demonstration of routing, advanced state management, and local storage integration.'
+    ],
+    image: contactManagerImage,
+    links: [
+      {
+        label: 'View Live',
+        ariaLabel: 'View a live demo of the Contact Manager application',
+        url: 'https://contact-manager-bona.vercel.app/',
+      },
+      {
+        label: 'View Code',
+        ariaLabel: 'View the source code for the Contact Manager on GitHub',
+        url: 'https://github.com/BonaventureCJ/contact-manager',
+      },
+    ],
+    technologies: ['React.js', 'JavaScript', 'React Router', 'HTML5', 'CSS3'],
     isRecent: false,
     isFeatured: false,
     isTutorialBased: true,
