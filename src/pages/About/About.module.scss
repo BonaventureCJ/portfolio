@@ -117,6 +117,13 @@
   }
 }
 
+.about__subHeading {
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--spacing-md);
+}
+
 .about__summary {
   font-weight: var(--font-weight-regular);
   font-family: var(--font-family-primary);
@@ -154,8 +161,8 @@
   }
 
   &:focus-visible {
-  outline: 2px solid var(--color-brand-primary);
-  outline-offset: 2px;
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
   }
 }
 
@@ -209,7 +216,7 @@
   max-width: 100%;
 }
 
-.about__skillsList > * {
+.about__skillsList>* {
   min-width: 320px;
   opacity: 0;
   transform: translateY(20px);
@@ -217,13 +224,13 @@
   transition: opacity 1s forwards, transform 1s forwards 1s;
 }
 
-.about__skillsList.is-visible > * {
+.about__skillsList.is-visible>* {
   opacity: 1;
   transform: translateY(0);
 }
 
 @for $i from 1 through 10 {
-  .about__skillsList.is-visible > *:nth-child(#{$i}) {
+  .about__skillsList.is-visible>*:nth-child(#{$i}) {
     transition-delay: #{$i * 0.25}s;
   }
 }
