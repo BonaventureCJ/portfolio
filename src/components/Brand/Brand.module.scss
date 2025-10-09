@@ -5,23 +5,22 @@
   align-items: center;
   gap: var(--spacing-xs);
   color: var(--color-brand-primary);
-  text-decoration: none; // Ensure it looks like text, not a link
-
-  // Accessibility and SEO
-  // The 'name' prop is used for the brand's text. For accessibility,
-  // the icon is made decorative if the text is also present.
-  // The semantic structure of using a <div> or <a> tag is handled in the component.
-  // The combination provides a full brand name for screen readers and search engines.
-  // If the brand name was part of an anchor, the component should be wrapped in an `<a>` tag.
+  text-decoration: none;// Ensure it looks like text, not a link
 }
 
 .brandLogo {
   height: var(--spacing-lg);
   width: var(--spacing-lg);
-  // Apply the brand's primary color to the SVG using `currentColor`.
-  // This requires the SVG code to be optimized to use `fill="currentColor"`.
-  fill: currentColor;
-  transition: fill 0.3s ease;
+  transition: all 0.3s ease;
+  
+  // Target the specific SVG elements to ensure both fill and stroke are set
+  & > polygon {
+    stroke: currentColor;
+  }
+  
+  & > text {
+    fill: currentColor;
+  }
 }
 
 .brandName {
@@ -30,15 +29,20 @@
   font-weight: var(--font-weight-bold);
   line-height: 1; // Ensure vertical alignment with the icon.
   letter-spacing: -0.025em; // A tighter letter-spacing can improve readability for brand names.
+  transition: color 0.3s ease; // Add a transition for the name as well
 }
 
 // Hover state for the entire brand container
 .brand:hover {
-  .brandLogo {
-    fill: var(--color-link-hover);
-  }
+  color: var(--color-link-hover); // Change color on the parent, which cascades
+}
 
-  .brandName {
-    color: var(--color-link-hover);
-  }
+// Add focus states
+.brand:focus-visible {
+  // Use a noticeable outline to ensure keyboard users know the element is active.
+  outline: 2px solid var(--color-link-hover);
+  // Add an offset to prevent the outline from visually overlapping the component.
+  outline-offset: 2px;
+  // Apply the same color change as hover for visual consistency.
+  color: var(--color-link-hover);
 }
