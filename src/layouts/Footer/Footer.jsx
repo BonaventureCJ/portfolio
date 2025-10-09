@@ -1,49 +1,78 @@
-// Import icons from a library like react-icons
-// Ensure you have react-icons installed (npm install react-icons)
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-
-// Import your locally-scoped SCSS module for styling
+// src/components/Footer/Footer.jsx
+import React from 'react';
+import Brand from 'components/Brand/Brand';
+import { contactItems } from 'data/contact';
 import styles from './Footer.module.scss';
 
-function Footer() {
+/**
+ * The Footer component provides the footer for the website, containing the brand,
+ * social media links, and a copyright notice.
+ *
+ * @returns {JSX.Element} The rendered Footer component.
+ */
+const Footer = () => {
   const currentYear = new Date().getFullYear();
-
   return (
-    <footer className={styles.footer}>
-      <div className={styles.socialLinks}>
-        {/* Link to your GitHub profile */}
-        <a 
-          href="https://github.com/YourUsername" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <FaGithub className={styles.icon} />
-        </a>
-        
-        {/* Link to your LinkedIn profile */}
-        <a 
-          href="https://linkedin.com/in/YourUsername" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <FaLinkedin className={styles.icon} />
-        </a>
-        
-        {/* Link to your Twitter profile */}
-        <a 
-          href="https://twitter.com/YourUsername" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <FaTwitter className={styles.icon} />
-        </a>
+    <footer className={styles.footer} role="contentinfo">
+      <div className={styles.footer__container}>
+        {/* Branding Section */}
+        <div className={styles['footer__brand-section']}>
+          <Brand name="BonaventureCJ" />
+        </div>
+
+        {/* Social Media Links Section */}
+        <nav className={styles['footer__social-nav']} aria-label="Social media links">
+          <h2 className={styles['footer__social-nav-heading']} id="footer-social-heading">Connect with me</h2>
+          <ul className={styles['footer__social-list']} aria-labelledby="footer-social-heading">
+            {contactItems
+              .filter(item => item.type === 'social')
+              .map(item => (
+                <li key={item.id} className={styles['footer__social-item']}>
+                  <a
+                    href={item.url}
+                    className={styles['footer__social-link']}
+                    aria-label={item.ariaLabel}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <item.icon className={`${styles['footer__social-icon']} ${styles[item.className]}`} aria-hidden="true" />
+                    <span className={styles['footer__social-link-text']}>{item.display}</span>
+                  </a>
+                </li>
+              ))}
+          </ul>
+        </nav>
+
+        {/* Contact Links Section */}
+        <nav className={styles['footer__contact-nav']} aria-label="Contact links">
+          <h2 className={styles['footer__contact-nav-heading']} id="footer-contact-heading">Get in touch</h2>
+          <ul className={styles['footer__contact-list']} aria-labelledby="footer-contact-heading">
+            {contactItems
+              .filter(item => item.type === 'email' || item.type === 'whatsapp' || item.type === 'phone')
+              .map(item => (
+                <li key={item.id} className={styles['footer__contact-item']}>
+                  <a
+                    href={item.url}
+                    className={styles['footer__contact-link']}
+                    aria-label={item.ariaLabel}
+                  >
+                    <item.icon className={`${styles['footer__contact-icon']} ${styles[item.className]}`} aria-hidden="true" />
+                    <span className={styles['footer__contact-link-text']}>{item.display}</span>
+                  </a>
+                </li>
+              ))}
+          </ul>
+        </nav>
       </div>
 
-      <p className={styles.copyright}>
-        &copy; {currentYear} Bonaventure C.J. Ugwu. All rights reserved.
-      </p>
+      {/* Copyright Section */}
+      <div className={styles['footer__copyright']}>
+        <p className={styles['footer__copyright-text']}>
+          &copy; {currentYear} <span className={styles['footer__copyright-owner']}>Bonaventure C.J. Ugwu.</span> All rights reserved.
+        </p>
+      </div>
     </footer>
   );
-}
+};
 
 export default Footer;
