@@ -1,5 +1,7 @@
 // src/components/Footer/Footer.jsx
 import React from 'react';
+// Assuming you are using react-router-dom for navigation
+import { Link } from 'react-router-dom';
 import Brand from 'components/Brand/Brand';
 import { contactItems } from 'data/contact';
 import styles from './Footer.module.scss';
@@ -17,7 +19,9 @@ const Footer = () => {
       <div className={styles.footer__container}>
         {/* Branding Section */}
         <div className={styles['footer__brand-section']}>
-          <Brand name="BonaventureCJ" />
+          <Link to="/" className={styles['footer__brand-link']} aria-label="Back to homepage">
+            <Brand name="BonaventureCJ" />
+          </Link>
         </div>
 
         {/* Social Media Links Section */}
