@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './About.module.scss';
 import skillsData from 'data/skills';
-import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard'; 
+import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard';
 import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
 import { yearsOfExperience } from 'utils/helpers';
 import requestResume from 'assets/documents/request-resume.pdf';
@@ -37,9 +37,18 @@ const About = () => {
             <p className={styles.about__summary}>
               My strong background in healthcare, statistical data analyses, and scientific research provides a unique analytical lens for solving complex development challenges and prioritizing the user experience.
             </p>
+
+            <h3 className={styles.about__subHeading}>Commitment to Open Source</h3>
+            <p className={styles.about__summary}>
+              As a firm believer in the open-source ethos, I've evolved from a user of essential tools to an active open-source contributor, demonstrating my ability to learn, apply and collaborate with other developers on complex technologies.
+            </p>
+            <p className={styles.about__summary}>
+              This journey includes providing improvements to the TypeScript documentation for the Redux Toolkit project, an experience that has deepened my understanding of the technology and my connection to the development community.
+            </p>
           </div>
+
         </div>
-        
+
         <a
           href={requestResume}
           className={`${styles.about__button} ${styles['about__button--resume']}`}
@@ -50,7 +59,7 @@ const About = () => {
         >
           Download Resume
         </a>
-        
+
         <div className={styles.about__skills}>
           <h3 className={styles.about__skillsHeading}>My Major Skills</h3>
           <ul
@@ -59,9 +68,9 @@ const About = () => {
             role="list"
           >
             {featuredSkills.map((skill) => (
-              <SkillsPreviewCard 
-                key={skill.id} 
-                skill={skill} 
+              <SkillsPreviewCard
+                key={skill.id}
+                skill={skill}
                 title={skill.description || skill.name}
               />
             ))}
