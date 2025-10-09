@@ -1,0 +1,142 @@
+// src/layouts/Footer/Footer.module.scss
+@use 'styles/abstracts' as *;
+
+.footer {
+    background-color: var(--color-surface-base);
+    color: var(--color-text-primary);
+    padding: var(--spacing-lg) var(--spacing-md);
+    border-top: 1px solid var(--color-border-primary);
+    font-family: var(--font-family-primary);
+
+    @media (min-width: 768px) {
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+
+    &__container {
+        display: grid;
+        gap: var(--spacing-lg);
+        justify-content: center;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+            text-align: left;
+            align-items: start;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: var(--spacing-xl);
+        }
+    }
+
+    /* &__brand-section {
+    // Styling for the Brand component within the footer
+  } */
+
+    &__social-nav,
+    &__contact-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+
+        @media (min-width: 768px) {
+            align-items: flex-start;
+        }
+    }
+
+    &__social-nav-heading,
+    &__contact-nav-heading {
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--spacing-xs);
+        color: var(--color-text-primary);
+    }
+
+    &__social-list,
+    &__contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    &__social-item,
+    &__contact-item {
+        margin: 0;
+    }
+
+    &__social-link,
+    &__contact-link {
+        display: flex;
+        align-items: center;
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        gap: var(--spacing-xs);
+
+        // Fallback for older browsers
+        &:focus {
+            outline: 2px solid var(--color-link);
+            outline-offset: 3px;
+        }
+
+        // Modern, accessible focus visible style for keyboard users
+        &:focus-visible {
+            outline: 2px solid var(--color-link);
+            outline-offset: 3px;
+            border-radius: var(--border-radius-sm); // Optional, for visual consistency
+
+            // Inherit the hover state for consistency
+            color: var(--color-link);
+
+            .footer__social-icon,
+            .footer__contact-icon {
+                fill: var(--color-link);
+            }
+        }
+
+        // Hover state, explicitly excluded for mouse clicks when focus is visible
+        &:hover:not(:focus-visible) {
+            color: var(--color-link);
+
+            .footer__social-icon,
+            .footer__contact-icon {
+                fill: var(--color-link);
+            }
+        }
+    }
+
+    &__social-icon,
+    &__contact-icon {
+        width: var(--font-size-lg);
+        height: var(--font-size-lg);
+        fill: var(--color-text-secondary);
+        transition: fill 0.3s ease;
+    }
+
+    &__copyright {
+        text-align: center;
+        margin-top: var(--spacing-lg);
+        padding-top: var(--spacing-md);
+        border-top: 1px solid var(--color-border-primary);
+
+        @media (min-width: 768px) {
+            grid-column: 1 / -1; // Span across all grid columns on larger screens
+            margin-top: var(--spacing-xl);
+        }
+    }
+
+    &__copyright-text {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-secondary);
+        margin: 0;
+    }
+
+    &__copyright-owner {
+        font-weight: var(--font-weight-bold);
+        color: var(--color-text-primary);
+    }
+}
