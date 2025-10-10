@@ -51,7 +51,7 @@
 // Body text for the preview
 .aboutPreview__text {
   max-width: 80ch; // Optimal line length for readability
-  margin: 0 auto var(--spacing-lg);
+  margin: 0 auto var(--spacing-xs);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);

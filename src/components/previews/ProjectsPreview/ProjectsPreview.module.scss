@@ -27,7 +27,7 @@
   font-size: var(--font-size-h2);
   font-weight: var(--font-weight-bold);
   color: var(--color-brand-primary);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
 
   // Animation for the heading
   transform: translateY(-20px);
@@ -37,7 +37,7 @@
 
 .projectsPreview__description {
   max-width: 80ch; // Optimal line length for readability
-  margin: 0 auto var(--spacing-lg);
+  margin: 0 auto var(--spacing-xs);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
@@ -48,10 +48,6 @@
   transform: translateY(-20px);
   opacity: 0;
   animation: slideInUp 0.6s ease-out 0.4s forwards;
-
-  @media (max-width: 767px) {
-    font-size: var(--font-size-base);
-  }
 }
 
 .projectsPreview__grid {
@@ -59,7 +55,7 @@
   // A responsive grid that fits as many columns as possible
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
+ margin: var(--spacing-lg) 0;
 }
 
 .ctaButton {
