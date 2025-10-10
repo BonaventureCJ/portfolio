@@ -16,7 +16,6 @@ const Home = () => {
       <SkillsPreview />
       <ProjectsPreview />
       <ContactPreview />
-      {/* Other sections will go here */}
     </>
   );
 };
