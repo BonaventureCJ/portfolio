@@ -1,12 +1,13 @@
-/* src/components/Hero/Hero.module.scss */
+//src/components/Hero/Hero.module.scss
 
-@use '../../styles/abstracts' as *;
+@use 'styles/abstracts' as *;
 
 .heroSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
   padding: var(--spacing-xl) var(--spacing-sm);
   background-color: var(--hero-bg);
   color: var(--hero-text);

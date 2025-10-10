@@ -8,6 +8,7 @@
 // Adheres to Responsive Web Design (mobile-first)
 // Uses CSS variables for theming and consistency
 .aboutPreview {
+  margin-bottom: var(--spacing-md);
   padding: var(--spacing-lg) var(--spacing-sm);
   color: var(--color-text-primary);
   text-align: center;
