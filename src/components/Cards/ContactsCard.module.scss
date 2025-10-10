@@ -1,7 +1,4 @@
-/* ==========================================================================
-   #CONTACTS-CARD
-   ========================================================================== */
-
+/* src/components/Cards/ContactCard.module.scss */
 .contacts-card {
   /* Inherits card styling from parent (Contact page) to maintain consistency */
   border-radius: var(--border-radius-md);
@@ -16,8 +13,10 @@
   justify-content: center;
   align-items: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-md);
-  color: var(--color-link); /* Use link color for icons/text */
+  padding: var(--spacing-lg);
+  min-height: 150px; // Ensure sufficient touch target size (WCAG 2.5.5) which is 120px
+  min-width: 150px;
+  color: var(--color-link);
   text-decoration: none;
   background-color: var(--color-surface-elevated);
   border: 1px solid var(--color-border-primary);

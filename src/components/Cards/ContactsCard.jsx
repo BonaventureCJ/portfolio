@@ -22,7 +22,7 @@ const ContactsCard = ({ contact }) => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label}
-        title={label} // Added for visual tooltips on hover
+        title={label}
         className={styles['contacts-card__link']}
       >
         <div className={styles['contacts-card__icon-container']}>
