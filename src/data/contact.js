@@ -56,7 +56,7 @@ const contactItems = [
     icon: XIcon,
     type: 'social',
     url: 'https://x.com/BonaCJUgwu',
-    display: '@BonaCJ99',
+    display: '@BonaCJUgwu',
     label: 'Bonaventure Ugwu on X',
     ariaLabel: "Follow Bonaventure Ugwu on X",
     isFeatured: false,
