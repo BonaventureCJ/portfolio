@@ -1,6 +1,7 @@
 // src/components/previews/ContactPreview.jsx
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './ContactPreview.module.scss';
 import ContactsCard from 'components/Cards/ContactsCard';
 import { contactItems } from 'data/contact';
@@ -27,10 +28,19 @@ const ContactPreview = () => {
           Let's connect and build something great together.
         </p>
 
-        <div className={styles.contactPreview__grid}>
+        <div className={styles.contactPreview__flex}> {/* Class name updated to reflect flexbox */}
           {featuredContactItems.map((item) => (
             <ContactsCard key={item.id} contact={item} />
           ))}
+        </div>
+        <div className={styles.contactPreview__cta}>
+          <Link
+            to="/contact#contact-form-section"
+            className={`${styles.contactPreview__ctaLink} ${styles.ctaButton}`}
+            title="Navigate to the contact form on contact page"
+          >
+            Fill out a contact form
+          </Link>
         </div>
       </div>
     </section>
@@ -38,5 +48,3 @@ const ContactPreview = () => {
 };
 
 export default ContactPreview;
-
-

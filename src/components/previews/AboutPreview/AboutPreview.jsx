@@ -18,6 +18,9 @@ const AboutPreview = () => {
           <p className={styles.aboutPreview__text}>
             As a Front-End Engineer with {yearsOfExperience}+ years of experience, I am passionate about Accessibility, SEO, Responsive Web Design, clean code, and creating intuitive UIs using Typescript, React.js and Next.js.
           </p>
+          <p className={styles.aboutPreview__text}>
+              As a firm believer in the open-source ethos, I've evolved from a user of essential tools to an active open-source contributor, demonstrating my ability to learn, apply and collaborate with other developers on complex technologies.
+          </p>
 
           <Link
             to="/about"

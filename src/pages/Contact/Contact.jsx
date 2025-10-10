@@ -1,3 +1,5 @@
+// src/components/Contact.jsx
+
 import React from 'react';
 import styles from './Contact.module.scss';
 import ContactsCard from 'components/Cards/ContactsCard';
@@ -5,7 +7,6 @@ import ContactForm from 'components/ContactForm/ContactForm';
 import { contactItems, ctaMessage } from 'data/contact';
 
 const Contact = () => {
-
   return (
     <section className={styles.contact}>
       <header className={styles.contact__header}>
@@ -24,7 +25,7 @@ const Contact = () => {
         </aside>
 
         {/* Contact Form Section */}
-        <div className={styles.contact__formContainer}>
+        <div className={styles.contact__formContainer} id="contact-form-section">
           <h3 className={styles.contact__cta}>{ctaMessage.form}</h3>
           <ContactForm />
         </div>

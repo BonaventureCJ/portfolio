@@ -1,7 +1,5 @@
-/* ==========================================================================
-   #CONTACT-PAGE
-   ========================================================================== */
-@use '../../styles/abstracts' as *;
+//src/pages/Contact/Contact.module.scss
+@use 'styles/abstracts' as *;
 
 .contact {
   // Mobile-first: Set base padding
@@ -89,6 +87,7 @@
   border: var(--card-border);
   border-radius: var(--border-radius-md);
   box-shadow: var(--card-box-shadow);
+  scroll-margin-top: var(--header-height); /* Offset for fixed header */
 
   // Directly target the ContactForm component's root
   :global(.contact-form) {

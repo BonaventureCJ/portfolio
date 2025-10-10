@@ -1,6 +1,4 @@
-// src/pages/Home.jsx
-
-import React from 'react';
+// src/pages/Home/Home.jsx
 import Hero from 'components/Hero/Hero';
 import AboutPreview from 'components/previews/AboutPreview/AboutPreview';
 import SkillsPreview from 'components/previews/SkillsPreview/SkillsPreview';
@@ -16,7 +14,6 @@ const Home = () => {
       <SkillsPreview />
       <ProjectsPreview />
       <ContactPreview />
-      {/* Other sections will go here */}
     </>
   );
 };
