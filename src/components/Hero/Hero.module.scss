@@ -86,7 +86,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--button-padding);
-  border-radius: 9999px;
+  border-radius: var(--button-border-radius);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
@@ -97,53 +97,46 @@
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
-  min-width: 250px;
-  min-height: 44px;
+  min-width: 300px;
+  min-height: 50px;
   border: 2px solid;
 
   &:hover,
   &:focus {
     transform: translateY(-2px);
-    box-shadow: var(--box-shadow-md);
+    box-shadow: var(--box-shadow-advanced);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-brand-primary);
+    outline-offset: 2px;
   }
 }
 
+
 .primaryCta {
-  background-color: var(--button-bg-primary);
-  color: var(--button-text-primary);
-  border-color: var(--button-bg-primary);
+  background-color: transparent;
+  color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
 
   &:hover,
   &:focus {
     background-color: var(--button-bg-primary-hover);
-    color: var(--button-text-secondary);
+    color: var(--button-bg-secondary-hover);
+    border-color: var(--button-bg-secondary-hover);
   }
 }
 
 .secondaryCta {
   background-color: transparent;
-  color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
-
-  // Dark theme override for secondary button
-  [data-theme="dark"] & {
-    color: var(--color-text-primary);
-    border-color: var(--color-text-primary);
-  }
+  color: var(--button-text-secondary);
+  border-color: var(--button-text-secondary);
 
   &:hover,
   &:focus {
-    background-color: var(--color-brand-primary);
-    color: var(--color-text-secondary);
-    border-color: var(--color-brand-primary);
-  }
-
-  // Dark theme specific hover/focus
-  [data-theme="dark"] &:hover,
-  [data-theme="dark"] &:focus {
-    background-color: var(--button-bg-secondary-hover);
-    border-color: var(--button-bg-secondary-hover);
+    background-color: var(--color-text-secondary);
     color: var(--button-text-primary);
+    border-color: var(--button-text-primary);
   }
 }
 
@@ -182,6 +175,7 @@ img {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -192,6 +186,7 @@ img {
     transform: translateX(-50px);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -203,6 +198,7 @@ img {
     transform: translateY(20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -210,9 +206,12 @@ img {
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
