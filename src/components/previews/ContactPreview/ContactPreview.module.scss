@@ -6,6 +6,7 @@
   padding: var(--spacing-lg) 0;
   text-align: center;
   background-color: var(--color-background-dark);
+  margin-bottom: var(--spacing-xl);
 
   &__container {
     max-width: 1200px;
@@ -31,7 +32,7 @@
     font-family: var(--font-family-primary);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-regular);
-    line-height: 1.6;
+    line-height: 1.6; // Improved readability via WCAG guidelines
     color: var(--color-text-secondary);
   }
 
