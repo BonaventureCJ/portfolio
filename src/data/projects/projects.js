@@ -1,4 +1,5 @@
 // src/data/projects/projects.js
+
 import generateId from 'utils/helpers';
 import { projectDescriptions } from './descriptions';
 import { projectLinks } from './links';
@@ -13,7 +14,32 @@ import {
     contactManagerImage,
 } from './images';
 
+/**
+ * @typedef {Object} LinkData
+ * @property {string} label - The visible text of the link.
+ * @property {string} ariaLabel - The descriptive label for screen readers.
+ * @property {string} url - The URL the link points to.
+ */
 
+/**
+ * @typedef {'MVP' | 'In Development' | 'Prototype'} ProjectStatus
+ */
+
+/**
+ * @typedef {Object} Project
+ * @property {number} id - A unique, auto-incrementing identifier for the project.
+ * @property {string} title - The title of the project.
+ * @property {string | string[]} description - A brief description or array of paragraphs for the project.
+ * @property {object} image - The imported image asset.
+ * @property {LinkData[]} links - An array of link objects for the project.
+ * @property {string[]} technologies - An array of technologies used in the project.
+ * @property {boolean} isRecent - Indicates if the project is considered recent.
+ * @property {boolean} isFeatured - Indicates if the project is featured on the homepage.
+ * @property {boolean} isTutorialBased - Indicates if the project was built by following a tutorial.
+ * @property {ProjectStatus} development_status - The current development status of the project (e.g., MVP, In Development).
+ */
+
+/** @type {Project[]} */
 const projects = [
     {
         id: generateId(),
@@ -25,6 +51,7 @@ const projects = [
         isRecent: true,
         isFeatured: true,
         isTutorialBased: false,
+        development_status: 'MVP',
     },
     {
         id: generateId(),
@@ -36,6 +63,7 @@ const projects = [
         isRecent: false,
         isFeatured: true,
         isTutorialBased: false,
+        development_status: 'MVP',
     },
     {
         id: generateId(),
@@ -47,6 +75,7 @@ const projects = [
         isRecent: false,
         isFeatured: true,
         isTutorialBased: false,
+        development_status: 'MVP',
     },
     {
         id: generateId(),
@@ -58,6 +87,7 @@ const projects = [
         isRecent: false,
         isFeatured: true,
         isTutorialBased: false,
+        development_status: 'MVP',
     },
     {
         id: generateId(),
@@ -69,6 +99,7 @@ const projects = [
         isRecent: false,
         isFeatured: false,
         isTutorialBased: false,
+        development_status: 'MVP',
     }, {
         id: generateId(),
         title: 'Original Portfolio Project',
@@ -79,6 +110,7 @@ const projects = [
         isRecent: false,
         isFeatured: false,
         isTutorialBased: false,
+        development_status: 'MVP',
     },
     {
         id: generateId(),
@@ -90,6 +122,8 @@ const projects = [
         isRecent: false,
         isFeatured: false,
         isTutorialBased: true,
+        development_status: 'MVP',
+        //development_status: 'In Development',
     }, {
         id: generateId(),
         title: 'Contact Manager',
@@ -100,6 +134,8 @@ const projects = [
         isRecent: false,
         isFeatured: false,
         isTutorialBased: true,
+        development_status: 'MVP',
+        //development_status: 'Prototype',
     }
 ];
 
