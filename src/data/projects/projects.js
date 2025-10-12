@@ -5,6 +5,7 @@ import { projectDescriptions } from './descriptions';
 import { projectLinks } from './links';
 import {
     portfolioImage,
+    bonMartImage,
     mealRecipeAppImage,
     qrCodeGeneratorImage,
     githubProfileFinderImage,
@@ -55,6 +56,18 @@ const projects = [
     },
     {
         id: generateId(),
+        title: 'BonMart',
+        description: projectDescriptions.bonmart,
+        image: bonMartImage,
+        links: projectLinks.bonmart,
+        technologies: ['Next.js', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'CSS Modules', 'Git', 'GitHub', 'pnpm', 'clsx', 'ESLint', '@svgr/webpack', 'Node.js'],
+        isRecent: true,
+        isFeatured: true,
+        isTutorialBased: false,
+        development_status: 'In Development',
+    },
+    {
+        id: generateId(),
         title: 'Yummy Recipes Hub',
         description: projectDescriptions.yummyRecipes,
         image: mealRecipeAppImage,
@@ -100,7 +113,8 @@ const projects = [
         isFeatured: false,
         isTutorialBased: false,
         development_status: 'MVP',
-    }, {
+    },
+    {
         id: generateId(),
         title: 'Original Portfolio Project',
         description: projectDescriptions.legacyPortfolio,
@@ -123,8 +137,8 @@ const projects = [
         isFeatured: false,
         isTutorialBased: true,
         development_status: 'MVP',
-        //development_status: 'In Development',
-    }, {
+    },
+    {
         id: generateId(),
         title: 'Contact Manager',
         description: projectDescriptions.contactManager,
@@ -135,7 +149,6 @@ const projects = [
         isFeatured: false,
         isTutorialBased: true,
         development_status: 'MVP',
-        //development_status: 'Prototype',
     }
 ];
 

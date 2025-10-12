@@ -1,5 +1,6 @@
 // src/data/projects/images.js
 import portfolioImage from 'assets/images/projects/portfolio.png';
+import bonMartImage from 'assets/images/projects/bonmart-coming-soon.jpg';//jpg placeholder
 import mealRecipeAppImage from 'assets/images/projects/yummyrecipeshub.png';
 import qrCodeGeneratorImage from 'assets/images/projects/qr-code-generator.png';
 import githubProfileFinderImage from 'assets/images/projects/github-profile-finder.png';
@@ -10,6 +11,7 @@ import legacyPortfolioImage from 'assets/images/projects/portfolio-legacy.png';
 
 export {
     portfolioImage,
+    bonMartImage,
     mealRecipeAppImage,
     qrCodeGeneratorImage,
     githubProfileFinderImage,

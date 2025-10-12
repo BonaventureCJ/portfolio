@@ -13,6 +13,18 @@ export const projectLinks = {
             url: 'https://github.com/BonaventureCJ/portfolio',
         },
     ],
+    bonmart: [
+        {
+            label: 'View Live',
+            ariaLabel: 'View a live demo of BonMart E-commerce project',
+            url: 'https://bonmart.vercel.app/',
+        },
+        {
+            label: 'View Code',
+            ariaLabel: 'View the source code for BonMart E-commerce project on GitHub',
+            url: 'https://github.com/BonaventureCJ/bonmart',
+        },
+    ],
     yummyRecipes: [
         {
             label: 'View Live',
