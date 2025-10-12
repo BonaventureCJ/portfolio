@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProjectsPreview.module.scss';
-import projectsData from 'data/projects';
+import projectsData from 'data/projects/projects';
 import ProjectsCard from 'components/Cards/ProjectsCard';
 
 /**

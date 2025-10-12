@@ -1,6 +1,6 @@
 // src/pages/Projects/Projects.jsx
 import React from 'react';
-import projectsData from 'data/projects';
+import projectsData from 'data/projects/projects';
 import ProjectsCard from 'components/Cards/ProjectsCard';
 import styles from './Projects.module.scss';
 
