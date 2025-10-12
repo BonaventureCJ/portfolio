@@ -60,7 +60,7 @@ const projects = [
         description: projectDescriptions.bonmart,
         image: bonMartImage,
         links: projectLinks.bonmart,
-        technologies: ['Next.js', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'CSS Modules', 'Git', 'GitHub', 'pnpm', 'clsx', 'ESLint', '@svgr/webpack', 'Node.js'],
+        technologies: ['Next.js', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'clsx', '@svgr/webpack', 'pnpm', 'ESLint', 'Node.js'],
         isRecent: true,
         isFeatured: true,
         isTutorialBased: false,
