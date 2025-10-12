@@ -1,16 +1,13 @@
 // src/pages/Projects/Projects.jsx
 import React from 'react';
-import projectsData from 'data/projects';
+import projectsData from 'data/projects/projects';
 import ProjectsCard from 'components/Cards/ProjectsCard';
 import styles from './Projects.module.scss';
 
-/**
- * Renders the Projects page, grouping projects into different sections.
- * This component follows best practices for semantic HTML, WCAG accessibility,
- * BEM naming conventions, and RWD principles.
- */
 const Projects = () => {
-  const recentProjects = projectsData.filter(project => project.isRecent);
+  const inDevelopmentProjects = projectsData.filter(project => project.development_status === 'In Development');
+  // We refine the recent projects filter to make sure 'In Development' projects don't appear twice.
+  const recentProjects = projectsData.filter(project => project.isRecent && project.development_status !== 'In Development');
   const tutorialBasedProjects = projectsData.filter(project => project.isTutorialBased);
   const earlierCareerProjects = projectsData.filter(project => !project.isRecent && !project.isTutorialBased);
 
@@ -61,18 +58,31 @@ const Projects = () => {
       <header className={styles['projects-page__header']}>
         <h1 className={styles['projects-page__main-title']}>My Work</h1>
         <p className={styles['projects-page__description']}>
-          A collection of my recent projects, as well as tutorial-based and earlier career work.
+          A collection of my projects, categorized by status and history.
         </p>
       </header>
 
       <div className={styles['projects-page__main']}>
+        
+        {/* FIRST: Completed/Recent Projects (MVP Status) */}
         {renderProjectSection(
           recentProjects,
-          'Recent Projects',
-          ["Showcasing my most up-to-date work, reflecting my current skill set and development approach."],
+          'Recent Projects (MVPs)',
+          ["Showcasing my most up-to-date work that has reached an initial deployable state (MVP), reflecting my current skill set and development approach."],
           2,
-          'recent-projects'
+          'recent-mvp-projects'
         )}
+        
+        {/* SECOND: Projects Currently in Progress */}
+        {renderProjectSection(
+            inDevelopmentProjects,
+            'Projects in Development',
+            ["A preview of current major projects that are actively being built and refined."],
+            2,
+            'in-development-projects'
+        )}
+
+        {/* THIRD & FOURTH: Older/Tutorial Projects */}
         {renderProjectSection(
           tutorialBasedProjects,
           'Tutorial-Based Projects',
