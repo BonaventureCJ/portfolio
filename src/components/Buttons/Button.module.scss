@@ -41,8 +41,10 @@
 /* --- Size Modifiers (New additions) --- */
 // You will need to define appropriate CSS variables for sizes in a global stylesheet
 .button--small {
-    min-width: 150px; // Example size adjustments
-    min-height: 35px;
+    
+    /* Decided that small buttons should ne have any minimum size for now */
+    /* min-width: 150px; // Example size adjustments
+    min-height: 35px; */
     font-size: 0.875rem;
     // Add specific padding variables here if necessary: padding: var(--button-padding-sm);
 }
