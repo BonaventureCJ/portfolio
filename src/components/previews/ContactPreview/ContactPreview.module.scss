@@ -50,8 +50,7 @@
   }
 }
 
-// Global ctaButton styles
-.ctaButton {
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -83,15 +82,28 @@
   }
 }
 
-.contactPreview__ctaLink {
-  background-color: transparent;
-  color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
+.button--primary {
+  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary);
+  border-color: var(--button-text-primary);
 
   &:hover,
   &:focus {
     background-color: var(--button-bg-primary-hover);
-    color: var(--button-bg-secondary-hover);
-    border-color: var(--button-bg-secondary-hover);
+    color: var(--button-text-primary-hover);
+    border-color: var(--button-text-primary-hover);
+  }
+}
+
+.button--secondary {
+  background-color: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+  border-color: var(--button-text-secondary);
+
+  &:hover,
+  &:focus {
+    background-color: var(--button-bg-secondary-hover);
+    color: var(--button-text-secondary-hover);
+    border-color: var(--button-text-secondary-hover);
   }
 }

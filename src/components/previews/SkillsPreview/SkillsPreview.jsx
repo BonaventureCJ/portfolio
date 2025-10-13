@@ -42,7 +42,7 @@ const SkillsPreview = () => {
         <div className={styles.skillsPreview__cta}>
           <Link
             to="/skills"
-            className={`${styles.skillsPreview__ctaLink} ${styles.ctaButton}`}
+            className={`${styles.button} ${styles['button--primary']}`}
             aria-label="View all skills on the Skills page"
             title="Navigate to the full Skills page"
           >

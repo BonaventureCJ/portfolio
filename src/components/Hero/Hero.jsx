@@ -15,7 +15,7 @@ const Hero = () => {
         <div className={styles.ctaContainer}>
           <Link
             to={primaryCta.url}
-            className={`${styles.primaryCta} ${styles.ctaButton}`}
+            className={`${styles.button} ${styles['button--primary']}`}
             aria-label={primaryCta.ariaLabel}
             title={primaryCta.title}
           >
@@ -23,7 +23,7 @@ const Hero = () => {
           </Link>
           <a
             href={secondaryCta.url}
-            className={`${styles.secondaryCta} ${styles.ctaButton}`}
+            className={`${styles.button} ${styles['button--secondary']}`}
             aria-label={secondaryCta.ariaLabel}
             title={secondaryCta.title}
             download

@@ -52,10 +52,10 @@ const ProjectsCard = ({ project }) => {
             <a
               key={`${link.label}-${index}`}
               href={link.url}
-              className={`${styles['projects-card__button']} ${
+              className={`${styles['button']} ${
                 link.label.toLowerCase().includes('live')
-                  ? styles['projects-card__button--live']
-                  : styles['projects-card__button--repo']
+                  ? styles['button--primary']
+                  : styles['button--secondary']
               }`}
               target="_blank"
               rel="noopener noreferrer"

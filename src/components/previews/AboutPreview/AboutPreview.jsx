@@ -24,7 +24,7 @@ const AboutPreview = () => {
 
           <Link
             to="/about"
-            className={`${styles.aboutPreview__cta} ${styles.ctaButton}`}
+            className={`${styles.button} ${styles['button--primary']}`}
             aria-label="Learn more about Bonaventure C.J. Ugwu"
             title="Navigate to the full About page"
           >

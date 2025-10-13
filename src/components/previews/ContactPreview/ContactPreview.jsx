@@ -36,7 +36,7 @@ const ContactPreview = () => {
         <div className={styles.contactPreview__cta}>
           <Link
             to="/contact#contact-form-section"
-            className={`${styles.contactPreview__ctaLink} ${styles.ctaButton}`}
+            className={`${styles.button} ${styles['button--primary']}`}
             title="Navigate to the contact form on contact page"
           >
             Fill out a contact form

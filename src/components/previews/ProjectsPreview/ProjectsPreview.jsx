@@ -34,7 +34,7 @@ const ProjectsPreview = () => {
         <div className={styles.projectsPreview__cta}>
           <Link
             to="/projects"
-            className={`${styles.projectsPreview__ctaLink} ${styles.ctaButton}`}
+            className={`${styles.button} ${styles['button--primary']}`}
             aria-label="Navigate to the full Projects page"
             title="View all projects on the Projects page"
           >
