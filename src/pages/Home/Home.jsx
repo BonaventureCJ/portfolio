@@ -15,8 +15,8 @@ const Home = () => {
       <h1>Welcome to My Portfolio 3.0.0 in the Name of Jesus Christ!</h1>
       {/* TESTING THE NEW COMPONENT BUTTON STYLES */}
       <ExampleButton />
-      {/* Normal Sections */}
 
+      {/* Normal Home Sections */}
       <Hero />
       <AboutPreview />
       <SkillsPreview />

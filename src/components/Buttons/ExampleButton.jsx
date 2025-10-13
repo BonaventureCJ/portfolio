@@ -1,5 +1,7 @@
 import React from 'react';
-import Button from './Button';
+//import Button from './Button';
+import Button from 'components/Buttons/Button';
+
 
 const App = () => {
   const handleClick = () => {

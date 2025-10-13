@@ -1,26 +1,27 @@
+// Button.module.scss
 
+// Base styles for the button
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--button-padding);
+  padding: var(--button-padding); // Assumes these CSS variables are defined globally
   border-radius: var(--button-border-radius);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
-  transition: var(--button-transition), transform 0.3s ease;
+  transition: var(--button-transition);
   box-shadow: var(--button-box-shadow);
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
-  min-width: 300px;
-  min-height: 50px;
   border: 2px solid;
 
-  &:hover,
-  &:focus {
+  // Base hover/focus effects
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: var(--box-shadow-advanced);
   }
@@ -29,15 +30,48 @@
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6; // Common practice for disabled state
+    // You might want specific disabled colors defined via variables here too
+  }
 }
+
+/* --- Size Modifiers (New additions) --- */
+// You will need to define appropriate CSS variables for sizes in a global stylesheet
+.button--small {
+    min-width: 150px; // Example size adjustments
+    min-height: 35px;
+    font-size: 0.875rem;
+    // Add specific padding variables here if necessary: padding: var(--button-padding-sm);
+}
+
+.button--medium {
+    min-width: 300px;
+    min-height: 50px;
+    // Your original default styles fit here
+    // padding: var(--button-padding-md);
+    font-size: 1rem;
+}
+
+.button--large {
+    min-width: 400px;
+    min-height: 65px;
+    font-size: 1.25rem;
+    // padding: var(--button-padding-lg);
+}
+
+
+/* --- Variant Modifiers --- */
 
 .button--primary {
   background-color: var(--button-bg-primary);
   color: var(--button-text-primary);
   border-color: var(--button-text-primary);
 
-  &:hover,
-  &:focus {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     background-color: var(--button-bg-primary-hover);
     color: var(--button-text-primary-hover);
     border-color: var(--button-text-primary-hover);
@@ -49,10 +83,26 @@
   color: var(--button-text-secondary);
   border-color: var(--button-text-secondary);
 
-  &:hover,
-  &:focus {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     background-color: var(--button-bg-secondary-hover);
     color: var(--button-text-secondary-hover);
     border-color: var(--button-text-secondary-hover);
   }
+}
+
+
+// Add Tertiary variant styles
+/* Not yet defined in _abstracts.scss */
+.button--tertiary {
+    background-color: var(--button-bg-tertiary, #e0e0e0); // Fallback color
+    color: var(--button-text-tertiary, #333);
+    border-color: var(--button-border-tertiary, #ccc);
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+        background-color: var(--button-bg-tertiary-hover, #d5d5d5);
+        color: var(--button-text-tertiary-hover, #000);
+        border-color: var(--button-border-tertiary-hover, #aaa);
+    }
 }
