@@ -51,7 +51,7 @@ const About = () => {
 
         <a
           href={requestResume}
-          className={`${styles.about__button} ${styles['about__button--resume']}`}
+          className={`${styles.button} ${styles['button--secondary']}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download Bonaventure's Resume (PDF)"
@@ -77,7 +77,7 @@ const About = () => {
           </ul>
           <Link
             to="/skills"
-            className={`${styles.about__button} ${styles['about__button--skills']}`}
+            className={`${styles.button} ${styles['button--primary']}`}
             aria-label="View all skills on the Skills page"
             title="Navigate to the full Skills page"
           >
