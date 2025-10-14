@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// Import the styles object from the CSS module
-import styles from './Button.module.scss'; 
+import styles from './Button.module.scss';
 
 /**
  * A versatile and reusable Button component.
@@ -29,8 +28,6 @@ const Button = ({
     ariaLabel,
     ...otherProps // Captures any other standard HTML button props (e.g., 'data-testid')
 }) => {
-    // Note: The baseClass variable isn't strictly necessary with CSS modules, 
-    // as we access the generated class names directly from the 'styles' object.
 
     // Construct the final CSS class string dynamically using styles object properties
     const classes = [
@@ -44,7 +41,7 @@ const Button = ({
         <button
             type={type}
             // Use the dynamically constructed local classes string
-            className={classes} 
+            className={classes}
             disabled={disabled}
             onClick={onClick}
             style={style}
