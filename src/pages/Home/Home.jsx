@@ -5,7 +5,7 @@ import SkillsPreview from 'components/previews/SkillsPreview/SkillsPreview';
 import ProjectsPreview from 'components/previews/ProjectsPreview/ProjectsPreview';
 import ContactPreview from 'components/previews/ContactPreview/ContactPreview';
 
-/* TESTING THE NEW COMPONENT BUTTON STYLES */
+/* DEV MODE TEST IMPORTS FOR NEW COMPONENTS */
 //import ExampleButton from 'components/Buttons/ExampleButton';
 
 
@@ -13,10 +13,10 @@ const Home = () => {
   return (
     <>
       <h1>Welcome to My Portfolio 3.0.0 in the Name of Jesus Christ!</h1>
-      {/* TESTING THE NEW COMPONENT BUTTON STYLES */}
+      {/* DEV MODE TEST RENDERING FOR NEW COMPONENTS */}
       {/* <ExampleButton /> */}
 
-      {/* Normal Home Sections */}
+      {/* Home Page Sections */}
       <Hero />
       <AboutPreview />
       <SkillsPreview />
