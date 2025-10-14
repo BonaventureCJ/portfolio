@@ -1,11 +1,11 @@
-// Button.module.scss
+// src/components/Buttons/Button.module.scss
 
 // Base styles for the button
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--button-padding); // Assumes these CSS variables are defined globally
+  padding: var(--button-padding);
   border-radius: var(--button-border-radius);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
@@ -34,33 +34,31 @@
   &:disabled {
     cursor: not-allowed;
     opacity: 0.6; // Common practice for disabled state
-    // You might want specific disabled colors defined via variables here too
+    // Other specific disabled colors will be written here
   }
 }
 
-/* --- Size Modifiers (New additions) --- */
-// You will need to define appropriate CSS variables for sizes in a global stylesheet
+/* --- Size Modifiers --- */
+// Appropriate CSS variables for sizes will be defined later in _abstracts.scss
 .button--small {
-    
-    /* Decided that small buttons should ne have any minimum size for now */
-    /* min-width: 150px; // Example size adjustments
+    /* Decided that small buttons should not have any minimum size for now */
+    /* min-width: 150px; // size adjustment for small buttons 
     min-height: 35px; */
-    font-size: 0.875rem;
-    // Add specific padding variables here if necessary: padding: var(--button-padding-sm);
+    font-size: var(--font-size-sm);
+    // padding: var(--button-padding-sm);
 }
 
 .button--medium {
     min-width: 300px;
     min-height: 50px;
-    // Your original default styles fit here
+    font-size: var(--font-size-base);
     // padding: var(--button-padding-md);
-    font-size: 1rem;
 }
 
 .button--large {
     min-width: 400px;
     min-height: 65px;
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     // padding: var(--button-padding-lg);
 }
 
@@ -94,7 +92,7 @@
 }
 
 
-// Add Tertiary variant styles
+// Tertiary variant styles
 /* Not yet defined in _abstracts.scss */
 .button--tertiary {
     background-color: var(--button-bg-tertiary, #e0e0e0); // Fallback color
