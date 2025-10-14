@@ -78,65 +78,6 @@
 }
 
 
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--button-padding);
-  border-radius: var(--button-border-radius);
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-bold);
-  text-decoration: none;
-  transition: var(--button-transition), transform 0.3s ease;
-  box-shadow: var(--button-box-shadow);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  text-align: center;
-  white-space: nowrap;
-  min-width: 300px;
-  min-height: 50px;
-  border: 2px solid;
-
-  &:hover,
-  &:focus {
-    transform: translateY(-2px);
-    box-shadow: var(--box-shadow-advanced);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-brand-primary);
-    outline-offset: 2px;
-  }
-}
-
-.button--primary {
-  background-color: var(--button-bg-primary);
-  color: var(--button-text-primary);
-  border-color: var(--button-text-primary);
-
-  &:hover,
-  &:focus {
-    background-color: var(--button-bg-primary-hover);
-    color: var(--button-text-primary-hover);
-    border-color: var(--button-text-primary-hover);
-  }
-}
-
-.button--secondary {
-  background-color: var(--button-bg-secondary);
-  color: var(--button-text-secondary);
-  border-color: var(--button-text-secondary);
-
-  &:hover,
-  &:focus {
-    background-color: var(--button-bg-secondary-hover);
-    color: var(--button-text-secondary-hover);
-    border-color: var(--button-text-secondary-hover);
-  }
-}
-
 // Keyframe Animations
 @keyframes slideInFromTop {
   from {
