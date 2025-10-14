@@ -16,7 +16,9 @@ const App = () => {
         <h2>Primary Buttons</h2>
         <Button variant="primary" size="small" onClick={handleClick}>Small Primary</Button>
         <Button variant="primary" size="medium" onClick={handleClick}>Medium Primary</Button>
+
         <Button variant="primary" size="medium">text</Button>
+        
         <Button variant="primary" size="large" onClick={handleClick}>Large Primary</Button>
         <Button variant="primary" disabled>Disabled Primary</Button>
       </section>
