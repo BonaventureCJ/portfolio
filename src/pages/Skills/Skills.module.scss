@@ -1,6 +1,5 @@
 //Skills.module.scss
-
-@import '../../styles/abstracts';
+@use 'styles/abstracts' as *;
 
 .skillsPage {
     // Use a max-width and margin for centering on large screens,
@@ -18,7 +17,6 @@
     font-family: var(--font-family-headings);
     font-size: var(--font-size-h1);
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
     text-align: center;
     margin-bottom: var(--spacing-xl);
 }

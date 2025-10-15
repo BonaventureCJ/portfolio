@@ -23,6 +23,7 @@
     box-shadow: var(--card-box-shadow);
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition on theme toggle*/
 }
 
 .title {
