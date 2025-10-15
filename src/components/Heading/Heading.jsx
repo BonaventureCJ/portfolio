@@ -14,7 +14,7 @@ import styles from './Heading.module.scss';
 const Heading = ({ level, children, className, ...rest }) => {
   const Tag = level;
 
-  // Use a template literal to combine the class names
+  // Use a template literal to combine the class name with optional addtional class name(s)
   const combinedClassName = `${styles.heading} ${className || ''}`.trim();
 
   return (
