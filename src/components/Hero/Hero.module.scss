@@ -33,22 +33,11 @@
 }
 
 .heroTitle {
-  font-family: var(--font-family-headings);
-  font-size: var(--font-size-h1);
-  font-weight: var(--font-weight-bold);
   color: var(--color-brand-primary);
-  margin-bottom: var(--spacing-xs);
-
   animation: slideInLeft 0.8s ease-out forwards;
 }
 
 .heroSubtitle {
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-text-primary);
-  margin-bottom: var(--spacing-sm);
-
   animation: slideInLeft 0.8s ease-out 0.2s forwards;
 }
 

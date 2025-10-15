@@ -1,0 +1,26 @@
+/* A Sass map to define the font sizes for each heading level */
+$heading-font-sizes: (
+  h1: var(--font-size-h1),
+  h2: var(--font-size-h2),
+  h3: var(--font-size-xl),
+  h4: var(--font-size-lg),
+  h5: var(--font-size-base),
+  h6: var(--font-size-sm)
+);
+
+/* The main class for the Heading component */
+.heading {
+ 
+  /*
+   * Loop through the $heading-font-sizes map to generate a unique style
+   * for each heading level based on the class that corresponds to the `level` prop.
+   *
+   * The `&` symbol is used to create nested selectors, targeting the
+   * correct heading tag (e.g., .heading.h1).
+   */
+  @each $level, $size in $heading-font-sizes {
+    &.#{$level} {
+      font-size: $size;
+    }
+  }
+}
