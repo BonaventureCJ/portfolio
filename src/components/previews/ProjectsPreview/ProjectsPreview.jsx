@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './ProjectsPreview.module.scss';
 import projectsData from 'data/projects/projects';
 import ProjectsCard from 'components/Cards/ProjectsCard';
+import Button from 'components/Buttons/Button';
 
 /**
  * ProjectsPreview Component
@@ -34,11 +35,16 @@ const ProjectsPreview = () => {
         <div className={styles.projectsPreview__cta}>
           <Link
             to="/projects"
-            className={`${styles.projectsPreview__ctaLink} ${styles.ctaButton}`}
+            className={styles.ctaLink} // Wrapper class for spacing
             aria-label="Navigate to the full Projects page"
             title="View all projects on the Projects page"
           >
-            View All Projects
+            <Button
+              variant="primary"
+              size="medium"
+            >
+              View All Projects
+            </Button>
           </Link>
         </div>
       </div>

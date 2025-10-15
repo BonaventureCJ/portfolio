@@ -75,8 +75,8 @@
 
 .projects-card__tech-item {
   /* Theming */
-  color: var(--button-text-primary);
-  background-color: var(--button-bg-primary);
+  color: var(--button-text-primary-hover);
+  background-color: var(--button-bg-primary-hover);
   
   /* Box model */
   padding: var(--spacing-xxs) var(--spacing-xs);
@@ -93,64 +93,6 @@
   flex-wrap: wrap;
   
   /* Spacing */
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
   margin-top: var(--spacing-lg);
-}
-
-.projects-card__button {
-display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--button-padding);
-  border-radius: var(--button-border-radius);
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-bold);
-  text-decoration: none;
-  transition: var(--button-transition), transform 0.3s ease;
-  box-shadow: var(--button-box-shadow);
-  /* text-transform: uppercase; */
-  letter-spacing: 1px;
-  cursor: pointer;
-  text-align: center;
-  white-space: nowrap;
-  /* min-width: 300px;
-  min-height: 50px; */
-  border: 2px solid;
-
-  &:hover,
-  &:focus {
-    transform: translateY(-2px);
-    box-shadow: var(--box-shadow-advanced);
-  }
-
-  &:focus-visible {
-  outline: 2px solid var(--color-brand-primary);
-  outline-offset: 2px;
-  }
-}
-
-.projects-card__button--live {
-  background-color: transparent;
-  color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
-
-  &:hover,
-  &:focus {
-    background-color: var(--button-bg-primary-hover);
-    color: var(--button-bg-secondary-hover);
-    border-color: var(--button-bg-secondary-hover);
-  }
-}
-
-.projects-card__button--repo {
-   background-color: transparent;
-  color: var(--button-text-secondary);
-  border-color: var(--button-text-secondary);
-
-  &:hover,
-  &:focus {
-    background-color: var(--color-text-secondary);
-    color: var(--button-text-primary);
-    border-color: var(--button-text-primary);
-  }
 }

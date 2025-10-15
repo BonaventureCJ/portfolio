@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import styles from './SkillsPreview.module.scss';
 import skillsData from 'data/skills';
 import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard';
-import useIntersectionObserver from 'hooks/useIntersectionObserver'; // Import the more configurable hook
+import useIntersectionObserver from 'hooks/useIntersectionObserver';
+import Button from 'components/Buttons/Button';
 
 /**
  * A skills preview section for the homepage.
@@ -14,7 +15,6 @@ import useIntersectionObserver from 'hooks/useIntersectionObserver'; // Import t
 const SkillsPreview = () => {
   const featuredSkills = skillsData.filter((skill) => skill.isFeatured);
   
-  // Use the new hook with triggerOnce set to true
   const [listRef, listIsInView] = useIntersectionObserver({ 
     threshold: 0.2,
     triggerOnce: true 
@@ -30,7 +30,7 @@ const SkillsPreview = () => {
         
         <ul
           className={`${styles.skillsPreview__list} ${listIsInView ? styles.inView : ''}`}
-          ref={listRef} // Attach the ref to the list element
+          ref={listRef}
           role="list"
         >
           {featuredSkills.map((skill) => (
@@ -42,11 +42,16 @@ const SkillsPreview = () => {
         <div className={styles.skillsPreview__cta}>
           <Link
             to="/skills"
-            className={`${styles.skillsPreview__ctaLink} ${styles.ctaButton}`}
+            className={styles.ctaLink} // New wrapper class for spacing
             aria-label="View all skills on the Skills page"
             title="Navigate to the full Skills page"
           >
-            View All Skills
+            <Button
+              variant="primary"
+              size="medium"
+            >
+              View All Skills
+            </Button>
           </Link>
         </div>
       </div>

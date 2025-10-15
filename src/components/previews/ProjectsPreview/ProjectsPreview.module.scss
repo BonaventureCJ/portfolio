@@ -58,50 +58,10 @@
  margin: var(--spacing-lg) 0;
 }
 
-.ctaButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--button-padding);
-  border-radius: var(--button-border-radius);
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-bold);
-  text-decoration: none;
-  transition: var(--button-transition), transform 0.3s ease;
-  box-shadow: var(--button-box-shadow);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  text-align: center;
-  white-space: nowrap;
-  min-width: 300px;
-  min-height: 50px;
-  border: 2px solid;
-
-  &:hover,
-  &:focus {
-    transform: translateY(-2px);
-    box-shadow: var(--box-shadow-advanced);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-brand-primary);
-    outline-offset: 2px;
-  }
+.projectsPreview__cta {
+  margin-top: var(--spacing-xl);
 }
 
-.projectsPreview__ctaLink {
-  background-color: transparent;
-  color: var(--color-brand-primary);
-  border-color: var(--color-brand-primary);
-
-  &:hover,
-  &:focus {
-    background-color: var(--button-bg-primary-hover);
-    color: var(--button-bg-secondary-hover);
-    border-color: var(--button-bg-secondary-hover);
-  }
-}
 
 // Keyframe animations for a professional entry
 @keyframes fadeIn {

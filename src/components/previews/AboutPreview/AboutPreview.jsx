@@ -1,14 +1,14 @@
-/* src/components/previews/AboutPreview/AboutPreview.jsx */
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AboutPreview.module.scss';
 import { yearsOfExperience } from 'utils/helpers';
+import Button from 'components/Buttons/Button';
 
 /**
  * A condensed "About" section for the homepage.
  @returns {JSX.Element} The About Preview component.
  */
 const AboutPreview = () => {
-
   return (
     <section className={styles.aboutPreview}>
       <div className={styles.aboutPreview__container}>
@@ -24,11 +24,16 @@ const AboutPreview = () => {
 
           <Link
             to="/about"
-            className={`${styles.aboutPreview__cta} ${styles.ctaButton}`}
+            className={styles.aboutLinkWrapper} // Wrapper class for spacing and block behavior
             aria-label="Learn more about Bonaventure C.J. Ugwu"
             title="Navigate to the full About page"
           >
-            Learn More
+            <Button
+              variant="primary"
+              size="medium"
+            >
+              Learn More
+            </Button>
           </Link>
         </div>
       </div>

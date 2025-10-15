@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProjectsCard.module.scss';
+import Button from 'components/Buttons/Button';
 
 /**
  * ProjectsCard component displays a single project with details.
@@ -35,9 +36,9 @@ const ProjectsCard = ({ project }) => {
       </div>
       <div className={styles['projects-card__content']}>
         <h3 className={styles['projects-card__title']}>{title}</h3>
-        
+
         <div className={styles['projects-card__description']}>
-            {renderDescription(description)}
+          {renderDescription(description)}
         </div>
 
         <ul className={styles['projects-card__tech-list']}>
@@ -52,17 +53,24 @@ const ProjectsCard = ({ project }) => {
             <a
               key={`${link.label}-${index}`}
               href={link.url}
-              className={`${styles['projects-card__button']} ${
-                link.label.toLowerCase().includes('live')
-                  ? styles['projects-card__button--live']
-                  : styles['projects-card__button--repo']
-              }`}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={link.ariaLabel}
-              title={link.ariaLabel}
+              className={styles['projects-card__action-link']} // Add a style to make the anchor act like a block element, ensuring the button fills it.
             >
-              {link.label}
+              <Button
+                // Map the variant for the button dynamically
+                variant={
+                  link.label.toLowerCase().includes('live')
+                    ? 'primary'
+                    : 'secondary'
+                }
+                size="small"
+                //Pass other children, ariaLabel, and title props
+                ariaLabel={link.ariaLabel}
+                title={link.ariaLabel}
+              >
+                {link.label}
+              </Button>
             </a>
           ))}
         </div>
@@ -74,11 +82,10 @@ const ProjectsCard = ({ project }) => {
 ProjectsCard.propTypes = {
   project: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    // Prop type simplified to only accept an array of strings
     description: PropTypes.arrayOf(PropTypes.string).isRequired,
     image: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object
+      PropTypes.string,
+      PropTypes.object
     ]).isRequired,
     links: PropTypes.arrayOf(
       PropTypes.shape({

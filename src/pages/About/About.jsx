@@ -7,6 +7,7 @@ import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
 import { yearsOfExperience } from 'utils/helpers';
 import requestResume from 'assets/documents/request-resume.pdf';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
+import Button from 'components/Buttons/Button';
 
 const About = () => {
   const featuredSkills = skillsData.filter((skill) => skill.isFeatured);
@@ -46,18 +47,23 @@ const About = () => {
               This journey includes providing improvements to the TypeScript documentation for the Redux Toolkit project, an experience that has deepened my understanding of the technology and my connection to the development community.
             </p>
           </div>
-
         </div>
 
+        {/* Use <a> to handle external/download link, and wrap the Button inside */}
         <a
           href={requestResume}
-          className={`${styles.about__button} ${styles['about__button--resume']}`}
+          className={styles.buttonWrapper} // Wrapper class
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download Bonaventure's Resume (PDF)"
-          title="Download Bonaventure's resume (PDF)"
         >
-          Download Resume
+          <Button
+            variant="secondary"
+            size="medium"
+            title="Download Bonaventure's resume (PDF)"
+          >
+            Download Resume
+          </Button>
         </a>
 
         <div className={styles.about__skills}>
@@ -75,14 +81,22 @@ const About = () => {
               />
             ))}
           </ul>
-          <Link
-            to="/skills"
-            className={`${styles.about__button} ${styles['about__button--skills']}`}
-            aria-label="View all skills on the Skills page"
-            title="Navigate to the full Skills page"
-          >
-            View All Skills
-          </Link>
+          {/* Use React Router Link to handle internal navigation, and wrap the Button inside */}
+          <div className={styles.about__skillsCta}>
+            <Link
+              to="/skills"
+              className={styles.buttonWrapper} // Use the same or a specific wrapper class
+              aria-label="View all skills on the Skills page"
+            >
+              <Button
+                variant="primary"
+                size="medium"
+                title="Navigate to the full Skills page"
+              >
+                View All Skills
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -90,3 +104,4 @@ const About = () => {
 };
 
 export default About;
+
