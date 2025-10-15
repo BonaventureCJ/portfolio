@@ -1,19 +1,23 @@
+// src/components/AboutPreview/AboutPreview.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AboutPreview.module.scss';
 import { yearsOfExperience } from 'utils/helpers';
 import Button from 'components/Buttons/Button';
+import Heading from 'components/Heading/Heading';
 
 /**
  * A condensed "About" section for the homepage.
- @returns {JSX.Element} The About Preview component.
+ * @returns {JSX.Element} The About Preview component.
  */
 const AboutPreview = () => {
   return (
     <section className={styles.aboutPreview}>
       <div className={styles.aboutPreview__container}>
         <div className={styles.aboutPreview__content}>
-          <h2 className={styles.aboutPreview__heading}>About Me</h2>
+          <Heading level="h2" className={styles.aboutPreview__heading}>
+            About Me
+          </Heading>
 
           <p className={styles.aboutPreview__text}>
             As a Front-End Engineer with {yearsOfExperience}+ years of experience, I am passionate about Accessibility, SEO, Responsive Web Design, clean code, and creating intuitive UIs using Typescript, React.js and Next.js.
@@ -42,4 +46,3 @@ const AboutPreview = () => {
 };
 
 export default AboutPreview;
-

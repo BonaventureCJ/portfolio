@@ -1,3 +1,4 @@
+//src/components/Heading/Heading.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Heading.module.scss';

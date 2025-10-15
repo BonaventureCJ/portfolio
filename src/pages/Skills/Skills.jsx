@@ -3,11 +3,14 @@ import React from 'react';
 import MajorSkillsCard from 'components/Cards/MajorSkillsCard';
 import OtherSkillsCard from 'components/Cards/OtherSkillsCard';
 import styles from './Skills.module.scss';
+import Heading from 'components/Heading/Heading';
 
 const Skills = () => {
   return (
     <section className={styles.skillsSection}>
-      <h2 className={styles.heading}>My Skills</h2>
+      <Heading level="h2" className={styles.heading}>
+        My Skills
+      </Heading>
       <div className={styles.skillsContainer}>
         <MajorSkillsCard />
         <OtherSkillsCard />

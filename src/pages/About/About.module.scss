@@ -21,10 +21,6 @@
 }
 
 .about__title {
-  font-family: var(--font-family-headings);
-  font-size: var(--font-size-h1);
-  font-weight: var(--font-weight-bold);
-  text-align: center;
   position: relative;
 }
 
@@ -117,13 +113,6 @@
   }
 }
 
-.about__subHeading {
-  font-family: var(--font-family-headings);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  margin-top: var(--spacing-md);
-}
-
 .about__summary {
   font-weight: var(--font-weight-regular);
   font-family: var(--font-family-primary);
@@ -138,12 +127,6 @@
   flex-direction: column;
   gap: var(--spacing-lg);
   align-items: center;
-}
-
-.about__skillsHeading {
-  font-size: var(--font-size-h2);
-  font-family: var(--font-family-headings);
-  text-align: center;
 }
 
 .about__skillsList {

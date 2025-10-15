@@ -11,7 +11,7 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-family-primary);
   line-height: 1.6;
-  transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition on theme toggle*/
+  transition: background-color var(--color-transition), color var(--color-transition); /* Smooth transition on theme toggle*/
 }
 
 a {
@@ -27,6 +27,7 @@ h1, h2, h3, h4, h5, h6 {
   //color: var(--color-text-primary); /* Ensures headings respect theme */
   line-height: 1.2; // Optimized for readability.
   margin-block: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
 }
 
 /* Other global variables */

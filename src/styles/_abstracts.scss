@@ -16,6 +16,7 @@
   --color-link-hover: #4DACC0;
   --color-overlay: rgba(255, 255, 255, 0.7);
   --color-surface-lighter: color-mix(in srgb, var(--color-surface-base), black 10%);
+  --color-transition: 0.5s ease;
 
   /* Fonts */
   --font-family-primary: 'Familjen Grotesk', sans-serif;

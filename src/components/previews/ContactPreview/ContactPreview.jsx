@@ -5,6 +5,7 @@ import styles from './ContactPreview.module.scss';
 import ContactsCard from 'components/Cards/ContactsCard';
 import { contactItems } from 'data/contact';
 import Button from 'components/Buttons/Button';
+import Heading from 'components/Heading/Heading';
 
 /**
  * ContactPreview Component
@@ -21,9 +22,10 @@ const ContactPreview = () => {
   return (
     <section className={styles.contactPreview} aria-labelledby="featured-contact-heading">
       <div className={styles.contactPreview__container}>
-        <h2 id="featured-contact-heading" className={styles.contactPreview__heading}>
+        <Heading level="h2" id="featured-contact-heading" className={styles.contactPreview__heading}>
           Connect with me
-        </h2>
+        </Heading>
+
         <p className={styles.contactPreview__description}>
           Let's connect and build something great together.
         </p>

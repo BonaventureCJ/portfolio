@@ -2,8 +2,6 @@
 @use 'styles/abstracts' as *;
 
 .skillsPage {
-    // Use a max-width and margin for centering on large screens,
-    // ensuring the content doesn't stretch too wide.
     max-width: 1440px;
     margin: 0 auto;
     padding: var(--spacing-lg) var(--spacing-sm);
@@ -11,12 +9,4 @@
     @media (min-width: 768px) {
         padding: var(--spacing-lg);
     }
-}
-
-.heading {
-    font-family: var(--font-family-headings);
-    font-size: var(--font-size-h1);
-    font-weight: var(--font-weight-bold);
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
 }

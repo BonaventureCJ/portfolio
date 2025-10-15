@@ -1,22 +1,26 @@
-// src/components/Contact.jsx
-
+//src/pages/Contact/Contact.jsx
 import React from 'react';
 import styles from './Contact.module.scss';
 import ContactsCard from 'components/Cards/ContactsCard';
 import ContactForm from 'components/ContactForm/ContactForm';
 import { contactItems, ctaMessage } from 'data/contact';
+import Heading from 'components/Heading/Heading';
 
 const Contact = () => {
   return (
     <section className={styles.contact}>
       <header className={styles.contact__header}>
-        <h2 className={styles.contact__title}>Get in Touch</h2>
+        <Heading level="h2" className={styles.contact__title}>
+          Get in Touch
+        </Heading>
       </header>
 
       <div className={styles.contact__content}>
         {/* Social Links Section */}
         <aside className={styles.contact__aside}>
-          <h3 className={styles.contact__cta}>{ctaMessage.general}</h3>
+          <Heading level="h3" className={styles.contact__cta}>
+            {ctaMessage.general}
+          </Heading>
           <div className={styles.contact__linksGrid}>
             {contactItems.map((link) => (
               <ContactsCard key={link.id} contact={link} />
@@ -26,7 +30,9 @@ const Contact = () => {
 
         {/* Contact Form Section */}
         <div className={styles.contact__formContainer} id="contact-form-section">
-          <h3 className={styles.contact__cta}>{ctaMessage.form}</h3>
+          <Heading level="h3" className={styles.contact__cta}>
+            {ctaMessage.form}
+          </Heading>
           <ContactForm />
         </div>
       </div>
