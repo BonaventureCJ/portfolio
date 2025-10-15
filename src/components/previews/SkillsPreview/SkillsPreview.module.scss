@@ -22,10 +22,6 @@
 }
 
 .skillsPreview__heading {
-  font-family: var(--font-family-headings);
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-brand-primary);
   animation: slideInFromTop 0.8s ease-out forwards;
 }
 
@@ -70,10 +66,6 @@
       }
     }
 
-    // Tilt the last three items for a unique visual effect
-    &:nth-last-child(-n + 3) {
-      transform: rotate(1deg) translateY(5px);
-    }
   }
 }
 

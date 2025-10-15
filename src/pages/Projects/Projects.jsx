@@ -3,10 +3,10 @@ import React from 'react';
 import projectsData from 'data/projects/projects';
 import ProjectsCard from 'components/Cards/ProjectsCard';
 import styles from './Projects.module.scss';
+import Heading from 'components/Heading/Heading';
 
 const Projects = () => {
   const inDevelopmentProjects = projectsData.filter(project => project.development_status === 'In Development');
-  // We refine the recent projects filter to make sure 'In Development' projects don't appear twice.
   const recentProjects = projectsData.filter(project => project.isRecent && project.development_status !== 'In Development');
   const tutorialBasedProjects = projectsData.filter(project => project.isTutorialBased);
   const earlierCareerProjects = projectsData.filter(project => !project.isRecent && !project.isTutorialBased);
@@ -16,7 +16,7 @@ const Projects = () => {
    * @param {Array} projects - Array of project objects to display.
    * @param {string} title - The main heading for the section.
    * @param {string[]} description - The subheading describing the section.
-   * @param {number} headingLevel - The heading level (e.g., 2 for <h2>).
+   * @param {number} headingLevel - The heading level (e.g., 2 for h2).
    * @param {string} sectionId - The unique ID for the section, used for accessibility.
    */
   const renderProjectSection = (projects, title, description, headingLevel = 2, sectionId) => {
@@ -24,23 +24,21 @@ const Projects = () => {
       return null;
     }
 
-    const HeadingTag = `h${headingLevel}`;
-    const SubheadingTag = `h${headingLevel + 1}`;
-
     return (
       <section className={styles['projects-section']} aria-labelledby={sectionId}>
         <div className={styles['projects-section__header-container']}>
-          <HeadingTag className={styles['projects-section__title']} id={sectionId}>
+          <Heading level={`h${headingLevel}`} className={styles['projects-section__title']} id={sectionId}>
             {title}
-          </HeadingTag>
-          <SubheadingTag className={styles['projects-section__subtitle']}>
+          </Heading>
+          <p className={styles['projects-section__subtitle']}>
             {description.map((paragraph, index) => (
               <React.Fragment key={index}>
                 {paragraph}
+                {/* Conditionally render <br /> only if it's not the last paragraph */}
                 {index < description.length - 1 && <br />}
               </React.Fragment>
             ))}
-          </SubheadingTag>
+          </p>
         </div>
         <ul className={styles['projects-section__list']}>
           {projects.map((project) => (
@@ -56,7 +54,9 @@ const Projects = () => {
   return (
     <div className={styles['projects-page']}>
       <header className={styles['projects-page__header']}>
-        <h1 className={styles['projects-page__main-title']}>My Work</h1>
+        <Heading level="h1" className={styles['projects-page__main-title']}>
+          My Work
+        </Heading>
         <p className={styles['projects-page__description']}>
           A collection of my projects, categorized by status and history.
         </p>

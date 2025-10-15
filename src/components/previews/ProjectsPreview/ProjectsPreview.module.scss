@@ -23,12 +23,6 @@
 }
 
 .projectsPreview__heading {
-  font-family: var(--font-family-headings);
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-brand-primary);
-  margin-bottom: var(--spacing-md);
-
   // Animation for the heading
   transform: translateY(-20px);
   opacity: 0;

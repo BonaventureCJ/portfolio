@@ -1,9 +1,12 @@
+// src/components/previews/ProjectsPreview/ProjectsPreview.jsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProjectsPreview.module.scss';
 import projectsData from 'data/projects/projects';
 import ProjectsCard from 'components/Cards/ProjectsCard';
 import Button from 'components/Buttons/Button';
+import Heading from 'components/Heading/Heading';
 
 /**
  * ProjectsPreview Component
@@ -16,14 +19,15 @@ const ProjectsPreview = () => {
   return (
     <section className={styles.projectsPreview} aria-labelledby="featured-projects-heading">
       <div className={styles.projectsPreview__container}>
-        <h2 id="featured-projects-heading" className={styles.projectsPreview__heading}>
+        <Heading level="h2" id="featured-projects-heading" className={styles.projectsPreview__heading}>
           Featured Projects
-        </h2>
+        </Heading>
+
         <p className={styles.projectsPreview__description}>
           A showcase of some of my best projects, one recent project showcasing my current skills and the others before I upgraded my skills and learnt better folder structures and best practices.
         </p>
         <p className={styles.projectsPreview__description}>
-          I'm currently building more scalable, maintainable, accessible and robust projects with improved code quality,architecture and improved performance.
+          I'm currently building more scalable, maintainable, accessible and robust projects with improved code quality, architecture and improved performance.
         </p>
 
         <div className={styles.projectsPreview__grid}>

@@ -1,3 +1,4 @@
+// src/components/About/About.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './About.module.scss';
@@ -8,6 +9,7 @@ import { yearsOfExperience } from 'utils/helpers';
 import requestResume from 'assets/documents/request-resume.pdf';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import Button from 'components/Buttons/Button';
+import Heading from 'components/Heading/Heading';
 
 const About = () => {
   const featuredSkills = skillsData.filter((skill) => skill.isFeatured);
@@ -20,7 +22,9 @@ const About = () => {
   return (
     <section className={styles.about}>
       <div className={styles.about__content}>
-        <h2 className={styles.about__title}>About Me</h2>
+        <Heading level="h2" className={styles.about__title}>
+          About Me
+        </Heading>
         <div className={styles.about__intro}>
           <div className={styles.about__photoContainer}>
             <img
@@ -39,7 +43,9 @@ const About = () => {
               My strong background in healthcare, statistical data analyses, and scientific research provides a unique analytical lens for solving complex development challenges and prioritizing the user experience.
             </p>
 
-            <h3 className={styles.about__subHeading}>Commitment to Open Source</h3>
+            <Heading level="h3" className={styles.about__subHeading}>
+              Commitment to Open Source
+            </Heading>
             <p className={styles.about__summary}>
               As a firm believer in the open-source ethos, I've evolved from a user of essential tools to an active open-source contributor, demonstrating my ability to learn, apply and collaborate with other developers on complex technologies.
             </p>
@@ -67,7 +73,9 @@ const About = () => {
         </a>
 
         <div className={styles.about__skills}>
-          <h3 className={styles.about__skillsHeading}>My Major Skills</h3>
+          <Heading level="h3" className={styles.about__skillsHeading}>
+            My Major Skills
+          </Heading>
           <ul
             ref={skillsRef}
             className={`${styles.about__skillsList} ${skillsInView ? styles['is-visible'] : ''}`}
@@ -104,4 +112,3 @@ const About = () => {
 };
 
 export default About;
-

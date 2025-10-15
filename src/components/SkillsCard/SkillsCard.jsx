@@ -1,8 +1,7 @@
-// src/components/SkillsCard/SkillsCard.jsx
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './SkillsCard.module.scss'; // Relative import for SCSS
+import styles from './SkillsCard.module.scss';
+import Heading from 'components/Heading/Heading'; // Import the Heading component
 
 /**
  * A reusable component to display a category of skills.
@@ -17,9 +16,10 @@ const SkillsCard = ({ categoryTitle, skills, cardType }) => {
 
   return (
     <section className={cardClassName} aria-labelledby={`skills-heading-${cardType}`}>
-      <h2 className={styles.title} id={`skills-heading-${cardType}`}>
+      {/* Use the reusable Heading component */}
+      <Heading level="h2" className={styles.title} id={`skills-heading-${cardType}`}>
         {categoryTitle}
-      </h2>
+      </Heading>
       <ul className={styles.list} role="list">
         {skills.map((skill) => {
           const Icon = skill.icon;

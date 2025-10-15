@@ -18,14 +18,6 @@
     }
   }
 
-  &__heading {
-    font-family: var(--font-family-headings);
-    font-size: var(--font-size-h2);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-brand-primary);
-    margin-bottom: var(--spacing-xs);
-  }
-
   &__description {
     max-width: 80ch; // Optimal line length for readability
     margin: 0 auto var(--spacing-lg);

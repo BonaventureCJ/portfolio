@@ -39,11 +39,7 @@
 
 // Heading for section
 .aboutPreview__heading {
-  font-family: var(--font-family-headings);
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-brand-primary);
-  margin-bottom: var(--spacing-xs);
+
   // Professionally looking animation on load
   animation: slideInFromTop 0.8s ease-out forwards;
 }

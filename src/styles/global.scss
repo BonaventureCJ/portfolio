@@ -11,7 +11,7 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-family-primary);
   line-height: 1.6;
-  transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
+  transition: background-color var(--color-transition), color var(--color-transition); /* Smooth transition on theme toggle*/
 }
 
 a {
@@ -24,12 +24,20 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary); /* Ensures headings respect theme */
+  //color: var(--color-text-primary); /* Ensures headings respect theme */
+  line-height: 1.2; // Optimized for readability.
+  margin-block: var(--spacing-md) var(--spacing-sm);
+  text-align: center;
 }
 
-/* Example of applying other global variables */
-/* You can also define global styles here using your variables */
+/* Other global variables */
 
+/*
+  Removes the default, inconsistent tap highlight on mobile WebKit browsers
+  to provide a consistent user experience. 
+  To maintain accessibility and a good user experience, custom :active styles have been used
+  to provide tap feedback instead.
+*/
 a, button, input {
   -webkit-tap-highlight-color: transparent;
 }
