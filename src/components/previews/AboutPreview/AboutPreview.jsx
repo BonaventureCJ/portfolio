@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AboutPreview.module.scss';
-import { yearsOfExperience } from 'utils/helpers';
+import { aboutData } from 'data/about'; // The shared data is imported using named import statement
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
 
@@ -11,7 +11,7 @@ import Heading from 'components/Heading/Heading';
  * @returns {JSX.Element} The About Preview component.
  */
 const AboutPreview = () => {
-  const gitHubAchievementsUrl = 'https://github.com/BonaventureCJ?tab=achievements';
+  const gitHubAchievementsUrl = aboutData.gitHubAchievementsUrl;
 
   return (
     <section className={styles.aboutPreview}>
@@ -22,10 +22,11 @@ const AboutPreview = () => {
           </Heading>
 
           <p className={styles.aboutPreview__text}>
-            As a Front-End Engineer with {yearsOfExperience}+ years of experience, I am passionate about Accessibility, SEO, Responsive Web Design, clean code, and creating intuitive UIs using Typescript, React.js and Next.js.
+            {aboutData.aboutPreviewText}
           </p>
           <p className={styles.aboutPreview__text}>
-              As a firm believer in the open-source ethos, I've evolved from a user of essential tools to an active open-source contributor, earning a GitHub&nbsp;
+              {/* Use shared data and URL, splitting the string for the inline link, this part is for the first part of the split string */}
+              {aboutData.aboutPreviewOpenSourceText.split('Pull Shark Badge')[0]}
               {/* A standard anchor tag <a> is used for the external link instead of React Router Link*/}
               <a
                 href={gitHubAchievementsUrl}
@@ -36,8 +37,9 @@ const AboutPreview = () => {
                 className={styles.aboutPreview__link}
               >
                 Pull Shark Badge
-              </a>{' '}
-              in the process. This demonstrates my ability to learn, apply and collaborate with other developers on complex technologies.
+              </a>
+              {/* Second part of the split string */}
+              {aboutData.aboutPreviewOpenSourceText.split('Pull Shark Badge')[1]}
           </p>
 
           <Link
