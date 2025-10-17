@@ -19,6 +19,8 @@ const About = () => {
     triggerOnce: true,
   });
 
+  const gitHubAchievementsUrl = 'https://github.com/BonaventureCJ?tab=achievements';
+
   return (
     <section className={styles.about}>
       <div className={styles.about__content}>
@@ -47,7 +49,18 @@ const About = () => {
               Commitment to Open Source
             </Heading>
             <p className={styles.about__summary}>
-              As a firm believer in the open-source ethos, I've evolved from a user of essential tools to an active open-source contributor, demonstrating my ability to learn, apply and collaborate with other developers on complex technologies.
+              As a firm believer in the open-source ethos, I've evolved from a user of essential tools to an active open-source contributor, earning a GitHub&nbsp;
+              <a
+                href={gitHubAchievementsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Bonaventure's GitHub Pull Shark Badge achievement"
+                title="Click to view the GitHub achievement badge"
+                className={styles.about__link}
+              >
+                Pull Shark Badge
+              </a>{' '}
+              in the process. This demonstrates my ability to learn, apply and collaborate with other developers on complex technologies.
             </p>
             <p className={styles.about__summary}>
               This journey includes providing improvements to the TypeScript documentation for the Redux Toolkit project, an experience that has deepened my understanding of the technology and my connection to the development community.
@@ -55,7 +68,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Use <a> to handle external/download link, and wrap the Button inside */}
+        {/* <a> is used to handle external/download link, and Button wrapped inside */}
         <a
           href={requestResume}
           className={styles.buttonWrapper} // Wrapper class
