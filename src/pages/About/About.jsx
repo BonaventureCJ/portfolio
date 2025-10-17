@@ -3,9 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './About.module.scss';
 import skillsData from 'data/skills';
+import { aboutData } from 'data/about';
 import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard';
 import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
-import { yearsOfExperience } from 'utils/helpers';
 import requestResume from 'assets/documents/request-resume.pdf';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import Button from 'components/Buttons/Button';
@@ -19,7 +19,7 @@ const About = () => {
     triggerOnce: true,
   });
 
-  const gitHubAchievementsUrl = 'https://github.com/BonaventureCJ?tab=achievements';
+  const gitHubAchievementsUrl = aboutData.gitHubAchievementsUrl;
 
   return (
     <section className={styles.about}>
@@ -39,39 +39,38 @@ const About = () => {
           </div>
           <div className={styles.about__textContainer}>
             <p className={styles.about__summary}>
-              Front-End Engineer with {yearsOfExperience}+ years of experience building performant, scalable, and accessible web applications. I use a modern tech stack of React, Next.js, and TypeScript to create intuitive user interfaces and write clean, maintainable code.
+              {aboutData.summary}
             </p>
             <p className={styles.about__summary}>
-              My strong background in healthcare, statistical data analyses, and scientific research provides a unique analytical lens for solving complex development challenges and prioritizing the user experience.
+              {aboutData.secondarySummary}
             </p>
 
             <Heading level="h3" className={styles.about__subHeading}>
-              Commitment to Open Source
+              {aboutData.openSourceCommitmentTitle}
             </Heading>
             <p className={styles.about__summary}>
-              As a firm believer in the open-source ethos, I've evolved from a user of essential tools to an active open-source contributor, earning a GitHub&nbsp;
+              {/* Use shared data and URL */}
+              {aboutData.openSourceSummary.split('Pull Shark Badge')[0]}
               <a
                 href={gitHubAchievementsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View Bonaventure's GitHub Pull Shark Badge achievement"
-                title="Click to view the GitHub achievement badge"
+                title="View the GitHub achievement badge"
                 className={styles.about__link}
               >
                 Pull Shark Badge
-              </a>{' '}
-              in the process. This demonstrates my ability to learn, apply and collaborate with other developers on complex technologies.
+              </a>
+              {aboutData.openSourceSummary.split('Pull Shark Badge')[1]}
             </p>
             <p className={styles.about__summary}>
-              This journey includes providing improvements to the TypeScript documentation for the Redux Toolkit project, an experience that has deepened my understanding of the technology and my connection to the development community.
+              {aboutData.openSourceSecondarySummary}
             </p>
           </div>
         </div>
-
-        {/* <a> is used to handle external/download link, and Button wrapped inside */}
         <a
           href={requestResume}
-          className={styles.buttonWrapper} // Wrapper class
+          className={styles.buttonWrapper}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download Bonaventure's Resume (PDF)"
@@ -102,11 +101,10 @@ const About = () => {
               />
             ))}
           </ul>
-          {/* Use React Router Link to handle internal navigation, and wrap the Button inside */}
           <div className={styles.about__skillsCta}>
             <Link
               to="/skills"
-              className={styles.buttonWrapper} // Use the same or a specific wrapper class
+              className={styles.buttonWrapper}
               aria-label="View all skills on the Skills page"
             >
               <Button

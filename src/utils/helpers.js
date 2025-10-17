@@ -1,3 +1,4 @@
+/* ID GENERATOR */
 /**
  * Creates and returns a function that generates a simple, auto-incrementing number.
  * The counter is encapsulated within the closure, making it private and persistent.
@@ -18,7 +19,7 @@ export default generateId;
 
 
 
-
+/* YEARS OF EXPERIENCE */
 /**
  * Calculates the number of years between a given start date and the current date.
  * @param {string} startDateString - The start date in 'YYYY-MM-DD' format (e.g., '2022-04-17').
