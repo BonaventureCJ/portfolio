@@ -87,7 +87,7 @@
   &:focus {
     outline: none;
     border-color: var(--color-brand-primary);
-    /* 👇 Use rgba with CSS variables for dynamic shadows */
+    /* Use rgba with CSS variables for dynamic shadows */
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-primary), transparent 75%);
   }
 }
@@ -98,14 +98,14 @@
 
 .contact-form__input--invalid,
 .contact-form__textarea--invalid {
-  /* 👇 Use a variable for error color (you'd need to define this in abstracts) */
+  /* Use a variable for error color (you'd need to define this in abstracts) */
   border-color: var(--color-error, #dc3545);
 }
 
 .contact-form__error-message {
   margin-top: var(--spacing-xs);
   font-size: var(--font-size-sm);
-  /* 👇 Use a variable for error color */
+  /* Use a variable for error color */
   color: var(--color-error, #dc3545);
 }
 
@@ -148,7 +148,7 @@
   padding: var(--spacing-md);
   text-align: center;
   font-size: var(--font-size-lg);
-  /* 👇 Use variables for success colors */
+  /* Use variables for success colors */
   color: var(--color-success-text, #28a745);
   background-color: var(--color-success-bg, #d4edda);
   border: 1px solid var(--color-success-border, #c3e6cb);

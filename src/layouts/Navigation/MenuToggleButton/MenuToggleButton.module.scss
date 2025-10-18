@@ -31,7 +31,6 @@
   transition: 
     color 0.3s ease, 
     background-color 0.3s ease,
-    /* 👇 ADDED: Theme transition for global theme toggle */
     color var(--color-transition),
     background-color var(--color-transition);
 }
