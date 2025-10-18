@@ -1,7 +1,7 @@
 // src/styles/global.scss
 // Order of imports is important
 @use 'normalize'; // Standardizes browser styles
-@use 'resets';    // Overrides with custom reset rules
+@use 'resets'; // Overrides with custom reset rules
 @use 'abstracts' as *; // Imports variables, mixins, etc.
 
 
@@ -11,17 +11,26 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-family-primary);
   line-height: 1.6;
-  transition: background-color var(--color-transition), color var(--color-transition); /* Smooth transition on theme toggle*/
+  transition: background-color var(--color-transition), color var(--color-transition);
+  /* Smooth transition on theme toggle*/
 }
 
 a {
   color: var(--color-link);
+  transition:
+    color var(--color-transition); //Smooth Transition on theme toggle
+
   &:hover {
     color: var(--color-link-hover);
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-family-headings);
   font-weight: var(--font-weight-bold);
   //color: var(--color-text-primary); /* Ensures headings respect theme */
@@ -38,6 +47,8 @@ h1, h2, h3, h4, h5, h6 {
   To maintain accessibility and a good user experience, custom :active styles have been used
   to provide tap feedback instead.
 */
-a, button, input {
+a,
+button,
+input {
   -webkit-tap-highlight-color: transparent;
 }

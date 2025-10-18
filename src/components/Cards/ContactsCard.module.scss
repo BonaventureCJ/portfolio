@@ -1,4 +1,6 @@
 /* src/components/Cards/ContactCard.module.scss */
+@use 'styles/abstracts' as *;
+
 .contacts-card {
   /* Inherits card styling from parent (Contact page) to maintain consistency */
   border-radius: var(--border-radius-md);
@@ -14,21 +16,35 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-lg);
-  min-height: 150px; // Ensure sufficient touch target size (WCAG 2.5.5) which is 120px
+  min-height: 120px; /* Ensure sufficient touch target size (WCAG 2.5.5) */
   min-width: 150px;
+  
   color: var(--color-link);
   text-decoration: none;
   background-color: var(--color-surface-elevated);
   border: 1px solid var(--color-border-primary);
   border-radius: var(--border-radius-md);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  min-height: 120px; /* Ensure sufficient touch target size (WCAG 2.5.5) */
+
+  /* Combined both interactive transitions and theme transitions */
+  transition: 
+    background-color 0.3s ease, /* Fast hover background change */
+    transform 0.3s ease,        /* Fast transform lift */
+    background-color var(--color-transition), /* Smooth theme toggle background */
+    border-color var(--color-transition),     /* Smooth theme toggle border */
+    color var(--color-transition),            /* Smooth theme toggle link color */
+    box-shadow var(--color-transition);       /* Smooth theme toggle shadow */
 
   &:hover,
   &:focus {
     background-color: var(--color-surface-base); /* Invert colors or provide a subtle change */
     transform: translateY(-5px); /* Subtle lift effect on hover/focus */
     box-shadow: var(--box-shadow-md); /* Add shadow for depth */
+    outline: 2px solid var(--color-brand-primary); /* Visible focus indicator (WCAG 2.4.7) */
+    outline-offset: 1px;
+  }
+  
+  &:focus-visible {
+    /* Use theme variables for the outline color */
     outline: 2px solid var(--color-brand-primary); /* Visible focus indicator (WCAG 2.4.7) */
     outline-offset: 2px;
   }
@@ -49,6 +65,7 @@
   max-width: var(--font-size-h2);
   max-height: var(--font-size-h2);
   color: var(--color-brand-primary);
+  transition: color var(--color-transition), fill var(--color-transition);
 }
 
 .contacts-card__name {
@@ -56,4 +73,5 @@
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-base);
   color: var(--color-text-primary);
+  transition: color var(--color-transition);
 }

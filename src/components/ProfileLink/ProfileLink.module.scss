@@ -1,3 +1,4 @@
+//src/components/ProfileLink/ProfileLink.module.scss
 @use 'styles/abstracts' as *;
 
 .profileLink {
@@ -6,9 +7,11 @@
   padding: var(--spacing-xs);
 
   line-height: 0; // Removes extra space below the icon for precise alignment.
+  /* Combined fast interactive transitions with slow theme toggle transitions */
   transition:
-    background-color 0.3s ease,
-    transform 0.3s ease-in-out;
+    background-color 0.3s ease,/* Fast hover background */
+    transform 0.3s ease-in-out,/* Fast hover transform */
+    color var(--color-transition);/* Smooth theme toggle color */
 
   border-radius: 50%;
 
@@ -22,8 +25,7 @@
   }
 
 
-  // Focus state for keyboard navigation (WCAG).
-  // Ensures visibility and usability for users who don't use a mouse.
+  // Focus state for keyboard navigation (WCAG). Ensures visibility and usability for users who don't use a mouse.
   &:focus-visible {
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
@@ -35,8 +37,5 @@
   height: var(--spacing-md);
   width: var(--spacing-md);
   fill: currentColor; // Allows the icon color to be controlled by the parent link's color property.
-  // The transition on the parent handles the color change.
+  transition: fill var(--color-transition); 
 }
-
-// Additional styles can be added for different layouts, e.g., in a list of social links.
-// For example, if it was inside a container with specific alignment.

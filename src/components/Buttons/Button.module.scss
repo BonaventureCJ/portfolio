@@ -10,7 +10,13 @@
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
-  transition: var(--button-transition);
+  transition: 
+    background-color var(--button-transition), 
+    color var(--button-transition), 
+    border-color var(--button-transition),
+    box-shadow var(--button-transition),
+    transform 0.3s ease; /* Keep transform for quick hover feedback */
+    
   box-shadow: var(--button-box-shadow);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -22,11 +28,12 @@
   // Base hover/focus effects
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* This fast transition is handled above */
     box-shadow: var(--box-shadow-advanced);
   }
 
   &:focus-visible {
+    /* 👇 Use a theme variable for the outline color */
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
   }
@@ -41,29 +48,24 @@
 /* --- Size Modifiers --- */
 // Appropriate CSS variables for sizes will be defined later in _abstracts.scss
 .button--small {
-    /* Decided that small buttons should not have any minimum size for now */
-    /* min-width: 150px; // size adjustment for small buttons 
-    min-height: 35px; */
     font-size: var(--font-size-sm);
-    // padding: var(--button-padding-sm);
 }
 
 .button--medium {
     min-width: 300px;
     min-height: 50px;
     font-size: var(--font-size-base);
-    // padding: var(--button-padding-md);
 }
 
 .button--large {
     min-width: 400px;
     min-height: 65px;
     font-size: var(--font-size-lg);
-    // padding: var(--button-padding-lg);
 }
 
 
 /* --- Variant Modifiers --- */
+/* Colors are set here, but the transition is handled in the base .button class */
 
 .button--primary {
   background-color: var(--button-bg-primary);
@@ -91,9 +93,6 @@
   }
 }
 
-
-// Tertiary variant styles
-/* Not yet defined in _abstracts.scss */
 .button--tertiary {
     background-color: var(--button-bg-tertiary, #e0e0e0); // Fallback color
     color: var(--button-text-tertiary, #333);

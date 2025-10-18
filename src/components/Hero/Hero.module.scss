@@ -34,6 +34,7 @@
 
 .heroTitle {
   color: var(--color-brand-primary);
+   transition: color var(--color-transition);
   animation: slideInLeft 0.8s ease-out forwards;
 }
 

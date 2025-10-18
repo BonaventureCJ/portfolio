@@ -4,11 +4,8 @@
 
 .projectsPreview {
   padding: var(--spacing-xl) var(--spacing-sm);
-  background-color: var(--color-surface-base);
-  color: var(--color-text-primary);
   text-align: center;
   margin-bottom: var(--spacing-md);
-
   // Overall section fade-in animation
   animation: fadeIn 0.8s ease-in-out;
 

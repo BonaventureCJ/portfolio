@@ -1,5 +1,5 @@
 // src/components/previews/SkillsPreview/SkillsPreview.jsx
-
+// For the Homepage and the About page previews
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './SkillsPreview.module.scss';

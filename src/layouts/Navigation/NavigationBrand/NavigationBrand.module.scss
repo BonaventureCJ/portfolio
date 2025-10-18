@@ -1,3 +1,4 @@
+//src/layouts/Navigation/NavigationBrand/NavigationBrand.module.scss
 @use 'styles/abstracts' as *;
 
 .brand {
@@ -7,6 +8,7 @@
 
   /* Ensure brand is visible on both light and dark themes */
   color: var(--nav-text);
+  transition: color var(--color-transition);
 
   /* Set high z-index to ensure visibility above other elements if needed. */
   z-index: 10;
@@ -22,7 +24,7 @@
   color: inherit;
 
   /* Add smooth transition for color changes. */
-  transition: color 0.3s ease;
+  transition: color var(--color-transition);
 
   /* Add padding for better touch target size (WCAG) */
   padding: var(--spacing-xxs);
@@ -31,7 +33,9 @@
   &:hover,
   &:focus {
     color: var(--color-link-hover);
-    outline: none; /* Remove default outline */
+    transition: color var(--color-transition);
+    outline: none;
+    /* Remove default outline */
   }
 
   /* Provide a visible focus indicator for keyboard users (WCAG). */

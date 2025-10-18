@@ -19,6 +19,7 @@ const Home = () => {
       {/* Home Page Sections */}
       <Hero />
       <AboutPreview />
+      {/* Use the reusable SkillsPreview component also used in About Page*/}
       <SkillsPreview />
       <ProjectsPreview />
       <ContactPreview />

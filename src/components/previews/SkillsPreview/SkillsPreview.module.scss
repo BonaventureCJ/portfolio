@@ -3,7 +3,6 @@
 
 .skillsPreview {
   padding: var(--spacing-lg) var(--spacing-sm);
-  color: var(--color-text-primary);
   text-align: center;
   margin-bottom: var(--spacing-md);
 
@@ -32,6 +31,7 @@
   font-weight: var(--font-weight-regular);
   line-height: 1.6; // Improved readability via WCAG guidelines
   color: var(--color-text-secondary);
+  transition: color var(--color-transition);
 }
 
 .skillsPreview__list {
@@ -59,7 +59,7 @@
     animation: fadeIn 1s ease-out forwards;
     
     // Staggered fade-in animation using a loop for a cleaner approach
-    @for $i from 1 through 9 {
+    @for $i from 1 through 10 {
       &:nth-child(#{$i}) {
         // Start animation-delay at 0.6s and increase by 0.1s for each child
         animation-delay: 0.5s + ($i * 0.1s);
