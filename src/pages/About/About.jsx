@@ -1,24 +1,14 @@
 // src/components/About/About.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './About.module.scss';
-import skillsData from 'data/skills';
 import { aboutData } from 'data/about';
-import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard';
 import profilePhoto from 'assets/images/about/BonaventureCJUgwu2.jpg';
 import requestResume from 'assets/documents/request-resume.pdf';
-import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
+import SkillsPreview from 'components/previews/SkillsPreview/SkillsPreview';
 
 const About = () => {
-  const featuredSkills = skillsData.filter((skill) => skill.isFeatured);
-
-  const [skillsRef, skillsInView] = useIntersectionObserver({
-    threshold: 0.2,
-    triggerOnce: true,
-  });
-
   const gitHubAchievementsUrl = aboutData.gitHubAchievementsUrl;
 
   return (
@@ -84,39 +74,9 @@ const About = () => {
           </Button>
         </a>
 
-        <div className={styles.about__skills}>
-          <Heading level="h3" className={styles.about__skillsHeading}>
-            My Major Skills
-          </Heading>
-          <ul
-            ref={skillsRef}
-            className={`${styles.about__skillsList} ${skillsInView ? styles['is-visible'] : ''}`}
-            role="list"
-          >
-            {featuredSkills.map((skill) => (
-              <SkillsPreviewCard
-                key={skill.id}
-                skill={skill}
-                title={skill.description || skill.name}
-              />
-            ))}
-          </ul>
-          <div className={styles.about__skillsCta}>
-            <Link
-              to="/skills"
-              className={styles.buttonWrapper}
-              aria-label="View all skills on the Skills page"
-            >
-              <Button
-                variant="primary"
-                size="medium"
-                title="Navigate to the full Skills page"
-              >
-                View All Skills
-              </Button>
-            </Link>
-          </div>
-        </div>
+        {/* Use the reusable SkillsPreview component also used in Homepage*/}
+        <SkillsPreview />
+
       </div>
     </section>
   );

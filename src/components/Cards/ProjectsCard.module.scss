@@ -13,7 +13,11 @@
   box-shadow: var(--card-box-shadow);
   
   /* Animation */
-  transition: transform 0.3s ease-in-out;
+  transition: 
+    transform 0.3s ease-in-out,
+    background-color var(--color-transition), 
+    border-color var(--color-transition), 
+    box-shadow var(--color-transition);
   
   &:hover {
     transform: translateY(-5px);
@@ -49,6 +53,7 @@
   /* Spacing */
   margin-top: 0;
   margin-bottom: var(--spacing-xs);
+  transition: color var(--color-transition);
 }
 
 .projects-card__description {
@@ -59,6 +64,7 @@
   
   /* Spacing */
   margin-bottom: var(--spacing-md);
+  transition: color var(--color-transition);
 }
 
 .projects-card__tech-list {
@@ -85,6 +91,8 @@
   /* Typography */
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
+  
+  transition: color var(--color-transition), background-color var(--color-transition);
 }
 
 .projects-card__actions {

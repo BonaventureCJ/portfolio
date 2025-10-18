@@ -27,8 +27,13 @@
     outline-offset: 2px;
   }
 
-  // Animation for the icon transition
-  transition: color 0.3s ease;
+  // Animation for the icon transition (for hover/focus speed)
+  transition: 
+    color 0.3s ease, 
+    background-color 0.3s ease,
+    /* 👇 ADDED: Theme transition for global theme toggle */
+    color var(--color-transition),
+    background-color var(--color-transition);
 }
 
 .menuToggleButton__icon {
@@ -37,7 +42,12 @@
   width: var(--spacing-md);
   fill: currentColor;
   color: var(--nav-text);
-  transition: transform 0.3s ease, color 0.3s ease;
+  /* This transition Combined both interaction speed and theme toggle speed */
+  transition: 
+    transform 0.3s ease, 
+    color 0.3s ease,
+    color var(--color-transition);
+
 
   svg {
     display: block;

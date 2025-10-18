@@ -1,16 +1,11 @@
-/* ==========================================================================
-   AboutPreview Component Styles
-   ========================================================================== */
+//src/components/previews/AboutPreview/AboutPreview.module.scss
 
 @use 'styles/abstracts' as *;
-
-// General component settings
-// Adheres to Responsive Web Design (mobile-first)
-// Uses CSS variables for theming and consistency
 .aboutPreview {
   margin-bottom: var(--spacing-md);
   padding: var(--spacing-lg) var(--spacing-sm);
   color: var(--color-text-primary);
+  transition: color var(--color-transition);
   text-align: center;
   overflow-x: hidden; // Prevents horizontal scroll from animations
 
@@ -53,6 +48,7 @@
   font-weight: var(--font-weight-regular);
   line-height: 1.6; // Improved readability via WCAG guidelines
   color: var(--color-text-secondary);
+  transition: var(--color-transition);
 
   // Subtle animation for entry
   animation: fadeIn 1s ease-out forwards;

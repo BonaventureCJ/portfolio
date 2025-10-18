@@ -1,9 +1,8 @@
+//src/pages/About/About.module.scss
 @use 'styles/abstracts' as *;
 
 .about {
   padding: var(--spacing-lg) var(--spacing-sm);
-  background-color: var(--color-surface-base);
-  color: var(--color-text-primary);
   overflow-x: hidden;
 
   @media (min-width: 768px) {
@@ -17,7 +16,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-xl); 
 }
 
 .about__title {
@@ -118,42 +117,6 @@
   font-family: var(--font-family-primary);
   font-size: var(--font-size-lg);
   line-height: 1.6;
-  color: var(--color-text-primary);
   max-width: 75ch;
 }
 
-.about__skills {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-  align-items: center;
-}
-
-.about__skillsList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--spacing-md);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  max-width: 100%;
-}
-
-.about__skillsList>* {
-  min-width: 320px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s forwards, transform 1s forwards 1s;
-}
-
-.about__skillsList.is-visible>* {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@for $i from 1 through 10 {
-  .about__skillsList.is-visible>*:nth-child(#{$i}) {
-    transition-delay: #{$i * 0.25}s;
-  }
-}

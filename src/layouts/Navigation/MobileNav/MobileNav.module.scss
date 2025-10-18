@@ -3,18 +3,27 @@
 .mobileNav {
   /* Hide the menu by default and on larger screens */
   position: fixed;
-  top: var(--header-height); /* Align the menu below the fixed header */
-  right: -100%; /* Position off-screen to the right */
-  width: 80%; /* Takes up 80% of the viewport width */
-  max-width: 300px; /* Capping the maximum width for larger mobile devices */
-  height: calc(100vh - var(--header-height)); /* Full viewport height minus header height */
+  top: var(--header-height);
+  /* Align the menu below the fixed header */
+  right: -100%;
+  /* Position off-screen to the right */
+  width: 80%;
+  /* Takes up 80% of the viewport width */
+  max-width: 300px;
+  /* Capping the maximum width for larger mobile devices */
+  height: calc(100vh - var(--header-height));
+  /* Full viewport height minus header height */
   padding: var(--spacing-lg);
   background-color: var(--nav-bg);
   color: var(--nav-text);
   box-shadow: var(--nav-box-shadow);
-  z-index: 999; /* Higher z-index to ensure it is above other content */
-  transition: right 0.3s ease-in-out; /* Slide-in/out transition */
-  overflow-y: auto; /* Enable scrolling for menu content if it exceeds viewport height */
+  z-index: 999;
+  /* Higher z-index to ensure it is above other content */
+  //transition: right 0.3s ease-in-out; 
+  /* Combined Slide-in/out transition and Theme transition*/
+  transition: right 0.3s ease-in-out, background-color var(--color-transition), color var(--color-transition), box-shadow var(--color-transition);
+  overflow-y: auto;
+  /* Enable scrolling for menu content if it exceeds viewport height */
 
   /* Hide on larger screens (Tablet and above) */
   @media (min-width: 768px) {
@@ -28,7 +37,8 @@
 }
 
 .mobileNav--open {
-  right: 0; /* Slide the menu into view */
+  right: 0;
+  /* Slide the menu into view */
 }
 
 .mobileNav__list {
@@ -53,8 +63,14 @@
   font-weight: var(--font-weight-bold);
   text-decoration: none;
   color: var(--nav-text);
-  transition: color 0.3s ease;
   padding: var(--spacing-xs);
+  //transition: color 0.3s ease;
+  /* Combined both interaction speed and theme toggle speed */
+  transition:
+    color 0.3s ease,
+    /* For hover speed */
+    color var(--color-transition);
+  /* For theme toggle */
 
   /* Hover and focus states for excellent UI/UX */
   &:hover,
@@ -83,6 +99,7 @@
     width: 100%;
     height: 2px;
     background-color: var(--nav-link-active);
+    transition: background-color var(--color-transition); //Transition the active underline color on theme change
   }
 }
 
@@ -93,11 +110,14 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-overlay); /* Variable defined in abstracts */
-  z-index: 998; /* Lower z-index than the menu */
+  background-color: var(--color-overlay);
+  /* Variable defined in abstracts */
+  z-index: 998;
+  /* Lower z-index than the menu */
   display: none;
-  transition: opacity 0.3s ease;
   opacity: 0;
+  transition: opacity 0.5s ease, background-color var(--color-transition);
+
 
   &--visible {
     display: block;

@@ -1,5 +1,4 @@
-/* SkillsPreviewCard.module.scss */
-
+//src/components/preview-cards/SkillsPreviewCard/SkillsPreviewCard.module.scss
 @use 'styles/abstracts' as *;
 
 .skillsItem {
@@ -10,24 +9,21 @@
   gap: var(--spacing-sm);
   padding: var(--spacing-sm);
   background-color: var(--card-bg);
-  border: var(--card-border);
+  //border: var(--card-border); 
+  box-shadow: var(--card-box-shadow);
   border-radius: var(--border-radius-md);
   text-align: center;
   cursor: default; /* Indicate that the card itself is not a link */
-  transition: transform 0.3s ease/* , box-shadow 0.3s ease */;
-  box-shadow: var(--card-box-shadow);
-
+  transition: transform var(--color-transition), box-shadow var(--color-transition), background-color var(--color-transition);//Smooth transition on theme toggle
   &:hover,
   &:focus-within {
     box-shadow: var(--box-shadow-hover-sm);
-    //background-color: var(--color-surface-lighter);// Ensure high contrast for text and icon for accessibility (WCAG)
   }
 }
 
 .skillsIcon {
-  // Styles for the icon container to give it a circular shape and background
+  /* This selector is at the root level of the file */
   display: flex;
-  
   align-items: center;
   justify-content: center;
   width: 64px;
@@ -37,20 +33,30 @@
   color: var(--color-brand-primary);
   font-size: var(--font-size-xl);
   flex-shrink: 0;
-
-  // Enhance icon visibility on hover for better user feedback
-  .skillsItem:hover & {
-    color: var(--color-brand-primary);
-    transform: scale(1.1);
-    //transition: transform 0.3s ease;
-  }
+  
+  /* Combined transitions for the icon itself */
+  transition:
+    background-color var(--color-transition), /* Theme toggle background */
+    color var(--color-transition), /* Theme toggle color */
+    transform 0.3s ease; /* Fast hover effect */
 
   // Ensure icons have a minimum target size for touch interaction (WCAG)
-  & > svg {
+  &>svg {
     width: 32px;
     height: 32px;
+    transition: fill var(--color-transition), color var(--color-transition);
   }
 }
+
+/* 
+  To achieve the hover effect on the icon when hovering the *card*, you 
+  use this specific selector combination:
+*/
+.skillsItem:hover .skillsIcon {
+  color: var(--color-brand-primary);
+  transform: scale(1.1);
+}
+
 
 .skillsName {
   font-family: var(--font-family-primary);
@@ -59,4 +65,5 @@
   color: var(--card-text);
   line-height: 1.2;
   margin-top: var(--spacing-xs);
+  transition: color var(--color-transition);
 }

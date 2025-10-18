@@ -1,3 +1,4 @@
+//src/layouts/MainLayout/MainLayout.jsx
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 
 // Import your reusable layout components

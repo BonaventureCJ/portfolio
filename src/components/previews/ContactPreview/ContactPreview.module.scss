@@ -1,11 +1,9 @@
 //src/components/previews/ContactPreview/ContactPreview.module.scss
-
 @use 'styles/abstracts' as *;
 
 .contactPreview {
   padding: var(--spacing-lg) 0;
   text-align: center;
-  background-color: var(--color-background-dark);
   margin-bottom: var(--spacing-xl);
 
   &__container {
@@ -26,6 +24,7 @@
     font-weight: var(--font-weight-regular);
     line-height: 1.6; // Improved readability via WCAG guidelines
     color: var(--color-text-secondary);
+    transition: color var(--color-transition);
   }
 
   &__flex {

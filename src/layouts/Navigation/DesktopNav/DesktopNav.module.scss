@@ -31,6 +31,7 @@
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-base);
   color: var(--nav-text);
+  
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -38,7 +39,11 @@
   padding: var(--spacing-xxs) 0; // Add some vertical padding for hover/focus state
 
   // Smooth transition for color and underline effect
-  transition: color 0.3s ease;
+  //transition: color 0.3s ease;
+  transition: 
+    color 0.3s ease, /* This is the transition speed when the user hovers over the link */
+    color var(--color-transition); /* This is the transition speed when the global theme is toggled */
+
 
   // Underline effect on hover and focus for better UI/UX
   &::after {
@@ -75,6 +80,7 @@
   // WCAG focus-visible state
   &:focus-visible {
     outline: 2px solid var(--nav-link-hover);
+    transition: outline-color var(--color-transition);
     outline-offset: 4px;
     border-radius: var(--border-radius-sm); // Soften the outline corners
   }
