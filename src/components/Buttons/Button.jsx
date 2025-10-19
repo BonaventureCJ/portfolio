@@ -6,6 +6,14 @@ import styles from './Button.module.scss';
 
 /**
  * A versatile and reusable Button component that can render as a button, anchor tag, or react-router Link.
+ * 
+ * This component has been refactored to be 'polymorphic' to address a critical accessibility issue: 
+ * "double tabbing" caused by nested interactive elements (e.g., a <button> inside an <a> tag).
+ * 
+ * By conditionally rendering the appropriate HTML element based on whether 'to' (Link) or 'href' (Anchor) 
+ * props are provided, we ensure:
+ * 1. **Accessibility:** Only one element is focusable, allowing smooth keyboard navigation.
+ * 2. **DRY (Don't Repeat Yourself):** We maintain a single source of truth for button styles and logic.
  *
  * @param {object} props
  * @param {'primary' | 'secondary' | 'tertiary'} props.variant - Defines the button's style variant.

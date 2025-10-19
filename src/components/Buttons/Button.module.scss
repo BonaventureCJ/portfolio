@@ -33,10 +33,10 @@
     box-shadow: var(--box-shadow-advanced);
   }
 
-  &:focus-visible {
+ /*  &:focus-visible {
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
-  }
+  } */
 
   // Disabled state handling for both native buttons and anchor tags/links
   &:disabled,
