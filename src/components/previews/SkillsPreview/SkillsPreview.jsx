@@ -1,13 +1,12 @@
 // src/components/previews/SkillsPreview/SkillsPreview.jsx
 // For the Homepage and the About page previews
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './SkillsPreview.module.scss';
 import skillsData from 'data/skills';
 import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import Button from 'components/Buttons/Button';
-import Heading from 'components/Heading/Heading'; // Import the Heading component
+import Heading from 'components/Heading/Heading';
 
 /**
  * A skills preview section for the homepage.
@@ -24,7 +23,6 @@ const SkillsPreview = () => {
   return (
     <section className={styles.skillsPreview}>
       <div className={styles.skillsPreview__container}>
-        {/* Replace <h2> with the reusable Heading component */}
         <Heading level="h2" className={styles.skillsPreview__heading}>
           My Key Skills
         </Heading>
@@ -43,18 +41,19 @@ const SkillsPreview = () => {
           ))}
         </ul>
 
-        {/* Link to the full skills page */}
+        {/* Link to the full skills page using the polymorphic Button component */}
         <div className={styles.skillsPreview__cta}>
-          <Link
-            to="/skills"
-            className={styles.ctaLink}
+          <Button
+            to="/skills" // <-- Tells the Button to render a react-router Link
+            variant="primary"
+            size="medium"
             aria-label="View all skills on the Skills page"
             title="Navigate to the full Skills page"
+            // Optional: If original 'ctaLink' styles are needed, they can be passed here
+            // className={styles.ctaLink} 
           >
-            <Button variant="primary" size="medium">
-              View All Skills
-            </Button>
-          </Link>
+            View All Skills
+          </Button>
         </div>
       </div>
     </section>

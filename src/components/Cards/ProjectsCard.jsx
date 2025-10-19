@@ -1,3 +1,4 @@
+// src/components/ProjectsCard/ProjectsCard.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProjectsCard.module.scss';
@@ -5,7 +6,6 @@ import Button from 'components/Buttons/Button';
 
 /**
  * ProjectsCard component displays a single project with details.
- * It is built with semantic HTML, accessibility attributes (WCAG), and uses BEM for SCSS styling.
  * @param {object} props - The component props.
  * @param {object} props.project - The project data to display.
  */
@@ -50,28 +50,25 @@ const ProjectsCard = ({ project }) => {
         </ul>
         <div className={styles['projects-card__actions']}>
           {links.map((link, index) => (
-            <a
+            <Button
               key={`${link.label}-${index}`}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles['projects-card__action-link']} // Add a style to make the anchor act like a block element, ensuring the button fills it.
+              href={link.url} // <-- Uses the 'href' prop for external links
+              variant={
+                link.label.toLowerCase().includes('live')
+                  ? 'primary'
+                  : 'secondary'
+              }
+              size="small"
+              ariaLabel={link.ariaLabel}
+              title={link.ariaLabel}
+              target="_blank" // <-- Pass standard anchor attributes
+              rel="noopener noreferrer" // <-- Pass standard anchor attributes
+              // If 'projects-card__action-link' syles are needed, like
+              // vital display/layout CSS (like 'display: block'),
+              // it would added here: className={styles['projects-card__action-link']}
             >
-              <Button
-                // Map the variant for the button dynamically
-                variant={
-                  link.label.toLowerCase().includes('live')
-                    ? 'primary'
-                    : 'secondary'
-                }
-                size="small"
-                //Pass other children, ariaLabel, and title props
-                ariaLabel={link.ariaLabel}
-                title={link.ariaLabel}
-              >
-                {link.label}
-              </Button>
-            </a>
+              {link.label}
+            </Button>
           ))}
         </div>
       </div>

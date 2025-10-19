@@ -1,7 +1,8 @@
 // src/components/previews/ProjectsPreview/ProjectsPreview.jsx
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+// Link is no longer needed in this component as the Button handles it
+// import { Link } from 'react-router-dom';
 import styles from './ProjectsPreview.module.scss';
 import projectsData from 'data/projects/projects';
 import ProjectsCard from 'components/Cards/ProjectsCard';
@@ -37,19 +38,17 @@ const ProjectsPreview = () => {
         </div>
 
         <div className={styles.projectsPreview__cta}>
-          <Link
-            to="/projects"
-            className={styles.ctaLink} // Wrapper class for spacing
+          <Button
+            to="/projects" // <-- Tells the Button to render a react-router Link
+            variant="primary"
+            size="medium"
             aria-label="Navigate to the full Projects page"
             title="View all projects on the Projects page"
+            // If the original 'ctaLink' styles are needed, they will be passed here
+            // className={styles.ctaLink} 
           >
-            <Button
-              variant="primary"
-              size="medium"
-            >
-              View All Projects
-            </Button>
-          </Link>
+            View All Projects
+          </Button>
         </div>
       </div>
     </section>

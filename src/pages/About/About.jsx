@@ -39,7 +39,6 @@ const About = () => {
               {aboutData.openSourceCommitmentTitle}
             </Heading>
             <p className={styles.about__summary}>
-              {/* Use shared data and URL */}
               {aboutData.openSourceSummary.split('Pull Shark Badge')[0]}
               <a
                 href={gitHubAchievementsUrl}
@@ -58,23 +57,20 @@ const About = () => {
             </p>
           </div>
         </div>
-        <a
-          href={requestResume}
-          className={styles.buttonWrapper}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Button
+          href={requestResume} // <-- Uses the 'href' prop
+          variant="secondary"
+          size="medium"
+          title="Download Bonaventure's resume (PDF)"
+          target="_blank" // <-- Pass standard anchor attributes
+          rel="noopener noreferrer" // <-- Pass standard anchor attributes
           aria-label="Download Bonaventure's Resume (PDF)"
+          // className={styles.buttonWrapper}
         >
-          <Button
-            variant="secondary"
-            size="medium"
-            title="Download Bonaventure's resume (PDF)"
-          >
-            Download Resume
-          </Button>
-        </a>
+          Download Resume
+        </Button>
 
-        {/* Use the reusable SkillsPreview component also used in Homepage*/}
+        {/* Use the reusable SkillsPreview component: also used in Homepage*/}
         <SkillsPreview />
 
       </div>
