@@ -25,10 +25,7 @@ const ProjectsPreview = () => {
         </Heading>
 
         <p className={styles.projectsPreview__description}>
-          A showcase of some of my best projects, one recent project showcasing my current skills and the others before I upgraded my skills and learnt better folder structures and best practices.
-        </p>
-        <p className={styles.projectsPreview__description}>
-          I'm currently building more scalable, maintainable, accessible and robust projects with improved code quality, architecture and improved performance.
+          A showcase of some of my recent projects, demonstrating my current skills.
         </p>
 
         <div className={styles.projectsPreview__grid}>

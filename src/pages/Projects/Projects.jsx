@@ -63,7 +63,7 @@ const Projects = () => {
       </header>
 
       <div className={styles['projects-page__main']}>
-        
+
         {/* FIRST: Completed/Recent Projects (MVP Status) */}
         {renderProjectSection(
           recentProjects,
@@ -72,14 +72,14 @@ const Projects = () => {
           2,
           'recent-mvp-projects'
         )}
-        
+
         {/* SECOND: Projects Currently in Progress */}
         {renderProjectSection(
-            inDevelopmentProjects,
-            'Projects in Development',
-            ["A preview of current major projects that are actively being built and refined."],
-            2,
-            'in-development-projects'
+          inDevelopmentProjects,
+          'Projects in Development',
+          ["A preview of current major projects that are actively being built and refined."],
+          2,
+          'in-development-projects'
         )}
 
         {/* THIRD & FOURTH: Older/Tutorial Projects */}
@@ -93,8 +93,10 @@ const Projects = () => {
         {renderProjectSection(
           earlierCareerProjects,
           'Earlier Career Projects',
-          ["A look back at some of my initial projects, highlighting my growth and evolution as a developer.", 
-            "These projects showcase early skills and problem-solving, but I now approach development with significantly improved code structure, design patterns, and industry-best practices gained from experience and continued learning."],
+          ["A look back at some of my initial projects, highlighting my growth and evolution as a developer.",
+            "While these projects effectively showcased early skills and foundational problem-solving, my current approach to development has matured significantly: I now prioritize robust architecture, modern design patterns, and industry-best practices learned through continuous experience.",
+            "Today, I specialize in building highly scalable, maintainable, and accessible projects, focusing on superior code quality, architectural integrity, and optimized performance."
+          ],
           2,
           'earlier-career-projects'
         )}
