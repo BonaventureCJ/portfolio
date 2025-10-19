@@ -1,8 +1,9 @@
-// src/components/ContactForm/ContactForm.jsx
+// src/components/ContactForm/ContactForm.jsx (Updated)
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from '@formspree/react';
 import styles from './ContactForm.module.scss';
+import Button from 'components/Buttons/Button'; 
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm(process.env.FORMSPREE_FORM_ID || 'xzzaweop');
@@ -86,7 +87,8 @@ const ContactForm = () => {
     <form className={styles['contact-form']} onSubmit={onSubmit} noValidate>
       <fieldset className={styles['contact-form__fieldset']}>
         <legend className={styles['contact-form__legend--sr-only']}>Contact Information</legend>
-
+        
+        {/* Name Group */}
         <div className={styles['contact-form__group']}>
           <label htmlFor="name" className={styles['contact-form__label']}>
             Name <span className={styles['contact-form__required-symbol']} aria-hidden="true">*</span>
@@ -110,6 +112,7 @@ const ContactForm = () => {
           )}
         </div>
 
+        {/* Email Group */}
         <div className={styles['contact-form__group']}>
           <label htmlFor="email" className={styles['contact-form__label']}>
             Email <span className={styles['contact-form__required-symbol']} aria-hidden="true">*</span>
@@ -133,6 +136,7 @@ const ContactForm = () => {
           )}
         </div>
 
+        {/* Subject Group */}
         <div className={styles['contact-form__group']}>
           <label htmlFor="subject" className={styles['contact-form__label']}>
             Subject <span className={styles['contact-form__required-symbol']} aria-hidden="true">*</span>
@@ -156,6 +160,7 @@ const ContactForm = () => {
           )}
         </div>
 
+        {/* Message Group */}
         <div className={styles['contact-form__group']}>
           <label htmlFor="message" className={styles['contact-form__label']}>
             Message <span className={styles['contact-form__required-symbol']} aria-hidden="true">*</span>
@@ -180,14 +185,17 @@ const ContactForm = () => {
         </div>
       </fieldset>
 
-      <button
-        type="submit"
-        className={styles['contact-form__submit']}
+      {/* Replaced native button with the shared Button component */}
+      <Button
+        type="submit" // Ensure the type is submit for form handling
+        variant="tertiary" // Style it as a primary button
+        size="medium" // Set the size
         disabled={state.submitting || !canSubmit}
-        aria-disabled={state.submitting || !canSubmit}
+        // aria-disabled handled internally by the Button component logic
+        className={styles['contact-form__submit']} // for form-button-specific CSS styles
       >
-        {state.submitting ? 'Sending...' : 'Send Message'}
-      </button>
+        {state.succeeded ? 'Message Sent!' : state.submitting ? 'Sending...' : 'Send Message'}
+      </Button>
     </form>
   );
 };

@@ -1,6 +1,5 @@
-// src/components/Hero/Hero.jsx
+// src/components/Hero/Hero.jsx (Updated to use polymorphic Button)
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './Hero.module.scss';
 import { heroData } from 'data/hero';
 import Button from 'components/Buttons/Button';
@@ -21,34 +20,36 @@ const Hero = () => {
 
         <p className={styles.heroDescription}>{description}</p>
         <div className={styles.ctaContainer}>
-          {/* Primary CTA using react-router-dom Link and custom Button */}
-          <Link to={primaryCta.url} className={styles.ctaLink} aria-label={primaryCta.ariaLabel}>
-            <Button
-              variant="primary"
-              size="medium"
-              title={primaryCta.title}
-            >
-              {primaryCta.label}
-            </Button>
-          </Link>
+          {/* Primary CTA using the polymorphic Button component */}
+          {/* We use the 'to' prop for react-router-dom internal navigation */}
+          <Button
+            variant="primary"
+            size="medium"
+            title={primaryCta.title}
+            to={primaryCta.url} // <-- This tells Button to render a <Link>
+            aria-label={primaryCta.ariaLabel}
+            // Optional: If styles are needed for .ctaLink class, pass it here
+            // className={styles.ctaLink} 
+          >
+            {primaryCta.label}
+          </Button>
 
-          {/* Secondary CTA using a standard anchor tag and custom Button */}
-          <a
-            href={secondaryCta.url}
-            className={styles.ctaLink}
+          {/* Secondary CTA using the polymorphic Button component */}
+          {/* We use the 'href' prop for standard anchor tag functionality */}
+          <Button
+            variant="secondary"
+            size="medium"
+            href={secondaryCta.url} // <-- This tells Button to render an <a> tag
             aria-label={secondaryCta.ariaLabel}
             title={secondaryCta.title}
             download
             target="_blank"
             rel="noopener noreferrer"
+            // Optional: If styles are needed for.ctaLink class, pass it here
+            // className={styles.ctaLink}
           >
-            <Button
-              variant="secondary"
-              size="medium"
-            >
-              {secondaryCta.label}
-            </Button>
-          </a>
+            {secondaryCta.label}
+          </Button>
         </div>
       </div>
       <div className={styles.heroImageContainer}>

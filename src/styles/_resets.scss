@@ -111,10 +111,11 @@ h6 {
   overflow-wrap: break-word;
 }
 
-// 11. Add accessible focus indicator
+// 11. Add WCAG focus-visible state
 // Enhances accessibility for keyboard navigation by providing a clear focus state
 // without relying on the browser's potentially inconsistent default outline.
 :focus-visible {
   outline: 2px solid var(--color-brand-primary);
   outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
 }

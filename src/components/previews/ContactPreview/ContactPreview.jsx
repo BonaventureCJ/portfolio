@@ -1,6 +1,5 @@
 // src/components/previews/ContactPreview/ContactPreview.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './ContactPreview.module.scss';
 import ContactsCard from 'components/Cards/ContactsCard';
 import { contactItems } from 'data/contact';
@@ -36,18 +35,16 @@ const ContactPreview = () => {
           ))}
         </div>
         <div className={styles.contactPreview__cta}>
-          <Link
-            to="/contact#contact-form-section"
-            className={styles.contactLinkWrapper}
+          <Button
+            to="/contact#contact-form-section" // <-- Tells the Button to render a react-router Link with a hash
+            variant="primary"
+            size="medium"
+            title="Navigate to the contact form on contact page"
+            // If styles are needed for 'contactLinkWrapper', they will be passed here
+            // className={styles.contactLinkWrapper}
           >
-            <Button
-              variant="primary"
-              size="medium"
-              title="Navigate to the contact form on contact page"
-            >
-              Fill out a contact form
-            </Button>
-          </Link>
+            Fill out a contact form
+          </Button>
         </div>
       </div>
     </section>

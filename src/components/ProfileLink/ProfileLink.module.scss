@@ -23,14 +23,6 @@
     background-color: var(--color-surface-lighter);
     color: var(--color-text-primary);
   }
-
-
-  // Focus state for keyboard navigation (WCAG). Ensures visibility and usability for users who don't use a mouse.
-  &:focus-visible {
-    outline: 2px solid var(--color-brand-primary);
-    outline-offset: 2px;
-    border-radius: var(--border-radius-sm);
-  }
 }
 
 .profileIcon {

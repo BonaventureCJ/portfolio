@@ -1,8 +1,7 @@
-// src/components/AboutPreview/AboutPreview.jsx
+// src/components/AboutPreview/AboutPreview.jsx (Updated)
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styles from './AboutPreview.module.scss';
-import { aboutData } from 'data/about'; // The shared data is imported using named import statement
+import { aboutData } from 'data/about';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
 
@@ -25,9 +24,7 @@ const AboutPreview = () => {
             {aboutData.aboutPreviewText}
           </p>
           <p className={styles.aboutPreview__text}>
-              {/* Use shared data and URL, splitting the string for the inline link, this part is for the first part of the split string */}
               {aboutData.aboutPreviewOpenSourceText.split('Pull Shark Badge')[0]}
-              {/* A standard anchor tag <a> is used for the external link instead of React Router Link*/}
               <a
                 href={gitHubAchievementsUrl}
                 target="_blank"
@@ -38,23 +35,23 @@ const AboutPreview = () => {
               >
                 Pull Shark Badge
               </a>
-              {/* Second part of the split string */}
+              
               {aboutData.aboutPreviewOpenSourceText.split('Pull Shark Badge')[1]}
           </p>
 
-          <Link
-            to="/about"
-            className={styles.aboutLinkWrapper}
+          {/* Primary CTA using the polymorphic Button component */}
+          {/* Using the 'to' prop */}
+          <Button
+            to="/about" // <-- Uses the 'to' prop for internal navigation
+            variant="primary"
+            size="medium"
             aria-label="Learn more about Bonaventure C.J. Ugwu"
             title="Navigate to the full About page"
+            // If specific positioning styles are needed, the classname below will be used
+            // className={styles.aboutLinkWrapper} 
           >
-            <Button
-              variant="primary"
-              size="medium"
-            >
-              Learn More
-            </Button>
-          </Link>
+            Learn More
+          </Button>
         </div>
       </div>
     </section>
