@@ -33,7 +33,6 @@
   }
 
   &:focus-visible {
-    /* 👇 Use a theme variable for the outline color */
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
   }

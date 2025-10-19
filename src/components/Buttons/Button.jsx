@@ -1,20 +1,24 @@
+// src/components/Buttons/Button.jsx (Refactored)
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'; // We need to import Link from react-router-dom to handle internal navigation
 import styles from './Button.module.scss';
 
 /**
- * A versatile and reusable Button component.
+ * A versatile and reusable Button component that can render as a button, anchor tag, or react-router Link.
  *
  * @param {object} props
  * @param {'primary' | 'secondary' | 'tertiary'} props.variant - Defines the button's style variant.
- * @param {'button' | 'submit' | 'reset'} [props.type] - The native HTML button type.
+ * @param {'button' | 'submit' | 'reset'} [props.type] - The native HTML button type (only for <button> element).
  * @param {'small' | 'medium' | 'large'} [props.size] - Defines the button's size.
  * @param {boolean} [props.disabled] - Whether the button is disabled.
  * @param {Function} [props.onClick] - Click handler function.
  * @param {React.ReactNode} props.children - The content inside the button.
  * @param {string} [props.className] - Additional CSS classes.
- * @param {object} [props.style] - Inline styles for specific overrides.
+ * @param {string} [props.to] - The destination for react-router-dom Link (internal navigation).
+ * @param {string} [props.href] - The destination for a standard anchor tag (external navigation/downloads).
  * @param {string} [props.ariaLabel] - ARIA label for accessibility.
+ * @param {object} [props.style] - Inline styles for specific overrides.
  */
 const Button = ({
     variant,
@@ -26,21 +30,57 @@ const Button = ({
     className = '',
     style = {},
     ariaLabel,
-    ...otherProps // Captures any other standard HTML button props (e.g., 'data-testid')
+    to,   // Prop for react-router-dom Link
+    href, // Prop for standard anchor tag
+    ...otherProps
 }) => {
 
-    // Construct the final CSS class string dynamically using styles object properties
     const classes = [
-        styles.button, // Base class
-        styles[`button--${variant}`], // Variant class (using bracket notation for dynamic access)
-        styles[`button--${size}`],     // Size class
-        className, // Allows user to pass external classes if needed
-    ].filter(Boolean).join(' '); // Filter removes any undefined/null values
+        styles.button,
+        styles[`button--${variant}`],
+        styles[`button--${size}`],
+        className,
+    ].filter(Boolean).join(' ');
 
+    // 1. If 'to' prop is provided, render as a react-router Link component
+    if (to) {
+        return (
+            <Link
+                to={to}
+                className={classes}
+                aria-label={ariaLabel}
+                style={style}
+                // 'type', 'disabled', and 'onClick' are not standard props for Link, 
+                // so we only pass through generic otherProps like title, target, etc.
+                {...otherProps} 
+            >
+                {children}
+            </Link>
+        );
+    }
+
+    // 2. If 'href' prop is provided, render as a standard HTML anchor <a> tag
+    if (href) {
+        return (
+            <a
+                href={href}
+                className={classes}
+                aria-label={ariaLabel}
+                style={style}
+                // Pass onClick here as anchor tags can use onClick handlers
+                onClick={onClick} 
+                // Pass through any standard anchor props like download, target, rel
+                {...otherProps}
+            >
+                {children}
+            </a>
+        );
+    }
+
+    // 3. Default: Render as a native HTML <button> element
     return (
         <button
             type={type}
-            // Use the dynamically constructed local classes string
             className={classes}
             disabled={disabled}
             onClick={onClick}
@@ -63,6 +103,8 @@ Button.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     ariaLabel: PropTypes.string,
+    to: PropTypes.string, // Prop type for react-router link
+    href: PropTypes.string, // Prop type for standard anchor
 };
 
 export default Button;

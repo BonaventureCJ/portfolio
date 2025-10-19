@@ -76,12 +76,4 @@
       background-color: var(--nav-link-active);
     }
   }
-
-  // WCAG focus-visible state
-  &:focus-visible {
-    outline: 2px solid var(--nav-link-hover);
-    transition: outline-color var(--color-transition);
-    outline-offset: 4px;
-    border-radius: var(--border-radius-sm); // Soften the outline corners
-  }
 }
