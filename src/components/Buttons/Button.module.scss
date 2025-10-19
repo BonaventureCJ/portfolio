@@ -15,7 +15,7 @@
     color var(--button-transition), 
     border-color var(--button-transition),
     box-shadow var(--button-transition),
-    transform 0.3s ease; /* Keep transform for quick hover feedback */
+    transform 0.3s ease;
     
   box-shadow: var(--button-box-shadow);
   text-transform: uppercase;
@@ -26,9 +26,10 @@
   border: 2px solid;
 
   // Base hover/focus effects
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
-    transform: translateY(-2px); /* This fast transition is handled above */
+  // We combine the :not(:disabled) pseudo-class with the [aria-disabled="true"] attribute selector
+  &:hover:not(:disabled):not([aria-disabled="true"]),
+  &:focus:not(:disabled):not([aria-disabled="true"]) {
+    transform: translateY(-2px);
     box-shadow: var(--box-shadow-advanced);
   }
 
@@ -37,15 +38,18 @@
     outline-offset: 2px;
   }
 
-  &:disabled {
+  // Disabled state handling for both native buttons and anchor tags/links
+  &:disabled,
+  &[aria-disabled="true"] {
     cursor: not-allowed;
-    opacity: 0.6; // Common practice for disabled state
-    // Other specific disabled colors will be written here
+    opacity: 0.6; 
+    // Anchor tags are still clickable even if 'disabled' via ARIA,
+    // so in a real enterprise app you might use JavaScript to prevent 
+    // the default behavior when aria-disabled is true.
   }
 }
 
 /* --- Size Modifiers --- */
-// Appropriate CSS variables for sizes will be defined later in _abstracts.scss
 .button--small {
     font-size: var(--font-size-sm);
 }
@@ -64,15 +68,15 @@
 
 
 /* --- Variant Modifiers --- */
-/* Colors are set here, but the transition is handled in the base .button class */
 
 .button--primary {
   background-color: var(--button-bg-primary);
   color: var(--button-text-primary);
   border-color: var(--button-text-primary);
 
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
+  // Update hover/focus states to include the ARIA disabled check
+  &:hover:not(:disabled):not([aria-disabled="true"]),
+  &:focus:not(:disabled):not([aria-disabled="true"]) {
     background-color: var(--button-bg-primary-hover);
     color: var(--button-text-primary-hover);
     border-color: var(--button-text-primary-hover);
@@ -84,8 +88,9 @@
   color: var(--button-text-secondary);
   border-color: var(--button-text-secondary);
 
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
+  // Update hover/focus states to include the ARIA disabled check
+  &:hover:not(:disabled):not([aria-disabled="true"]),
+  &:focus:not(:disabled):not([aria-disabled="true"]) {
     background-color: var(--button-bg-secondary-hover);
     color: var(--button-text-secondary-hover);
     border-color: var(--button-text-secondary-hover);
@@ -93,12 +98,13 @@
 }
 
 .button--tertiary {
-    background-color: var(--button-bg-tertiary, #e0e0e0); // Fallback color
+    background-color: var(--button-bg-tertiary, #e0e0e0);
     color: var(--button-text-tertiary, #333);
     border-color: var(--button-border-tertiary, #ccc);
 
-    &:hover:not(:disabled),
-    &:focus:not(:disabled) {
+    // Update hover/focus states to include the ARIA disabled check
+    &:hover:not(:disabled):not([aria-disabled="true"]),
+    &:focus:not(:disabled):not([aria-disabled="true"]) {
         background-color: var(--button-bg-tertiary-hover, #d5d5d5);
         color: var(--button-text-tertiary-hover, #000);
         border-color: var(--button-border-tertiary-hover, #aaa);
