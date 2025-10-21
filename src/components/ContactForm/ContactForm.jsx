@@ -78,7 +78,18 @@ const ContactForm = () => {
   // Determine if the button should be natively disabled (Formspree is handling this mostly)
   const isDisabled = state.submitting || !canSubmit;
   const submitButtonText = state.succeeded ? 'Message Sent!' : state.submitting ? 'Sending...' : 'Send Message';
-  const submitButtonTitle = !canSubmit && !state.submitting ? 'Please fill in all fields to submit.' : '';
+  const submitButtonTitle =
+    // Case 1: Cannot submit AND not currently sending (default state)
+    (!canSubmit && !state.submitting)
+      ? 'Please fill in all fields to submit.'
+      // Case 2: Can submit (all fields valid)
+      : (canSubmit && !state.submitting)
+        ? 'Click to send your message.'
+        // Case 3: Submitting (currently sending)
+        : state.submitting
+          ? 'Your message is being sent...'
+          // Fallback case (e.g., succeeded state)
+          : '';
 
 
   if (state.succeeded) {
@@ -204,7 +215,7 @@ const ContactForm = () => {
         <Button
           ref={submitButtonRef}
           type="submit"
-          variant="tertiary" // This style will be updated to include the 'green for submit ability'
+          variant="tertiary"
           size="medium"
           disabled={isDisabled} // Uses native disabled state
           // Pass the canSubmit status to the SCSS module for specific styling

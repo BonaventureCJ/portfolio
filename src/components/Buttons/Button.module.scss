@@ -10,12 +10,6 @@
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
-  /* transition: 
-    background-color var(--button-transition), 
-    color var(--button-transition), 
-    border-color var(--button-transition),
-    box-shadow var(--button-transition),
-    transform 0.3s ease; */
   transition: var(--button-transition);
   box-shadow: var(--button-box-shadow);
   text-transform: uppercase;
@@ -33,7 +27,7 @@
     box-shadow: var(--box-shadow-advanced);
   }
 
- /*  &:focus-visible {
+  /*  &:focus-visible {
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
   } */
@@ -42,28 +36,28 @@
   &:disabled,
   &[aria-disabled="true"] {
     cursor: not-allowed;
-    opacity: 0.6; 
+    opacity: 0.6;
     // Anchor tags are still clickable even if 'disabled' via ARIA,
-    // so in a real enterprise app you might use JavaScript to prevent 
+    // so in a real enterprise app we will use JavaScript to prevent 
     // the default behavior when aria-disabled is true.
   }
 }
 
 /* --- Size Modifiers --- */
 .button--small {
-    font-size: var(--font-size-sm);
+  font-size: var(--font-size-sm);
 }
 
 .button--medium {
-    min-width: 300px;
-    min-height: 50px;
-    font-size: var(--font-size-base);
+  min-width: 300px;
+  min-height: 50px;
+  font-size: var(--font-size-base);
 }
 
 .button--large {
-    min-width: 400px;
-    min-height: 65px;
-    font-size: var(--font-size-lg);
+  min-width: 400px;
+  min-height: 65px;
+  font-size: var(--font-size-lg);
 }
 
 
@@ -97,17 +91,19 @@
   }
 }
 
-/* Button variables for tertiary button will be defined in the future if it will be needed */
+/* --- Tertiary Variant --- */
 .button--tertiary {
-    background-color: var(--button-bg-tertiary, #e0e0e0);
-    color: var(--button-text-tertiary, #333);
-    border-color: var(--button-border-tertiary, #ccc);
-
-    // Update hover/focus states to include the ARIA disabled check
-    &:hover:not(:disabled):not([aria-disabled="true"]),
-    &:focus:not(:disabled):not([aria-disabled="true"]) {
-        background-color: var(--button-bg-tertiary-hover, #d5d5d5);
-        color: var(--button-text-tertiary-hover, #000);
-        border-color: var(--button-border-tertiary-hover, #aaa);
-    }
+  /* 
+    The default tertiary style is the 'disabled' look (grey background, grey text).
+    The 'enabled' (green) state is handled via a modifier class added by the 
+    ContactForm.jsx component specifically when submission is possible.
+  */
+  background-color: var(--button-bg-tertiary);
+  /* Grey background */
+  color: var(--button-text-tertiary);
+  /* Grey text */
+  border-color: var(--button-bg-tertiary);
+  /* Grey border */
+  cursor: not-allowed;
+  /* Default cursor for a disabled-looking button */
 }
