@@ -1,23 +1,26 @@
-//src/pages/Contact/Contact.jsx
+// src/pages/Contact/Contact.jsx
 import React from 'react';
 import styles from './Contact.module.scss';
-import ContactsCard from 'components/Cards/ContactsCard';
+import ContactsCard from 'components/Cards/ContactsCard'; 
 import ContactForm from 'components/ContactForm/ContactForm';
 import { contactItems, ctaMessage } from 'data/contact';
 import Heading from 'components/Heading/Heading';
 
 const Contact = () => {
   return (
-    <section className={styles.contact}>
+    // Use aria-labelledby to explicitly link the section to its main heading for accessibility
+    <section className={styles.contact} aria-labelledby="contact-main-title">
       <header className={styles.contact__header}>
-        <Heading level="h2" className={styles.contact__title}>
+        {/* ID to reference it with aria-labelledby */}
+        <Heading level="h2" className={styles.contact__title} id="contact-main-title">
           Get in Touch
         </Heading>
       </header>
 
       <div className={styles.contact__content}>
         {/* Social Links Section */}
-        <aside className={styles.contact__aside}>
+        {/* aria-label for clarity in screen readers */}
+        <aside className={styles.contact__aside} aria-label="General Contact Information and Links">
           <Heading level="h3" className={styles.contact__cta}>
             {ctaMessage.general}
           </Heading>
@@ -29,12 +32,16 @@ const Contact = () => {
         </aside>
 
         {/* Contact Form Section */}
-        <div className={styles.contact__formContainer} id="contact-form-section">
-          <Heading level="h3" className={styles.contact__cta}>
+        <section 
+          className={styles.contact__formContainer} 
+          id="contact-form-section"
+          aria-labelledby="contact-form-title"
+        >
+          <Heading level="h3" className={styles.contact__cta} id="contact-form-title">
             {ctaMessage.form}
           </Heading>
           <ContactForm />
-        </div>
+        </section>
       </div>
     </section>
   );

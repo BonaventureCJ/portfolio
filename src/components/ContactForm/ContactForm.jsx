@@ -1,9 +1,8 @@
-// src/components/ContactForm/ContactForm.jsx (Updated)
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+// src/components/ContactForm/ContactForm.jsx
+import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from '@formspree/react';
 import styles from './ContactForm.module.scss';
-import Button from 'components/Buttons/Button'; 
+import Button from 'components/Buttons/Button';
 
 const ContactForm = () => {
   const [state, handleSubmit] = useForm(process.env.FORMSPREE_FORM_ID || 'xzzaweop');
@@ -20,6 +19,9 @@ const ContactForm = () => {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [canSubmit, setCanSubmit] = useState(false);
 
+  // Ref to help manage the focus if we manually disable the button in a specific way
+  const submitButtonRef = useRef(null);
+
   // Email format validation helper function
   const validateEmailFormat = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -32,6 +34,7 @@ const ContactForm = () => {
     if (!formData.name.trim()) newErrors.name = 'Name is required.';
     if (!formData.subject.trim()) newErrors.subject = 'Subject is required.';
     if (!formData.message.trim()) newErrors.message = 'Message is required.';
+    // Update errors state for potential UI feedback
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -49,6 +52,7 @@ const ContactForm = () => {
   };
 
   // Handles updates for other form inputs
+  // Uses single, generic event handler for all the other input fields resulting in cleaner, more scalable, DRY code
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -60,7 +64,7 @@ const ContactForm = () => {
     setHasInteracted(true);
     const isValid = validateAllFields() && !emailError;
 
-    if (isValid) {
+    if (isValid && canSubmit) {
       await handleSubmit(e);
     }
   };
@@ -70,6 +74,12 @@ const ContactForm = () => {
     const allFieldsFilled = Object.values(formData).every(field => field.trim() !== '');
     setCanSubmit(allFieldsFilled && !emailError);
   }, [formData, emailError]);
+
+  // Determine if the button should be natively disabled (Formspree is handling this mostly)
+  const isDisabled = state.submitting || !canSubmit;
+  const submitButtonText = state.succeeded ? 'Message Sent!' : state.submitting ? 'Sending...' : 'Send Message';
+  const submitButtonTitle = !canSubmit && !state.submitting ? 'Please fill in all fields to submit.' : '';
+
 
   if (state.succeeded) {
     return (
@@ -87,7 +97,7 @@ const ContactForm = () => {
     <form className={styles['contact-form']} onSubmit={onSubmit} noValidate>
       <fieldset className={styles['contact-form__fieldset']}>
         <legend className={styles['contact-form__legend--sr-only']}>Contact Information</legend>
-        
+
         {/* Name Group */}
         <div className={styles['contact-form__group']}>
           <label htmlFor="name" className={styles['contact-form__label']}>
@@ -185,21 +195,26 @@ const ContactForm = () => {
         </div>
       </fieldset>
 
-      {/* Replaced native button with the shared Button component */}
-      <Button
-        type="submit" // Ensure the type is submit for form handling
-        variant="tertiary" // Style it as a primary button
-        size="medium" // Set the size
-        disabled={state.submitting || !canSubmit}
-        // aria-disabled handled internally by the Button component logic
-        className={styles['contact-form__submit']} // for form-button-specific CSS styles
+      {/* Button Implementation */}
+      <div
+        // Apply the title attribute to the wrapper div so it works on hover/focus even when button is disabled
+        title={submitButtonTitle}
+        className={styles['contact-form__button-wrapper']}
       >
-        {state.succeeded ? 'Message Sent!' : state.submitting ? 'Sending...' : 'Send Message'}
-      </Button>
+        <Button
+          ref={submitButtonRef}
+          type="submit" // Essential for form submission
+          variant="tertiary" // This style will be updated to include the 'green for submit ability'
+          size="medium"
+          disabled={isDisabled} // Uses native disabled state
+          // Pass the canSubmit status to the SCSS module for specific styling
+          className={`${styles['contact-form__submit']} ${canSubmit ? styles['contact-form__submit--can-submit'] : ''}`}
+        >
+          {submitButtonText}
+        </Button>
+      </div>
     </form>
   );
 };
-
-ContactForm.propTypes = {};
 
 export default ContactForm;
