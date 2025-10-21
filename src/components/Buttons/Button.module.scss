@@ -10,13 +10,13 @@
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
-  transition: 
+  /* transition: 
     background-color var(--button-transition), 
     color var(--button-transition), 
     border-color var(--button-transition),
     box-shadow var(--button-transition),
-    transform 0.3s ease;
-    
+    transform 0.3s ease; */
+  transition: var(--button-transition);
   box-shadow: var(--button-box-shadow);
   text-transform: uppercase;
   letter-spacing: 1px;

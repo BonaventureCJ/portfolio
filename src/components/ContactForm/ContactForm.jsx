@@ -203,7 +203,7 @@ const ContactForm = () => {
       >
         <Button
           ref={submitButtonRef}
-          type="submit" // Essential for form submission
+          type="submit"
           variant="tertiary" // This style will be updated to include the 'green for submit ability'
           size="medium"
           disabled={isDisabled} // Uses native disabled state
