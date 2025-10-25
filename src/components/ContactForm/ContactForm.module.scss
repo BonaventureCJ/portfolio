@@ -8,6 +8,7 @@
   width: 100%;
   max-width: 600px; // Optimal readability line length
   margin: 0 auto;
+  padding: var(--spacing-xs);
 
   @media (min-width: 768px) {
     // Add specific RWD breakpoints if the layout needs to change at larger sizes

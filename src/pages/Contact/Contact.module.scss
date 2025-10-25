@@ -6,7 +6,7 @@
   padding-block: var(--spacing-lg);
   max-width: 1200px;
   margin-inline: auto;
-  padding-inline: var(--spacing-sm); 
+  //padding-inline: var(--spacing-sm); 
 
   // Tablet and wider screens
   @media (min-width: 768px) {
@@ -21,13 +21,18 @@
 
 .contact__content {
   display: grid;
+ /*  margin: 0;
+  padding: 0; */
   gap: var(--spacing-lg);
   align-items: flex-start;
-
+//background-color: red;
+//width:100%;
   // Larger screens: grid layout with two columns
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1.5fr;
     gap: var(--spacing-xl);
+   /*  margin: 0;
+  padding: 0; */
   }
 }
 
