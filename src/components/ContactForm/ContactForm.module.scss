@@ -1,11 +1,6 @@
 // src/components/ContactForm/ContactForm.module.scss
 
 @use 'styles/abstracts' as *;
-/* 
-  BEM Block: contact-form
-  Styles adhere to RWD principles, WCAG accessibility, and use variables 
-  defined in src/styles/_abstracts.scss.
-*/
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -115,8 +110,7 @@
   // when the button itself is disabled, addressing the specific requirement.
   display: inline-block;
   // Ensure the wrapper doesn't break RWD layouts
-  width: 100%; 
-  //max-width: var(--button-min-width, 300px); // Sync with your button size definitions
+  width: 100%;
   margin-top: var(--spacing-sm);
 }
 
