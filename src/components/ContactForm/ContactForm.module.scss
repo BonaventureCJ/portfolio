@@ -125,16 +125,10 @@
   This class is dynamically applied in the React component.
 */
 .contact-form__submit--can-submit {
-  /* This overrides the default grey 'tertiary' styles */
-  background-color: var(--button-bg-tertiary-enabled); /* Green */
-  border-color: var(--button-bg-tertiary-enabled);     /* Green border */
-  color: var(--button-text-tertiary-enabled);         /* White text */
-  cursor: pointer;
-
+box-shadow: 0 0 0 3px var(--button-bg-tertiary-hover), var(--box-shadow-sm);
   &:hover:not(:disabled):not([aria-disabled="true"]),
   &:focus:not(:disabled):not([aria-disabled="true"]) {
-    background-color: var(--button-bg-tertiary-hover); /* Darker green on hover */
-    border-color: var(--button-bg-tertiary-hover);     /* Darker green border */
-    transform: translateY(-2px);
+    box-shadow: 0 0 0 3px var(--button-bg-tertiary-hover), var(--box-shadow-sm)
   }
 }
+

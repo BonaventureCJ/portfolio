@@ -19,8 +19,7 @@
   --color-transition: 0.5s ease;
   --color-success: #28a745;
   --color-error: #dc3545;
-  --color-disabled-bg: #cccccc;
-  --color-disabled-text: #666666;
+  
 
   /* Fonts */
   --font-family-primary: 'Familjen Grotesk', sans-serif;
@@ -79,15 +78,15 @@
   --button-text-primary: var(--color-brand-primary);
   --button-bg-primary-hover: var(--color-link-hover);
   --button-text-primary-hover: var(--color-text-inverse);
+
   --button-bg-secondary: var(--button-bg-primary);
   --button-text-secondary: var(--color-text-primary);
   --button-bg-secondary-hover: var(--color-text-secondary);
   --button-text-secondary-hover: var(--color-text-inverse);
-  --button-bg-tertiary: var(--color-disabled-bg);
-  --button-text-tertiary: var(--color-disabled-text);
-  --button-bg-tertiary-enabled: var(--color-success);
-  --button-text-tertiary-enabled: var(--color-text-inverse);
-  --button-bg-tertiary-hover: color-mix(in srgb, var(--color-success), black 20%);
+
+  --button-bg-tertiary: var(--color-success);
+  --button-text-tertiary: var(--color-text-primary);
+  --button-bg-tertiary-hover: color-mix(in srgb, var(--button-bg-tertiary), black 20%);
   --button-text-tertiary-hover: var(--color-text-inverse);
 
   --button-border-radius: var(--border-radius-full);
@@ -134,8 +133,6 @@
   --color-surface-lighter: color-mix(in srgb, var(--color-surface-base), white 10%);
   --color-success: #2ecc71;
   --color-error: #e74c3c;
-  --color-disabled-bg: #555555;
-  --color-disabled-text: #aaaaaa;
 
   /* --- Box Shadows (Dark theme overrides) --- */
   --box-shadow-sm: 0 1px 3px rgba(255, 255, 255, 0.05), 0 1px 2px rgba(255, 255, 255, 0.03);
@@ -159,11 +156,12 @@
   --button-bg-secondary-hover: var(--color-text-secondary);
   --button-text-secondary-hover: var(--color-text-inverse);
   --button-box-shadow: var(--box-shadow-advanced);
-  --button-bg-tertiary: var(--color-disabled-bg);
-  --button-text-tertiary: var(--color-disabled-text);
-  --button-bg-tertiary-enabled: var(--color-success);
-  --button-text-tertiary-enabled: var(--color-text-inverse);
-  --button-bg-tertiary-hover: color-mix(in srgb, var(--color-success), white 10%);
+
+  
+   --button-bg-tertiary: var(--color-success);
+  --button-text-tertiary: var(--color-text-primary);
+  //--button-bg-tertiary-hover: color-mix(in srgb, --color-success, white 10%);
+  --button-bg-tertiary-hover: color-mix(in srgb, var(--button-bg-tertiary), black 20%);
   --button-text-tertiary-hover: var(--color-text-inverse);
 
   /* --- Navigation (Dark theme overrides) --- */

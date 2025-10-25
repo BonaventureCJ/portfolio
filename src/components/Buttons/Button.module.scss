@@ -91,19 +91,22 @@
   }
 }
 
-/* --- Tertiary Variant --- */
 .button--tertiary {
-  /* 
-    The default tertiary style is the 'disabled' look (grey background, grey text).
-    The 'enabled' (green) state is handled via a modifier class added by the 
-    ContactForm.jsx component specifically when submission is possible.
-  */
   background-color: var(--button-bg-tertiary);
-  /* Grey background */
   color: var(--button-text-tertiary);
-  /* Grey text */
-  border-color: var(--button-bg-tertiary);
-  /* Grey border */
-  cursor: not-allowed;
-  /* Default cursor for a disabled-looking button */
+  //border-color: var(--button-text-tertiary);
+  //SPECIAL STYLE RULES FOR TERTIARY BUTTONS
+  border: none;
+  box-shadow: none;
+  border-radius: var(--border-radius-md);
+
+  // Update hover/focus states to include the ARIA disabled check
+  &:hover:not(:disabled):not([aria-disabled="true"]),
+  &:focus:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--button-bg-tertiary-hover);
+    //color: var(--button-text-tertiary-hover);
+    //border-color: var(--button-text-tertiary-hover);
+    //SPECIAL HOVER STYLE RULES FOR TERTIARY BUTTONS
+    box-shadow: none;
+  }
 }
