@@ -81,7 +81,7 @@ const ContactForm = () => {
   const submitButtonTitle =
     // Case 1: Cannot submit AND not currently sending (default state)
     (!canSubmit && !state.submitting)
-      ? 'Please fill in all fields to submit.'
+      ? 'Please fill in required fields to submit.'
       // Case 2: Can submit (all fields valid)
       : (canSubmit && !state.submitting)
         ? 'Click to send your message.'

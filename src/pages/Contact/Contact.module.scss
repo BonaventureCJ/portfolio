@@ -40,19 +40,19 @@
    transition: 
     background-color var(--color-transition), 
     border-color var(--color-transition), 
-    box-shadow var(--color-transition);//Smooth Transition on theme toggle
+    box-shadow var(--color-transition);
 }
 
 .contact__cta {
   line-height: 1.5;
-  margin-bottom: var(--spacing-sm); // Added spacing below CTA heading
+  margin-bottom: var(--spacing-xl);
 }
 
 .contact__linksGrid {
   display: grid;
   gap: var(--spacing-sm);
   /* 
-    Updated: We now default to 2 columns on all screens 
+    Default to 2 columns on all screens 
     and use minmax for flexibility within those columns.
   */
   grid-template-columns: repeat(2, minmax(0, 1fr)); 
@@ -78,13 +78,5 @@
   transition: 
     background-color var(--color-transition), 
     border-color var(--color-transition), 
-    box-shadow var(--color-transition); //Smooth Transition on theme toggle
-  
-  // Directly target the ContactForm component's root
-  :global(.contact-form) {
-    /* Reset generic styles applied to the form component */
-    padding: 0;
-    border: none;
-    box-shadow: none;
-  }
+    box-shadow var(--color-transition);
 }

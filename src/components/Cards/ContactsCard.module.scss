@@ -2,9 +2,9 @@
 @use 'styles/abstracts' as *;
 
 .contacts-card {
-  /* Inherits card styling from parent (Contact page) to maintain consistency */
   border-radius: var(--border-radius-md);
-  overflow: hidden; /* Ensures no content spills out */
+  overflow: hidden;
+  /* Ensures no content spills out */
   text-align: center;
 }
 
@@ -16,9 +16,10 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-lg);
-  min-height: 120px; /* Ensure sufficient touch target size (WCAG 2.5.5) */
+  min-height: 120px;
+  /* Ensure sufficient touch target size (WCAG 2.5.5) */
   min-width: 150px;
-  
+
   color: var(--color-link);
   text-decoration: none;
   background-color: var(--color-surface-elevated);
@@ -26,27 +27,38 @@
   border-radius: var(--border-radius-md);
 
   /* Combined both interactive transitions and theme transitions */
-  transition: 
-    background-color 0.3s ease, /* Fast hover background change */
-    transform 0.3s ease,        /* Fast transform lift */
-    background-color var(--color-transition), /* Smooth theme toggle background */
-    border-color var(--color-transition),     /* Smooth theme toggle border */
-    color var(--color-transition),            /* Smooth theme toggle link color */
-    box-shadow var(--color-transition);       /* Smooth theme toggle shadow */
+  transition:
+    background-color 0.3s ease,
+    /* Fast hover background change */
+    transform 0.3s ease,
+    /* Fast transform lift */
+    background-color var(--color-transition),
+    /* Smooth theme toggle background */
+    border-color var(--color-transition),
+    /* Smooth theme toggle border */
+    color var(--color-transition),
+    /* Smooth theme toggle link color */
+    box-shadow var(--color-transition);
+  /* Smooth theme toggle shadow */
 
   &:hover,
   &:focus {
-    background-color: var(--color-surface-base); /* Invert colors or provide a subtle change */
-    transform: translateY(-5px); /* Subtle lift effect on hover/focus */
-    box-shadow: var(--box-shadow-md); /* Add shadow for depth */
-    outline: 2px solid var(--color-brand-primary); /* Visible focus indicator (WCAG 2.4.7) */
+    background-color: var(--color-surface-base);
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+    outline: 2px solid var(--color-brand-primary);
+    /* Visible focus indicator (WCAG 2.4.7) */
     outline-offset: 1px;
   }
-  
+
   &:focus-visible {
-    /* Use theme variables for the outline color */
-    outline: 2px solid var(--color-brand-primary); /* Visible focus indicator (WCAG 2.4.7) */
+    outline: 2px solid var(--color-brand-primary);
+    /* Visible focus indicator (WCAG 2.4.7) */
     outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
   }
 }
 
@@ -54,7 +66,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: var(--font-size-h2); /* Explicitly size icon container for consistency */
+  width: var(--font-size-h2);
   height: var(--font-size-h2);
 }
 
