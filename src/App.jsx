@@ -8,7 +8,7 @@ import MainLayout from 'layouts/MainLayout/MainLayout';
 import Home from 'pages/Home/Home';
 import About from 'pages/About/About';
 import Skills from 'pages/Skills/Skills';
-import Projects from 'pages/Projects/Projects';
+import { Projects } from 'pages/Projects/Projects'; // <--- UPDATED IMPORT
 import Contact from 'pages/Contact/Contact';
 
 // Import layouts and page components using absolute paths

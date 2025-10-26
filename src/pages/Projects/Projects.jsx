@@ -1,15 +1,15 @@
 // src/pages/Projects/Projects.jsx
 import React from 'react';
-import projectsData from 'data/projects/projects';
+import { projects } from 'data/projects/projects';
 import ProjectsCard from 'components/Cards/ProjectsCard';
 import styles from './Projects.module.scss';
 import Heading from 'components/Heading/Heading';
 
-const Projects = () => {
-  const inDevelopmentProjects = projectsData.filter(project => project.development_status === 'In Development');
-  const recentProjects = projectsData.filter(project => project.isRecent && project.development_status !== 'In Development');
-  const tutorialBasedProjects = projectsData.filter(project => project.isTutorialBased);
-  const earlierCareerProjects = projectsData.filter(project => !project.isRecent && !project.isTutorialBased);
+export const Projects = () => { // Change starts here
+  const inDevelopmentProjects = projects.filter(project => project.development_status === 'In Development');
+  const recentProjects = projects.filter(project => project.isRecent && project.development_status !== 'In Development');
+  const tutorialBasedProjects = projects.filter(project => project.isTutorialBased);
+  const earlierCareerProjects = projects.filter(project => !project.isRecent && !project.isTutorialBased);
 
   /**
    * Helper function to render a project section.
@@ -104,5 +104,3 @@ const Projects = () => {
     </div>
   );
 };
-
-export default Projects;

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-export default function useIntersectionObserver({ root = null, rootMargin = '0px', threshold = 0.1, triggerOnce = true } = {}) {
+export function useIntersectionObserver({ root = null, rootMargin = '0px', threshold = 0.1, triggerOnce = true } = {}) {
   const [inView, setInView] = useState(false);
   const elementRef = useRef(null);
   const hasTriggered = useRef(false);

@@ -1,5 +1,5 @@
 // src/data/navItems.js
-const NavItems = [
+export const navItems = [
   {
     path: "/about",
     label: "About",
@@ -17,5 +17,3 @@ const NavItems = [
     label: "Contact",
   },
 ];
-
-export default NavItems;
