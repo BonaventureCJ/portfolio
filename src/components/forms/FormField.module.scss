@@ -36,6 +36,30 @@
     border-color: var(--color-brand-primary);
     box-shadow: 0 0 0 1px var(--color-brand-primary), var(--box-shadow-sm);
     border-radius: var(--border-radius-md);
+    caret-color: var(--color-brand-primary);
+  }
+
+  // FIX: WebKit autofill color consistency
+  // WebKit browsers can override custom styles on autofilled inputs,
+  // causing incorrect text/background colors, especially with dark themes or
+  // multi-word values. The following rules use browser-specific pseudo-selectors
+  // and properties with `!important` to force the correct colors and prevent
+  // visual bugs. This is a standard industry workaround.
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-surface-base) inset !important;
+    -webkit-text-fill-color: var(--color-text-primary) !important;
+    color: var(--color-text-primary) !important;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: var(--color-text-primary);
+    background-clip: text;
+  }
+  
+  &:-webkit-autofill::first-line {
+    -webkit-text-fill-color: var(--color-text-primary) !important;
+    color: var(--color-text-primary) !important;
   }
 }
 
@@ -50,6 +74,7 @@
   border-color: var(--color-error);
   &:focus {
     box-shadow: 0 0 0 2px var(--color-error), var(--box-shadow-sm);
+    caret-color: var(--color-error);
   }
 }
 
@@ -57,4 +82,30 @@
   color: var(--color-error);
   font-size: var(--font-size-sm);
   margin-top: var(--spacing-xxs);
+}
+
+// Dark theme overrides for autofill
+[data-theme='dark'] {
+  .form-field__input,
+  .form-field__textarea {
+    &:focus {
+      caret-color: var(--color-brand-primary);
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px var(--color-surface-base) inset !important;
+      -webkit-text-fill-color: var(--color-text-primary) !important;
+      color: var(--color-text-primary) !important;
+      caret-color: var(--color-text-primary);
+      background-clip: text;
+    }
+    
+    &:-webkit-autofill::first-line {
+      -webkit-text-fill-color: var(--color-text-primary) !important;
+      color: var(--color-text-primary) !important;
+    }
+  }
 }
