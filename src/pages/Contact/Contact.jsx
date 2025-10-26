@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './Contact.module.scss';
 import ContactsCard from 'components/Cards/ContactsCard'; 
-import ContactForm from 'components/ContactForm/ContactForm';
+import ContactForm from 'components/forms/ContactForm/ContactForm';
 import { contactItems, ctaMessage } from 'data/contact';
 import Heading from 'components/Heading/Heading';
 

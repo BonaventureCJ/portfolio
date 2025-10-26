@@ -1,0 +1,68 @@
+// src/components/forms/ContactForm/ContactForm.module.scss
+@use 'styles/abstracts' as *;
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-xs);
+
+  @media (min-width: 768px) {
+    // For RWD breakpoints if the layout needs to change at larger sizes
+  }
+}
+
+.contact-form__fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+// Visually hidden legend for screen readers (WCAG 1.1.1 Non-text Content)
+.contact-form__legend--sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.contact-form__message-status {
+  padding: var(--spacing-md);
+  background-color: var(--color-success);
+  color: var(--color-text-inverse);
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+}
+
+.contact-form__button-wrapper {
+  display: inline-block;
+  width: 100%;
+  margin-top: var(--spacing-sm);
+}
+
+.contact-form__submit {
+  width: 100%;
+}
+
+/* 
+  BEM Modifier for the submit button specifically when it *can* be submitted.
+  This class is dynamically applied in the React component.
+*/
+.contact-form__submit--can-submit {
+  box-shadow: 0 0 0 3px var(--button-bg-tertiary-hover), var(--box-shadow-sm);
+  &:hover:not(:disabled):not([aria-disabled="true"]),
+  &:focus:not(:disabled):not([aria-disabled="true"]) {
+    box-shadow: 0 0 0 3px var(--button-bg-tertiary-hover), var(--box-shadow-sm)
+  }
+}
