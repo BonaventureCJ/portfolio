@@ -41,7 +41,7 @@ import {
  */
 
 /** @type {Project[]} */
-const projects = [
+export const projects = [
     {
         id: generateId(),
         title: 'Personal Portfolio WebApp',
@@ -151,5 +151,3 @@ const projects = [
         development_status: 'MVP',
     }
 ];
-
-export default projects;

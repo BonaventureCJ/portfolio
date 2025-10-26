@@ -45,7 +45,7 @@ import { ReactComponent as WoocommerceIcon } from '../assets/icons/woocommerce.s
 
 import generateId from 'utils/helpers';
 
-const skills = [
+export const skills = [
   // --- Languages & Frameworks (Fundamental) ---
   {
     id: generateId(),
@@ -295,5 +295,3 @@ const skills = [
     level: 'Other',
   },
 ];
-
-export default skills;

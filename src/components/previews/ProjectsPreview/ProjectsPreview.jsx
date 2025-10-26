@@ -1,10 +1,7 @@
 // src/components/previews/ProjectsPreview/ProjectsPreview.jsx
-
 import React from 'react';
-// Link is no longer needed in this component as the Button handles it
-// import { Link } from 'react-router-dom';
 import styles from './ProjectsPreview.module.scss';
-import projectsData from 'data/projects/projects';
+import { projects } from 'data/projects/projects';
 import ProjectsCard from 'components/Cards/ProjectsCard';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
@@ -15,7 +12,7 @@ import Heading from 'components/Heading/Heading';
  */
 const ProjectsPreview = () => {
   // Filter for projects marked as featured for the homepage display.
-  const featuredProjects = projectsData.filter((project) => project.isFeatured);
+  const featuredProjects = projects.filter((project) => project.isFeatured);
 
   return (
     <section className={styles.projectsPreview} aria-labelledby="featured-projects-heading">
@@ -42,7 +39,7 @@ const ProjectsPreview = () => {
             aria-label="Navigate to the full Projects page"
             title="View all projects on the Projects page"
             // If the original 'ctaLink' styles are needed, they will be passed here
-            // className={styles.ctaLink} 
+            // className={styles.ctaLink}
           >
             View All Projects
           </Button>

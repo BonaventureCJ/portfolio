@@ -10,7 +10,7 @@ import MenuToggleButton from './MenuToggleButton/MenuToggleButton';
 import UtilityIcons from './UtilityIcons/UtilityIcons';
 
 // Navigation data
-import NavItems from 'data/nav-items';
+import { navItems } from 'data/nav-items';
 
 const MainNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +29,7 @@ const MainNavigation = () => {
         <NavigationBrand onLinkClick={handleLinkClick} />
         
         {/* Desktop navigation */}
-        <DesktopNav navItems={NavItems} onLinkClick={handleLinkClick} />
+        <DesktopNav navItems={navItems} onLinkClick={handleLinkClick} />
         
         {/* Container for the utility icons and the mobile toggle button */}
         <div className={styles.navigation__actions}>
@@ -42,7 +42,7 @@ const MainNavigation = () => {
         {/* Mobile navigation */}
         <MobileNav
           isOpen={isOpen}
-          navItems={NavItems}
+          navItems={navItems}
           onLinkClick={handleLinkClick}
         />
         

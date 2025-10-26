@@ -2,7 +2,7 @@
 
 import React from 'react';
 import SkillsCard from 'components/SkillsCard/SkillsCard';
-import skillsData from 'data/skills';
+import { skills } from 'data/skills';
 
 /**
  * Renders the card for other skills.
@@ -10,7 +10,7 @@ import skillsData from 'data/skills';
  */
 const OtherSkillsCard = () => {
   // Filter for skills with level 'Other'
-  const otherSkills = skillsData.filter((skill) => skill.level === 'Other');
+  const otherSkills = skills.filter((skill) => skill.level === 'Other');
 
   return <SkillsCard categoryTitle="Other Skills" skills={otherSkills} cardType="other" />;
 };

@@ -2,9 +2,9 @@
 // For the Homepage and the About page previews
 import React from 'react';
 import styles from './SkillsPreview.module.scss';
-import skillsData from 'data/skills';
+import { skills } from 'data/skills';
 import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard';
-import useIntersectionObserver from 'hooks/useIntersectionObserver';
+import {useIntersectionObserver} from 'hooks/useIntersectionObserver';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
 
@@ -13,7 +13,7 @@ import Heading from 'components/Heading/Heading';
  * @returns {JSX.Element} The Skills Preview component.
  */
 const SkillsPreview = () => {
-  const featuredSkills = skillsData.filter((skill) => skill.isFeatured);
+  const featuredSkills = skills.filter((skill) => skill.isFeatured);
 
   const [listRef, listIsInView] = useIntersectionObserver({
     threshold: 0.2,
@@ -50,7 +50,7 @@ const SkillsPreview = () => {
             aria-label="View all skills on the Skills page"
             title="Navigate to the full Skills page"
             // Optional: If original 'ctaLink' styles are needed, they can be passed here
-            // className={styles.ctaLink} 
+            // className={styles.ctaLink}
           >
             View All Skills
           </Button>
