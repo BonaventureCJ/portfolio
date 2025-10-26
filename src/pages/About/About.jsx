@@ -34,6 +34,9 @@ const About = () => {
             <p className={styles.about__summary}>
               {aboutData.secondarySummary}
             </p>
+            <p className={styles.about__summary}>
+              {aboutData.professionalDrive}
+            </p>
 
             <Heading level="h3" className={styles.about__subHeading}>
               {aboutData.openSourceCommitmentTitle}
