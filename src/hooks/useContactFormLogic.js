@@ -23,6 +23,9 @@ export const useContactFormLogic = () => {
     const [emailError, setEmailError] = useState('');
     const [hasInteracted, setHasInteracted] = useState(false);
     const [canSubmit, setCanSubmit] = useState(false);
+    
+    // New state to prevent toast from showing on subsequent renders
+    const [hasShownToast, setHasShownToast] = useState(false);
 
     // Validation function for all fields, checks against requirements
     const validateAllFields = () => {
@@ -48,7 +51,6 @@ export const useContactFormLogic = () => {
     };
 
     // Handles updates for other form inputs
-    // Uses single, generic event handler for all the other input fields resulting in cleaner, more scalable, DRY code
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -65,11 +67,16 @@ export const useContactFormLogic = () => {
         }
     };
 
-    // Effect to manage the canSubmit state based on form data and email validity
+    // Effect to manage the canSubmit state and handle success logic
     useEffect(() => {
         const allFieldsFilled = Object.values(formData).every(field => field.trim() !== '');
         setCanSubmit(allFieldsFilled && !emailError);
-    }, [formData, emailError]);
+
+        // If submission was successful and the toast hasn't been shown, mark it
+        if (state.succeeded && !hasShownToast) {
+          setHasShownToast(true);
+        }
+    }, [formData, emailError, state.succeeded, hasShownToast]);
 
     return {
         state,
@@ -81,5 +88,6 @@ export const useContactFormLogic = () => {
         handleEmailChange,
         handleInputChange,
         onSubmit,
+        hasShownToast,
     };
 };

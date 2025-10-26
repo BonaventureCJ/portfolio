@@ -1,5 +1,7 @@
 // src/components/forms/ContactForm/ContactForm.jsx
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useContactFormLogic } from 'hooks/useContactFormLogic';
 import FormField from 'components/forms/FormField';
 import styles from './ContactForm.module.scss';
@@ -16,10 +18,12 @@ const ContactForm = () => {
     handleEmailChange,
     handleInputChange,
     onSubmit,
+    hasShownToast,
   } = useContactFormLogic();
 
   // Ref to help manage the focus if we manually disable the button in a specific way
   const submitButtonRef = useRef(null);
+  const navigate = useNavigate();
 
   // Determine if the button should be natively disabled (Formspree is handling this mostly)
   const isDisabled = state.submitting || !canSubmit;
@@ -38,12 +42,29 @@ const ContactForm = () => {
           // Fallback case (e.g., succeeded state)
           : '';
 
+  // Effect to show toast and redirect after successful submission
+  useEffect(() => {
+    if (state.succeeded && hasShownToast) {
+      toast.success('Thank you! Your message has been sent.', {
+        position: 'top-right',
+        autoClose: 8000,
+      });
+
+      // Redirect to the home page or a thank-you page after a delay
+      const redirectTimeout = setTimeout(() => {
+        navigate('/');
+      }, 8500);
+
+      // Cleanup function to clear the timeout if the component unmounts
+      return () => clearTimeout(redirectTimeout);
+    }
+  }, [state.succeeded, hasShownToast, navigate]);
+
+
+  // If succeeded, we let the toast and redirect handle the flow, 
+  // we return null instead of rendering a success message here.
   if (state.succeeded) {
-    return (
-      <p className={styles['contact-form__message-status']} role="status" aria-live="polite">
-        Thank you! Your message has been sent.
-      </p>
-    );
+    return null;
   }
 
   return (
