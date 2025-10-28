@@ -5,6 +5,10 @@ import { ReactComponent as MenuCloseIcon } from 'assets/icons/round-close.svg';
 import styles from './MenuToggleButton.module.scss';
 
 const MenuToggleButton = ({ isOpen, toggleMenu }) => {
+  // NOTE: This component renders a native `<button>` element instead of using the
+  // shared `Button` component due to extensive custom styling and unique
+  // accessibility attributes required for the menu toggle functionality that
+  // are not supported by the generic button component structure.
   return (
     <button
       className={styles.menuToggleButton}
@@ -22,4 +26,3 @@ const MenuToggleButton = ({ isOpen, toggleMenu }) => {
 };
 
 export default MenuToggleButton;
-

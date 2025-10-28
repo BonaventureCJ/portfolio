@@ -9,6 +9,10 @@ const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
 
+  // NOTE: This component renders a native `<button>` element instead of using the
+  // shared `Button` component due to extensive custom styling and unique
+  // functionality required for the theme toggle that are not supported by the
+  // generic button component structure.
   return (
     <button
       className={styles.themeToggle}
