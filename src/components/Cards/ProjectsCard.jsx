@@ -3,6 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProjectsCard.module.scss';
 import Button from 'components/Buttons/Button';
+import Heading from 'components/Heading/Heading';
+
 
 /**
  * ProjectsCard component displays a single project with details.
@@ -35,7 +37,7 @@ const ProjectsCard = ({ project }) => {
         />
       </div>
       <div className={styles['projects-card__content']}>
-        <h3 className={styles['projects-card__title']}>{title}</h3>
+        <Heading level="h3" className={styles['projects-card__title']}>{title}</Heading>
 
         <div className={styles['projects-card__description']}>
           {renderDescription(description)}
