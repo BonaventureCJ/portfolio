@@ -1,7 +1,9 @@
-// src/components/Utility/ErrorBoundaryPage/ErrorBoundaryPage.jsx
+// src/components/Utilities/ErrorBoundaryPage/ErrorBoundaryPage.jsx
 import React from 'react';
 import { Link, useRouteError, isRouteErrorResponse } from 'react-router-dom';
-import styles from './ErrorBoundaryPage.module.scss'; //Relative Link
+import styles from './ErrorBoundaryPage.module.scss';
+import Heading from 'components/Heading/Heading'; 
+
 
 const ErrorBoundaryPage = () => {
   const error = useRouteError();
@@ -19,7 +21,7 @@ const ErrorBoundaryPage = () => {
 
   return (
     <div className={styles.errorContainer}>
-      <h1>Oops! Something went wrong.</h1>
+      <Heading level="h1">Oops! Something went wrong.</Heading>
       <p>{errorMessage}</p>
       <Link to="/" className={styles.homeLink}>Go back to Home</Link>
     </div>

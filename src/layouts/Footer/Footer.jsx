@@ -3,6 +3,7 @@ import React from 'react';
 // Assuming you are using react-router-dom for navigation
 import { Link } from 'react-router-dom';
 import Brand from 'components/Brand/Brand';
+import Heading from 'components/Heading/Heading';
 import { contactItems } from 'data/contact';
 import styles from './Footer.module.scss';
 
@@ -26,7 +27,13 @@ const Footer = () => {
 
         {/* Social Media Links Section */}
         <nav className={styles['footer__social-nav']} aria-label="Social media links">
-          <h2 className={styles['footer__social-nav-heading']} id="footer-social-heading">Connect with me</h2>
+          <Heading
+            level="h2"
+            className={styles['footer__social-nav-heading']}
+            id="footer-social-heading"
+          >
+            Connect with me
+          </Heading>
           <ul className={styles['footer__social-list']} aria-labelledby="footer-social-heading">
             {contactItems
               .filter(item => item.type === 'social')
@@ -49,7 +56,13 @@ const Footer = () => {
 
         {/* Contact Links Section */}
         <nav className={styles['footer__contact-nav']} aria-label="Contact links">
-          <h2 className={styles['footer__contact-nav-heading']} id="footer-contact-heading">Get in touch</h2>
+          <Heading
+            level="h2"
+            className={styles['footer__contact-nav-heading']}
+            id="footer-contact-heading"
+          >
+            Get in touch
+          </Heading>
           <ul className={styles['footer__contact-list']} aria-labelledby="footer-contact-heading">
             {contactItems
               .filter(item => item.type === 'email' || item.type === 'whatsapp' || item.type === 'phone')
