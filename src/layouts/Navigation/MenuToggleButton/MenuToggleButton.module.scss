@@ -14,8 +14,7 @@
   border-radius: 50%;
 
   // Focus and hover states for accessibility and UI/UX
-  &:hover,
-  &:focus {
+  &:hover {
     outline: none;
     background-color: var(--color-surface-lighter);
     color: var(--color-text-primary);
