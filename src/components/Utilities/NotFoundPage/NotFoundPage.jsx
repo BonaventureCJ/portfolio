@@ -45,7 +45,7 @@ const NotFoundPage = () => {
             <Button
               to="/"
               variant="primary"
-              size="small"
+              size="medium"
               className={styles['not-found-page__button--home']}
               aria-label="Go back to the home page"
             >

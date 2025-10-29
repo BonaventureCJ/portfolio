@@ -69,8 +69,7 @@
 .not-found-page__content {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center;    
+ place-content: center;   
   text-align: center; 
   padding: var(--spacing-sm);
 
@@ -95,12 +94,15 @@
   font-size: var(--font-size-h1);
   line-height: 1.1; 
   margin-top: 0;
+  display: flex;
+  place-content: center;
+  width: 100%; 
 }
 
 .not-found-page__description {
   font-size: var(--font-size-base);
   color: var(--color-text-secondary);
-
+  text-align: center;
   @media (min-width: 375px) {
     font-size: var(--font-size-lg);
   }
@@ -112,7 +114,8 @@
   width: 100%; 
 
   @media (min-width: 768px) {
-    margin-top: var(--spacing-md); 
+    margin-top: var(--spacing-md);
+    place-content: center; /* Align button to the left on desktop */
   }
 }
 
