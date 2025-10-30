@@ -5,6 +5,14 @@ import styles from './ProjectsCard.module.scss';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
 
+/**
+ * Renders an 'In Progress' badge component.
+ */
+const InProgressBadge = () => (
+  <span className={styles['projects-card__badge--in-progress']}>
+    In Progress
+  </span>
+);
 
 /**
  * ProjectsCard component displays a single project with details.
@@ -12,7 +20,8 @@ import Heading from 'components/Heading/Heading';
  * @param {object} props.project - The project data to display.
  */
 const ProjectsCard = ({ project }) => {
-  const { title, description, image, links, technologies } = project;
+  // Destructure the new field
+  const { title, description, image, links, technologies, development_status } = project;
 
   /**
    * Helper function to render the project description.
@@ -26,6 +35,9 @@ const ProjectsCard = ({ project }) => {
     ));
   };
 
+  // Check if the project is currently in development
+  const isInDevelopment = development_status === 'In Development';
+
   return (
     <article className={styles['projects-card']}>
       <div className={styles['projects-card__image-container']}>
@@ -35,6 +47,8 @@ const ProjectsCard = ({ project }) => {
           alt={`Screenshot of the ${title} project`}
           loading="lazy"
         />
+        {/* Conditionally render the badge overlay on the image */}
+        {isInDevelopment && <InProgressBadge />}
       </div>
       <div className={styles['projects-card__content']}>
         <Heading level="h3" className={styles['projects-card__title']}>{title}</Heading>
@@ -54,7 +68,7 @@ const ProjectsCard = ({ project }) => {
           {links.map((link, index) => (
             <Button
               key={`${link.label}-${index}`}
-              href={link.url} // <-- Uses the 'href' prop for external links
+              href={link.url}
               variant={
                 link.label.toLowerCase().includes('live')
                   ? 'primary'
@@ -63,11 +77,8 @@ const ProjectsCard = ({ project }) => {
               size="small"
               ariaLabel={link.ariaLabel}
               title={link.ariaLabel}
-              target="_blank" // <-- Pass standard anchor attributes
-              rel="noopener noreferrer" // <-- Pass standard anchor attributes
-              // If 'projects-card__action-link' syles are needed, like
-              // vital display/layout CSS (like 'display: block'),
-              // it would added here: className={styles['projects-card__action-link']}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {link.label}
             </Button>
@@ -94,6 +105,7 @@ ProjectsCard.propTypes = {
       })
     ).isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+    development_status: PropTypes.string, 
   }).isRequired,
 };
 
