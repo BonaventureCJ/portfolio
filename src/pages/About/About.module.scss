@@ -1,4 +1,4 @@
-//src/pages/About/About.module.scss
+// src/pages/About/About.module.scss
 @use 'styles/abstracts' as *;
 
 .about {
@@ -21,7 +21,33 @@
 
 .about__title {
   position: relative;
+  /* Ensure the H2 itself doesn't have text-align issues if the wrapper is flex */
+  text-align: center; 
 }
+
+// === START OF NEW RULES FOR ICON/HEADING ALIGNMENT ===
+
+/* This wrapper handles the flex alignment and spacing between icon and text */
+.about__titleContent {
+  display: flex;
+  align-items: center; /* Key for vertical alignment */
+  justify-content: center; /* Center the whole block horizontally */
+  gap: var(--spacing-xs); /* Use a spacing variable for consistency (0.5rem) */
+}
+
+/* This targets the icon itself, overriding the base Icon styles */
+.about__icon {
+  width: 25px;
+  height: 25px; 
+  flex-shrink: 0; 
+}
+
+/* This targets the text span for specific text control */
+.about__titleText {
+  white-space: nowrap; /* Prevents awkward line breaks next to the icon */
+}
+
+// === END OF NEW RULES ===
 
 .about__title::after {
   content: '';
