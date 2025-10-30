@@ -1,3 +1,4 @@
+// src/components/Icon/Icon.jsx
 import React from 'react';
 import { icons } from './icons';
 import styles from './Icon.module.scss';
@@ -22,7 +23,6 @@ const Icon = ({
   }
   
   // Combine base styles with user-provided classNames.
-  // The consumer can manage specific cursor styles via their own CSS or the provided className.
   const svgClasses = `${styles.baseIcon} ${className}`.trim();
   
   return (

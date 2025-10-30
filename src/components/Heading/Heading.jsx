@@ -1,4 +1,5 @@
 // src/components/Heading/Heading.jsx
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'components/Icon/Icon';
@@ -7,21 +8,20 @@ import styles from './Heading.module.scss';
 const Heading = ({ level, children, className, iconProps, ...rest }) => {
   const Tag = level;
 
-  // Combine the base class, the dynamic level class, and any additional classes.
   const combinedClassName = `${styles.heading} ${styles[level]} ${className || ''}`.trim();
 
   return (
     <Tag className={combinedClassName} {...rest}>
-      {/* Conditionally render the Icon if iconProps are provided */}
-      {iconProps && (
-        <Icon 
-          {...iconProps} 
-          // Best Practice: Rely on the parent container's CSS `gap` for spacing.
-          // Only pass through user-provided classNames from iconProps.
-          className={iconProps.className || ''} 
-        />
-      )}
-      {children}
+      {/* Simpler wrapper for icon and text alignment */}
+      <span className={styles.contentWrapper}> 
+        {iconProps && (
+          <Icon 
+            {...iconProps} 
+            className={iconProps.className || ''} 
+          />
+        )}
+        {children} {/* Children (text) are rendered directly next to the Icon */}
+      </span>
     </Tag>
   );
 };

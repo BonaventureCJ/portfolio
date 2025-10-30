@@ -14,9 +14,16 @@ const About = () => {
   return (
     <section className={styles.about}>
       <div className={styles.about__content}>
-        <Heading level="h2" className={styles.about__title}>
+        <Heading 
+          level="h2" 
+          iconProps={{ 
+            icon: 'UserTie', 
+            'aria-hidden': true // Decorative icons hidden from screen readers
+          }}
+        >
           About Me
         </Heading>
+
         {/* The main layout container for photo and text */}
         <div className={styles.about__intro}>
           <div className={styles.about__photoContainer}>

@@ -1,4 +1,5 @@
 // src/components/Heading/Heading.module.scss
+
 /* A Sass map to define the font sizes for each heading level */
 $heading-font-sizes: (
   h1: var(--font-size-h1),
@@ -9,35 +10,31 @@ $heading-font-sizes: (
   h6: var(--font-size-sm)
 );
 
-/* The main class for the Heading component */
 .heading {
-  /*
-   * We need to change from `display: flex; justify-content: center;`
-   * if we want the line to span the full width below the centered content.
-   *
-   * Revert to a standard block display to center inline content and manage
-   * the pseudo-element display flow naturally.
+  /* 
+   * Use fit-content to restrict the block element's width 
+   * to be exactly the width of its content (icon + text).
    */
-  display: block; // Changed from flex
-  text-align: center; // Centers the content (icon + text)
-  margin-bottom: 1em; // Space below the heading before the line
-  position: relative; // Needed for positioning the absolute pseudo-element
+  width: fit-content;
+  margin: 0 auto 1em auto;
+  /* Centers the whole heading block and adds space below */
+  position: relative;
 
-  // Add a decorative line using a pseudo-element.
-  &::after {
-    content: '';
-    display: block;
-    width: 50vw;
-    max-width: 300px; /* Adjust line width as desired */
-    height: 0.1px; /* Adjust line thickness */
-    background-color: var(--color-brand-primary); /* Use a CSS variable or a specific color */
-    margin: 0.5em auto 0 auto; /* Centers the line below the text with margin top/bottom */
-  }
-  
-  /*
-   * Loop through the $heading-font-sizes map to generate a unique style
-   * for each heading level based on the class that corresponds to the `level` prop.
+  /* 
+   * Apply decorative line directly as a border-bottom on the heading element itself.
    */
+  border-bottom: 0.05em solid var(--color-brand-primary);
+  padding-bottom: 0.3em;
+  /* Adds space between the text/icon and the line */
+
+  /* The contentWrapper is not strictly needed but doesn't hurt */
+  .contentWrapper {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5em;
+  }
+
+  /* ... (rest of the SCSS loop for font sizes) ... */
   @each $level, $size in $heading-font-sizes {
     &.#{$level} {
       font-size: $size;
