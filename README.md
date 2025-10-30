@@ -1,182 +1,90 @@
-# My React.js Personal Portfolio Website
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Purpose
-
-To showcase my personal Portfolio webpage
-
-## To test project
-
-run npm i
-
-Then npm start
-### 
+# BonaventureCJ's Portfolio Web Application 🚀
 
 
 
-## FOLDER SETUP
+A personal portfolio webpage showcasing my projects, skills, and contact information. Built from the ground up to be a highly accessible, performant, and maintainable application, it serves as a central hub for my professional identity as a developer.
 
+---
 
+## 🌟 Key Features
 
-### UPDATED FOLDER SETUP
+This application was developed with a focus on modern web development best practices and robust user experience.
 
+* **Truly Mobile Responsive Design:** Implements **Responsive Web Design (RWD) principles** for an optimal viewing experience across all devices, including a truly mobile-responsive navigation system.
+* **Accessibility First:** Adheres strictly to **WCAG (Web Content Accessibility Guidelines)** with appropriate accessibility attributes and code, ensuring a broad and inclusive user base.
+* **Performance & SEO:** Adheres to **SEO best practices** for better discoverability and utilizes **SVGs** for infinitely scalable and performant vector graphics.
+* **Maintainable Architecture:** Features an excellent UI/UX, good architecture, **scalable** design, and highly **maintainable** code.
+* **Styling & Theming:** Utilizes **SCSS** for advanced, modular styling, and includes a seamless **light-dark theme** toggle.
+* **Modern Functionality:** Features professional-looking **animations**, **error handling**, and client-side routing via **React Router**.
+* **Contact Functionality:** Includes a fully functional **contact form** for easy communication.
+* **BEM Methodology:** Classnames are written following **BEM (Block Element Modifier) naming conventions** for clear, isolated, and scalable CSS.
 
+---
 
-06 September, 2025
-/portfolio
-├── public/                 # Static assets like index.html, favicon, robots.txt
-├── src/                    # All application code
-│   ├── assets/             # Images and icons
-│   │   ├── images/
-│   │   └── icons/
-│   ├── components/         # Reusable, presentational components
-│   │   ├── Cards/          
-│   │   │   ├── MajorSkillsCard.jsx
-│   │   │   ├── MajorSkillsCard.module.scss
-│   │   │   ├── OtherSkillsCard.jsx
-│   │   │   ├── OtherSkillsCard.module.scss
-│   │   │   └── ProjectsCard.jsx
-│   │   │   └── ProjectsCard.module.scss
-│   │   └── ContactsCard/
-│   │       ├── ContactsCard.jsx
-│   │       └── ContactsCard.module.scss
-│   ├── data/               # Local data acting as a mock API
-│   │   ├── skills.js
-│   │   ├── projects.js
-│   │   └── contact-info.js
-│   ├── features/           # Pages and their specific components
-│   │   ├── About/
-│   │   │   ├── About.jsx
-│   │   │   └── About.module.scss
-│   │   ├── Contact/
-│   │   │   ├── Contact.jsx
-│   │   │   └── Contact.module.scss
-│   │   ├── Home/
-│   │   │   ├── Home.jsx
-│   │   │   └── Home.module.scss
-│   │   ├── Projects/
-│   │   │   ├── Projects.jsx
-│   │   │   └── Projects.module.scss
-│   │   └── Skills/
-│   │       ├── Skills.jsx
-│   │       └── Skills.module.scss
-│   ├── layouts/            # Page layouts
-│   │   ├── MainLayout.jsx
-│   │   ├── MainLayout.module.scss
-│   │   ├── Navigation/
-│   │   │   ├── Navigation.jsx
-│   │   │   └── Navigation.module.scss
-│   │   └── Footer/
-│   │       ├── Footer.jsx
-│   │       └── Footer.module.scss
-│   ├── services/           # Data-fetching and business logic (for a real API)
-│   │   └── api.js
-│   ├── styles/             # Global styles, variables, and resets
-│   │   ├── _abstracts.scss   # Variables, mixins, functions
-│   │   ├── _normalize.scss
-│   │   ├── _resets.scss
-│   │   └── global.scss
-│   ├── App.jsx             # Main application component for routing
-│   └── index.js            # Entry file to render the app
-├── .gitignore
-├── package.json
-├── jsconfig.json           # New file for absolute imports
-└── README.md
+## 🛠 Technology Stack & Rationale
 
+| Technology | Purpose | Rationale |
+| :--- | :--- | :--- |
+| **React.js** | Front-end Library | Chosen for building a **Single-Page Application (SPA)**, leveraging its component-based architecture for composable, reusable, and efficient UI structures. |
+| **SCSS (Sass)** | CSS Preprocessor | Used for **advanced and modular styling**, enabling features like variables, nesting, mixins, and functions, which significantly improves maintainability. |
+| **React Router** | Routing Library | Essential for creating a rich SPA experience with **declarative routing** and creating deep-linkable URLs. |
+| **React Context API** | State Management | Utilized for **managing global state**, specifically the light/dark theme state, for its lightweight nature and inbuilt structure in React. |
+| **Git & GitHub** | Version Control | Leveraged for their **robustness** and industry-standard capabilities in collaboration, version tracking, and code management. |
+| **SVGs** | Graphics | Incorporated for **scalability** and performance, ensuring visuals look crisp on any screen resolution without impacting load times. |
 
-### UPDATED FOLDER SETUP
-UPDATED: 08 September, 2025
-/portfolio
-├── public/                 # Static assets like index.html, favicon, robots.txt
-├── src/                    # All application code
-│   ├── assets/             # Static files (images, fonts, icons)
-│   │   ├── images/
-│   │   └── icons/
-│   ├── components/         # Reusable, atomic UI components
-│   │   ├── Cards/
-│   │   │   ├── MajorSkillsCard.jsx
-│   │   │   ├── MajorSkillsCard.module.scss
-│   │   │   ├── OtherSkillsCard.jsx
-│   │   │   ├── OtherSkillsCard.module.scss
-│   │   │   └── ProjectsCard.jsx
-│   │   │   └── ProjectsCard.module.scss
-│   │   ├── ContactsCard/
-│   │   │   ├── ContactsCard.jsx
-│   │   │   └── ContactsCard.module.scss
-│   │   └── Utility/
-│   │       ├── ErrorBoundaryPage/
-│   │       │   ├── ErrorBoundaryPage.jsx
-│   │       │   └── ErrorBoundaryPage.module.scss
-│   │       └── NotFoundPage/
-│   │           ├── NotFoundPage.jsx
-│   │           └── NotFoundPage.module.scss
-│   ├── data/               # Local data acting as a mock API
-│   │   ├── skills.js
-│   │   ├── projects.js
-│   │   └── contact-info.js
-│   ├── pages/           # Pages and their specific components
-│   │   ├── About/
-│   │   │   ├── About.jsx
-│   │   │   └── About.module.scss
-│   │   ├── Contact/
-│   │   │   ├── Contact.jsx
-│   │   │   └── Contact.module.scss
-│   │   ├── Home/
-│   │   │   ├── Home.jsx
-│   │   │   └── Home.module.scss
-│   │   ├── Projects/
-│   │   │   ├── Projects.jsx
-│   │   │   └── Projects.module.scss
-│   │   └── Skills/
-│   │       ├── Skills.jsx
-│   │       └── Skills.module.scss
-│   ├── layouts/            # Page layouts like the main navigation and footer
-│   │   ├── MainLayout.jsx
-│   │   ├── MainLayout.module.scss
-│   │   ├── Navigation/
-│   │   │   ├── Navigation.jsx
-│   │   │   └── Navigation.module.scss
-│   │   └── Footer/
-│   │       ├── Footer.jsx
-│   │       └── Footer.module.scss
-│   ├── services/           # Data-fetching and business logic (for a real API)
-│   │   └── api.js
-│   ├── styles/             # Global styles, variables, and resets
-│   │   ├── _abstracts.scss   # Variables, mixins, functions
-│   │   ├── _normalize.scss
-│   │   ├── _resets.scss
-│   │   └── global.scss
-│   ├── App.jsx             # Main application component for routing
-│   └── index.js            # Entry file to render the app
-├── .gitignore
-├── package.json
-├── jsconfig.json           # For absolute imports and editor tooling
-├── README.md               # Project documentation
-└── [optional] craco.config.js # Only if you opted for full import aliases
+---
 
-### Required SVGs
-2025 09 09
-    |   ├── typescript.svg
-    │   ├── javascript.svg
-    │   ├── react.svg
-    │   ├── nextjs.svg
-    │   ├── html5.svg
-    │   ├── css3.svg
-    │   ├── redux.svg
-    │   ├── sass.svg
-    │   ├── tailwind.svg
-    │   ├── css-modules.svg
-    │   ├── bootstrap.svg
-    │   ├── git.svg
-    │   ├── github.svg
-    │   ├── vite.svg
-    │   ├── webpack.svg
-    │   ├── babel.svg
-    │   ├── figma.svg
-    │   ├── emmet.svg
-    │   ├── react-router.svg
-    │   ├── responsive-design.svg
-    │   ├── api.svg
-    │   ├── accessibility.svg
-    │   └── cross-browser.svg
+## 👨‍💻 Development & Contribution
+
+### My Role
+
+I personally **built the entire project** from conception to deployment, including design, development, and adherence to all best practices mentioned above.
+
+### Setup Instructions
+
+To get a local copy up and running, follow these simple steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/BonaventureCJ/portfolio.git](https://github.com/BonaventureCJ/portfolio.git)
+    cd portfolio
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server:**
+    ```bash
+    npm start
+    ```
+
+**Note:** For the contact form to function, you will need to configure a service like [Formspree](https://formspree.io/) and set the corresponding endpoint in your environment variables or component code.
+
+### Future Enhancements
+
+I have the following improvements planned for the project:
+
+* **TypeScript Migration:** To enhance code quality, predictability, and maintainability by introducing static typing.
+* **Backend Integration:** To add a simple backend once I complete my study of backend technologies, allowing for more complex features (e.g., dynamic content, custom API).
+
+---
+
+## 📞 Get In Touch
+
+I'm always open to discussing new projects, opportunities, or just sharing development insights. Feel free to connect via any of the links below!
+
+| Service | Display | Link |
+| :--- | :--- | :--- |
+| **LinkedIn** (Featured) | Bonaventure Ugwu | [https://www.linkedin.com/in/bonaventure-ugwu](https://www.linkedin.com/in/bonaventure-ugwu) |
+| **GitHub** (Featured) | BonaventureCJ | [https://github.com/BonaventureCJ](https://github.com/BonaventureCJ) |
+| **Email** (Featured) | bonacjugwu@gmail.com | `mailto:bonacjugwu@gmail.com` |
+| **X (Twitter)** | @BonaCJUgwu | [https://x.com/BonaCJUgwu](https://x.com/BonaCJUgwu) |
+| **WhatsApp** | +234 806 110 3300 | [https://wa.me/+2348061103300](https://wa.me/+2348061103300) |
+| **Phone/SMS** | +234 806 110 3300 | `sms:+2348061103300` |
+
+---
+
+## 🖼 Screenshots
+![Portfolio Dark Mode View](portfolio.png)
