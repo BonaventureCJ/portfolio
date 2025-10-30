@@ -6,8 +6,8 @@ export const projectDescriptions = {
         'Examine the version-controlled GitHub repository as well and assess my readiness for Collaborative Development.',
     ],
     bonmart: [
-        'WIP: An e-commerce platform that is being built with modern technologies, showcasing a robust approach to typing, state management and UI/UX design.',
-        'It will feature product filtering, a shopping cart utilizing Redux Toolkit, and a responsive design crafted with Tailwind CSS, demonstrating my current development skills .'
+        'WIP: An e-commerce platform that is being built with modern technologies, showcasing a robust approach to typing, state management and UI/UX design. Changes to this project are deployed continuously and automatically upon updates to the main branch.',
+        'It will feature product filtering, a shopping cart utilizing Redux Toolkit, and a responsive design crafted with Tailwind CSS, demonstrating my current development skills.'
     ],
     yummyRecipes: [
         'An application for discovering, exploring, and managing meal recipes.',
