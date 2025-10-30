@@ -1,3 +1,4 @@
+//src/components/Heading/Heading.module.scss
 /* A Sass map to define the font sizes for each heading level */
 $heading-font-sizes: (
   h1: var(--font-size-h1),
@@ -10,6 +11,20 @@ $heading-font-sizes: (
 
 /* The main class for the Heading component */
 .heading {
+  /*
+   * Best Practice: Use Flexbox for alignment when an icon is present.
+   * `gap` provides clean spacing between the icon and the text.
+   * Since the icon uses 'em' units, `gap: 0.5em` scales with the font size of the specific heading level.
+   */
+  display: flex;
+  align-items: center;
+  gap: 0.5em; 
+
+   /* 
+   * Best Practice: Center the entire flex container (icon + text) horizontally.
+   */
+  justify-content: center;
+  
   /*
    * Loop through the $heading-font-sizes map to generate a unique style
    * for each heading level based on the class that corresponds to the `level` prop.
