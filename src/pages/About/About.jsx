@@ -1,4 +1,4 @@
-// src/pages/About/About.jsx
+// src/components/About/About.jsx
 import React from 'react';
 import styles from './About.module.scss';
 import { aboutData } from 'data/about';
@@ -7,7 +7,6 @@ import requestResume from 'assets/documents/request-resume.pdf';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
 import SkillsPreview from 'components/previews/SkillsPreview/SkillsPreview';
-import Icon from 'components/Icon/Icon';
 
 const About = () => {
   const gitHubAchievementsUrl = aboutData.gitHubAchievementsUrl;
@@ -16,15 +15,8 @@ const About = () => {
     <section className={styles.about}>
       <div className={styles.about__content}>
         <Heading level="h2" className={styles.about__title}>
-          <div className={styles.about__titleContent}>
-            <Icon
-              icon="AboutIcon"
-              className={styles.about__icon} 
-            />
-            <span className={styles.about__titleText}>About Me</span>
-          </div>
+          About Me
         </Heading>
-        
         {/* The main layout container for photo and text */}
         <div className={styles.about__intro}>
           <div className={styles.about__photoContainer}>
@@ -37,12 +29,18 @@ const About = () => {
             />
           </div>
           <div className={styles.about__textContainer}>
+            {/* 
+              It is crucial that the combined height of these paragraphs 
+              is now visually balanced with the image height based on 
+              the data refactoring.
+            */}
             <p className={styles.about__summary}>
               {aboutData.summary}
             </p>
             <p className={styles.about__summary}>
               {aboutData.secondarySummary}
             </p>
+            {/* Condensing the text here helps balance the layout */}
             <p className={styles.about__summary}>
               {aboutData.professionalDrive}
             </p>
@@ -51,7 +49,7 @@ const About = () => {
               {aboutData.openSourceCommitmentTitle}
             </Heading>
             <p className={styles.about__summary}>
-              {aboutData.openSourceSummary.split('Pull Shark Badge')}
+              {aboutData.openSourceSummary.split('Pull Shark Badge')[0]}
               <a
                 href={gitHubAchievementsUrl}
                 target="_blank"
@@ -62,7 +60,7 @@ const About = () => {
               >
                 Pull Shark Badge
               </a>
-              {aboutData.openSourceSummary.split('Pull Shark Badge')}
+              {aboutData.openSourceSummary.split('Pull Shark Badge')[1]}
             </p>
             <p className={styles.about__summary}>
               {aboutData.openSourceSecondarySummary}

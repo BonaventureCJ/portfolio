@@ -1,5 +1,5 @@
-import { ReactComponent as AboutIcon } from 'assets/icons2/personal-information.svg';
-import { ReactComponent as SkillsIcon } from 'assets/icons2/skillshare.svg';
+import { ReactComponent as AboutIcon } from 'assets/icons-decorative/personal-information.svg';
+import { ReactComponent as SkillsIcon } from 'assets/icons-decorative/skillshare.svg';
 
 // Export an object mapping names to components
 export const icons = {
