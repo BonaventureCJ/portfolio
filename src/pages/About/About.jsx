@@ -17,6 +17,7 @@ const About = () => {
         <Heading level="h2" className={styles.about__title}>
           About Me
         </Heading>
+        {/* The main layout container for photo and text */}
         <div className={styles.about__intro}>
           <div className={styles.about__photoContainer}>
             <img
@@ -28,12 +29,18 @@ const About = () => {
             />
           </div>
           <div className={styles.about__textContainer}>
+            {/* 
+              It is crucial that the combined height of these paragraphs 
+              is now visually balanced with the image height based on 
+              the data refactoring.
+            */}
             <p className={styles.about__summary}>
               {aboutData.summary}
             </p>
             <p className={styles.about__summary}>
               {aboutData.secondarySummary}
             </p>
+            {/* Condensing the text here helps balance the layout */}
             <p className={styles.about__summary}>
               {aboutData.professionalDrive}
             </p>
@@ -60,20 +67,20 @@ const About = () => {
             </p>
           </div>
         </div>
+
+        {/* Buttons and Skills Preview outside the intro flexbox */}
         <Button
-          href={requestResume} // <-- Uses the 'href' prop
+          href={requestResume}
           variant="secondary"
           size="medium"
           title="Download Bonaventure's resume (PDF)"
-          target="_blank" // <-- Pass standard anchor attributes
-          rel="noopener noreferrer" // <-- Pass standard anchor attributes
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label="Download Bonaventure's Resume (PDF)"
-          // className={styles.buttonWrapper}
         >
           Download Resume
         </Button>
 
-        {/* Use the reusable SkillsPreview component: also used in Homepage*/}
         <SkillsPreview />
 
       </div>
