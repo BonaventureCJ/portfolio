@@ -1,3 +1,4 @@
+// src/components/ProjectsCard/ProjectsCard.module.scss
 @use 'styles/abstracts' as a;
 
 .projects-card {
@@ -6,6 +7,7 @@
   flex-direction: column;
   border-radius: var(--border-radius-md);
   overflow: hidden;
+  position: relative; /* Ensures badge positioning works relative to the card */
   
   /* Theming */
   background-color: var(--card-bg);
@@ -29,14 +31,31 @@
   width: 100%;
   height: 200px; /* Or a fixed aspect ratio like padding-top: 56.25%; */
   overflow: hidden;
+  position: relative; /* Ensures badge positioning works relative to the image container */
 }
 
 .projects-card__image {
-  /* Layout */
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.projects-card__badge--in-progress {
+  position: absolute;
+  top: var(--spacing-xs); 
+  right: var(--spacing-xs); 
+  background-color: var(--color-error);
+  color: var(--color-text-inverse); 
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: var(--box-shadow-sm);
+  z-index: 10; 
+}
+
 
 .projects-card__content {
   /* Spacing */
