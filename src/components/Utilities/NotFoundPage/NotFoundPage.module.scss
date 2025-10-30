@@ -1,0 +1,126 @@
+//src/components/Utilities/NotFoundPage/NotFoundPage.module.scss
+@use 'styles/abstracts' as *;
+
+.not-found-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--header-height)); 
+  padding: var(--spacing-lg) var(--spacing-sm);
+  background-color: var(--color-surface-base); 
+  font-family: var(--font-family-primary); 
+  color: var(--color-text-primary);
+  width: 100%;
+
+  @media (min-width: 375px) {
+    padding: var(--spacing-lg) var(--spacing-sm); 
+  }
+}
+
+.not-found-page__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px; 
+  background: var(--color-surface-elevated);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-advanced); 
+  overflow: hidden; 
+  
+  @media (min-width: 576px) {
+    padding: var(--spacing-sm); 
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row; 
+    justify-content: space-between;
+    padding: 0; 
+  }
+}
+
+.not-found-page__image-container {
+  padding: var(--spacing-md);
+
+  @media (min-width: 375px) {
+    padding: var(--spacing-lg);
+  }
+  
+  @media (min-width: 768px) {
+    flex: 1 1 50%;
+    padding: var(--spacing-lg);
+    height: 350px; 
+  }
+}
+
+.not-found-page__image {
+  max-width: 100%; 
+  height: auto; 
+  display: block;
+  border-radius: var(--border-radius-lg);
+  
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 100%;  
+  }
+}
+
+.not-found-page__content {
+  display: flex;
+  flex-direction: column;
+ place-content: center;   
+  text-align: center; 
+  padding: var(--spacing-sm);
+
+  @media (min-width: 375px) {
+     padding: var(--spacing-md);
+  }
+
+  @media (min-width: 768px) {
+    flex: 1 1 50%;
+    text-align: left; 
+    align-items: flex-start;
+    padding: var(--spacing-lg);
+  }
+  
+  & > * {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+.not-found-page__title {
+  color: var(--color-error); 
+  font-size: var(--font-size-h1);
+  line-height: 1.1; 
+  margin-top: 0;
+  display: flex;
+  place-content: center;
+  width: 100%; 
+}
+
+.not-found-page__description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  text-align: center;
+  @media (min-width: 375px) {
+    font-size: var(--font-size-lg);
+  }
+}
+
+.not-found-page__button-wrapper {
+  display: flex;
+  place-content: center;
+  width: 100%; 
+
+  @media (min-width: 768px) {
+    margin-top: var(--spacing-md);
+    place-content: center; /* Align button to the left on desktop */
+  }
+}
+
+.not-found-page__button--home {
+  @media (min-width: 768px) {
+    display: inline-block; 
+  }
+}

@@ -28,8 +28,8 @@ const Hero = () => {
             title={primaryCta.title}
             to={primaryCta.url} // <-- This tells Button to render a <Link>
             aria-label={primaryCta.ariaLabel}
-            // Optional: If styles are needed for .ctaLink class, pass it here
-            // className={styles.ctaLink} 
+          // Optional: If styles are needed for .ctaLink class, pass it here
+          // className={styles.ctaLink} 
           >
             {primaryCta.label}
           </Button>
@@ -45,8 +45,8 @@ const Hero = () => {
             download
             target="_blank"
             rel="noopener noreferrer"
-            // Optional: If styles are needed for.ctaLink class, pass it here
-            // className={styles.ctaLink}
+          // Optional: If styles are needed for.ctaLink class, pass it here
+          // className={styles.ctaLink}
           >
             {secondaryCta.label}
           </Button>
