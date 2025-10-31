@@ -28,6 +28,8 @@ const Icon = ({
   return (
     <Component
       className={svgClasses}
+      aria-hidden="true" // Hide the icon from screen readers by default
+      focusable="false" // Prevent the icon from being focusable in older browsers
       {...props} 
     />
   );

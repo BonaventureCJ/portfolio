@@ -1,4 +1,4 @@
-// src/components/AboutPreview/AboutPreview.jsx (Updated)
+//src/components/previews/AboutPreview/AboutPreview.jsx
 import React from 'react';
 import styles from './AboutPreview.module.scss';
 import { aboutData } from 'data/about';
@@ -16,7 +16,11 @@ const AboutPreview = () => {
     <section className={styles.aboutPreview}>
       <div className={styles.aboutPreview__container}>
         <div className={styles.aboutPreview__content}>
-          <Heading level="h2" className={styles.aboutPreview__heading}>
+          <Heading 
+            level="h2" 
+            className={styles.aboutPreview__heading}
+            iconProps={{ icon: 'UserTie' }}
+          >
             About Me
           </Heading>
 

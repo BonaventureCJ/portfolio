@@ -17,8 +17,7 @@ const About = () => {
         <Heading 
           level="h2" 
           iconProps={{ 
-            icon: 'UserTie', 
-            'aria-hidden': true // Decorative icons hidden from screen readers
+            icon: 'UserTie',
           }}
         >
           About Me
