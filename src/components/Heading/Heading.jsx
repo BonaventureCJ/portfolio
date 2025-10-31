@@ -8,19 +8,19 @@ import styles from './Heading.module.scss';
 const Heading = ({ level, children, className, iconProps, ...rest }) => {
   const Tag = level;
 
-  const combinedClassName = `${styles.heading} ${styles[level]} ${className || ''}`.trim();
+  const combinedClassName = `${styles.base} ${styles.decorativeLine} ${styles[level]} ${className || ''}`.trim();
 
   return (
     <Tag className={combinedClassName} {...rest}>
-      {/* Simpler wrapper for icon and text alignment */}
-      <span className={styles.contentWrapper}> 
+      <span className={styles.contentWrapper}>
         {iconProps && (
-          <Icon 
-            {...iconProps} 
-            className={iconProps.className || ''} 
+          <Icon
+            {...iconProps}
+            // Allow overriding the icon's class from the parent
+            className={iconProps.className}
           />
         )}
-        {children} {/* Children (text) are rendered directly next to the Icon */}
+        {children}
       </span>
     </Tag>
   );
@@ -32,7 +32,7 @@ Heading.propTypes = {
   className: PropTypes.string,
   iconProps: PropTypes.shape({
     icon: PropTypes.string.isRequired,
-    // You can add more specific proptypes here for other common icon props if desired
+    className: PropTypes.string,
   }),
 };
 

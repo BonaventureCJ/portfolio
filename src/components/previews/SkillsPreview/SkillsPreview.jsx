@@ -23,7 +23,11 @@ const SkillsPreview = () => {
   return (
     <section className={styles.skillsPreview}>
       <div className={styles.skillsPreview__container}>
-        <Heading level="h2" className={styles.skillsPreview__heading}>
+        <Heading 
+          level="h2" 
+          className={styles.skillsPreview__heading}
+          iconProps={{ icon: 'Skillshare' }}
+        >
           My Key Skills
         </Heading>
 

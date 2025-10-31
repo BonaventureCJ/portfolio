@@ -1,43 +1,31 @@
 // src/components/Heading/Heading.module.scss
 
-/* A Sass map to define the font sizes for each heading level */
-$heading-font-sizes: (
-  h1: var(--font-size-h1),
-  h2: var(--font-size-h2),
-  h3: var(--font-size-xl),
-  h4: var(--font-size-lg),
-  h5: var(--font-size-base),
-  h6: var(--font-size-sm)
-);
+@use 'styles/abstracts' as *;
 
-.heading {
-  /* 
-   * Use fit-content to restrict the block element's width 
-   * to be exactly the width of its content (icon + text).
-   */
+// Base heading styles (low specificity)
+.base {
   width: fit-content;
   margin: 0 auto 1em auto;
-  /* Centers the whole heading block and adds space below */
   position: relative;
+}
 
-  /* 
-   * Apply decorative line directly as a border-bottom on the heading element itself.
-   */
+// Styles for the decorative line
+.decorativeLine {
   border-bottom: 0.05em solid var(--color-brand-primary);
   padding-bottom: 0.3em;
-  /* Adds space between the text/icon and the line */
-
-  /* The contentWrapper is not strictly needed but doesn't hurt */
-  .contentWrapper {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.5em;
-  }
-
-  /* ... (rest of the SCSS loop for font sizes) ... */
-  @each $level, $size in $heading-font-sizes {
-    &.#{$level} {
-      font-size: $size;
-    }
-  }
 }
+
+// Wrapper for alignment
+.contentWrapper {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+// Font size utility classes (single responsibility)
+.h1 { font-size: var(--font-size-h1); }
+.h2 { font-size: var(--font-size-h2); }
+.h3 { font-size: var(--font-size-xl); }
+.h4 { font-size: var(--font-size-lg); }
+.h5 { font-size: var(--font-size-base); }
+.h6 { font-size: var(--font-size-sm); }
