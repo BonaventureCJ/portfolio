@@ -15,7 +15,7 @@ const About = () => {
     <section className={styles.about}>
       <div className={styles.about__content}>
         <Heading 
-          level="h2" 
+          level="h1" 
           iconProps={{ 
             icon: 'UserTie',
           }}

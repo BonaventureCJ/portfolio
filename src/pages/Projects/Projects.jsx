@@ -5,7 +5,7 @@ import ProjectsCard from 'components/Cards/ProjectsCard';
 import styles from './Projects.module.scss';
 import Heading from 'components/Heading/Heading';
 
-export const Projects = () => { // Change starts here
+export const Projects = () => {
   const inDevelopmentProjects = projects.filter(project => project.development_status === 'In Development');
   const recentProjects = projects.filter(project => project.isRecent && project.development_status !== 'In Development');
   const tutorialBasedProjects = projects.filter(project => project.isTutorialBased);
@@ -18,8 +18,9 @@ export const Projects = () => { // Change starts here
    * @param {string[]} description - The subheading describing the section.
    * @param {number} headingLevel - The heading level (e.g., 2 for h2).
    * @param {string} sectionId - The unique ID for the section, used for accessibility.
+   * @param {object} [iconProps] - Optional icon props to pass to the Heading component.
    */
-  const renderProjectSection = (projects, title, description, headingLevel = 2, sectionId) => {
+  const renderProjectSection = (projects, title, description, headingLevel = 2, sectionId, iconProps) => {
     if (projects.length === 0) {
       return null;
     }
@@ -27,7 +28,12 @@ export const Projects = () => { // Change starts here
     return (
       <section className={styles['projects-section']} aria-labelledby={sectionId}>
         <div className={styles['projects-section__header-container']}>
-          <Heading level={`h${headingLevel}`} className={styles['projects-section__title']} id={sectionId}>
+          <Heading 
+            level={`h${headingLevel}`} 
+            className={styles['projects-section__title']} 
+            id={sectionId}
+            iconProps={iconProps}
+          >
             {title}
           </Heading>
           <p className={styles['projects-section__subtitle']}>
@@ -54,7 +60,11 @@ export const Projects = () => { // Change starts here
   return (
     <div className={styles['projects-page']}>
       <header className={styles['projects-page__header']}>
-        <Heading level="h1" className={styles['projects-page__main-title']}>
+        <Heading
+          level="h1"
+          className={styles['projects-page__main-title']}
+          iconProps={{ icon: 'LaptopBriefcase' }} 
+        >
           My Work
         </Heading>
         <p className={styles['projects-page__description']}>
@@ -63,14 +73,14 @@ export const Projects = () => { // Change starts here
       </header>
 
       <div className={styles['projects-page__main']}>
-
         {/* FIRST: Completed/Recent Projects (MVP Status) */}
         {renderProjectSection(
           recentProjects,
           'Recent Projects (MVPs)',
           ["Showcasing my most up-to-date work that has reached an initial deployable state (MVP), reflecting my current skill set and development approach."],
-          2,
-          'recent-mvp-projects'
+          3,
+          'recent-mvp-projects',
+          { icon: 'Rocket' }
         )}
 
         {/* SECOND: Projects Currently in Progress */}
@@ -78,8 +88,9 @@ export const Projects = () => { // Change starts here
           inDevelopmentProjects,
           'Projects in Development',
           ["A preview of current major projects that are actively being built and refined."],
-          2,
-          'in-development-projects'
+          3,
+          'in-development-projects',
+          { icon: 'WindowDevTools' }
         )}
 
         {/* THIRD & FOURTH: Older/Tutorial Projects */}
@@ -87,8 +98,9 @@ export const Projects = () => { // Change starts here
           tutorialBasedProjects,
           'Tutorial-Based Projects',
           ["A selection of projects built while learning specific technologies and techniques, demonstrating foundational knowledge."],
-          2,
-          'tutorial-projects'
+          3,
+          'tutorial-projects',
+          { icon: 'BlueBook' }
         )}
         {renderProjectSection(
           earlierCareerProjects,
@@ -97,8 +109,9 @@ export const Projects = () => { // Change starts here
             "While these projects effectively showcased early skills and foundational problem-solving, my current approach to development has matured significantly: I now prioritize robust architecture, modern design patterns, and industry-best practices learned through continuous experience.",
             "Today, I specialize in building highly scalable, maintainable, and accessible projects, focusing on superior code quality, architectural integrity, and optimized performance."
           ],
-          2,
-          'earlier-career-projects'
+          3,
+          'earlier-career-projects',
+          { icon: 'Seedling' }
         )}
       </div>
     </div>

@@ -1,12 +1,13 @@
 // src/components/Heading/Heading.module.scss
-
 @use 'styles/abstracts' as *;
 
-// Base heading styles (low specificity)
 .base {
-  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0 auto 1em auto;
   position: relative;
+  width: fit-content;
 }
 
 // Styles for the decorative line
@@ -17,9 +18,24 @@
 
 // Wrapper for alignment
 .contentWrapper {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.5em;
+  display: flex; /* Flex for full compatibility with alignment properties */
+  flex-wrap: wrap;
+  /* justify-content: center;
+  align-items: center;
+  text-align: center; */
+  gap: 1rem;
+}
+
+// Separate wrappers provide more specific control
+.iconWrapper {
+  display: flex;
+  //align-items: center;
+}
+
+.textWrapper {
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 // Font size utility classes (single responsibility)

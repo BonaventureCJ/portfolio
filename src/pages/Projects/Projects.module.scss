@@ -2,7 +2,7 @@
 @use 'styles/abstracts' as *;
 
 .projects-page {
-  padding: var(--spacing-lg) var(--spacing-md);
+  padding: var(--spacing-xl) var(--spacing-sm);
   color: var(--color-text-primary);
   background-color: var(--color-surface-base);
   min-height: 100vh;

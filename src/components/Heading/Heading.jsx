@@ -1,5 +1,3 @@
-// src/components/Heading/Heading.jsx
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'components/Icon/Icon';
@@ -14,13 +12,17 @@ const Heading = ({ level, children, className, iconProps, ...rest }) => {
     <Tag className={combinedClassName} {...rest}>
       <span className={styles.contentWrapper}>
         {iconProps && (
-          <Icon
-            {...iconProps}
-            // Allow overriding the icon's class from the parent
-            className={iconProps.className}
-          />
+          <span className={styles.iconWrapper}>
+            <Icon
+              {...iconProps}
+              // Allow overriding the icon's class from the parent
+              className={iconProps.className}
+            />
+          </span>
         )}
-        {children}
+        <span className={styles.textWrapper}>
+          {children}
+        </span>
       </span>
     </Tag>
   );
