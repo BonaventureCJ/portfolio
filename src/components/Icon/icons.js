@@ -1,3 +1,4 @@
+// src/components/Icon/icons.js
 import { ReactComponent as UserTie } from 'assets/icons-decorative/user-tie.svg';
 import { ReactComponent as Skillshare } from 'assets/icons-decorative/skillshare.svg';
 import { ReactComponent as LaptopBriefcase } from 'assets/icons-decorative/laptop-briefcase-32-regular.svg';
@@ -5,8 +6,6 @@ import { ReactComponent as Rocket } from 'assets/icons-decorative/rocket.svg';
 import { ReactComponent as Seedling } from 'assets/icons-decorative/seedling.svg';
 import { ReactComponent as BlueBook } from 'assets/icons-decorative/blue-book.svg';
 import { ReactComponent as WindowDevTools } from 'assets/icons-decorative/window-dev-tools-24-regular.svg';
-
-// Import the new icons
 import { ReactComponent as TouchTripleOutline } from 'assets/icons-decorative/touch-triple-outline.svg';
 import { ReactComponent as GlobeShare } from 'assets/icons-decorative/globe-share.svg';
 
@@ -19,7 +18,6 @@ export const icons = {
   Seedling: Seedling,
   BlueBook: BlueBook,
   WindowDevTools: WindowDevTools,
-  // Add the new icons to the mapping
   TouchTripleOutline: TouchTripleOutline,
   GlobeShare: GlobeShare,
 };
