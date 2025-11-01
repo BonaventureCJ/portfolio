@@ -1,6 +1,4 @@
-// src/components/Footer/Footer.jsx
 import React from 'react';
-// Assuming you are using react-router-dom for navigation
 import { Link } from 'react-router-dom';
 import Brand from 'components/Brand/Brand';
 import Heading from 'components/Heading/Heading';
@@ -31,6 +29,11 @@ const Footer = () => {
             level="h2"
             className={styles['footer__social-nav-heading']}
             id="footer-social-heading"
+            iconProps={{
+              icon: 'GlobeShare',
+            }}
+            // Align the heading to the left
+            textAlign="left" 
           >
             Connect with me
           </Heading>
@@ -60,6 +63,11 @@ const Footer = () => {
             level="h2"
             className={styles['footer__contact-nav-heading']}
             id="footer-contact-heading"
+            iconProps={{
+              icon: 'TouchTripleOutline',
+            }}
+            // Align the heading to the left
+            textAlign="left"
           >
             Get in touch
           </Heading>

@@ -6,6 +6,10 @@ import { ReactComponent as Seedling } from 'assets/icons-decorative/seedling.svg
 import { ReactComponent as BlueBook } from 'assets/icons-decorative/blue-book.svg';
 import { ReactComponent as WindowDevTools } from 'assets/icons-decorative/window-dev-tools-24-regular.svg';
 
+// Import the new icons
+import { ReactComponent as TouchTripleOutline } from 'assets/icons-decorative/touch-triple-outline.svg';
+import { ReactComponent as GlobeShare } from 'assets/icons-decorative/globe-share.svg';
+
 // Export an object mapping *string keys* to the imported components
 export const icons = {
   UserTie: UserTie,
@@ -15,7 +19,9 @@ export const icons = {
   Seedling: Seedling,
   BlueBook: BlueBook,
   WindowDevTools: WindowDevTools,
-  // ... other icons
+  // Add the new icons to the mapping
+  TouchTripleOutline: TouchTripleOutline,
+  GlobeShare: GlobeShare,
 };
 
 // A shorter, equivalent way using object property shorthand:
@@ -27,5 +33,6 @@ export const icons = {
 //   Seedling,
 //   BlueBook,
 //   WindowDevTools,
+//   TouchTripleOutline,
+//   GlobeShare,
 // };
-
