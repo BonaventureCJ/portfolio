@@ -8,7 +8,7 @@ export const aboutData = {
   secondarySummary: "My strong background in healthcare, statistical data analyses, and scientific research provides a unique analytical lens for solving complex development challenges and prioritizing the user experience.",
   professionalDrive: "Driven by a passion for impactful software, I seek to join experienced teams to create high-quality solutions that make a genuine difference. My goal is to build meaningful applications that solve complex problems and improve user experiences.",
   openSourceCommitmentTitle: "Commitment to Open Source",
-  openSourceSummary: "I'm passionate about open-source development — not just as a user, but as an active contributor helping improve the tools that power modern web apps. Earning a GitHub Pull Shark Badge reflects my commitment to continuous learning, meaningful collaboration, and making a real impact within the developer community.",
+  openSourceSummary: "I'm passionate about open-source development — not just as a user, but as an active contributor, helping improve the tools that power modern web apps. Earning a GitHub Pull Shark Badge during this process reflects my commitment to continuous learning, meaningful collaboration, and making a real impact within the developer community.",
   openSourceSecondarySummary: "This journey includes providing improvements to the TypeScript documentation for the Redux Toolkit project, an experience that has deepened my understanding of the technology and my connection to the development community.",
   gitHubAchievementsUrl: 'https://github.com/BonaventureCJ?tab=achievements',
   

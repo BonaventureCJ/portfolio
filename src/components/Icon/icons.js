@@ -1,4 +1,3 @@
-// src/components/Icon/icons.js
 import { ReactComponent as UserTie } from 'assets/icons-decorative/user-tie.svg';
 import { ReactComponent as Skillshare } from 'assets/icons-decorative/skillshare.svg';
 import { ReactComponent as LaptopBriefcase } from 'assets/icons-decorative/laptop-briefcase-32-regular.svg';
@@ -6,31 +5,27 @@ import { ReactComponent as Rocket } from 'assets/icons-decorative/rocket.svg';
 import { ReactComponent as Seedling } from 'assets/icons-decorative/seedling.svg';
 import { ReactComponent as BlueBook } from 'assets/icons-decorative/blue-book.svg';
 import { ReactComponent as WindowDevTools } from 'assets/icons-decorative/window-dev-tools-24-regular.svg';
+import { ReactComponent as DevCycle } from 'assets/icons-decorative/cycle.svg';
 import { ReactComponent as TouchTripleOutline } from 'assets/icons-decorative/touch-triple-outline.svg';
 import { ReactComponent as GlobeShare } from 'assets/icons-decorative/globe-share.svg';
+import { ReactComponent as EarthNetwork } from 'assets/icons-decorative/earth-network.svg';
+import { ReactComponent as TargetArrow } from 'assets/icons-decorative/target-arrow-16-regular.svg';
+import { ReactComponent as VirtualNetworkToolbox } from 'assets/icons-decorative/virtual-network-toolbox-20-filled.svg';
 
 // Export an object mapping *string keys* to the imported components
+// Using object property shorthand
 export const icons = {
-  UserTie: UserTie,
-  Skillshare: Skillshare,
-  LaptopBriefcase: LaptopBriefcase,
-  Rocket: Rocket,
-  Seedling: Seedling,
-  BlueBook: BlueBook,
-  WindowDevTools: WindowDevTools,
-  TouchTripleOutline: TouchTripleOutline,
-  GlobeShare: GlobeShare,
+  UserTie,
+  Skillshare,
+  LaptopBriefcase,
+  Rocket,
+  Seedling,
+  BlueBook,
+  WindowDevTools,
+  DevCycle,
+  TouchTripleOutline,
+  GlobeShare,
+  EarthNetwork,
+  TargetArrow,
+  VirtualNetworkToolbox,
 };
-
-// A shorter, equivalent way using object property shorthand:
-// export const icons = {
-//   UserTie,
-//   Skillshare,
-//   LaptopBriefcase,
-//   Rocket,
-//   Seedling,
-//   BlueBook,
-//   WindowDevTools,
-//   TouchTripleOutline,
-//   GlobeShare,
-// };

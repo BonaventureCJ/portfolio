@@ -11,7 +11,7 @@ const Skills = () => {
       <Heading 
         level="h2" 
         className={styles.heading}
-        iconProps={{ icon: 'Skillshare' }} // Add this line to include the icon
+        iconProps={{ icon: 'Skillshare' }} 
       >
         My Skills
       </Heading>

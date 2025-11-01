@@ -90,7 +90,7 @@ export const Projects = () => {
           ["A preview of current major projects that are actively being built and refined."],
           3,
           'in-development-projects',
-          { icon: 'WindowDevTools' }
+          { icon: 'DevCycle' }
         )}
 
         {/* THIRD & FOURTH: Older/Tutorial Projects */}

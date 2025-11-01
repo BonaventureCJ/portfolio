@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import styles from './ProjectsCard.module.scss';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
+import Icon from 'components/Icon/Icon';
 
 /**
  * Renders an 'In Progress' badge component.
  */
 const InProgressBadge = () => (
   <span className={styles['projects-card__badge--in-progress']}>
+    <Icon icon="WindowDevTools" className={styles['projects-card__badge-icon']} />
     In Progress
   </span>
 );
@@ -105,8 +107,10 @@ ProjectsCard.propTypes = {
       })
     ).isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
-    development_status: PropTypes.string, 
+    development_status: PropTypes.string,
   }).isRequired,
 };
 
 export default ProjectsCard;
+
+

@@ -1,4 +1,3 @@
-// src/components/About/About.jsx
 import React from 'react';
 import styles from './About.module.scss';
 import { aboutData } from 'data/about';
@@ -51,7 +50,11 @@ const About = () => {
               {aboutData.professionalDrive}
             </p>
 
-            <Heading level="h3" className={styles.about__subHeading}>
+            <Heading 
+              level="h4" 
+              className={styles.about__subHeading}
+              iconProps={{ icon: 'EarthNetwork' }}
+            >
               {aboutData.openSourceCommitmentTitle}
             </Heading>
             <p className={styles.about__summary}>

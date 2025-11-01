@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SkillsCard.module.scss';
-import Heading from 'components/Heading/Heading'; // Import the Heading component
+import Heading from 'components/Heading/Heading';
 
 /**
  * A reusable component to display a category of skills.
@@ -14,19 +14,30 @@ import Heading from 'components/Heading/Heading'; // Import the Heading componen
 const SkillsCard = ({ categoryTitle, skills, cardType }) => {
   const cardClassName = `${styles.skillsCard} ${styles[`skillsCard--${cardType}`]}`;
 
+  // Determine the correct icon based on the cardType prop
+  const cardIcon = cardType === 'major' 
+    ? 'TargetArrow' 
+    : 'VirtualNetworkToolbox';
+
   return (
     <section className={cardClassName} aria-labelledby={`skills-heading-${cardType}`}>
-      {/* Use the reusable Heading component */}
-      <Heading level="h2" className={styles.title} id={`skills-heading-${cardType}`}>
+      <Heading 
+        level="h2" 
+        className={styles.title} 
+        id={`skills-heading-${cardType}`}
+        iconProps={{ icon: cardIcon }}
+      >
         {categoryTitle}
       </Heading>
-      <ul className={styles.list} role="list">
+      <ul className={styles.list}>
         {skills.map((skill) => {
-          const Icon = skill.icon;
+
+          const IconComponent = skill.icon;
+
           return (
             <li key={skill.id} className={styles.item} aria-label={skill.name}>
               <div className={styles.iconWrapper}>
-                {Icon && <Icon className={styles.icon} aria-hidden="true" />}
+                {IconComponent && <IconComponent className={styles.icon} aria-hidden="true" />}
               </div>
               <p className={styles.name}>{skill.name}</p>
             </li>

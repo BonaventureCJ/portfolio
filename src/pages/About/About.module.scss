@@ -1,4 +1,4 @@
-//src/pages/About/About.module.scss
+// src/pages/About/About.module.scss
 @use 'styles/abstracts' as *;
 
 .about {
@@ -16,23 +16,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-xl); 
+  gap: var(--spacing-xl);
 }
 
-/* .about__title {
-  position: relative;
-}
-
-.about__title::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: var(--color-brand-primary);
-  margin: var(--spacing-sm) auto 0;
-  border-radius: var(--border-radius-sm);
-}
- */
 .about__intro {
   display: flex;
   flex-direction: column;
@@ -42,7 +28,7 @@
 
   @media (min-width: 992px) {
     flex-direction: row;
-    align-items: flex-start; // Align items to the top so both sides start at the same vertical position
+    align-items: flex-start;
     gap: var(--spacing-xl);
   }
 }
@@ -50,12 +36,12 @@
 .about__photoContainer {
   position: relative;
   width: 100%;
-  max-width: 350px; // Max-width for better control on larger screens
+  max-width: 350px;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--box-shadow-hover-md);
   flex-shrink: 0;
-  flex-grow: 1; // Allow it to grow proportionally within the intro container
+  flex-grow: 1;
 }
 
 .about__photoContainer::after {
@@ -78,7 +64,7 @@
 
 .about__photo {
   width: 100%;
-  height: auto; // Allows the image height to adjust naturally with aspect ratio
+  height: auto;
   display: block;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -96,7 +82,7 @@
   gap: var(--spacing-md);
   align-items: center;
   text-align: center;
-  flex-grow: 2; // Allow text to take up more space than the photo (e.g. a 1:2 ratio)
+  flex-grow: 2;
 
   @media (min-width: 992px) {
     align-items: flex-start;
@@ -110,8 +96,15 @@
   font-size: var(--font-size-lg);
   line-height: 1.6;
   max-width: 75ch;
-  // Ensure text alignment matches the container's alignment setting
+
   @media (min-width: 992px) {
-    text-align: left; 
+    text-align: left;
   }
+
+}
+
+.about__subHeading {
+  margin-top: var(--spacing-xl);
+  margin-bottom: 0;
+  color: var(--color-brand-primary);
 }
