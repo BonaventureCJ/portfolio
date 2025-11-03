@@ -9,8 +9,6 @@ import SkillsPreview from 'components/previews/SkillsPreview/SkillsPreview';
 
 const About = () => {
   const gitHubAchievementsUrl = aboutData.gitHubAchievementsUrl;
-   // TODO: REMOVE THIS. This error is for local testing purposes only and must not be committed.
-  throw new Error("This error is for testing puposes only!");
 
   return (
     <section className={styles.about}>
