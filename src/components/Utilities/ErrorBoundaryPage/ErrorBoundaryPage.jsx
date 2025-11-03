@@ -1,4 +1,3 @@
-// src/components/Utilities/ErrorBoundaryPage/ErrorBoundaryPage.jsx
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import PropTypes from 'prop-types';
@@ -7,7 +6,7 @@ import styles from './ErrorBoundaryPage.module.scss';
 import Heading from 'components/Heading/Heading';
 import Button from 'components/Buttons/Button';
 import { ReactComponent as ErrorIcon } from 'assets/icons/baseline-error-outline.svg';
-
+import Icon from 'components/Icon/Icon';
 
 /**
  * Catches and displays route-level errors using a consistent UI.
@@ -15,7 +14,7 @@ import { ReactComponent as ErrorIcon } from 'assets/icons/baseline-error-outline
  */
 const ErrorBoundaryPage = () => {
   const error = useRouteError();
-  // Best practice: Log errors to an external service (e.g., Sentry, New Relic)
+  {/* TODO: Best practice: Log errors to an external service (e.g., Sentry, New Relic) */ }
   console.error("ErrorBoundary caught an error:", error);
 
   let errorMessage = "Sorry, an unexpected error has occurred.";
@@ -37,19 +36,10 @@ const ErrorBoundaryPage = () => {
       role="alert"
       aria-live="assertive"
     >
-      {/* 
-        The wrapper now serves purely as the "card" container, 
-        managing the background, shadow, and main width constraints.
-      */}
       <div className={styles['error-boundary-page__wrapper']}>
-        
-        {/* 
-          The content container now holds ALL visual elements: 
-          icon, heading, paragraph, and buttons.
-          This simplifies layout management for a single-column display.
-        */}
+
         <div className={styles['error-boundary-page__content']}>
-          
+
           <ErrorIcon
             className={styles['error-boundary-page__icon']}
             aria-hidden="true" // WCAG: Hide decorative SVGs from screen readers
@@ -58,8 +48,19 @@ const ErrorBoundaryPage = () => {
           <Heading level="h1" className={styles['error-boundary-page__title']}>
             Oops! Something Went Wrong
           </Heading>
-          
-          <p className={styles['error-boundary-page__message']}>{errorMessage}</p>
+
+          {/* Block for message with inline icon */}
+          <div className={styles['error-boundary-page__message-container']}>
+            {/* Render the inline icon using the reusable Icon component unline the first icon*/}
+            <Icon
+              icon="ErrorTriangle"
+              className={styles['error-boundary-page__message-icon']}
+            />
+            {/* Wrap the error message in a span with a BEM class */}
+            <p className={styles['error-boundary-page__message']}>
+              <span className={styles['error-boundary-page__message-text']}>{errorMessage}</span>
+            </p>
+          </div>
 
           <div className={styles['error-boundary-page__actions']}>
             <Button

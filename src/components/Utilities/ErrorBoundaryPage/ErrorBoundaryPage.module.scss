@@ -34,7 +34,7 @@
   width: 150px; 
   height: 150px; 
   display: block;
-  //fill: var(--color-error);
+  fill: var(--color-error);
   margin-bottom: var(--spacing-md); 
 }
 
@@ -70,13 +70,32 @@
   }
 }
 
+.error-boundary-page__message-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.error-boundary-page__message-icon {
+  width: 1.5em;
+  height: 1.5em;
+  //The SVG is using currentColor, so we must set the `color` property.
+  color: var(--color-warning);
+  flex-shrink: 0;
+}
+
 .error-boundary-page__message {
   font-size: var(--font-size-base);
   color: var(--color-error);
+  margin-bottom: 0;
 
   @media (min-width: 375px) {
     font-size: var(--font-size-lg);
   }
+}
+
+.error-boundary-page__message-text {
+  font-style: italic;
 }
 
 .error-boundary-page__actions {

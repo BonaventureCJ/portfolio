@@ -1,4 +1,3 @@
-// src/components/Utilities/NotFoundPage/NotFoundPage.jsx
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import PropTypes from 'prop-types';
@@ -33,7 +32,11 @@ const NotFoundPage = () => {
 
         <div className={styles['not-found-page__content']}>
 
-          <Heading level="h1" className={styles['not-found-page__title']}>
+          <Heading 
+            level="h1" 
+            className={styles['not-found-page__title']}
+            iconProps={{ icon: 'CompassOffLoop' }} // Add the CompassOffLoop icon
+          >
             404: Not Found
           </Heading>
 
