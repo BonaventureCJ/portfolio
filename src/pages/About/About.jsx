@@ -1,3 +1,4 @@
+// src/pages/About/About.jsx
 import React from 'react';
 import styles from './About.module.scss';
 import { aboutData } from 'data/about';
