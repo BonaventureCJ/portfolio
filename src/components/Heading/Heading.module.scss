@@ -11,7 +11,7 @@
 
   // By using `width: fit-content`, the component's width will shrink-wrap to the content. 
   // However, this prevents aligning the component itself with `margin: auto` when a different text alignment is used. 
-  // You can set the width to 100% when aligning to the left or right to enable that.
+  // We set the width to 100% when aligning to the left or right to enable that.
   &.textAlign--left, &.textAlign--right {
     width: 100%;
   }
@@ -21,6 +21,7 @@
 .decorativeLine {
   border-bottom: 0.08rem solid var(--color-border-primary);
   padding-bottom: 0.3em;
+  transition: border-bottom-color var(--color-transition);
 }
 
 // Wrapper for alignment
