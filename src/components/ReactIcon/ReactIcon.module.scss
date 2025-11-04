@@ -1,0 +1,42 @@
+// src/components/ReactIcon/ReactIcon.module.scss
+@use 'styles/abstracts' as *;
+
+// Use the :root CSS custom properties declared in _abstracts.scss
+.react-icon {
+  // Use `currentColor` so the icon inherits the color of its parent element's text.
+  // This allows the color to adapt automatically based on the theme (light or dark).
+  color: currentColor;
+  
+  // A consistent transition for animations or color changes
+  transition: color var(--color-transition);
+
+  // General sizing, can be overridden by props
+  font-size: var(--font-size-lg);
+
+  // Align the icon with surrounding text
+  vertical-align: middle;
+
+  // BEM Modifiers for size
+  &--size-small {
+    font-size: var(--font-size-sm);
+  }
+
+  &--size-large {
+    font-size: var(--font-size-xl);
+  }
+  
+  // BEM Modifiers for color based on brand colors
+  &--brand-primary {
+    color: var(--color-brand-primary);
+  }
+
+  &--text-secondary {
+    color: var(--color-text-secondary);
+  }
+
+  // Define hover behavior for interactivity
+  // Use the color-mix function from your abstracts file for consistency
+  &--brand-primary:hover {
+    color: var(--color-link-hover);
+  }
+}

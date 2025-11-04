@@ -1,19 +1,12 @@
-// src/components/Buttons/Button.jsx (Refactored)
+// src/components/Buttons/Button.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'; // We need to import Link from react-router-dom to handle internal navigation
+import { Link } from 'react-router-dom';
+import ReactIcon from '../ReactIcon/ReactIcon'; // Import the centralized ReactIcon component
 import styles from './Button.module.scss';
 
 /**
  * A versatile and reusable Button component that can render as a button, anchor tag, or react-router Link.
- * 
- * This component has been refactored to be 'polymorphic' to address a critical accessibility issue: 
- * "double tabbing" caused by nested interactive elements (e.g., a <button> inside an <a> tag).
- * 
- * By conditionally rendering the appropriate HTML element based on whether 'to' (Link) or 'href' (Anchor) 
- * props are provided, we ensure:
- * 1. **Accessibility:** Only one element is focusable, allowing smooth keyboard navigation.
- * 2. **DRY (Don't Repeat Yourself):** We maintain a single source of truth for button styles and logic.
  *
  * @param {object} props
  * @param {'primary' | 'secondary' | 'tertiary'} props.variant - Defines the button's style variant.
@@ -21,12 +14,14 @@ import styles from './Button.module.scss';
  * @param {'small' | 'medium' | 'large'} [props.size] - Defines the button's size.
  * @param {boolean} [props.disabled] - Whether the button is disabled.
  * @param {Function} [props.onClick] - Click handler function.
- * @param {React.ReactNode} props.children - The content inside the button.
+ * @param {React.ReactNode} props.children - The content inside the button (text or other nodes).
  * @param {string} [props.className] - Additional CSS classes.
  * @param {string} [props.to] - The destination for react-router-dom Link (internal navigation).
  * @param {string} [props.href] - The destination for a standard anchor tag (external navigation/downloads).
  * @param {string} [props.ariaLabel] - ARIA label for accessibility.
  * @param {object} [props.style] - Inline styles for specific overrides.
+ * @param {object} [props.icon] - Optional icon object with 'name' and 'prefix'.
+ * @param {'left' | 'right'} [props.iconPosition='left'] - Position of the icon relative to the text.
  */
 const Button = ({
     variant,
@@ -38,19 +33,43 @@ const Button = ({
     className = '',
     style = {},
     ariaLabel,
-    to,   // Prop for react-router-dom Link
-    href, // Prop for standard anchor tag
+    to,
+    href,
+    icon,
+    iconPosition = 'left',
     ...otherProps
 }) => {
-
     const classes = [
         styles.button,
         styles[`button--${variant}`],
         styles[`button--${size}`],
+        icon ? styles[`button--with-icon-${iconPosition}`] : '',
         className,
     ].filter(Boolean).join(' ');
 
-    // 1. If 'to' prop is provided, render as a react-router Link component
+    // Standard content structure for all button types
+    const buttonContent = (
+        <>
+            {icon && iconPosition === 'left' && (
+                <span className={styles['button__icon-wrapper']} aria-hidden="true">
+                    <ReactIcon {...icon} />
+                </span>
+            )}
+            {/* Conditionally render children if they exist */}
+            {children && (
+                <span className={styles['button__text']}>
+                    {children}
+                </span>
+            )}
+            {icon && iconPosition === 'right' && (
+                <span className={styles['button__icon-wrapper']} aria-hidden="true">
+                    <ReactIcon {...icon} />
+                </span>
+            )}
+        </>
+    );
+
+    // 1. Render as a react-router Link component
     if (to) {
         return (
             <Link
@@ -58,16 +77,14 @@ const Button = ({
                 className={classes}
                 aria-label={ariaLabel}
                 style={style}
-                // 'type', 'disabled', and 'onClick' are not standard props for Link, 
-                // so we only pass through generic otherProps like title, target, etc.
-                {...otherProps} 
+                {...otherProps}
             >
-                {children}
+                {buttonContent}
             </Link>
         );
     }
 
-    // 2. If 'href' prop is provided, render as a standard HTML anchor <a> tag
+    // 2. Render as a standard HTML anchor <a> tag
     if (href) {
         return (
             <a
@@ -75,12 +92,10 @@ const Button = ({
                 className={classes}
                 aria-label={ariaLabel}
                 style={style}
-                // Pass onClick here as anchor tags can use onClick handlers
-                onClick={onClick} 
-                // Pass through any standard anchor props like download, target, rel
+                onClick={onClick}
                 {...otherProps}
             >
-                {children}
+                {buttonContent}
             </a>
         );
     }
@@ -96,7 +111,7 @@ const Button = ({
             aria-label={ariaLabel}
             {...otherProps}
         >
-            {children}
+            {buttonContent}
         </button>
     );
 };
@@ -107,12 +122,17 @@ Button.propTypes = {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node, // Children is now optional for icon-only buttons
     className: PropTypes.string,
     style: PropTypes.object,
     ariaLabel: PropTypes.string,
-    to: PropTypes.string, // Prop type for react-router link
-    href: PropTypes.string, // Prop type for standard anchor
+    to: PropTypes.string,
+    href: PropTypes.string,
+    icon: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        prefix: PropTypes.string.isRequired,
+    }),
+    iconPosition: PropTypes.oneOf(['left', 'right']),
 };
 
 export default Button;
