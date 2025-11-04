@@ -5,9 +5,7 @@
   align-items: center;
   justify-content: center;
   // Use a modern `gap` property for spacing between children
-  // A variable is a good idea, but for now, we use a hardcoded value.
   gap: 0.5rem;
-
   padding: var(--button-padding);
   border-radius: var(--button-border-radius);
   font-family: var(--font-family-primary);
@@ -29,7 +27,7 @@
     box-shadow: var(--box-shadow-advanced);
   }
 
-  // Focus-visible for better accessibility (recommended)
+  // Focus-visible for better accessibility
   &:focus-visible {
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;

@@ -19,20 +19,20 @@ const Hero = () => {
         </Heading>
         <p className={styles.heroDescription}>{description}</p>
         <div className={styles.ctaContainer}>
-          {/* Primary CTA: "View My Work" with a right-aligned icon */}
+          {/* Primary CTA: "View My Work" */}
           <Button
             variant="primary"
             size="medium"
             title={primaryCta.title}
             to={primaryCta.url}
             aria-label={primaryCta.ariaLabel}
-            icon={{ name: 'FaArrowRight', prefix: 'fa' }} // Pass icon details here
+            icon={{ name: 'FaArrowRight', prefix: 'fa' }} // Icon details here
             iconPosition="right"
           >
             {primaryCta.label}
           </Button>
 
-          {/* Secondary CTA: "Download Resume" with a left-aligned icon */}
+          {/* Secondary CTA: "Download Resume" */}
           <Button
             variant="secondary"
             size="medium"
@@ -42,7 +42,7 @@ const Hero = () => {
             download
             target="_blank"
             rel="noopener noreferrer"
-            icon={{ name: 'FaDownload', prefix: 'fa' }} // Pass icon details here
+            icon={{ name: 'FaDownload', prefix: 'fa' }} // Icon details here
             iconPosition="right"
           >
             {secondaryCta.label}

@@ -1,12 +1,11 @@
 // src/components/ReactIcon/ReactIcon.module.scss
 @use 'styles/abstracts' as *;
 
-// Use the :root CSS custom properties declared in _abstracts.scss
 .react-icon {
   // Use `currentColor` so the icon inherits the color of its parent element's text.
   // This allows the color to adapt automatically based on the theme (light or dark).
   color: currentColor;
-  
+
   // A consistent transition for animations or color changes
   transition: color var(--color-transition);
 
@@ -24,7 +23,7 @@
   &--size-large {
     font-size: var(--font-size-xl);
   }
-  
+
   // BEM Modifiers for color based on brand colors
   &--brand-primary {
     color: var(--color-brand-primary);

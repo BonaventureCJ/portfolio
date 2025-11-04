@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import ReactIcon from '../ReactIcon/ReactIcon'; // Import the centralized ReactIcon component
+import ReactIcon from 'components/ReactIcon/ReactIcon';
 import styles from './Button.module.scss';
 
 /**
@@ -122,7 +122,7 @@ Button.propTypes = {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     disabled: PropTypes.bool,
     onClick: PropTypes.func,
-    children: PropTypes.node, // Children is now optional for icon-only buttons
+    children: PropTypes.node, // Children is optional for icon-only buttons
     className: PropTypes.string,
     style: PropTypes.object,
     ariaLabel: PropTypes.string,

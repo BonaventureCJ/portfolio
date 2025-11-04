@@ -4,7 +4,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as MdIcons from 'react-icons/md';
 import * as BsIcons from 'react-icons/bs';
-import * as AiIcons from 'react-icons/ai'; // Example from previous
+import * as AiIcons from 'react-icons/ai';
 import * as GiIcons from 'react-icons/gi'; // Example: Game Icons
 import * as HiIcons from 'react-icons/hi2'; // Example: Heroicons v2
 import * as SiIcons from 'react-icons/si'; // Example: Simple Icons

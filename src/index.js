@@ -18,15 +18,14 @@ root.render(
   <React.StrictMode>
     <ThemeProvider>
       {/* 
-        Wrap your App with the IconContext.Provider.
-        This provides a default size and color for all icons,
-        which will automatically adapt to the current theme.
+        Wrap App with the IconContext.Provider.
+        This provides a default size for all icons,
+        other defaults like color can be added which will automatically adapt to the current theme.
       */}
       <IconContext.Provider
         value={{
           size: '1em', // A reasonable default size
-          /* color: 'var(--color-text-primary)', // Color adapts to the current theme */
-          className: 'global-icon-style' // You can still use a global class
+          /* color: 'var(--color-text-primary)', // Color adapts to the current theme // color is handled by each element for aesthetics */
         }}
       >
         <App />
