@@ -11,8 +11,7 @@ import PullSharkBadgeLink from 'components/PullSharkBadgeLink/PullSharkBadgeLink
 
 const About = () => {
   // Split the text to correctly place the link with the icon
-  const fullOpenSourceText = `${aboutData.openSourceSummary} ${aboutData.openSourceSecondarySummary}`;
-  const [beforeLink, afterLink] = fullOpenSourceText.split('Pull Shark Badge');
+  const [beforeLink, afterLink] = aboutData.openSourceSummary.split('Pull Shark Badge');
 
   return (
     <section className={styles.about}>
@@ -59,6 +58,9 @@ const About = () => {
               {beforeLink}
               <PullSharkBadgeLink className={styles.about__link} />
               {afterLink}
+            </p>
+            <p className={styles.about__summary}>
+              {aboutData.openSourceSecondarySummary}
             </p>
           </div>
         </div>
