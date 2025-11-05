@@ -1,3 +1,5 @@
+// src/components/previews/ProjectsPreview/ProjectsPreview.jsx
+
 import React from 'react';
 import styles from './ProjectsPreview.module.scss';
 import { projects } from 'data/projects/projects';
@@ -42,8 +44,8 @@ const ProjectsPreview = () => {
             size="medium"
             aria-label="Navigate to the full Projects page"
             title="View all projects on the Projects page"
-            // If the original 'ctaLink' styles are needed, they will be passed here
-            // className={styles.ctaLink}
+            icon={{ prefix: 'fa', name: 'FaArrowRight' }}
+            iconPosition="right"
           >
             View All Projects
           </Button>
