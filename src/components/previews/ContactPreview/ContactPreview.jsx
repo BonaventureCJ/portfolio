@@ -21,9 +21,9 @@ const ContactPreview = () => {
   return (
     <section className={styles.contactPreview} aria-labelledby="featured-contact-heading">
       <div className={styles.contactPreview__container}>
-        <Heading 
-          level="h2" 
-          id="featured-contact-heading" 
+        <Heading
+          level="h2"
+          id="featured-contact-heading"
           className={styles.contactPreview__heading}
           iconProps={{ icon: 'GlobeShare' }}
         >
@@ -41,10 +41,13 @@ const ContactPreview = () => {
         </div>
         <div className={styles.contactPreview__cta}>
           <Button
-            to="/contact#contact-form-section" 
+            to="/contact#contact-form-section"
             variant="primary"
             size="medium"
             title="Navigate to the contact form on contact page"
+            // Add the icon and position it to the right
+            icon={{ name: 'IoPaperPlaneOutline', prefix: 'io' }}
+            iconPosition="right"
           >
             Fill out a contact form
           </Button>

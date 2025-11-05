@@ -9,6 +9,8 @@ import * as GiIcons from 'react-icons/gi'; // Example: Game Icons
 import * as HiIcons from 'react-icons/hi2'; // Example: Heroicons v2
 import * as SiIcons from 'react-icons/si'; // Example: Simple Icons
 import * as LiaIcons from 'react-icons/lia'; // Example: Line Awesome
+import * as IoIcons from 'react-icons/io5'; // Ionicons library
+
 import styles from './ReactIcon.module.scss';
 
 // Map icon library prefixes to their respective imports
@@ -21,6 +23,7 @@ const iconLibraries = {
     hi: HiIcons,
     si: SiIcons,
     lia: LiaIcons,
+    io: IoIcons,
 };
 
 /**
