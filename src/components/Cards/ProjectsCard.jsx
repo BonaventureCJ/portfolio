@@ -40,6 +40,16 @@ const ProjectsCard = ({ project }) => {
   // Check if the project is currently in development
   const isInDevelopment = development_status === 'In Development';
 
+  const getButtonIcon = (label) => {
+    if (label.toLowerCase().includes('live')) {
+      return { prefix: 'bs', name: 'BsBoxArrowUpRight' }; // Icon for external link
+    }
+    if (label.toLowerCase().includes('code')) {
+      return { prefix: 'bs', name: 'BsGithub' }; // Icon for GitHub
+    }
+    return null;
+  };
+
   return (
     <article className={styles['projects-card']}>
       <div className={styles['projects-card__image-container']}>
@@ -81,6 +91,8 @@ const ProjectsCard = ({ project }) => {
               title={link.ariaLabel}
               target="_blank"
               rel="noopener noreferrer"
+              icon={getButtonIcon(link.label)}
+              iconPosition="right"
             >
               {link.label}
             </Button>
@@ -112,5 +124,3 @@ ProjectsCard.propTypes = {
 };
 
 export default ProjectsCard;
-
-

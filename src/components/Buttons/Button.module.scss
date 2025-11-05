@@ -61,6 +61,8 @@
 /* --- Size Modifiers --- */
 .button--small {
   font-size: var(--font-size-sm);
+  min-width: 280px;
+  min-height: 40px;
 }
 
 .button--medium {

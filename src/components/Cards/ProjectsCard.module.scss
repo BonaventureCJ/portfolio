@@ -126,6 +126,7 @@
 .projects-card__actions {
   /* Layout */
   display: flex;
+   justify-content: center; /* Add this line to center the buttons */
   flex-wrap: wrap;
 
   /* Spacing */
