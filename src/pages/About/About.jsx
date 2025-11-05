@@ -7,16 +7,19 @@ import requestResume from 'assets/documents/request-resume.pdf';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
 import SkillsPreview from 'components/previews/SkillsPreview/SkillsPreview';
+import PullSharkBadgeLink from 'components/PullSharkBadgeLink/PullSharkBadgeLink';
 
 const About = () => {
-  const gitHubAchievementsUrl = aboutData.gitHubAchievementsUrl;
+  // Split the text to correctly place the link with the icon
+  const fullOpenSourceText = `${aboutData.openSourceSummary} ${aboutData.openSourceSecondarySummary}`;
+  const [beforeLink, afterLink] = fullOpenSourceText.split('Pull Shark Badge');
 
   return (
     <section className={styles.about}>
       <div className={styles.about__content}>
-        <Heading 
-          level="h1" 
-          iconProps={{ 
+        <Heading
+          level="h1"
+          iconProps={{
             icon: 'UserTie',
           }}
         >
@@ -35,45 +38,27 @@ const About = () => {
             />
           </div>
           <div className={styles.about__textContainer}>
-            {/* 
-              It is crucial that the combined height of these paragraphs 
-              is now visually balanced with the image height based on 
-              the data refactoring.
-            */}
             <p className={styles.about__summary}>
               {aboutData.summary}
             </p>
             <p className={styles.about__summary}>
               {aboutData.secondarySummary}
             </p>
-            {/* Condensing the text here helps balance the layout */}
             <p className={styles.about__summary}>
               {aboutData.professionalDrive}
             </p>
 
-            <Heading 
-              level="h4" 
+            <Heading
+              level="h4"
               className={styles.about__subHeading}
               iconProps={{ icon: 'EarthNetwork' }}
             >
               {aboutData.openSourceCommitmentTitle}
             </Heading>
             <p className={styles.about__summary}>
-              {aboutData.openSourceSummary.split('Pull Shark Badge')[0]}
-              <a
-                href={gitHubAchievementsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View Bonaventure's GitHub Pull Shark Badge achievement"
-                title="View the GitHub achievement badge"
-                className={styles.about__link}
-              >
-                Pull Shark Badge
-              </a>
-              {aboutData.openSourceSummary.split('Pull Shark Badge')[1]}
-            </p>
-            <p className={styles.about__summary}>
-              {aboutData.openSourceSecondarySummary}
+              {beforeLink}
+              <PullSharkBadgeLink className={styles.about__link} />
+              {afterLink}
             </p>
           </div>
         </div>
@@ -87,6 +72,8 @@ const About = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download Bonaventure's Resume (PDF)"
+          icon={{ prefix: 'fa', name: 'FaDownload' }}
+          iconPosition="right"
         >
           Download Resume
         </Button>
