@@ -25,7 +25,7 @@ const ContactForm = () => {
   const submitButtonRef = useRef(null);
   const navigate = useNavigate();
 
-  // Determine if the button should be natively disabled (Formspree is handling this mostly)
+  // Determine if the button should be natively disabled
   const isDisabled = state.submitting || !canSubmit;
   const submitButtonText = state.succeeded ? 'Message Sent!' : state.submitting ? 'Sending...' : 'Send Message';
 
@@ -42,6 +42,22 @@ const ContactForm = () => {
           // Fallback case (e.g., succeeded state)
           : '';
 
+  /**
+   * Dynamically determines the button icon based on the form's submission state.
+   * A loading icon for "Sending...", a success icon for "Message Sent!", and
+   * a paper plane for the default state.
+   */
+  const getButtonIcon = () => {
+    if (state.succeeded) {
+      return { name: 'IoCheckmarkCircle', prefix: 'io' };
+    }
+    if (state.submitting) {
+      // You may need to add a spin animation in your SCSS for this icon
+      return { name: 'IoRefresh', prefix: 'io' };
+    }
+    return { name: 'IoPaperPlaneOutline', prefix: 'io' };
+  };
+
   // Effect to show toast and redirect after successful submission
   useEffect(() => {
     if (state.succeeded && hasShownToast) {
@@ -50,19 +66,14 @@ const ContactForm = () => {
         autoClose: 8000,
       });
 
-      // Redirect to the home page or a thank-you page after a delay
       const redirectTimeout = setTimeout(() => {
         navigate('/');
       }, 8500);
 
-      // Cleanup function to clear the timeout if the component unmounts
       return () => clearTimeout(redirectTimeout);
     }
   }, [state.succeeded, hasShownToast, navigate]);
 
-
-  // If succeeded, we let the toast and redirect handle the flow, 
-  // we return null instead of rendering a success message here.
   if (state.succeeded) {
     return null;
   }
@@ -90,7 +101,7 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleEmailChange}
           error={emailError}
-          hasInteracted={hasInteracted} // Using hasInteracted here
+          hasInteracted={hasInteracted}
         />
 
         {/* Subject Group */}
@@ -117,7 +128,6 @@ const ContactForm = () => {
 
       {/* Button Implementation */}
       <div
-        // Apply the title attribute to the wrapper div so it works on hover/focus even when button is disabled
         title={submitButtonTitle}
         className={styles['contact-form__button-wrapper']}
       >
@@ -126,9 +136,10 @@ const ContactForm = () => {
           type="submit"
           variant="tertiary"
           size="medium"
-          disabled={isDisabled}// Uses native disabled state
-          // Pass the canSubmit status to the SCSS module for specific styling
+          disabled={isDisabled}
           className={`${styles['contact-form__submit']} ${canSubmit ? styles['contact-form__submit--can-submit'] : ''}`}
+          icon={getButtonIcon()}
+          iconPosition="right"
         >
           {submitButtonText}
         </Button>
