@@ -21,7 +21,7 @@ const AboutPreview = () => {
           <Heading
             level="h2"
             className={styles.aboutPreview__heading}
-            iconProps={{ prefix: 'fa', name: 'FaUserTie' }}
+            iconProps={{ icon: 'UserTie' }}
           >
             About Me
           </Heading>

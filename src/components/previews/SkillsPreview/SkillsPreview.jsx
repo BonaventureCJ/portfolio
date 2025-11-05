@@ -8,6 +8,7 @@ import {useIntersectionObserver} from 'hooks/useIntersectionObserver';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
 
+
 /**
  * A skills preview section for the homepage.
  * @returns {JSX.Element} The Skills Preview component.
@@ -53,8 +54,8 @@ const SkillsPreview = () => {
             size="medium"
             aria-label="View all skills on the Skills page"
             title="Navigate to the full Skills page"
-            // Optional: If original 'ctaLink' styles are needed, they can be passed here
-            // className={styles.ctaLink}
+            icon={{ prefix: 'fa', name: 'FaArrowRight' }}
+            iconPosition="right"
           >
             View All Skills
           </Button>
