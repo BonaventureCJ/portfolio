@@ -1,6 +1,7 @@
 // src/layouts/Navigation/DesktopNav/DesktopNav.jsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import ReactIcon from 'components/ReactIcon/ReactIcon';
 import styles from './DesktopNav.module.scss';
 
 const DesktopNav = ({ navItems, onLinkClick }) => {
@@ -20,7 +21,12 @@ const DesktopNav = ({ navItems, onLinkClick }) => {
               aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
               title={`Go to ${item.label}`}
             >
-              {item.label}
+              <ReactIcon
+                name={item.icon.name}
+                prefix={item.icon.prefix}
+                className={styles['desktopNav__icon']}
+              />
+              <span className={styles['desktopNav__label']}>{item.label}</span>
             </NavLink>
           </li>
         ))}
@@ -30,4 +36,3 @@ const DesktopNav = ({ navItems, onLinkClick }) => {
 };
 
 export default DesktopNav;
-
