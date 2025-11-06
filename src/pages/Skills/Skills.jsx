@@ -8,10 +8,10 @@ import Heading from 'components/Heading/Heading';
 const Skills = () => {
   return (
     <section className={styles.skillsSection}>
-      <Heading 
-        level="h2" 
+      <Heading
+        level="h1"
         className={styles.heading}
-        iconProps={{ icon: 'Skillshare' }} 
+        iconProps={{ icon: 'Skillshare' }}
       >
         My Skills
       </Heading>

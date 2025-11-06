@@ -10,7 +10,7 @@ const Contact = () => {
     <section className={styles.contact} aria-labelledby="contact-main-title">
       <header className={styles.contact__header}>
         <Heading 
-          level="h2" 
+          level="h1" 
           className={styles.contact__title} 
           id="contact-main-title"
           iconProps={{ icon: 'TouchTripleOutline' }}
