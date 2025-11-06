@@ -7,8 +7,14 @@ import styles from './Heading.module.scss';
 const Heading = ({ level, children, className, iconProps, textAlign, ...rest }) => {
   const Tag = level;
 
-  const alignmentClass = styles[`textAlign--${textAlign}`] || '';
-  const combinedClassName = `${styles.base} ${styles.decorativeLine} ${styles[level]} ${alignmentClass} ${className || ''}`.trim();
+  // Use a modern approach for combining class names
+  const combinedClassName = [
+    styles.base,
+    styles.decorativeLine,
+    styles[level],
+    styles[`textAlign--${textAlign}`],
+    className,
+  ].filter(Boolean).join(' '); // Filter out falsy values before joining
 
   return (
     <Tag className={combinedClassName} {...rest}>
@@ -37,11 +43,9 @@ Heading.propTypes = {
     icon: PropTypes.string.isRequired,
     className: PropTypes.string,
   }),
-  // Prop for text alignment, with a default value.
   textAlign: PropTypes.oneOf(['left', 'center', 'right']),
 };
 
-// Default props for `textAlign` ensures it is centered unless specified otherwise.
 Heading.defaultProps = {
   textAlign: 'center',
 };
