@@ -52,8 +52,9 @@ const ContactForm = () => {
       return { name: 'IoCheckmarkCircle', prefix: 'io' };
     }
     if (state.submitting) {
-      // You may need to add a spin animation in your SCSS for this icon
-      return { name: 'IoRefresh', prefix: 'io' };
+      // Add the module-scoped class name for the spin animation
+      // The animation keyframes are defined in ContactForm.module.scss
+      return { name: 'IoRefresh', prefix: 'io', className: styles.spin };
     }
     return { name: 'IoPaperPlaneOutline', prefix: 'io' };
   };
