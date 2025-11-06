@@ -1,4 +1,4 @@
-// src/components/Utilities/NotFoundPage\NotFoundPage.jsx
+// src/components/Utilities/NotFoundPage/NotFoundPage.jsx
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import PropTypes from 'prop-types';
@@ -52,6 +52,8 @@ const NotFoundPage = () => {
               size="medium"
               className={styles['not-found-page__button--home']}
               aria-label="Go back to the home page"
+              icon={{ name: 'FaHome', prefix: 'fa' }}
+              iconPosition="right"
             >
               Go back to Home
             </Button>
