@@ -21,38 +21,33 @@
   gap: var(--spacing-lg); // Consistent spacing between navigation items
 }
 
-/* .desktopNav__item {
-  // Can be used for specific item-level styles if needed
-  background-color: yellow;
-} */
-
 .desktopNav__link {
+  display: flex;
+  align-items: center;
+
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-base);
   color: var(--nav-text);
-  
+
   text-decoration: none;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   letter-spacing: 0.05em;
   position: relative;
-  padding: var(--spacing-xxs) 0; // Add some vertical padding for hover/focus state
+  padding: var(--spacing-xxs) 0;
 
-  // Smooth transition for color and underline effect
-  //transition: color 0.3s ease;
-  transition: 
-    color 0.3s ease, /* This is the transition speed when the user hovers over the link */
-    color var(--color-transition); /* This is the transition speed when the global theme is toggled */
-
+  transition:
+    color 0.3s ease,
+    color var(--color-transition);
 
   // Underline effect on hover and focus for better UI/UX
   &::after {
     content: '';
     position: absolute;
-    bottom: -5px; // Adjust based on desired spacing
+    bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px; // Thickness of the underline
+    height: 2px;
     background-color: var(--nav-link-hover);
     transition: width 0.3s ease;
   }
@@ -76,4 +71,9 @@
       background-color: var(--nav-link-active);
     }
   }
+}
+
+.desktopNav__icon {
+  font-size: var(--font-size-lg);
+  margin-right: var(--spacing-xs);
 }

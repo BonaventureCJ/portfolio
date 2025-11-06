@@ -5,11 +5,13 @@ import * as FaIcons from 'react-icons/fa';
 import * as MdIcons from 'react-icons/md';
 import * as BsIcons from 'react-icons/bs';
 import * as AiIcons from 'react-icons/ai';
-import * as GiIcons from 'react-icons/gi'; // Example: Game Icons
-import * as HiIcons from 'react-icons/hi2'; // Example: Heroicons v2
-import * as SiIcons from 'react-icons/si'; // Example: Simple Icons
-import * as LiaIcons from 'react-icons/lia'; // Example: Line Awesome
-import * as IoIcons from 'react-icons/io5'; // Ionicons library
+import * as GiIcons from 'react-icons/gi';
+import * as HiIcons from 'react-icons/hi2';
+import * as SiIcons from 'react-icons/si';
+import * as LiaIcons from 'react-icons/lia';
+import * as IoIcons from 'react-icons/io5';
+import * as Fa6Icons from 'react-icons/fa6';
+import * as TbIcons from 'react-icons/tb';
 
 import styles from './ReactIcon.module.scss';
 
@@ -24,6 +26,8 @@ const iconLibraries = {
     si: SiIcons,
     lia: LiaIcons,
     io: IoIcons,
+    fa6: Fa6Icons,
+    tb: TbIcons,
 };
 
 /**

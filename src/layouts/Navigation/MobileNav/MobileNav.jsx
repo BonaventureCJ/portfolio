@@ -1,6 +1,7 @@
 // src/layouts/Navigation/MobileNav/MobileNav.jsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import ReactIcon from 'components/ReactIcon/ReactIcon';
 import styles from './MobileNav.module.scss';
 
 const MobileNav = ({ isOpen, navItems, onLinkClick }) => {
@@ -26,7 +27,12 @@ const MobileNav = ({ isOpen, navItems, onLinkClick }) => {
               onClick={onLinkClick}
               aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
             >
-              {item.label}
+              <ReactIcon
+                name={item.icon.name}
+                prefix={item.icon.prefix}
+                className={styles['mobileNav__icon']}
+              />
+              <span className={styles['mobileNav__label']}>{item.label}</span>
             </NavLink>
           </li>
         ))}
@@ -36,4 +42,3 @@ const MobileNav = ({ isOpen, navItems, onLinkClick }) => {
 };
 
 export default MobileNav;
-
