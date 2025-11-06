@@ -8,19 +8,19 @@
   border-radius: var(--border-radius-md);
   overflow: hidden;
   position: relative; /* Ensures badge positioning works relative to the card */
-  
+
   /* Theming */
   background-color: var(--card-bg);
   border: var(--card-border);
   box-shadow: var(--card-box-shadow);
-  
+
   /* Animation */
-  transition: 
+  transition:
     transform 0.3s ease-in-out,
-    background-color var(--color-transition), 
-    border-color var(--color-transition), 
+    background-color var(--color-transition),
+    border-color var(--color-transition),
     box-shadow var(--color-transition);
-  
+
   &:hover {
     transform: translateY(-5px);
   }
@@ -41,11 +41,16 @@
 }
 
 .projects-card__badge--in-progress {
+  /* Use flexbox to align icon and text */
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs); /* Spacing between icon and text */
+
   position: absolute;
-  top: var(--spacing-xs); 
-  right: var(--spacing-xs); 
-  background-color: var(--color-error);
-  color: var(--color-text-inverse); 
+  top: var(--spacing-xs);
+  right: var(--spacing-xs);
+  background-color: var(--color-warning);
+  color: var(--color-text-inverse);
   padding: var(--spacing-xxs) var(--spacing-xs);
   border-radius: var(--border-radius-full);
   font-size: var(--font-size-sm);
@@ -53,9 +58,13 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: var(--box-shadow-sm);
-  z-index: 10; 
+  z-index: 10;
 }
 
+.projects-card__badge-icon {
+  width: 1em; // or a specific pixel value
+  height: 1em; // or a specific pixel value
+}
 
 .projects-card__content {
   /* Spacing */
@@ -68,7 +77,7 @@
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   color: var(--card-text);
-  
+
   /* Spacing */
   margin-top: 0;
   margin-bottom: var(--spacing-xs);
@@ -80,7 +89,7 @@
   font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   line-height: 1.5;
-  
+
   /* Spacing */
   margin-bottom: var(--spacing-md);
   transition: color var(--color-transition);
@@ -91,7 +100,7 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  
+
   /* Spacing */
   margin: 0;
   padding: 0;
@@ -102,23 +111,24 @@
   /* Theming */
   color: var(--button-text-primary-hover);
   background-color: var(--button-bg-primary-hover);
-  
+
   /* Box model */
   padding: var(--spacing-xxs) var(--spacing-xs);
   border-radius: var(--button-border-radius);
-  
+
   /* Typography */
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
-  
+
   transition: color var(--color-transition), background-color var(--color-transition);
 }
 
 .projects-card__actions {
   /* Layout */
   display: flex;
+   justify-content: center; /* Add this line to center the buttons */
   flex-wrap: wrap;
-  
+
   /* Spacing */
   gap: var(--spacing-md);
   margin-top: var(--spacing-lg);

@@ -33,7 +33,11 @@ const NotFoundPage = () => {
 
         <div className={styles['not-found-page__content']}>
 
-          <Heading level="h1" className={styles['not-found-page__title']}>
+          <Heading 
+            level="h1" 
+            className={styles['not-found-page__title']}
+            iconProps={{ icon: 'CompassOffLoop' }}
+          >
             404: Not Found
           </Heading>
 
@@ -48,6 +52,8 @@ const NotFoundPage = () => {
               size="medium"
               className={styles['not-found-page__button--home']}
               aria-label="Go back to the home page"
+              icon={{ name: 'FaHome', prefix: 'fa' }}
+              iconPosition="right"
             >
               Go back to Home
             </Button>

@@ -1,0 +1,8 @@
+// src/components/PullSharkBadgeLink/PullSharkBadgeLink.module.scss
+@use 'styles/abstracts' as *;
+
+.pullSharkLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem; // Small space between text and icon
+}

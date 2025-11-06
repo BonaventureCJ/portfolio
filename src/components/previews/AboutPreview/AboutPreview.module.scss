@@ -1,6 +1,7 @@
-//src/components/previews/AboutPreview/AboutPreview.module.scss
+// src/components/previews/AboutPreview/AboutPreview.module.scss
 
 @use 'styles/abstracts' as *;
+
 .aboutPreview {
   margin-bottom: var(--spacing-md);
   padding: var(--spacing-lg) var(--spacing-sm);
@@ -32,9 +33,7 @@
   }
 }
 
-// Heading for section
 .aboutPreview__heading {
-
   // Professionally looking animation on load
   animation: slideInFromTop 0.8s ease-out forwards;
 }

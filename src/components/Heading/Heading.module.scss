@@ -1,25 +1,75 @@
-/* A Sass map to define the font sizes for each heading level */
-$heading-font-sizes: (
-  h1: var(--font-size-h1),
-  h2: var(--font-size-h2),
-  h3: var(--font-size-xl),
-  h4: var(--font-size-lg),
-  h5: var(--font-size-base),
-  h6: var(--font-size-sm)
-);
+// src/components/Heading/Heading.module.scss
+@use 'styles/abstracts' as *;
 
-/* The main class for the Heading component */
-.heading {
-  /*
-   * Loop through the $heading-font-sizes map to generate a unique style
-   * for each heading level based on the class that corresponds to the `level` prop.
-   *
-   * The `&` symbol is used to create nested selectors, targeting the
-   * correct heading tag (e.g., .heading.h1).
-   */
-  @each $level, $size in $heading-font-sizes {
-    &.#{$level} {
-      font-size: $size;
-    }
+.base {
+  display: flex;
+  flex-direction: column;
+  // This is the default alignment for the component.
+  align-items: center; 
+  margin: 0 auto 1rem auto;
+  position: relative;
+  width: fit-content;
+
+  // By using `width: fit-content`, the component's width will shrink-wrap to the content. 
+  // However, this prevents aligning the component itself with `margin: auto` when a different text alignment is used. 
+  // We set the width to 100% when aligning to the left or right to enable that.
+  &.textAlign--left, &.textAlign--right {
+    width: 100%;
   }
 }
+
+// Decorative line
+.decorativeLine {
+  border-bottom: 0.08rem solid var(--color-border-primary);
+  padding-bottom: 0.3em;
+  transition: border-bottom-color var(--color-transition);
+}
+
+// Wrapper for alignment
+.contentWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+// Separate wrappers provide more specific control
+.iconWrapper {
+  display: flex;
+}
+
+.textWrapper {
+  display: flex;
+  align-items: center;
+}
+
+// Alignment utility classes to be dynamically applied
+.textAlign--left {
+  // Overrides the default alignment for the component.
+  align-items: flex-start;
+  // Overrides the default text alignment for the text wrapper.
+  .textWrapper {
+    text-align: left;
+  }
+}
+
+.textAlign--center {
+  align-items: center;
+  .textWrapper {
+    text-align: center;
+  }
+}
+
+.textAlign--right {
+  align-items: flex-end;
+  .textWrapper {
+    text-align: right;
+  }
+}
+
+// Font size utility classes (single responsibility)
+.h1 { font-size: var(--font-size-h1); }
+.h2 { font-size: var(--font-size-h2); }
+.h3 { font-size: var(--font-size-xl); }
+.h4 { font-size: var(--font-size-lg); }
+.h5 { font-size: var(--font-size-base); }
+.h6 { font-size: var(--font-size-sm); }

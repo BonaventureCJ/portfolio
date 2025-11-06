@@ -1,0 +1,14 @@
+// src/components/Icon/Icon.module.scss
+.baseIcon {
+  display: inline-block;
+  // **Best Practice:** Default to relative size (1em)
+  width: 1em; 
+  height: 1em;
+  opacity: 1.0;
+  //vertical-align: middle; /* Helps align icons nested with text */
+
+  // Inherit the color of the parent text element
+  fill: currentColor; 
+  stroke: currentColor;
+  stroke-width: 0; 
+}

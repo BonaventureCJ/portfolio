@@ -1,10 +1,11 @@
 // src/components/Buttons/Button.module.scss
-
 // Base styles for the button
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  // Use a modern `gap` property for spacing between children
+  gap: 0.5rem;
   padding: var(--button-padding);
   border-radius: var(--button-border-radius);
   font-family: var(--font-family-primary);
@@ -20,32 +21,48 @@
   border: 2px solid;
 
   // Base hover/focus effects
-  // We combine the :not(:disabled) pseudo-class with the [aria-disabled="true"] attribute selector
   &:hover:not(:disabled):not([aria-disabled="true"]),
   &:focus:not(:disabled):not([aria-disabled="true"]) {
     transform: translateY(-2px);
     box-shadow: var(--box-shadow-advanced);
   }
 
-  /*  &:focus-visible {
+  // Focus-visible for better accessibility
+  &:focus-visible {
     outline: 2px solid var(--color-brand-primary);
     outline-offset: 2px;
-  } */
+  }
 
-  // Disabled state handling for both native buttons and anchor tags/links
+  // Disabled state handling
   &:disabled,
   &[aria-disabled="true"] {
     cursor: not-allowed;
     opacity: 0.6;
-    // Anchor tags are still clickable even if 'disabled' via ARIA,
-    // so in a real enterprise app we will use JavaScript to prevent 
-    // the default behavior when aria-disabled is true.
+    transform: none;
+    box-shadow: none;
   }
+}
+
+/* --- BEM Elements for icon and text --- */
+
+// The icon wrapper. `inline-flex` with a square size helps with alignment.
+.button__icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// The text content wrapper
+.button__text {
+  display: inline-block;
+  // Ensure the text aligns correctly with the icon.
 }
 
 /* --- Size Modifiers --- */
 .button--small {
   font-size: var(--font-size-sm);
+  min-width: 280px;
+  min-height: 40px;
 }
 
 .button--medium {
@@ -68,7 +85,6 @@
   color: var(--button-text-primary);
   border-color: var(--button-text-primary);
 
-  // Update hover/focus states to include the ARIA disabled check
   &:hover:not(:disabled):not([aria-disabled="true"]),
   &:focus:not(:disabled):not([aria-disabled="true"]) {
     background-color: var(--button-bg-primary-hover);
@@ -82,7 +98,6 @@
   color: var(--button-text-secondary);
   border-color: var(--button-text-secondary);
 
-  // Update hover/focus states to include the ARIA disabled check
   &:hover:not(:disabled):not([aria-disabled="true"]),
   &:focus:not(:disabled):not([aria-disabled="true"]) {
     background-color: var(--button-bg-secondary-hover);
@@ -94,19 +109,15 @@
 .button--tertiary {
   background-color: var(--button-bg-tertiary);
   color: var(--button-text-tertiary);
-  //border-color: var(--button-text-tertiary);
-  //SPECIAL STYLE RULES FOR TERTIARY BUTTONS
+  // SPECIAL STYLE RULES FOR TERTIARY BUTTONS
   border: none;
   box-shadow: none;
   border-radius: var(--border-radius-md);
 
-  // Update hover/focus states to include the ARIA disabled check
   &:hover:not(:disabled):not([aria-disabled="true"]),
   &:focus:not(:disabled):not([aria-disabled="true"]) {
     background-color: var(--button-bg-tertiary-hover);
-    //color: var(--button-text-tertiary-hover);
-    //border-color: var(--button-text-tertiary-hover);
-    //SPECIAL HOVER STYLE RULES FOR TERTIARY BUTTONS
     box-shadow: none;
+    transform: none;
   }
 }

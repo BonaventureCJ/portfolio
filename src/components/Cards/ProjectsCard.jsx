@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import styles from './ProjectsCard.module.scss';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
+import Icon from 'components/Icon/Icon';
 
 /**
  * Renders an 'In Progress' badge component.
  */
 const InProgressBadge = () => (
   <span className={styles['projects-card__badge--in-progress']}>
+    <Icon icon="WindowDevTools" className={styles['projects-card__badge-icon']} />
     In Progress
   </span>
 );
@@ -37,6 +39,16 @@ const ProjectsCard = ({ project }) => {
 
   // Check if the project is currently in development
   const isInDevelopment = development_status === 'In Development';
+
+  const getButtonIcon = (label) => {
+    if (label.toLowerCase().includes('live')) {
+      return { prefix: 'bs', name: 'BsBoxArrowUpRight' }; // Icon for external link
+    }
+    if (label.toLowerCase().includes('code')) {
+      return { prefix: 'bs', name: 'BsGithub' }; // Icon for GitHub
+    }
+    return null;
+  };
 
   return (
     <article className={styles['projects-card']}>
@@ -79,6 +91,8 @@ const ProjectsCard = ({ project }) => {
               title={link.ariaLabel}
               target="_blank"
               rel="noopener noreferrer"
+              icon={getButtonIcon(link.label)}
+              iconPosition="right"
             >
               {link.label}
             </Button>
@@ -105,7 +119,7 @@ ProjectsCard.propTypes = {
       })
     ).isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
-    development_status: PropTypes.string, 
+    development_status: PropTypes.string,
   }).isRequired,
 };
 

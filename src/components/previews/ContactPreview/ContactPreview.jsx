@@ -21,7 +21,12 @@ const ContactPreview = () => {
   return (
     <section className={styles.contactPreview} aria-labelledby="featured-contact-heading">
       <div className={styles.contactPreview__container}>
-        <Heading level="h2" id="featured-contact-heading" className={styles.contactPreview__heading}>
+        <Heading
+          level="h2"
+          id="featured-contact-heading"
+          className={styles.contactPreview__heading}
+          iconProps={{ icon: 'GlobeShare' }}
+        >
           Connect with me
         </Heading>
 
@@ -36,12 +41,13 @@ const ContactPreview = () => {
         </div>
         <div className={styles.contactPreview__cta}>
           <Button
-            to="/contact#contact-form-section" // <-- Tells the Button to render a react-router Link with a hash
+            to="/contact#contact-form-section"
             variant="primary"
             size="medium"
             title="Navigate to the contact form on contact page"
-            // If styles are needed for 'contactLinkWrapper', they will be passed here
-            // className={styles.contactLinkWrapper}
+            // Add the icon and position it to the right
+            icon={{ name: 'IoPaperPlaneOutline', prefix: 'io' }}
+            iconPosition="right"
           >
             Fill out a contact form
           </Button>

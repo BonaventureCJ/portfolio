@@ -1,4 +1,5 @@
 // src/components/previews/ProjectsPreview/ProjectsPreview.jsx
+
 import React from 'react';
 import styles from './ProjectsPreview.module.scss';
 import { projects } from 'data/projects/projects';
@@ -17,7 +18,12 @@ const ProjectsPreview = () => {
   return (
     <section className={styles.projectsPreview} aria-labelledby="featured-projects-heading">
       <div className={styles.projectsPreview__container}>
-        <Heading level="h2" id="featured-projects-heading" className={styles.projectsPreview__heading}>
+        <Heading 
+          level="h2" 
+          id="featured-projects-heading" 
+          className={styles.projectsPreview__heading}
+          iconProps={{ icon: 'LaptopBriefcase' }}
+        >
           Featured Projects
         </Heading>
 
@@ -38,8 +44,8 @@ const ProjectsPreview = () => {
             size="medium"
             aria-label="Navigate to the full Projects page"
             title="View all projects on the Projects page"
-            // If the original 'ctaLink' styles are needed, they will be passed here
-            // className={styles.ctaLink}
+            icon={{ prefix: 'fa', name: 'FaArrowRight' }}
+            iconPosition="right"
           >
             View All Projects
           </Button>

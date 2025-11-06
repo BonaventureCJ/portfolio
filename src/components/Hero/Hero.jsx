@@ -1,4 +1,4 @@
-// src/components/Hero/Hero.jsx (Updated to use polymorphic Button)
+// src/components/Hero/Hero.jsx
 import React from 'react';
 import styles from './Hero.module.scss';
 import { heroData } from 'data/hero';
@@ -17,36 +17,33 @@ const Hero = () => {
         <Heading level="h2" className={styles.heroSubtitle}>
           {title}
         </Heading>
-
         <p className={styles.heroDescription}>{description}</p>
         <div className={styles.ctaContainer}>
-          {/* Primary CTA using the polymorphic Button component */}
-          {/* We use the 'to' prop for react-router-dom internal navigation */}
+          {/* Primary CTA: "View My Work" */}
           <Button
             variant="primary"
             size="medium"
             title={primaryCta.title}
-            to={primaryCta.url} // <-- This tells Button to render a <Link>
+            to={primaryCta.url}
             aria-label={primaryCta.ariaLabel}
-          // Optional: If styles are needed for .ctaLink class, pass it here
-          // className={styles.ctaLink} 
+            icon={{ name: 'FaArrowRight', prefix: 'fa' }} // Icon details here
+            iconPosition="right"
           >
             {primaryCta.label}
           </Button>
 
-          {/* Secondary CTA using the polymorphic Button component */}
-          {/* We use the 'href' prop for standard anchor tag functionality */}
+          {/* Secondary CTA: "Download Resume" */}
           <Button
             variant="secondary"
             size="medium"
-            href={secondaryCta.url} // <-- This tells Button to render an <a> tag
+            href={secondaryCta.url}
             aria-label={secondaryCta.ariaLabel}
             title={secondaryCta.title}
             download
             target="_blank"
             rel="noopener noreferrer"
-          // Optional: If styles are needed for.ctaLink class, pass it here
-          // className={styles.ctaLink}
+            icon={{ name: 'FaDownload', prefix: 'fa' }} // Icon details here
+            iconPosition="right"
           >
             {secondaryCta.label}
           </Button>
