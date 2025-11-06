@@ -1,3 +1,4 @@
+// src/components/Utilities/ErrorBoundaryPage/ErrorBoundaryPage.jsx
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import PropTypes from 'prop-types';
@@ -14,7 +15,7 @@ import Icon from 'components/Icon/Icon';
  */
 const ErrorBoundaryPage = () => {
   const error = useRouteError();
-  {/* TODO: Best practice: Log errors to an external service (e.g., Sentry, New Relic) */ }
+  {/* TODO: Best practice: Log errors to an external service (e.g., Sentry, New Relic) */}
   console.error("ErrorBoundary caught an error:", error);
 
   let errorMessage = "Sorry, an unexpected error has occurred.";
@@ -68,6 +69,9 @@ const ErrorBoundaryPage = () => {
               variant="primary"
               size="medium"
               className={styles['error-boundary-page__button--home']}
+              aria-label="Go to home page"
+              icon={{ name: 'FaHome', prefix: 'fa' }}
+              iconPosition="right"
             >
               Go to Home
             </Button>
@@ -77,6 +81,9 @@ const ErrorBoundaryPage = () => {
               variant="primary"
               size="medium"
               className={styles['error-boundary-page__button--reload']}
+              aria-label="Reload the page"
+              icon={{ name: 'HiArrowPath', prefix: 'hi' }}
+              iconPosition="right"
             >
               Try Again
             </Button>
