@@ -4,13 +4,13 @@ import React from 'react';
 import styles from './SkillsPreview.module.scss';
 import { skills } from 'data/skills';
 import SkillsPreviewCard from 'components/preview-cards/SkillsPreviewCard/SkillsPreviewCard';
-import {useIntersectionObserver} from 'hooks/useIntersectionObserver';
+import { useIntersectionObserver } from 'hooks/useIntersectionObserver';
 import Button from 'components/Buttons/Button';
 import Heading from 'components/Heading/Heading';
 
-
 /**
- * A skills preview section for the homepage.
+ * A skills preview section for the homepage and about page, featuring a list of key skills.
+ * This component is structured for high accessibility, SEO, and enterprise-grade maintainability.
  * @returns {JSX.Element} The Skills Preview component.
  */
 const SkillsPreview = () => {
@@ -22,34 +22,38 @@ const SkillsPreview = () => {
   });
 
   return (
-    <section className={styles.skillsPreview}>
-      <div className={styles.skillsPreview__container}>
-        <Heading 
-          level="h2" 
-          className={styles.skillsPreview__heading}
+    <section className={styles['skills-preview']} aria-labelledby="skills-preview-heading">
+      <div className={styles['skills-preview__container']}>
+        <Heading
+          level="h2"
+          className={styles['skills-preview__heading']}
+          id="skills-preview-heading" // For ARIA-labelledby reference
           iconProps={{ icon: 'Skillshare' }}
         >
           My Key Skills
         </Heading>
 
-        <p className={styles.skillsPreview__description}>
+        <p className={styles['skills-preview__description']}>
           Showcasing my core competencies in modern front-end development.
         </p>
 
         <ul
-          className={`${styles.skillsPreview__list} ${listIsInView ? styles.inView : ''}`}
+          className={`${styles['skills-preview__list']} ${listIsInView ? styles['in-view'] : ''}`}
           ref={listRef}
-          role="list"
         >
           {featuredSkills.map((skill) => (
-            <SkillsPreviewCard key={skill.id} skill={skill} />
+            <SkillsPreviewCard
+              key={skill.id}
+              skill={skill}
+              // Pass the BEM modifier class to the child component
+              className={styles['skills-preview__list-item']}
+            />
           ))}
         </ul>
 
-        {/* Link to the full skills page using the polymorphic Button component */}
-        <div className={styles.skillsPreview__cta}>
+        <div className={styles['skills-preview__cta']}>
           <Button
-            to="/skills" // <-- Tells the Button to render a react-router Link
+            to="/skills"
             variant="primary"
             size="medium"
             aria-label="View all skills on the Skills page"

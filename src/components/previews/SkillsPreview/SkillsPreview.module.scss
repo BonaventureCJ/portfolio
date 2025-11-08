@@ -1,7 +1,7 @@
 //src/components/previews/SkillsPreview/SkillsPreview.module.scss
 @use 'styles/abstracts' as *;
 
-.skillsPreview {
+.skills-preview {
   padding: var(--spacing-lg) var(--spacing-sm);
   text-align: center;
   margin-bottom: var(--spacing-md);
@@ -11,7 +11,7 @@
   }
 }
 
-.skillsPreview__container {
+.skills-preview__container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -20,11 +20,11 @@
   gap: var(--spacing-lg);
 }
 
-.skillsPreview__heading {
+.skills-preview__heading {
   animation: slideInFromTop 0.8s ease-out forwards;
 }
 
-.skillsPreview__description {
+.skills-preview__description {
   max-width: 80ch; // Optimal line length for readability
   font-family: var(--font-family-primary);
   font-size: var(--font-size-lg);
@@ -34,41 +34,51 @@
   transition: color var(--color-transition);
 }
 
-.skillsPreview__list {
-  // Use flexbox for centering behavior with wrapping items
+.skills-preview__list {
   display: flex;
-  flex-wrap: wrap; // Allows items to wrap onto the next line
-  justify-content: center; // Centers items on the main axis (horizontally)
-  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
   max-width: 100%;
   gap: var(--spacing-md);
+}
 
-  // Set initial state for animations, which will be triggered by '.inView'
-  & > * {
-    opacity: 0;
-    transition: transform 0.3s ease;
+.skills-preview__list-item {
+  // Mobile-first: Item takes full width of the list container.
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  // Tablet and up: Show two items per row.
+  @media (min-width: 576px) {
+    width: calc(50% - (var(--spacing-md) / 2));
+  }
+
+  // Medium desktop and up: Show three items per row.
+  @media (min-width: 992px) {
+    width: calc(33.333% - (var(--spacing-md) * 2 / 3));
+  }
+
+  // Large desktop and up: Show four items per row.
+  @media (min-width: 1200px) {
+    width: calc(25% - (var(--spacing-md) * 3 / 4));
   }
 }
 
 // Add animations when the '.inView' class is applied by the Intersection Observer
-.inView {
-  & > * {
-    animation: fadeIn 1s ease-out forwards;
-    
-    // Staggered fade-in animation using a loop for a cleaner approach
+.in-view {
+  .skills-preview__list-item {
+    animation: fadeInFromBottom 1s ease-out forwards;
     @for $i from 1 through 10 {
       &:nth-child(#{$i}) {
-        // Start animation-delay at 0.6s and increase by 0.1s for each child
         animation-delay: 0.5s + ($i * 0.1s);
       }
     }
-
   }
 }
-
 
 // Keyframe Animations
 @keyframes slideInFromTop {
@@ -76,19 +86,19 @@
     transform: translateY(-20px);
     opacity: 0;
   }
-
   to {
     transform: translateY(0);
     opacity: 1;
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInFromBottom {
   from {
+    transform: translateY(20px);
     opacity: 0;
   }
-
   to {
+    transform: translateY(0);
     opacity: 1;
   }
 }
