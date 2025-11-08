@@ -27,7 +27,7 @@ const ContactForm = () => {
 
   // Determine if the button should be natively disabled
   const isDisabled = state.submitting || !canSubmit;
-  const submitButtonText = state.succeeded ? 'Message Sent!' : state.submitting ? 'Sending...' : 'Send Message';
+  const submitButtonText = state.succeeded ? 'Message sent!' : state.submitting ? 'Sending...' : 'Send message';
 
   const submitButtonTitle =
     // Case 1: Cannot submit AND not currently sending (default state)

@@ -85,7 +85,7 @@ const ErrorBoundaryPage = () => {
               icon={{ name: 'HiArrowPath', prefix: 'hi' }}
               iconPosition="right"
             >
-              Try Again
+              Try again
             </Button>
           </div>
         </div>
