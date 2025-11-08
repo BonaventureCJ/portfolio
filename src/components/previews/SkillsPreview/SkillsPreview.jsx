@@ -61,7 +61,7 @@ const SkillsPreview = () => {
             icon={{ prefix: 'fa', name: 'FaArrowRight' }}
             iconPosition="right"
           >
-            View All Skills
+            View all skills
           </Button>
         </div>
       </div>

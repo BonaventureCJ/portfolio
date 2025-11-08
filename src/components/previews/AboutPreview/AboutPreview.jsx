@@ -44,7 +44,7 @@ const AboutPreview = () => {
             icon={{ prefix: 'fa', name: 'FaArrowRight' }}
             iconPosition="right"
           >
-            Learn More
+            Learn more
           </Button>
         </div>
       </div>

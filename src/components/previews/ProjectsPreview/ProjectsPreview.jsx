@@ -47,7 +47,7 @@ const ProjectsPreview = () => {
             icon={{ prefix: 'fa', name: 'FaArrowRight' }}
             iconPosition="right"
           >
-            View All Projects
+            View all projects
           </Button>
         </div>
       </div>

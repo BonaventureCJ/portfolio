@@ -77,7 +77,7 @@ const About = () => {
           icon={{ prefix: 'fa', name: 'FaDownload' }}
           iconPosition="right"
         >
-          Download Resume
+          Download resume
         </Button>
 
         <SkillsPreview />

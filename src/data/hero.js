@@ -9,13 +9,13 @@ export const heroData = {
   description:
     'Front-end Developer and Open-Source Contributor talented in building performant, maintainable and scalable web applications using modern frameworks and best practices.',
   primaryCta: {
-    label: "View My Work",
+    label: "View my work",
     ariaLabel: "Navigate to Bonaventure's public projects page", 
     title: "Navigate to Bonaventure's public projects page",
     url: '/projects',
   },
   secondaryCta: {
-    label: "Download Resume",
+    label: "Download resume",
     ariaLabel: "Download Bonaventure's resume in PDF format",
     title: "Download Bonaventure's resume (PDF)",
     url: requestResume,
