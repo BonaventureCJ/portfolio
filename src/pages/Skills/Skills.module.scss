@@ -1,12 +1,38 @@
-//src/pages/Skills/Skills.module.scss
+// src/pages/Skills/Skills.module.scss
 @use 'styles/abstracts' as *;
 
-.skillsPage {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: var(--spacing-lg) var(--spacing-sm);
+.skillsSection {
+  // Mobile-first styles (default)
+  padding: var(--spacing-lg) var(--spacing-xxs); // Base padding for smaller screens
+  margin: 0 auto;
+  
+  // Confine the maximum width for larger screens
+  max-width: 1440px;
 
-    @media (min-width: 768px) {
-        padding: var(--spacing-lg);
-    }
+  // Media query for medium screens and up
+  // This adjusts the padding for tablets and larger devices
+  @media (min-width: 768px) {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
 }
+
+.skillsContainer {
+  display: grid;
+  gap: var(--spacing-md); // Adds spacing between the cards for mobile
+
+  // Media query for larger screens (e.g., desktop)
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr; // Creates a two-column layout
+    gap: var(--spacing-lg); // Larger gap for desktop
+  }
+}
+
+.heading {
+  // Base styles for the heading on mobile
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  
+  // The icon is handled in the component, so no specific icon styles here
+  // Ensure the Heading component passes the iconProps correctly
+}
+

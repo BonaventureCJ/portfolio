@@ -1,28 +1,51 @@
 //src/components/preview-cards/SkillsPreviewCard/SkillsPreviewCard.module.scss
 @use 'styles/abstracts' as *;
 
-.skillsItem {
+.skills-preview-card {
+  background-color: var(--card-bg);
+  box-shadow: var(--card-box-shadow);
+  border-radius: var(--border-radius-md);
+  cursor: default;
+  transition:
+    transform var(--color-transition),
+    box-shadow var(--color-transition),
+    background-color var(--color-transition);
+  width: 100%; // Mobile-first: Item takes full width of the list container.
+
+  @media (min-width: 576px) {
+    width: calc(50% - (var(--spacing-md) / 2)); // Tablet and up: Show two items per row.
+  }
+
+  @media (min-width: 992px) {
+    width: calc(33.333% - (var(--spacing-md) * 2 / 3)); // Medium desktop and up: Show three items per row.
+  }
+
+  @media (min-width: 1200px) {
+    width: calc(25% - (var(--spacing-md) * 3 / 4)); // Large desktop and up: Show four items per row.
+  }
+
+  &:hover,
+  &:focus-within {
+    box-shadow: var(--box-shadow-hover-sm);
+
+    .skills-preview-card__icon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.skills-preview-card__content {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm);
-  background-color: var(--card-bg);
-  //border: var(--card-border); 
-  box-shadow: var(--card-box-shadow);
-  border-radius: var(--border-radius-md);
-  text-align: center;
-  cursor: default; /* Indicate that the card itself is not a link */
-  transition: transform var(--color-transition), box-shadow var(--color-transition), background-color var(--color-transition);//Smooth transition on theme toggle
-  &:hover,
-  &:focus-within {
-    box-shadow: var(--box-shadow-hover-sm);
-  }
+  text-align: left; // Align text to the left for better readability in a horizontal layout
+  margin: 0;
 }
 
-.skillsIcon {
-  /* This selector is at the root level of the file */
+.skills-preview-card__icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,37 +56,35 @@
   color: var(--color-brand-primary);
   font-size: var(--font-size-xl);
   flex-shrink: 0;
-  
-  /* Combined transitions for the icon itself */
   transition:
-    background-color var(--color-transition), /* Theme toggle background */
-    color var(--color-transition), /* Theme toggle color */
-    transform 0.3s ease; /* Fast hover effect */
+    background-color var(--color-transition),
+    color var(--color-transition),
+    transform 0.3s ease;
 
-  // Ensure icons have a minimum target size for touch interaction (WCAG)
-  &>svg {
-    width: 32px;
-    height: 32px;
-    transition: fill var(--color-transition), color var(--color-transition);
+  // Responsive icon size for touch targets (WCAG)
+  @media (max-width: 767px) {
+    width: 56px;
+    height: 56px;
   }
 }
 
-/* 
-  To achieve the hover effect on the icon when hovering the *card*, you 
-  use this specific selector combination:
-*/
-.skillsItem:hover .skillsIcon {
-  color: var(--color-brand-primary);
-  transform: scale(1.1);
+.skills-preview-card__svg {
+  width: 32px;
+  height: 32px;
+  transition: fill var(--color-transition), color var(--color-transition);
+
+  @media (max-width: 767px) {
+    width: 28px;
+    height: 28px;
+  }
 }
 
-
-.skillsName {
+.skills-preview-card__name {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-lg);
   color: var(--card-text);
   line-height: 1.2;
-  margin-top: var(--spacing-xs);
+  margin-top: 0; // Remove top margin since items are in a row
   transition: color var(--color-transition);
 }

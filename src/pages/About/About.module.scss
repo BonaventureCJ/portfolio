@@ -102,9 +102,14 @@
   }
 }
 
-
 .about__subHeading {
   margin-top: var(--spacing-xl);
   margin-bottom: 0;
-  //color: var(--color-brand-primary);
+  // Apply a smaller font size for mobile
+  font-size: var(--font-size-lg);
+
+  // Use a media query to apply the correct h2 size on larger screens
+  @media (min-width: 768px) {
+    font-size: var(--font-size-h2);
+  }
 }

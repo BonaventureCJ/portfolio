@@ -4,17 +4,19 @@
 .base {
   display: flex;
   flex-direction: column;
-  // This is the default alignment for the component.
-  align-items: center; 
-  margin: 0 auto 1rem auto;
+  align-items: center;
+  margin: 0 auto var(--spacing-sm) auto; // Adjust margin for mobile-first
   position: relative;
   width: fit-content;
 
-  // By using `width: fit-content`, the component's width will shrink-wrap to the content. 
-  // However, this prevents aligning the component itself with `margin: auto` when a different text alignment is used. 
-  // We set the width to 100% when aligning to the left or right to enable that.
+  // Use 100% width for left/right alignment
   &.textAlign--left, &.textAlign--right {
     width: 100%;
+  }
+
+  // Adjust margin for larger screens if needed
+  @media (min-width: 768px) {
+    margin-bottom: var(--spacing-md);
   }
 }
 
@@ -29,12 +31,14 @@
 .contentWrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--spacing-sm); // Use a variable for consistency
+  justify-content: center; // Default to center for mobile
 }
 
-// Separate wrappers provide more specific control
+// Ensure icon and text are aligned vertically
 .iconWrapper {
   display: flex;
+  align-items: center;
 }
 
 .textWrapper {
@@ -44,32 +48,44 @@
 
 // Alignment utility classes to be dynamically applied
 .textAlign--left {
-  // Overrides the default alignment for the component.
   align-items: flex-start;
-  // Overrides the default text alignment for the text wrapper.
-  .textWrapper {
-    text-align: left;
-  }
+  .contentWrapper { justify-content: flex-start; }
+  .textWrapper { text-align: left; }
 }
 
 .textAlign--center {
   align-items: center;
-  .textWrapper {
-    text-align: center;
-  }
+  .contentWrapper { justify-content: center; }
+  .textWrapper { text-align: center; }
 }
 
 .textAlign--right {
   align-items: flex-end;
-  .textWrapper {
-    text-align: right;
-  }
+  .contentWrapper { justify-content: flex-end; }
+  .textWrapper { text-align: right; }
 }
 
-// Font size utility classes (single responsibility)
-.h1 { font-size: var(--font-size-h1); }
-.h2 { font-size: var(--font-size-h2); }
-.h3 { font-size: var(--font-size-xl); }
-.h4 { font-size: var(--font-size-lg); }
-.h5 { font-size: var(--font-size-base); }
+// Font size definitions for mobile-first
+// These are the base sizes for small screens
+.h1 { font-size: var(--font-size-h2); }
+.h2 { font-size: var(--font-size-xl); }
+.h3 { font-size: var(--font-size-lg); }
+.h4 { font-size: var(--font-size-base); }
+.h5 { font-size: var(--font-size-sm); }
 .h6 { font-size: var(--font-size-sm); }
+
+// Scale up font sizes for larger screens
+@media (min-width: 768px) {
+  .h1 { font-size: var(--font-size-h1); }
+  .h2 { font-size: var(--font-size-h2); }
+  .h3 { font-size: var(--font-size-xl); }
+  .h4 { font-size: var(--font-size-lg); }
+}
+
+// Additional font size utility classes for granular control
+// Can be used with the `className` prop, e.g., <Heading className={styles.large} .../>
+.small { font-size: var(--font-size-sm); }
+.medium { font-size: var(--font-size-base); }
+.large { font-size: var(--font-size-lg); }
+.extra-large { font-size: var(--font-size-xl); }
+
