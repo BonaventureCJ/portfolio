@@ -10,10 +10,24 @@
     transform var(--color-transition),
     box-shadow var(--color-transition),
     background-color var(--color-transition);
+  width: 100%; // Mobile-first: Item takes full width of the list container.
+
+  @media (min-width: 576px) {
+    width: calc(50% - (var(--spacing-md) / 2)); // Tablet and up: Show two items per row.
+  }
+
+  @media (min-width: 992px) {
+    width: calc(33.333% - (var(--spacing-md) * 2 / 3)); // Medium desktop and up: Show three items per row.
+  }
+
+  @media (min-width: 1200px) {
+    width: calc(25% - (var(--spacing-md) * 3 / 4)); // Large desktop and up: Show four items per row.
+  }
 
   &:hover,
   &:focus-within {
     box-shadow: var(--box-shadow-hover-sm);
+
     .skills-preview-card__icon {
       transform: scale(1.1);
     }
@@ -59,7 +73,6 @@
   height: 32px;
   transition: fill var(--color-transition), color var(--color-transition);
 
-  // Responsive icon size
   @media (max-width: 767px) {
     width: 28px;
     height: 28px;

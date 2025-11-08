@@ -14,15 +14,15 @@ const SkillsPreviewCard = ({ skill, className }) => {
   return (
     <li className={`${styles['skills-preview-card']} ${className || ''}`}>
       <figure className={styles['skills-preview-card__content']}>
-        <div 
+        <div
           className={styles['skills-preview-card__icon']}
-          role="img" 
+          role="img"
           aria-labelledby={`skill-name-${skill.id}`}
         >
           <skill.icon className={styles['skills-preview-card__svg']} />
         </div>
-        <figcaption 
-          className={styles['skills-preview-card__name']} 
+        <figcaption
+          className={styles['skills-preview-card__name']}
           id={`skill-name-${skill.id}`}
         >
           {skill.name}

@@ -46,32 +46,16 @@
 }
 
 .skills-preview__list-item {
-  // Mobile-first: Item takes full width of the list container.
-  width: 100%;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-
-  // Tablet and up: Show two items per row.
-  @media (min-width: 576px) {
-    width: calc(50% - (var(--spacing-md) / 2));
-  }
-
-  // Medium desktop and up: Show three items per row.
-  @media (min-width: 992px) {
-    width: calc(33.333% - (var(--spacing-md) * 2 / 3));
-  }
-
-  // Large desktop and up: Show four items per row.
-  @media (min-width: 1200px) {
-    width: calc(25% - (var(--spacing-md) * 3 / 4));
-  }
 }
 
 // Add animations when the '.inView' class is applied by the Intersection Observer
 .in-view {
   .skills-preview__list-item {
     animation: fadeInFromBottom 1s ease-out forwards;
+
     @for $i from 1 through 10 {
       &:nth-child(#{$i}) {
         animation-delay: 0.5s + ($i * 0.1s);
@@ -86,6 +70,7 @@
     transform: translateY(-20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -97,6 +82,7 @@
     transform: translateY(20px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
