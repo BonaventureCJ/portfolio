@@ -48,7 +48,7 @@ const About = () => {
             </p>
 
             <Heading
-              level="h4"
+              level="h2"
               className={styles.about__subHeading}
               iconProps={{ icon: 'EarthNetwork' }}
             >
@@ -81,7 +81,6 @@ const About = () => {
         </Button>
 
         <SkillsPreview />
-
       </div>
     </section>
   );
