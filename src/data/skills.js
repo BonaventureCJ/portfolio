@@ -38,6 +38,8 @@ import { ReactComponent as BabelIcon } from '../assets/icons/babel.svg';
 import { ReactComponent as PnpmIcon } from '../assets/icons/pnpm.svg';
 import { ReactComponent as NpmIcon } from '../assets/icons/npm.svg';
 import { ReactComponent as EmmetIcon } from '../assets/icons/emmet.svg';
+import { ReactComponent as NodejsIcon } from '../assets/icons/nodejs.svg';
+import { ReactComponent as VscodeIcon } from '../assets/icons/vscode.svg';
 
 // --- CMS & E-commerce ---
 import { ReactComponent as WordpressIcon } from '../assets/icons/wordpress.svg';
@@ -244,11 +246,26 @@ export const skills = [
     isFeatured: false,
     level: 'Other',
   },
-
+  {
+    id: generateId(),
+    name: 'Node.js',
+    category: 'Tools & Technologies',
+    icon: NodejsIcon,
+    isFeatured: false,
+    level: 'Other',
+  },
+  {
+    id: generateId(),
+    name: 'Visual Studio Code',
+    category: 'Development Tools',
+    icon: VscodeIcon,
+    isFeatured: false,
+    level: 'Other',
+  },
   {
     id: generateId(),
     name: 'pnpm',
-    category: 'Build Tools',
+    category: 'Package Managers',
     icon: PnpmIcon,
     isFeatured: false,
     level: 'Other',
@@ -256,7 +273,7 @@ export const skills = [
   {
     id: generateId(),
     name: 'npm',
-    category: 'Build Tools',
+    category: 'Package Managers',
     icon: NpmIcon,
     isFeatured: false,
     level: 'Other',
@@ -264,7 +281,7 @@ export const skills = [
   {
     id: generateId(),
     name: 'npx',
-    category: 'Build Tools',
+    category: 'Package Managers',
     icon: NpmIcon,
     isFeatured: false,
     level: 'Other',
