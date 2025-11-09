@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SkillsPreviewCard.module.scss';
+import Icon from 'components/Icon/Icon';
 
 /**
  * A preview card component that displays a single skill with its icon and name.
@@ -19,7 +20,7 @@ const SkillsPreviewCard = ({ skill, className }) => {
           role="img"
           aria-labelledby={`skill-name-${skill.id}`}
         >
-          <skill.icon className={styles['skills-preview-card__svg']} />
+          <Icon icon={skill.icon} className={styles['skills-preview-card__svg']} />
         </div>
         <figcaption
           className={styles['skills-preview-card__name']}
@@ -34,12 +35,11 @@ const SkillsPreviewCard = ({ skill, className }) => {
 
 SkillsPreviewCard.propTypes = {
   skill: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     name: PropTypes.string.isRequired,
-    icon: PropTypes.elementType.isRequired,
+    icon: PropTypes.string.isRequired,
   }).isRequired,
   className: PropTypes.string,
 };
 
 export default SkillsPreviewCard;
-
