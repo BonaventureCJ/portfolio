@@ -1,4 +1,6 @@
 // src/components/Icon/icons.js
+// Import all icon assets as React components using SVGR syntax
+// --- DECORATIVE ICONS ---
 import { ReactComponent as UserTie } from 'assets/icons-decorative/user-tie.svg';
 import { ReactComponent as Skillshare } from 'assets/icons-decorative/skillshare.svg';
 import { ReactComponent as LaptopBriefcase } from 'assets/icons-decorative/laptop-briefcase-32-regular.svg';
@@ -15,8 +17,52 @@ import { ReactComponent as VirtualNetworkToolbox } from 'assets/icons-decorative
 import { ReactComponent as CompassOffLoop } from 'assets/icons-decorative/compass-off-loop.svg';
 import { ReactComponent as ErrorTriangle } from 'assets/icons-decorative/error-triangle.svg';
 
+// --- SKILLS ICONS ---
+// --- Languages & Frameworks ---
+import { ReactComponent as NextjsIcon } from 'assets/icons/nextjs.svg';
+import { ReactComponent as ReactIcon } from 'assets/icons/react.svg';
+import { ReactComponent as TypescriptIcon } from 'assets/icons/typescript.svg';
+import { ReactComponent as JavascriptIcon } from 'assets/icons/javascript.svg';
+import { ReactComponent as Html5Icon } from 'assets/icons/html5.svg';
+import { ReactComponent as Css3Icon } from 'assets/icons/css3.svg';
+
+// --- Core Development Practices ---
+import { ReactComponent as GitIcon } from 'assets/icons/git.svg';
+import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
+import { ReactComponent as ApiIcon } from 'assets/icons/api.svg';
+import { ReactComponent as ResponsiveDesignIcon } from 'assets/icons/responsive-design.svg';
+import { ReactComponent as SeoIcon } from 'assets/icons/seo.svg';
+import { ReactComponent as AccessibilityIcon } from 'assets/icons/accessibility.svg';
+import { ReactComponent as CrossBrowserIcon } from 'assets/icons/cross-browser.svg';
+
+// --- State Management ---
+import { ReactComponent as ReduxIcon } from 'assets/icons/redux.svg';
+import { ReactComponent as ReactRouterIcon } from 'assets/icons/react-router.svg';
+
+// --- Styling (Specialized) ---
+import { ReactComponent as SassIcon } from 'assets/icons/sass.svg';
+import { ReactComponent as CssModulesIcon } from 'assets/icons/css-modules.svg';
+import { ReactComponent as TailwindIcon } from 'assets/icons/tailwind.svg';
+import { ReactComponent as BootstrapIcon } from 'assets/icons/bootstrap.svg';
+
+// --- Build Tools & Others ---
+import { ReactComponent as FigmaIcon } from 'assets/icons/figma.svg';
+import { ReactComponent as ViteIcon } from 'assets/icons/vite.svg';
+import { ReactComponent as WebpackIcon } from 'assets/icons/webpack.svg';
+import { ReactComponent as BabelIcon } from 'assets/icons/babel.svg';
+import { ReactComponent as PnpmIcon } from 'assets/icons/pnpm.svg';
+import { ReactComponent as NpmIcon } from 'assets/icons/npm.svg';
+import { ReactComponent as EmmetIcon } from 'assets/icons/emmet.svg';
+import { ReactComponent as NodejsIcon } from 'assets/icons/nodejs.svg';
+import { ReactComponent as VscodeIcon } from 'assets/icons/vscode.svg';
+
+// --- CMS & E-commerce ---
+import { ReactComponent as WordpressIcon } from 'assets/icons/wordpress.svg';
+import { ReactComponent as WoocommerceIcon } from 'assets/icons/woocommerce.svg';
+
 // Export an object mapping *string keys* to the imported components
 export const icons = {
+  // --- Decorative Icons ---
   UserTie,
   Skillshare,
   LaptopBriefcase,
@@ -32,4 +78,46 @@ export const icons = {
   VirtualNetworkToolbox,
   CompassOffLoop,
   ErrorTriangle,
+
+  // --- Languages & Frameworks ---
+  NextjsIcon,
+  ReactIcon,
+  TypescriptIcon,
+  JavascriptIcon,
+  Html5Icon,
+  Css3Icon,
+
+  // --- Core Development Practices ---
+  GitIcon,
+  GithubIcon,
+  ApiIcon,
+  ResponsiveDesignIcon,
+  SeoIcon,
+  AccessibilityIcon,
+  CrossBrowserIcon,
+
+  // --- State Management ---
+  ReduxIcon,
+  ReactRouterIcon,
+
+  // --- Styling (Specialized) ---
+  SassIcon,
+  CssModulesIcon,
+  TailwindIcon,
+  BootstrapIcon,
+
+  // --- Build Tools & Others ---
+  FigmaIcon,
+  ViteIcon,
+  WebpackIcon,
+  BabelIcon,
+  PnpmIcon,
+  NpmIcon,
+  EmmetIcon,
+  NodejsIcon,
+  VscodeIcon,
+
+  // --- CMS & E-commerce ---
+  WordpressIcon,
+  WoocommerceIcon,
 };

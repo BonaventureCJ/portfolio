@@ -21,16 +21,16 @@ const Icon = ({
     console.warn(`Icon "${icon}" not found.`);
     return null;
   }
-  
+
   // Combine base styles with user-provided classNames.
   const svgClasses = `${styles.baseIcon} ${className}`.trim();
-  
+
   return (
     <Component
       className={svgClasses}
       aria-hidden="true" // Hide the icon from screen readers by default
       focusable="false" // Prevent the icon from being focusable in older browsers
-      {...props} 
+      {...props}
     />
   );
 };
