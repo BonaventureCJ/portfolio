@@ -1,7 +1,9 @@
+// src/components/SkillsCard/SkillsCard.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SkillsCard.module.scss';
 import Heading from 'components/Heading/Heading';
+import Icon from 'components/Icon/Icon';
 
 /**
  * A reusable component to display a category of skills.
@@ -14,35 +16,31 @@ import Heading from 'components/Heading/Heading';
 const SkillsCard = ({ categoryTitle, skills, cardType }) => {
   const cardClassName = `${styles.skillsCard} ${styles[`skillsCard--${cardType}`]}`;
 
-  // Determine the correct icon based on the cardType prop
-  const cardIcon = cardType === 'major' 
-    ? 'TargetArrow' 
+  // Determine the correct icon based on the cardType prop, using string keys
+  const cardIcon = cardType === 'major'
+    ? 'TargetArrow'
     : 'VirtualNetworkToolbox';
 
   return (
     <section className={cardClassName} aria-labelledby={`skills-heading-${cardType}`}>
-      <Heading 
-        level="h2" 
-        className={styles.title} 
+      <Heading
+        level="h2"
+        className={styles.title}
         id={`skills-heading-${cardType}`}
         iconProps={{ icon: cardIcon }}
       >
         {categoryTitle}
       </Heading>
       <ul className={styles.list}>
-        {skills.map((skill) => {
-
-          const IconComponent = skill.icon;
-
-          return (
-            <li key={skill.id} className={styles.item} aria-label={skill.name}>
-              <div className={styles.iconWrapper}>
-                {IconComponent && <IconComponent className={styles.icon} aria-hidden="true" />}
-              </div>
-              <p className={styles.name}>{skill.name}</p>
-            </li>
-          );
-        })}
+        {skills.map((skill) => (
+          <li key={skill.id} className={styles.item} aria-label={skill.name}>
+            <div className={styles.iconWrapper}>
+              {/* Use the Icon component with the skill icon's string key */}
+              <Icon icon={skill.icon} className={styles.icon} aria-hidden="true" />
+            </div>
+            <p className={styles.name}>{skill.name}</p>
+          </li>
+        ))}
       </ul>
     </section>
   );
@@ -52,9 +50,9 @@ SkillsCard.propTypes = {
   categoryTitle: PropTypes.string.isRequired,
   skills: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
       name: PropTypes.string.isRequired,
-      icon: PropTypes.elementType.isRequired,
+      icon: PropTypes.string.isRequired,
       level: PropTypes.string.isRequired,
     })
   ).isRequired,
