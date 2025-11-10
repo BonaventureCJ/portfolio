@@ -10,14 +10,18 @@ A personal portfolio webpage showcasing my projects, skills, and contact informa
 
 This application was developed with a focus on modern web development best practices and robust user experience.
 
-* **Truly Mobile Responsive Design:** Implements **Responsive Web Design (RWD) principles** for an optimal viewing experience across all devices, including a truly mobile-responsive navigation system.
-* **Accessibility First:** Adheres strictly to **WCAG (Web Content Accessibility Guidelines)** with appropriate accessibility attributes and code, ensuring a broad and inclusive user base.
-* **Performance & SEO:** Adheres to **SEO best practices** for better discoverability and utilizes **SVGs** for infinitely scalable and performant vector graphics.
-* **Maintainable Architecture:** Features an excellent UI/UX, good architecture, **scalable** design, and highly **maintainable** code.
-* **Styling & Theming:** Utilizes **SCSS** for advanced, modular styling, and includes a seamless **light-dark theme** toggle.
-* **Modern Functionality:** Features professional-looking **animations**, **error handling**, and client-side routing via **React Router**.
-* **Contact Functionality:** Includes a fully functional **contact form** for easy communication.
-* **BEM Methodology:** Classnames are written following **BEM (Block Element Modifier) naming conventions** for clear, isolated, and scalable CSS.
+*   **Truly Responsive Web Design & Mobile-First Approach:** Implements **Responsive Web Design (RWD) principles** for an optimal viewing experience across all devices. The application is built with a **mobile-first approach** and features a truly mobile-responsive navigation system, ensuring a consistent and fluid layout on any screen size.
+*   **Accessibility & SEO:** Adheres strictly to **WCAG (Web Content Accessibility Guidelines)** with appropriate accessibility attributes and code, ensuring a broad and inclusive user base. It also adheres to **SEO best practices** for better discoverability and utilizes **SVGs** for infinitely scalable and performant vector graphics.
+*   **Graceful Error Handling with Interactive UI:** Provides a seamless user experience even when unexpected errors occur. The application handles various errors gracefully with a beautiful and interactive UI, including:
+    *   **404 Not Found errors**
+    *   **React Router's `errorElement` (Error Boundary)** for component-level errors
+    *   **GitHub Pages deployment SPA routing errors**
+*   **Beautiful UI & Excellent UX:** The design is visually appealing and highly interactive, prioritizing the **user experience (UX)**. The interface is intuitive, engaging, and thoughtfully designed to guide users through the content effortlessly.
+*   **Maintainable Architecture:** Features excellent UI/UX, a scalable architecture, and highly **maintainable** code.
+*   **BEM Methodology:** Classnames are written following **BEM (Block Element Modifier) naming conventions** for clear, isolated, and scalable CSS.
+*   **Styling & Theming:** Utilizes **SCSS** for advanced, modular styling, and includes a seamless **light-dark theme** toggle.
+*   **Modern Functionality:** Features professional-looking **animations** and client-side routing via **React Router**.
+*   **Contact Functionality:** Includes a fully functional **contact form** for easy communication.
 
 ---
 
@@ -87,4 +91,7 @@ I'm always open to discussing new projects, opportunities, or just sharing devel
 ---
 
 ## 🖼 Screenshots
-![Portfolio Dark Mode View](portfolio.png)
+
+![Portfolio Dark Mode View](src/assets/images/screenshots/portfolio-dark-mode-desktop.png)
+![Mobile Menu Dark Mode View](src/assets/images/screenshots/mobile-menu-darkmode.png)
+![Mobile View of Get in Touch Section](src/assets/images/screenshots/mobile-get-in-touch-dark-mode.png)
