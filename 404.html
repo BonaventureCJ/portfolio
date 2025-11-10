@@ -1,28 +1,40 @@
+<!-- public/404.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Page Not Found</title>
+
   <script type="text/javascript">
     // Single Page Apps for GitHub Pages
-    // MIT License
-    // https://github.com/rafgraph/spa-github-pages
-
-    // This script redirects a visitor to a URL with the repo name included,
-    // which allows the client-side router to take over.
+    // MIT License — https://github.com/rafgraph/spa-github-pages
     (function () {
-      var pathSegmentsToKeep = 1; // Correct for /repo-name/ style URL
+      // Adjust this if your repo name changes
+      var pathSegmentsToKeep = 1; // keeps /portfolio/
       var l = window.location;
+      var baseUrl =
+        l.protocol +
+        "//" +
+        l.hostname +
+        (l.port ? ":" + l.port : "") +
+        l.pathname
+          .split("/")
+          .slice(0, 1 + pathSegmentsToKeep)
+          .join("/");
+
+      // Redirect to the base URL with ?p=<path> query
       l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=' +
-        encodeURIComponent(l.pathname.slice(1)).replace(/%2F/g, '/') +
-        l.search + l.hash
+        baseUrl +
+        "/?p=" +
+        encodeURIComponent(l.pathname.slice(1)).replace(/%2F/g, "/") +
+        l.search +
+        l.hash
       );
-    }());
+    })();
   </script>
 </head>
-<body>
-</body>
-</html>
 
+<body></body>
+
+</html>
