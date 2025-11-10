@@ -16,6 +16,7 @@ import { ReactComponent as TargetArrow } from 'assets/icons-decorative/target-ar
 import { ReactComponent as VirtualNetworkToolbox } from 'assets/icons-decorative/virtual-network-toolbox-20-filled.svg';
 import { ReactComponent as CompassOffLoop } from 'assets/icons-decorative/compass-off-loop.svg';
 import { ReactComponent as ErrorTriangle } from 'assets/icons-decorative/error-triangle.svg';
+import { ReactComponent as SadFace } from 'assets/icons-decorative/smiley-sad-fill.svg';
 
 // --- SKILLS ICONS ---
 // --- Languages & Frameworks ---
@@ -78,6 +79,7 @@ export const icons = {
   VirtualNetworkToolbox,
   CompassOffLoop,
   ErrorTriangle,
+  SadFace,
 
   // --- Languages & Frameworks ---
   NextjsIcon,
