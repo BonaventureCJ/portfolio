@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <title>Page Not Found</title>
-
   <script type="text/javascript">
     // Single Page Apps for GitHub Pages
-    // MIT License — https://github.com/rafgraph/spa-github-pages
+    // https://github.com/rafgraph/spa-github-pages
     (function () {
-      // Adjust this if your repo name changes
-      var pathSegmentsToKeep = 1; // keeps /portfolio/
+      // keep 1 segment for /portfolio/
+      var pathSegmentsToKeep = 1;
       var l = window.location;
+
       var baseUrl =
         l.protocol +
         "//" +
@@ -21,13 +21,18 @@
         l.pathname
           .split("/")
           .slice(0, 1 + pathSegmentsToKeep)
-          .join("/");
+          .join("");
 
-      // Redirect to the base URL with ?p=<path> query
+      // Ensure only one trailing slash
+      if (!baseUrl.endsWith("/")) baseUrl += "/";
+
+      // Redirect to base with ?p=<rest of path>
       l.replace(
         baseUrl +
-        "/?p=" +
-        encodeURIComponent(l.pathname.slice(1)).replace(/%2F/g, "/") +
+        "?p=" +
+        encodeURIComponent(
+          l.pathname.split("/").slice(1 + pathSegmentsToKeep).join("/")
+        ).replace(/%2F/g, "/") +
         l.search +
         l.hash
       );
