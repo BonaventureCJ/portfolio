@@ -1,16 +1,47 @@
+<!-- public/404.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Page Not Found</title>
   <script type="text/javascript">
-    // Get the full path including the query string and hash
-    var originalPath = window.location.pathname + window.location.search + window.location.hash;
-    
-    // Redirect to the base URL and pass the original path as a hash fragment
-    window.location.replace('/portfolio/index.html#' + originalPath);
+    // Single Page Apps for GitHub Pages
+    // https://github.com/rafgraph/spa-github-pages
+    (function () {
+      // keep 1 segment for /portfolio/
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+
+      var baseUrl =
+        l.protocol +
+        "//" +
+        l.hostname +
+        (l.port ? ":" + l.port : "") +
+        "/" + // 👈 ensure the slash between hostname and first path segment
+        l.pathname
+          .split("/")
+          .slice(1, 1 + pathSegmentsToKeep)
+          .join("/");
+
+      // Ensure trailing slash after repo name
+      if (!baseUrl.endsWith("/")) baseUrl += "/";
+
+      // Build redirect with the rest of the path
+      var newUrl =
+        baseUrl +
+        "?p=" +
+        encodeURIComponent(
+          l.pathname.split("/").slice(1 + pathSegmentsToKeep).join("/")
+        ).replace(/%2F/g, "/") +
+        l.search +
+        l.hash;
+
+      l.replace(newUrl);
+    })();
   </script>
 </head>
-<body>
-</body>
+
+<body></body>
+
 </html>
