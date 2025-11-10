@@ -1,3 +1,4 @@
+// src/pages/Contact/Contact.jsx
 import React from 'react';
 import styles from './Contact.module.scss';
 import ContactsCard from 'components/Cards/ContactsCard';
@@ -9,9 +10,9 @@ const Contact = () => {
   return (
     <section className={styles.contact} aria-labelledby="contact-main-title">
       <header className={styles.contact__header}>
-        <Heading 
-          level="h1" 
-          className={styles.contact__title} 
+        <Heading
+          level="h1"
+          className={styles.contact__title}
           id="contact-main-title"
           iconProps={{ icon: 'TouchTripleOutline' }}
         >
@@ -31,8 +32,8 @@ const Contact = () => {
           </div>
         </aside>
 
-        <section 
-          className={styles.contact__formContainer} 
+        <section
+          className={styles.contact__formContainer}
           id="contact-form-section"
           aria-labelledby="contact-form-title"
         >

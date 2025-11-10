@@ -61,6 +61,14 @@ import { ReactComponent as VscodeIcon } from 'assets/icons/vscode.svg';
 import { ReactComponent as WordpressIcon } from 'assets/icons/wordpress.svg';
 import { ReactComponent as WoocommerceIcon } from 'assets/icons/woocommerce.svg';
 
+// --- Contact Icons ---
+import { ReactComponent as LinkedInIcon } from 'assets/icons/linkedin.svg';
+//import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
+import { ReactComponent as XIcon } from 'assets/icons/x-twitter.svg';
+import { ReactComponent as EmailIcon } from 'assets/icons/email.svg';
+import { ReactComponent as SmsIcon } from 'assets/icons/sms.svg';
+import { ReactComponent as WhatsappIcon } from 'assets/icons/whatsapp.svg';
+
 // Export an object mapping *string keys* to the imported components
 export const icons = {
   // --- Decorative Icons ---
@@ -122,4 +130,12 @@ export const icons = {
   // --- CMS & E-commerce ---
   WordpressIcon,
   WoocommerceIcon,
+
+  // --- Contact Icons ---
+  LinkedInIcon,
+  //GithubIcon,
+  XIcon,
+  EmailIcon,
+  SmsIcon,
+  WhatsappIcon,
 };
