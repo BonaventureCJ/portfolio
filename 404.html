@@ -4,13 +4,25 @@
   <meta charset="utf-8">
   <title>Page Not Found</title>
   <script type="text/javascript">
-    // Get the full path including the query string and hash
-    var originalPath = window.location.pathname + window.location.search + window.location.hash;
-    
-    // Redirect to the base URL and pass the original path as a hash fragment
-    window.location.replace('/portfolio/index.html#' + originalPath);
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+
+    // This script redirects a visitor to a URL with the repo name included,
+    // which allows the client-side router to take over.
+    (function () {
+      var pathSegmentsToKeep = 1; // Correct for /repo-name/ style URL
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=' +
+        encodeURIComponent(l.pathname.slice(1)).replace(/%2F/g, '/') +
+        l.search + l.hash
+      );
+    }());
   </script>
 </head>
 <body>
 </body>
 </html>
+
