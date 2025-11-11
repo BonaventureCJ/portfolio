@@ -72,9 +72,13 @@ import { ReactComponent as WhatsappIcon } from 'assets/icons/whatsapp.svg';
 // --- Brand Icons ---
 import { ReactComponent as BrandLogo } from 'assets/icons/brand-logo.svg';
 
-// --- THEME ICONS ---
+// --- Theme Icons ---
 import { ReactComponent as LightThemeIcon } from 'assets/icons/sun.svg';
 import { ReactComponent as DarkThemeIcon } from 'assets/icons/moon-rising-filled-loop.svg';
+
+// --- Menu Icons ---
+import { ReactComponent as HamburgerIcon } from 'assets/icons/hamburger-menu-linear.svg';
+import { ReactComponent as MenuCloseIcon } from 'assets/icons/round-close.svg';
 
 // Export an object mapping *string keys* to the imported components
 export const icons = {
@@ -152,4 +156,9 @@ export const icons = {
   // --- Theme Icons ---
   LightThemeIcon,
   DarkThemeIcon,
+
+   // --- Menu Icons ---
+  HamburgerIcon,
+  MenuCloseIcon,
+  
 };
