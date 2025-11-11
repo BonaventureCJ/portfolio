@@ -72,6 +72,10 @@ import { ReactComponent as WhatsappIcon } from 'assets/icons/whatsapp.svg';
 // --- Brand Icons ---
 import { ReactComponent as BrandLogo } from 'assets/icons/brand-logo.svg';
 
+// --- THEME ICONS ---
+import { ReactComponent as LightThemeIcon } from 'assets/icons/sun.svg';
+import { ReactComponent as DarkThemeIcon } from 'assets/icons/moon-rising-filled-loop.svg';
+
 // Export an object mapping *string keys* to the imported components
 export const icons = {
   // --- Decorative Icons ---
@@ -144,4 +148,8 @@ export const icons = {
 
   // --- Brand Icon ---
   BrandLogo,
+
+  // --- Theme Icons ---
+  LightThemeIcon,
+  DarkThemeIcon,
 };
