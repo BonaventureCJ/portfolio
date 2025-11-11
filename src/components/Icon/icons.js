@@ -1,6 +1,6 @@
 // src/components/Icon/icons.js
 // Import all icon assets as React components using SVGR syntax
-// --- DECORATIVE ICONS ---
+// --- HEADING ICONS ---
 import { ReactComponent as UserTie } from 'assets/icons-decorative/user-tie.svg';
 import { ReactComponent as Skillshare } from 'assets/icons-decorative/skillshare.svg';
 import { ReactComponent as LaptopBriefcase } from 'assets/icons-decorative/laptop-briefcase-32-regular.svg';
@@ -17,6 +17,7 @@ import { ReactComponent as VirtualNetworkToolbox } from 'assets/icons-decorative
 import { ReactComponent as CompassOffLoop } from 'assets/icons-decorative/compass-off-loop.svg';
 import { ReactComponent as ErrorTriangle } from 'assets/icons-decorative/error-triangle.svg';
 import { ReactComponent as SadFace } from 'assets/icons-decorative/smiley-sad-fill.svg';
+
 
 // --- SKILLS ICONS ---
 // --- Languages & Frameworks ---
@@ -61,7 +62,8 @@ import { ReactComponent as VscodeIcon } from 'assets/icons/vscode.svg';
 import { ReactComponent as WordpressIcon } from 'assets/icons/wordpress.svg';
 import { ReactComponent as WoocommerceIcon } from 'assets/icons/woocommerce.svg';
 
-// --- Contact Icons ---
+
+// --- CONTACT ICONS ---
 import { ReactComponent as LinkedInIcon } from 'assets/icons/linkedin.svg';
 //import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
 import { ReactComponent as XIcon } from 'assets/icons/x-twitter.svg';
@@ -69,16 +71,19 @@ import { ReactComponent as EmailIcon } from 'assets/icons/email.svg';
 import { ReactComponent as SmsIcon } from 'assets/icons/sms.svg';
 import { ReactComponent as WhatsappIcon } from 'assets/icons/whatsapp.svg';
 
-// --- Brand Icons ---
+// --- BRAND ICONS ---
 import { ReactComponent as BrandLogo } from 'assets/icons/brand-logo.svg';
 
-// --- Theme Icons ---
+// --- ThEME ICONS ---
 import { ReactComponent as LightThemeIcon } from 'assets/icons/sun.svg';
 import { ReactComponent as DarkThemeIcon } from 'assets/icons/moon-rising-filled-loop.svg';
 
-// --- Menu Icons ---
+// --- MENU ICONS ---
 import { ReactComponent as HamburgerIcon } from 'assets/icons/hamburger-menu-linear.svg';
 import { ReactComponent as MenuCloseIcon } from 'assets/icons/round-close.svg';
+
+// --- ERROR ICONS ---
+import { ReactComponent as ErrorOutlineIcon } from 'assets/icons/baseline-error-outline.svg';
 
 // Export an object mapping *string keys* to the imported components
 export const icons = {
@@ -157,8 +162,10 @@ export const icons = {
   LightThemeIcon,
   DarkThemeIcon,
 
-   // --- Menu Icons ---
+  // --- Menu Icons ---
   HamburgerIcon,
   MenuCloseIcon,
-  
+
+  // --- Error Icons ---
+  ErrorOutlineIcon,
 };
