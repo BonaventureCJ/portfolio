@@ -7,7 +7,7 @@
     transition: border-color var(--color-transition);
     font-family: var(--font-family-primary);
     margin-top: 5rem;
-    
+
     @media (min-width: 768px) {
         padding: var(--spacing-xl) var(--spacing-lg);
     }
@@ -27,96 +27,6 @@
             margin: 0 auto;
             gap: var(--spacing-xl);
         }
-    }
-
-  /*   &__brand-section {
-    // Styling for the Brand component within the footer
-  } */
-
-    &__social-nav,
-    &__contact-nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: var(--spacing-sm);
-
-        @media (min-width: 768px) {
-            align-items: flex-start;
-        }
-    }
-
-    &__social-nav-heading,
-    &__contact-nav-heading {
-        font-size: var(--font-size-lg);
-        font-weight: var(--font-weight-bold);
-        margin-bottom: var(--spacing-xs);
-    }
-
-    &__social-list,
-    &__contact-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-
-    &__social-item,
-    &__contact-item {
-        margin: 0;
-    }
-
-    &__social-link,
-    &__contact-link {
-        display: flex;
-        align-items: center;
-        color: var(--color-text-secondary);
-        text-decoration: none;
-        transition: color var(--color-transition);
-        gap: var(--spacing-xs);
-
-        // Fallback for older browsers
-        &:focus {
-            outline: 2px solid var(--color-link);
-            outline-offset: 3px;
-        }
-
-        // Modern, accessible focus visible style for keyboard users
-        &:focus-visible {
-            outline: 2px solid var(--color-link);
-            outline-offset: 3px;
-            border-radius: var(--border-radius-sm); // Optional, for visual consistency
-
-            // Inherit the hover state for consistency
-            color: var(--color-link);
-            transition: color var(--color-transition);
-
-            .footer__social-icon,
-            .footer__contact-icon {
-                fill: var(--color-link);
-            }
-        }
-
-        // Hover state, explicitly excluded for mouse clicks when focus is visible
-        &:hover:not(:focus-visible) {
-            color: var(--color-link);
-            transition: color var(--color-transition);
-
-            .footer__social-icon,
-            .footer__contact-icon {
-                fill: var(--color-link);
-                transition: fill var(--color-transition);
-            }
-        }
-    }
-
-    &__social-icon,
-    &__contact-icon {
-        width: var(--font-size-lg);
-        height: var(--font-size-lg);
-        fill: var(--color-text-secondary);
-        transition: fill var(--color-transition);
     }
 
     &__copyright {

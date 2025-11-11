@@ -1,21 +1,12 @@
 // src/data/contact.js
 
-// Import icons as React components
-import { ReactComponent as LinkedInIcon } from 'assets/icons/linkedin.svg';
-import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
-import { ReactComponent as XIcon } from 'assets/icons/x-twitter.svg';
-import { ReactComponent as EmailIcon } from 'assets/icons/email.svg';
-import { ReactComponent as SmsIcon } from 'assets/icons/sms.svg';
-import { ReactComponent as WhatsappIcon } from 'assets/icons/whatsapp.svg';
-
 import generateId from 'utils/helpers';
-
 
 /**
  * @typedef {Object} ContactItem
  * @property {number} id - A unique, auto-incrementing identifier for the contact item.
  * @property {string} name - The name of the platform (e.g., 'LinkedIn', 'GitHub').
- * @property {object} icon - The imported React component for the icon.
+ * @property {string} icon - The string key for the icon (e.g., 'LinkedIn', 'Github').
  * @property {string} type - The type of contact (e.g., 'social', 'email', 'phone').
  * @property {string} url - The full URL or protocol for the contact method (e.g., 'https://...', 'mailto:...').
  * @property {string} display - The text to be displayed for the link (e.g., '@BonaventureCJ', 'bonacjugwu@gmail.com').
@@ -31,7 +22,7 @@ const contactItems = [
   {
     id: generateId(),
     name: 'LinkedIn',
-    icon: LinkedInIcon,
+    icon: 'LinkedInIcon',
     type: 'social',
     url: 'https://www.linkedin.com/in/bonaventure-ugwu',
     display: 'Bonaventure Ugwu',
@@ -42,7 +33,7 @@ const contactItems = [
   {
     id: generateId(),
     name: 'GitHub',
-    icon: GithubIcon,
+    icon: 'GithubIcon',
     type: 'social',
     url: 'https://github.com/BonaventureCJ',
     display: 'BonaventureCJ',
@@ -53,7 +44,7 @@ const contactItems = [
   {
     id: generateId(),
     name: 'X',
-    icon: XIcon,
+    icon: 'XIcon',
     type: 'social',
     url: 'https://x.com/BonaCJUgwu',
     display: '@BonaCJUgwu',
@@ -65,7 +56,7 @@ const contactItems = [
   {
     id: generateId(),
     name: 'Email',
-    icon: EmailIcon,
+    icon: 'EmailIcon',
     type: 'email',
     url: 'mailto:bonacjugwu@gmail.com',
     display: 'bonacjugwu@gmail.com',
@@ -76,7 +67,7 @@ const contactItems = [
   {
     id: generateId(),
     name: 'WhatsApp',
-    icon: WhatsappIcon,
+    icon: 'WhatsappIcon',
     type: 'whatsapp',
     url: 'https://wa.me/+2348061103300',
     display: '+234 806 110 3300',
@@ -87,7 +78,7 @@ const contactItems = [
   {
     id: generateId(),
     name: 'Phone/SMS',
-    icon: SmsIcon,
+    icon: 'SmsIcon',
     type: 'phone',
     url: 'sms:+2348061103300',
     display: '+234 806 110 3300',

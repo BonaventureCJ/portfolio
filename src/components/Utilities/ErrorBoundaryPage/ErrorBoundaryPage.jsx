@@ -6,7 +6,6 @@ import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
 import styles from './ErrorBoundaryPage.module.scss';
 import Heading from 'components/Heading/Heading';
 import Button from 'components/Buttons/Button';
-import { ReactComponent as ErrorIcon } from 'assets/icons/baseline-error-outline.svg';
 import Icon from 'components/Icon/Icon';
 
 /**
@@ -15,7 +14,7 @@ import Icon from 'components/Icon/Icon';
  */
 const ErrorBoundaryPage = () => {
   const error = useRouteError();
-  {/* TODO: Best practice: Log errors to an external service (e.g., Sentry, New Relic) */}
+  {/* TODO: Best practice: Log errors to an external service (e.g., Sentry, New Relic) */ }
   console.error("ErrorBoundary caught an error:", error);
 
   let errorMessage = "Sorry, an unexpected error has occurred.";
@@ -40,10 +39,10 @@ const ErrorBoundaryPage = () => {
       <div className={styles['error-boundary-page__wrapper']}>
 
         <div className={styles['error-boundary-page__content']}>
-
-          <ErrorIcon
+          {/* Use reusable Icon component for the main error icon */}
+          <Icon
+            icon="ErrorOutlineIcon"
             className={styles['error-boundary-page__icon']}
-            aria-hidden="true" // WCAG: Hide decorative SVGs from screen readers
           />
 
           <Heading level="h1" className={styles['error-boundary-page__title']}>
@@ -52,16 +51,13 @@ const ErrorBoundaryPage = () => {
 
           {/* Block for message with inline icon */}
           <div className={styles['error-boundary-page__message-container']}>
-            {/* Render the inline icon using the reusable Icon component unline the first icon*/}
             <Icon
               icon="ErrorTriangle"
               className={styles['error-boundary-page__message-icon']}
             />
-            {/* Wrap the error message in a span with a BEM class */}
             <p className={styles['error-boundary-page__message']}>
               <span className={styles['error-boundary-page__message-text']}>{errorMessage}</span>
-            </p>
-          </div>
+            </p></div>
 
           <div className={styles['error-boundary-page__actions']}>
             <Button

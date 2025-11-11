@@ -1,7 +1,8 @@
+// src/layouts/Footer/Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Brand from 'components/Brand/Brand';
-import Heading from 'components/Heading/Heading';
+import FooterCard from './FooterCard';
 import { contactItems } from 'data/contact';
 import styles from './Footer.module.scss';
 
@@ -13,6 +14,10 @@ import styles from './Footer.module.scss';
  */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const socialItems = contactItems.filter(item => item.type === 'social');
+  const contactLinkItems = contactItems.filter(item => ['email', 'whatsapp', 'phone'].includes(item.type));
+
   return (
     <footer className={styles.footer} role="contentinfo">
       <div className={styles.footer__container}>
@@ -24,70 +29,22 @@ const Footer = () => {
         </div>
 
         {/* Social Media Links Section */}
-        <nav className={styles['footer__social-nav']} aria-label="Social media links">
-          <Heading
-            level="h2"
-            className={styles['footer__social-nav-heading']}
-            id="footer-social-heading"
-            iconProps={{
-              icon: 'GlobeShare',
-            }}
-            // Align the heading to the left
-            textAlign="left" 
-          >
-            Connect with me
-          </Heading>
-          <ul className={styles['footer__social-list']} aria-labelledby="footer-social-heading">
-            {contactItems
-              .filter(item => item.type === 'social')
-              .map(item => (
-                <li key={item.id} className={styles['footer__social-item']}>
-                  <a
-                    href={item.url}
-                    className={styles['footer__social-link']}
-                    aria-label={item.ariaLabel}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <item.icon className={`${styles['footer__social-icon']} ${styles[item.className]}`} aria-hidden="true" />
-                    <span className={styles['footer__social-link-text']}>{item.display}</span>
-                  </a>
-                </li>
-              ))}
-          </ul>
-        </nav>
+        <FooterCard
+          headingText="Connect with me"
+          headingId="footer-social-heading"
+          headingIcon={{ icon: 'GlobeShare' }}
+          items={socialItems}
+          listAriaLabelledBy="footer-social-heading"
+        />
 
         {/* Contact Links Section */}
-        <nav className={styles['footer__contact-nav']} aria-label="Contact links">
-          <Heading
-            level="h2"
-            className={styles['footer__contact-nav-heading']}
-            id="footer-contact-heading"
-            iconProps={{
-              icon: 'TouchTripleOutline',
-            }}
-            // Align the heading to the left
-            textAlign="left"
-          >
-            Get in touch
-          </Heading>
-          <ul className={styles['footer__contact-list']} aria-labelledby="footer-contact-heading">
-            {contactItems
-              .filter(item => item.type === 'email' || item.type === 'whatsapp' || item.type === 'phone')
-              .map(item => (
-                <li key={item.id} className={styles['footer__contact-item']}>
-                  <a
-                    href={item.url}
-                    className={styles['footer__contact-link']}
-                    aria-label={item.ariaLabel}
-                  >
-                    <item.icon className={`${styles['footer__contact-icon']} ${styles[item.className]}`} aria-hidden="true" />
-                    <span className={styles['footer__contact-link-text']}>{item.display}</span>
-                  </a>
-                </li>
-              ))}
-          </ul>
-        </nav>
+        <FooterCard
+          headingText="Get in touch"
+          headingId="footer-contact-heading"
+          headingIcon={{ icon: 'TouchTripleOutline' }}
+          items={contactLinkItems}
+          listAriaLabelledBy="footer-contact-heading"
+        />
       </div>
 
       {/* Copyright Section */}

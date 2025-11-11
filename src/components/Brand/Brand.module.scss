@@ -5,25 +5,20 @@
   align-items: center;
   gap: var(--spacing-xs);
   color: var(--color-brand-primary);
-  //transition: color var(--color-transition); //each brand component manages its own colour transition.
-  text-decoration: none;// Ensure it looks like text, not a link
+  text-decoration: none; // Ensure it looks like text, not a link
 }
 
 .brandLogo {
   height: var(--spacing-lg);
   width: var(--spacing-lg);
-  //transition: all 0.3s ease;
-   /* Explicit transitions for fill/stroke properties using both speeds */
   transition: stroke 0.3s ease, fill 0.3s ease;
-    //stroke var(--color-transition),
-    //fill var(--color-transition);
-  
+ 
   // Target the specific SVG elements to ensure both fill and stroke are set
-  & > polygon {
+  &>polygon {
     stroke: currentColor;
   }
-  
-  & > text {
+
+  &>text {
     fill: currentColor;
   }
 }
@@ -34,16 +29,13 @@
   font-weight: var(--font-weight-bold);
   line-height: 1; // Ensure vertical alignment with the icon.
   letter-spacing: -0.025em; // A tighter letter-spacing can improve readability for brand names.
-  transition: color 0.3s ease; /* For hover speed */
- /*  transition: 
-    color 0.3s ease, //For hover speed
-    color var(--color-transition); For theme toggle speed */
+  transition: color 0.3s ease;
 }
 
 // Hover state for the entire brand container
 .brand:hover {
   color: var(--color-link-hover); // Change color on the parent, which cascades
-  
+
 }
 
 // Add focus states

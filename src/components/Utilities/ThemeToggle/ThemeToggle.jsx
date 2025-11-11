@@ -1,18 +1,13 @@
 // src/components/Utilities/ThemeToggle/ThemeToggle.jsx
+import React from 'react';
+import Icon from 'components/Icon/Icon';
 import { useTheme } from 'hooks/useTheme';
-
 import styles from './ThemeToggle.module.scss';
-import { ReactComponent as LightThemeIcon } from 'assets/icons/sun.svg';
-import { ReactComponent as DarkThemeIcon } from 'assets/icons/moon-rising-filled-loop.svg';
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
 
-  // NOTE: This component renders a native `<button>` element instead of using the
-  // shared `Button` component due to extensive custom styling and unique
-  // functionality required for the theme toggle that are not supported by the
-  // generic button component structure.
   return (
     <button
       className={styles.themeToggle}
@@ -22,11 +17,13 @@ const ThemeToggle = () => {
       aria-pressed={isDark}
     >
       <div className={styles.iconWrapper}>
-        <LightThemeIcon
+        <Icon
+          icon="LightThemeIcon"
           aria-hidden="true"
           className={`${styles.icon} ${isDark ? styles.hidden : styles.visible}`}
         />
-        <DarkThemeIcon
+        <Icon
+          icon="DarkThemeIcon"
           aria-hidden="true"
           className={`${styles.icon} ${isDark ? styles.visible : styles.hidden}`}
         />

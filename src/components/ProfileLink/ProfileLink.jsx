@@ -1,13 +1,16 @@
+// src/components/ProfileLink/ProfileLink.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
+import Icon from 'components/Icon/Icon';
 import styles from './ProfileLink.module.scss';
 
 const ProfileLink = ({ profile }) => {
-  
-  const { icon: Icon, url, label, className, ariaLabel, id } = profile;
 
-  if (!Icon || !url) {
-    console.error('ProfileLink component requires an Icon and url in the profile object.');
+  // Destructure `iconName`
+  const { icon: iconName, url, label, className, ariaLabel, id } = profile;
+
+  if (!iconName || !url) {
+    console.error('ProfileLink component requires an icon name string and url in the profile object.');
     return null;
   }
 
@@ -18,20 +21,20 @@ const ProfileLink = ({ profile }) => {
       rel="noopener noreferrer"
       className={`${styles.profileLink} ${className || ''}`}
       aria-label={ariaLabel || label}
-      title={label} // Use the new hoverText property for the tooltip
+      title={label}
       id={id}
     >
-      <Icon className={styles.profileIcon} />
+      <Icon icon={iconName} className={styles.profileIcon} />
     </a>
   );
 };
 
 ProfileLink.propTypes = {
   profile: PropTypes.shape({
-    Icon: PropTypes.elementType.isRequired,
+    icon: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     label: PropTypes.string,
-    hoverText: PropTypes.string, // New property for validation
+    hoverText: PropTypes.string,
     className: PropTypes.string,
     ariaLabel: PropTypes.string,
     id: PropTypes.string,
