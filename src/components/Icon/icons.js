@@ -69,6 +69,9 @@ import { ReactComponent as EmailIcon } from 'assets/icons/email.svg';
 import { ReactComponent as SmsIcon } from 'assets/icons/sms.svg';
 import { ReactComponent as WhatsappIcon } from 'assets/icons/whatsapp.svg';
 
+// --- Brand Icons ---
+import { ReactComponent as BrandLogo } from 'assets/icons/brand-logo.svg';
+
 // Export an object mapping *string keys* to the imported components
 export const icons = {
   // --- Decorative Icons ---
@@ -138,4 +141,7 @@ export const icons = {
   EmailIcon,
   SmsIcon,
   WhatsappIcon,
+
+  // --- Brand Icon ---
+  BrandLogo,
 };
