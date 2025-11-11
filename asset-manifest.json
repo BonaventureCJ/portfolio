@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.aa08f4fe.css",
-    "main.js": "/portfolio/static/js/main.ef35ad01.js",
+    "main.css": "/portfolio/static/css/main.1eb55897.css",
+    "main.js": "/portfolio/static/js/main.7fe1b989.js",
     "static/media/not_found.png": "/portfolio/static/media/not_found.e4fcdd77d4d32f6fdb3d.png",
     "static/media/BonaventureCJUgwu.png": "/portfolio/static/media/BonaventureCJUgwu.de53014fa2844146260a.png",
     "static/media/BonaventureCJUgwu2.jpg": "/portfolio/static/media/BonaventureCJUgwu2.1e9cdf0ee566a5c385cc.jpg",
@@ -73,11 +73,11 @@
     "static/media/baseline-error-outline.svg": "/portfolio/static/media/baseline-error-outline.db04baf36c2932be82174f0e91fc16b4.svg",
     "static/media/x-twitter.svg": "/portfolio/static/media/x-twitter.16891d861dd51a7fd31b96309e313067.svg",
     "static/media/hamburger-menu-linear.svg": "/portfolio/static/media/hamburger-menu-linear.71877a13d12816e7fba6ab2ac1bcf0e6.svg",
-    "main.aa08f4fe.css.map": "/portfolio/static/css/main.aa08f4fe.css.map",
-    "main.ef35ad01.js.map": "/portfolio/static/js/main.ef35ad01.js.map"
+    "main.1eb55897.css.map": "/portfolio/static/css/main.1eb55897.css.map",
+    "main.7fe1b989.js.map": "/portfolio/static/js/main.7fe1b989.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa08f4fe.css",
-    "static/js/main.ef35ad01.js"
+    "static/css/main.1eb55897.css",
+    "static/js/main.7fe1b989.js"
   ]
 }
