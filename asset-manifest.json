@@ -1,11 +1,10 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.1eb55897.css",
-    "main.js": "/portfolio/static/js/main.7fe1b989.js",
+    "main.js": "/portfolio/static/js/main.40cc8dec.js",
     "static/media/not_found.png": "/portfolio/static/media/not_found.e4fcdd77d4d32f6fdb3d.png",
     "static/media/BonaventureCJUgwu.png": "/portfolio/static/media/BonaventureCJUgwu.de53014fa2844146260a.png",
     "static/media/BonaventureCJUgwu2.jpg": "/portfolio/static/media/BonaventureCJUgwu2.1e9cdf0ee566a5c385cc.jpg",
-    "static/media/bonmart-coming-soon.jpg": "/portfolio/static/media/bonmart-coming-soon.3a286f299e02c50c6c82.jpg",
     "static/media/globeflix.png": "/portfolio/static/media/globeflix.b76702c6462b0153bfc6.png",
     "static/media/request-resume.pdf": "/portfolio/static/media/request-resume.37de94dc868f6e38a55a.pdf",
     "static/media/yummyrecipeshub.png": "/portfolio/static/media/yummyrecipeshub.cb3cefd3f3dd9c164890.png",
@@ -14,6 +13,7 @@
     "static/media/contact-manager.png": "/portfolio/static/media/contact-manager.e0a85f7e70102c022834.png",
     "static/media/babel.svg": "/portfolio/static/media/babel.5d05821d8471315024362f7204362480.svg",
     "static/media/github-profile-finder.png": "/portfolio/static/media/github-profile-finder.4be2f236d0e33011c730.png",
+    "static/media/bonmart-coming-soon.png": "/portfolio/static/media/bonmart-coming-soon.6dcaab9aeb707b76a145.png",
     "static/media/dashboard.png": "/portfolio/static/media/dashboard.544610b4acaec3ad3c02.png",
     "static/media/qr-code-generator.png": "/portfolio/static/media/qr-code-generator.cb86baded231185ec4d3.png",
     "static/media/earth-network.svg": "/portfolio/static/media/earth-network.6d6d1cc43ee66cec387c660251897d2d.svg",
@@ -74,10 +74,10 @@
     "static/media/x-twitter.svg": "/portfolio/static/media/x-twitter.16891d861dd51a7fd31b96309e313067.svg",
     "static/media/hamburger-menu-linear.svg": "/portfolio/static/media/hamburger-menu-linear.71877a13d12816e7fba6ab2ac1bcf0e6.svg",
     "main.1eb55897.css.map": "/portfolio/static/css/main.1eb55897.css.map",
-    "main.7fe1b989.js.map": "/portfolio/static/js/main.7fe1b989.js.map"
+    "main.40cc8dec.js.map": "/portfolio/static/js/main.40cc8dec.js.map"
   },
   "entrypoints": [
     "static/css/main.1eb55897.css",
-    "static/js/main.7fe1b989.js"
+    "static/js/main.40cc8dec.js"
   ]
 }
