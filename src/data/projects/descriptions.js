@@ -6,8 +6,9 @@ export const projectDescriptions = {
         'Examine the version-controlled GitHub repository as well and assess my readiness for Collaborative Development.',
     ],
     bonmart: [
-        'WIP: An e-commerce platform that is being built with modern technologies, showcasing a robust approach to typing, state management and UI/UX design. Changes to this project are deployed continuously and automatically upon updates to the main branch.',
-        'It will feature product filtering, a shopping cart utilizing Redux Toolkit, and a responsive design crafted with Tailwind CSS, demonstrating my current development skills.'
+        'An enterprise-grade "Green E-commerce" platform built with Next.js 15 (App Router) and React 19. It showcases a high-performance architecture utilizing Redux Toolkit 2.0 with normalized state (createEntityAdapter) to achieve O(1) data lookup efficiency.',
+        'The system features URL-driven state synchronization for optimal SEO, memoized selectors to ensure referential stability and zero-waste re-renders, and a scalable design system using Tailwind CSS v4 design tokens.',
+        'Engineered with strict TypeScript for total type safety, it demonstrates professional mastery of server-side rendering, concurrent UI transitions, and robust state persistence layer management.'
     ],
     yummyRecipes: [
         'An application for discovering, exploring, and managing meal recipes.',
